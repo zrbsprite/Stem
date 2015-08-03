@@ -1,0 +1,97 @@
+#screen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 100;
+    background-color: #000;
+    opacity: 0.3;
+}
+
+.popbox {
+    opacity: 1;
+    width: auto;
+    border: 1px #FFF solid;
+    border-radius: 0.5em;
+    padding: 0.8em 0.5em 0.5em 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 10000;
+    background-color: #F2F2F2; /*opacity:0.8;*/
+}
+
+.loading .leftContent {
+    float: left;
+    margin: 30px 0 0 50px;
+    position: relative;
+}
+
+.rightContent {
+    float: right;
+    margin: 40px 100px 0 0;
+    color: #fff;
+}
+
+.loadingcount {
+    position: absolute;
+    top: 15px;
+    left: 8px;
+    color: #fff;
+}
+
+/*loading 动画*/
+.Loading_ball {
+    background-color: rgba(0, 0, 0, 0);
+    border: 5px solid rgba(255, 45, 45, 0.9);
+    opacity: .9;
+    border-top: 5px solid rgba(0, 0, 0, 0);
+    border-left: 5px solid rgba(0, 0, 0, 0);
+    border-radius: 50px;
+    box-shadow: 0 0 20px #E73921;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    -moz-animation: spin 1s infinite linear;
+    -webkit-animation: spin 1s infinite linear;
+}
+
+.Loading_ball1 {
+    background-color: rgba(0, 0, 0, 0);
+    border: 5px solid rgba(226, 0, 0, 0.9);
+    opacity: .9;
+    border-top: 5px solid rgba(0, 0, 0, 0);
+    border-left: 5px solid rgba(0, 0, 0, 0);
+    border-radius: 50px;
+    box-shadow: 0 0 10px #E73921;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto;
+    position: relative;
+    top: -50px;
+    -moz-animation: spinoff 1s infinite linear;
+    -webkit-animation: spinoff 1s infinite linear;
+}
+
+.Loading_content {
+    width: auto;
+    margin: 0 auto;
+    height: auto;
+}
+
+.Loading_content .leftContent {
+    float: left;
+    width: 90px;
+    height: 50px;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+    font-size: 12px;
+}

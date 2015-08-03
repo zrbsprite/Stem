@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.stem.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.stem.entity.User" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="USER_TYPE_CODE" property="userTypeCode" jdbcType="VARCHAR" />
+    <result column="USER_NAME" property="userName" jdbcType="VARCHAR" />
+    <result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+    <result column="MOBILE" property="mobile" jdbcType="VARCHAR" />
+    <result column="NICK_NAME" property="nickName" jdbcType="VARCHAR" />
+    <result column="INVITE_CODE" property="inviteCode" jdbcType="VARCHAR" />
+    <result column="LABLE_CODE" property="lableCode" jdbcType="VARCHAR" />
+    <result column="INTO_GUIDE" property="intoGuide" jdbcType="CHAR" />
+    <result column="FUNCTION_GUIDE" property="functionGuide" jdbcType="CHAR" />
+    <result column="WX_OPEN_ID" property="wxOpenId" jdbcType="VARCHAR" />
+    <result column="WX_NICK" property="wxNick" jdbcType="VARCHAR" />
+    <result column="MEMBER_LEVEL_CODE" property="memberLevelCode" jdbcType="VARCHAR" />
+    <result column="PARENT_USER_NAME" property="parentUserName" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="DELETE_LABLE" property="deleteLable" jdbcType="CHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.stem.entity.User" extends="BaseResultMap" >
+    <result column="HEAD_PORTRAIT" property="headPortrait" jdbcType="LONGVARBINARY" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, USER_TYPE_CODE, USER_NAME, PASSWORD, MOBILE, NICK_NAME, INVITE_CODE, LABLE_CODE, 
+    INTO_GUIDE, FUNCTION_GUIDE, WX_OPEN_ID, WX_NICK, MEMBER_LEVEL_CODE, PARENT_USER_NAME, 
+    CREATE_TIME, DELETE_LABLE
+  </sql>
+  <sql id="Blob_Column_List" >
+    HEAD_PORTRAIT
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.stem.entity.UserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.stem.entity.UserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from user
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.stem.entity.UserExample" >
+    delete from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.stem.entity.User" >
+    insert into user (ID, USER_TYPE_CODE, USER_NAME, 
+      PASSWORD, MOBILE, NICK_NAME, 
+      INVITE_CODE, LABLE_CODE, INTO_GUIDE, 
+      FUNCTION_GUIDE, WX_OPEN_ID, WX_NICK, 
+      MEMBER_LEVEL_CODE, PARENT_USER_NAME, CREATE_TIME, 
+      DELETE_LABLE, HEAD_PORTRAIT)
+    values (#{id,jdbcType=INTEGER}, #{userTypeCode,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{nickName,jdbcType=VARCHAR}, 
+      #{inviteCode,jdbcType=VARCHAR}, #{lableCode,jdbcType=VARCHAR}, #{intoGuide,jdbcType=CHAR}, 
+      #{functionGuide,jdbcType=CHAR}, #{wxOpenId,jdbcType=VARCHAR}, #{wxNick,jdbcType=VARCHAR}, 
+      #{memberLevelCode,jdbcType=VARCHAR}, #{parentUserName,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{deleteLable,jdbcType=CHAR}, #{headPortrait,jdbcType=LONGVARBINARY})
+  </insert>
+  <insert id="insertSelective" parameterType="com.stem.entity.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="userTypeCode != null" >
+        USER_TYPE_CODE,
+      </if>
+      <if test="userName != null" >
+        USER_NAME,
+      </if>
+      <if test="password != null" >
+        PASSWORD,
+      </if>
+      <if test="mobile != null" >
+        MOBILE,
+      </if>
+      <if test="nickName != null" >
+        NICK_NAME,
+      </if>
+      <if test="inviteCode != null" >
+        INVITE_CODE,
+      </if>
+      <if test="lableCode != null" >
+        LABLE_CODE,
+      </if>
+      <if test="intoGuide != null" >
+        INTO_GUIDE,
+      </if>
+      <if test="functionGuide != null" >
+        FUNCTION_GUIDE,
+      </if>
+      <if test="wxOpenId != null" >
+        WX_OPEN_ID,
+      </if>
+      <if test="wxNick != null" >
+        WX_NICK,
+      </if>
+      <if test="memberLevelCode != null" >
+        MEMBER_LEVEL_CODE,
+      </if>
+      <if test="parentUserName != null" >
+        PARENT_USER_NAME,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="deleteLable != null" >
+        DELETE_LABLE,
+      </if>
+      <if test="headPortrait != null" >
+        HEAD_PORTRAIT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userTypeCode != null" >
+        #{userTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="inviteCode != null" >
+        #{inviteCode,jdbcType=VARCHAR},
+      </if>
+      <if test="lableCode != null" >
+        #{lableCode,jdbcType=VARCHAR},
+      </if>
+      <if test="intoGuide != null" >
+        #{intoGuide,jdbcType=CHAR},
+      </if>
+      <if test="functionGuide != null" >
+        #{functionGuide,jdbcType=CHAR},
+      </if>
+      <if test="wxOpenId != null" >
+        #{wxOpenId,jdbcType=VARCHAR},
+      </if>
+      <if test="wxNick != null" >
+        #{wxNick,jdbcType=VARCHAR},
+      </if>
+      <if test="memberLevelCode != null" >
+        #{memberLevelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="parentUserName != null" >
+        #{parentUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteLable != null" >
+        #{deleteLable,jdbcType=CHAR},
+      </if>
+      <if test="headPortrait != null" >
+        #{headPortrait,jdbcType=LONGVARBINARY},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.stem.entity.UserExample" resultType="java.lang.Integer" >
+    select count(*) from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update user
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userTypeCode != null" >
+        USER_TYPE_CODE = #{record.userTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userName != null" >
+        USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null" >
+        PASSWORD = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobile != null" >
+        MOBILE = #{record.mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nickName != null" >
+        NICK_NAME = #{record.nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.inviteCode != null" >
+        INVITE_CODE = #{record.inviteCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lableCode != null" >
+        LABLE_CODE = #{record.lableCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.intoGuide != null" >
+        INTO_GUIDE = #{record.intoGuide,jdbcType=CHAR},
+      </if>
+      <if test="record.functionGuide != null" >
+        FUNCTION_GUIDE = #{record.functionGuide,jdbcType=CHAR},
+      </if>
+      <if test="record.wxOpenId != null" >
+        WX_OPEN_ID = #{record.wxOpenId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.wxNick != null" >
+        WX_NICK = #{record.wxNick,jdbcType=VARCHAR},
+      </if>
+      <if test="record.memberLevelCode != null" >
+        MEMBER_LEVEL_CODE = #{record.memberLevelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.parentUserName != null" >
+        PARENT_USER_NAME = #{record.parentUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.deleteLable != null" >
+        DELETE_LABLE = #{record.deleteLable,jdbcType=CHAR},
+      </if>
+      <if test="record.headPortrait != null" >
+        HEAD_PORTRAIT = #{record.headPortrait,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update user
+    set ID = #{record.id,jdbcType=INTEGER},
+      USER_TYPE_CODE = #{record.userTypeCode,jdbcType=VARCHAR},
+      USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      PASSWORD = #{record.password,jdbcType=VARCHAR},
+      MOBILE = #{record.mobile,jdbcType=VARCHAR},
+      NICK_NAME = #{record.nickName,jdbcType=VARCHAR},
+      INVITE_CODE = #{record.inviteCode,jdbcType=VARCHAR},
+      LABLE_CODE = #{record.lableCode,jdbcType=VARCHAR},
+      INTO_GUIDE = #{record.intoGuide,jdbcType=CHAR},
+      FUNCTION_GUIDE = #{record.functionGuide,jdbcType=CHAR},
+      WX_OPEN_ID = #{record.wxOpenId,jdbcType=VARCHAR},
+      WX_NICK = #{record.wxNick,jdbcType=VARCHAR},
+      MEMBER_LEVEL_CODE = #{record.memberLevelCode,jdbcType=VARCHAR},
+      PARENT_USER_NAME = #{record.parentUserName,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      DELETE_LABLE = #{record.deleteLable,jdbcType=CHAR},
+      HEAD_PORTRAIT = #{record.headPortrait,jdbcType=LONGVARBINARY}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update user
+    set ID = #{record.id,jdbcType=INTEGER},
+      USER_TYPE_CODE = #{record.userTypeCode,jdbcType=VARCHAR},
+      USER_NAME = #{record.userName,jdbcType=VARCHAR},
+      PASSWORD = #{record.password,jdbcType=VARCHAR},
+      MOBILE = #{record.mobile,jdbcType=VARCHAR},
+      NICK_NAME = #{record.nickName,jdbcType=VARCHAR},
+      INVITE_CODE = #{record.inviteCode,jdbcType=VARCHAR},
+      LABLE_CODE = #{record.lableCode,jdbcType=VARCHAR},
+      INTO_GUIDE = #{record.intoGuide,jdbcType=CHAR},
+      FUNCTION_GUIDE = #{record.functionGuide,jdbcType=CHAR},
+      WX_OPEN_ID = #{record.wxOpenId,jdbcType=VARCHAR},
+      WX_NICK = #{record.wxNick,jdbcType=VARCHAR},
+      MEMBER_LEVEL_CODE = #{record.memberLevelCode,jdbcType=VARCHAR},
+      PARENT_USER_NAME = #{record.parentUserName,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      DELETE_LABLE = #{record.deleteLable,jdbcType=CHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.stem.entity.User" >
+    update user
+    <set >
+      <if test="userTypeCode != null" >
+        USER_TYPE_CODE = #{userTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        USER_NAME = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        MOBILE = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        NICK_NAME = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="inviteCode != null" >
+        INVITE_CODE = #{inviteCode,jdbcType=VARCHAR},
+      </if>
+      <if test="lableCode != null" >
+        LABLE_CODE = #{lableCode,jdbcType=VARCHAR},
+      </if>
+      <if test="intoGuide != null" >
+        INTO_GUIDE = #{intoGuide,jdbcType=CHAR},
+      </if>
+      <if test="functionGuide != null" >
+        FUNCTION_GUIDE = #{functionGuide,jdbcType=CHAR},
+      </if>
+      <if test="wxOpenId != null" >
+        WX_OPEN_ID = #{wxOpenId,jdbcType=VARCHAR},
+      </if>
+      <if test="wxNick != null" >
+        WX_NICK = #{wxNick,jdbcType=VARCHAR},
+      </if>
+      <if test="memberLevelCode != null" >
+        MEMBER_LEVEL_CODE = #{memberLevelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="parentUserName != null" >
+        PARENT_USER_NAME = #{parentUserName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleteLable != null" >
+        DELETE_LABLE = #{deleteLable,jdbcType=CHAR},
+      </if>
+      <if test="headPortrait != null" >
+        HEAD_PORTRAIT = #{headPortrait,jdbcType=LONGVARBINARY},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.stem.entity.User" >
+    update user
+    set USER_TYPE_CODE = #{userTypeCode,jdbcType=VARCHAR},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      MOBILE = #{mobile,jdbcType=VARCHAR},
+      NICK_NAME = #{nickName,jdbcType=VARCHAR},
+      INVITE_CODE = #{inviteCode,jdbcType=VARCHAR},
+      LABLE_CODE = #{lableCode,jdbcType=VARCHAR},
+      INTO_GUIDE = #{intoGuide,jdbcType=CHAR},
+      FUNCTION_GUIDE = #{functionGuide,jdbcType=CHAR},
+      WX_OPEN_ID = #{wxOpenId,jdbcType=VARCHAR},
+      WX_NICK = #{wxNick,jdbcType=VARCHAR},
+      MEMBER_LEVEL_CODE = #{memberLevelCode,jdbcType=VARCHAR},
+      PARENT_USER_NAME = #{parentUserName,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      DELETE_LABLE = #{deleteLable,jdbcType=CHAR},
+      HEAD_PORTRAIT = #{headPortrait,jdbcType=LONGVARBINARY}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.stem.entity.User" >
+    update user
+    set USER_TYPE_CODE = #{userTypeCode,jdbcType=VARCHAR},
+      USER_NAME = #{userName,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      MOBILE = #{mobile,jdbcType=VARCHAR},
+      NICK_NAME = #{nickName,jdbcType=VARCHAR},
+      INVITE_CODE = #{inviteCode,jdbcType=VARCHAR},
+      LABLE_CODE = #{lableCode,jdbcType=VARCHAR},
+      INTO_GUIDE = #{intoGuide,jdbcType=CHAR},
+      FUNCTION_GUIDE = #{functionGuide,jdbcType=CHAR},
+      WX_OPEN_ID = #{wxOpenId,jdbcType=VARCHAR},
+      WX_NICK = #{wxNick,jdbcType=VARCHAR},
+      MEMBER_LEVEL_CODE = #{memberLevelCode,jdbcType=VARCHAR},
+      PARENT_USER_NAME = #{parentUserName,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      DELETE_LABLE = #{deleteLable,jdbcType=CHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

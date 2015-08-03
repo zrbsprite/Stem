@@ -1,0 +1,25 @@
+/* CSS Document */
+body{margin:0; padding:0;font-family:"Î¢ÈíÑÅºÚ",Arial, Helvetica, sans-serif;overflow: hidden;}
+
+
+#wrapper {height: auto;width: 100%;	}
+#wrapper img{width:100%;display:block;}
+.conTxt{position:absolute;width:60%;left:50%;margin:0 -30%;top:30%;color:#111;height:2em;font-size:1em;line-height:2em;text-align:left;}
+.conTxt span{width:2em;margin-right:0.4em;float:left;}
+.butLogin{position:absolute;width:70%;left:50%;margin:0 -35%;top:43%;}
+
+.banBot{position:fixed; z-index:999999; bottom:0; width:100%; height:5em; padding:0.8em 0; background:rgba(0,0,0,0.7); font-size:0.8em;}
+.banBot img{display:block; width:100%}
+.banCa{width:92%; margin-top:0.6em; float:left;}
+.banLogo{width:60%; margin:0.8em 1% 0.4em 2%; float:left;}
+.banBtn{width:25%; float:right; border-radius:3px; margin:0.6em 3% 0 0; font-size:1.1em; background:#0392f8; text-align:center;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+.banBtn a{display:block; color:#ffffff; padding:0.5em 0; text-decoration:none;}
+.banClose{position:absolute;display:block; width:1.6em; top:0.8em; right:0.4em; cursor:pointer;-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+.banClose img{display:block; width:100%;}
+
+
+
+@media screen and (min-width:375px) and (max-width:414px){
+.conTxt{width:60%;margin:0 -30%;font-size:1.2em;}
+}
+

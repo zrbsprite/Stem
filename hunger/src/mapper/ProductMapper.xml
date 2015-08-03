@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.stem.dao.ProductMapper" >
+  <resultMap id="BaseResultMap" type="com.stem.entity.Product" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CODE" property="code" jdbcType="VARCHAR" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="PIC" property="pic" jdbcType="VARCHAR" />
+    <result column="BUY_URL" property="buyUrl" jdbcType="VARCHAR" />
+    <result column="UP_DOWN" property="upDown" jdbcType="CHAR" />
+    <result column="SHARE_URL" property="shareUrl" jdbcType="VARCHAR" />
+    <result column="TRENDS_URL" property="trendsUrl" jdbcType="VARCHAR" />
+    <result column="SCORE_STANDARD" property="scoreStandard" jdbcType="VARCHAR" />
+    <result column="MARKET_PRICE" property="marketPrice" jdbcType="VARCHAR" />
+    <result column="SALE_PRICE" property="salePrice" jdbcType="VARCHAR" />
+    <result column="UNIT" property="unit" jdbcType="VARCHAR" />
+    <result column="PRODUCT_LABLE" property="productLable" jdbcType="CHAR" />
+    <result column="SUPPLIER_CODE" property="supplierCode" jdbcType="VARCHAR" />
+    <result column="PRODUCT_TYPE_CODE" property="productTypeCode" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.stem.entity.Product" extends="BaseResultMap" >
+    <result column="CONTENT" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, CODE, NAME, TITLE, PIC, BUY_URL, UP_DOWN, SHARE_URL, TRENDS_URL, SCORE_STANDARD, 
+    MARKET_PRICE, SALE_PRICE, UNIT, PRODUCT_LABLE, SUPPLIER_CODE, PRODUCT_TYPE_CODE, 
+    CREATE_TIME
+  </sql>
+  <sql id="Blob_Column_List" >
+    CONTENT
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.stem.entity.ProductExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from product
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.stem.entity.ProductExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from product
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from product
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from product
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.stem.entity.ProductExample" >
+    delete from product
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.stem.entity.Product" >
+    insert into product (ID, CODE, NAME, 
+      TITLE, PIC, BUY_URL, 
+      UP_DOWN, SHARE_URL, TRENDS_URL, 
+      SCORE_STANDARD, MARKET_PRICE, SALE_PRICE, 
+      UNIT, PRODUCT_LABLE, SUPPLIER_CODE, 
+      PRODUCT_TYPE_CODE, CREATE_TIME, CONTENT
+      )
+    values (#{id,jdbcType=INTEGER}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{title,jdbcType=VARCHAR}, #{pic,jdbcType=VARCHAR}, #{buyUrl,jdbcType=VARCHAR}, 
+      #{upDown,jdbcType=CHAR}, #{shareUrl,jdbcType=VARCHAR}, #{trendsUrl,jdbcType=VARCHAR}, 
+      #{scoreStandard,jdbcType=VARCHAR}, #{marketPrice,jdbcType=VARCHAR}, #{salePrice,jdbcType=VARCHAR}, 
+      #{unit,jdbcType=VARCHAR}, #{productLable,jdbcType=CHAR}, #{supplierCode,jdbcType=VARCHAR}, 
+      #{productTypeCode,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{content,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.stem.entity.Product" >
+    insert into product
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="code != null" >
+        CODE,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="title != null" >
+        TITLE,
+      </if>
+      <if test="pic != null" >
+        PIC,
+      </if>
+      <if test="buyUrl != null" >
+        BUY_URL,
+      </if>
+      <if test="upDown != null" >
+        UP_DOWN,
+      </if>
+      <if test="shareUrl != null" >
+        SHARE_URL,
+      </if>
+      <if test="trendsUrl != null" >
+        TRENDS_URL,
+      </if>
+      <if test="scoreStandard != null" >
+        SCORE_STANDARD,
+      </if>
+      <if test="marketPrice != null" >
+        MARKET_PRICE,
+      </if>
+      <if test="salePrice != null" >
+        SALE_PRICE,
+      </if>
+      <if test="unit != null" >
+        UNIT,
+      </if>
+      <if test="productLable != null" >
+        PRODUCT_LABLE,
+      </if>
+      <if test="supplierCode != null" >
+        SUPPLIER_CODE,
+      </if>
+      <if test="productTypeCode != null" >
+        PRODUCT_TYPE_CODE,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="content != null" >
+        CONTENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null" >
+        #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="buyUrl != null" >
+        #{buyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="upDown != null" >
+        #{upDown,jdbcType=CHAR},
+      </if>
+      <if test="shareUrl != null" >
+        #{shareUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="trendsUrl != null" >
+        #{trendsUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreStandard != null" >
+        #{scoreStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="marketPrice != null" >
+        #{marketPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="salePrice != null" >
+        #{salePrice,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="productLable != null" >
+        #{productLable,jdbcType=CHAR},
+      </if>
+      <if test="supplierCode != null" >
+        #{supplierCode,jdbcType=VARCHAR},
+      </if>
+      <if test="productTypeCode != null" >
+        #{productTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.stem.entity.ProductExample" resultType="java.lang.Integer" >
+    select count(*) from product
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update product
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.code != null" >
+        CODE = #{record.code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        NAME = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.title != null" >
+        TITLE = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pic != null" >
+        PIC = #{record.pic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buyUrl != null" >
+        BUY_URL = #{record.buyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.upDown != null" >
+        UP_DOWN = #{record.upDown,jdbcType=CHAR},
+      </if>
+      <if test="record.shareUrl != null" >
+        SHARE_URL = #{record.shareUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.trendsUrl != null" >
+        TRENDS_URL = #{record.trendsUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scoreStandard != null" >
+        SCORE_STANDARD = #{record.scoreStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.marketPrice != null" >
+        MARKET_PRICE = #{record.marketPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.salePrice != null" >
+        SALE_PRICE = #{record.salePrice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.unit != null" >
+        UNIT = #{record.unit,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productLable != null" >
+        PRODUCT_LABLE = #{record.productLable,jdbcType=CHAR},
+      </if>
+      <if test="record.supplierCode != null" >
+        SUPPLIER_CODE = #{record.supplierCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.productTypeCode != null" >
+        PRODUCT_TYPE_CODE = #{record.productTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.content != null" >
+        CONTENT = #{record.content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update product
+    set ID = #{record.id,jdbcType=INTEGER},
+      CODE = #{record.code,jdbcType=VARCHAR},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      TITLE = #{record.title,jdbcType=VARCHAR},
+      PIC = #{record.pic,jdbcType=VARCHAR},
+      BUY_URL = #{record.buyUrl,jdbcType=VARCHAR},
+      UP_DOWN = #{record.upDown,jdbcType=CHAR},
+      SHARE_URL = #{record.shareUrl,jdbcType=VARCHAR},
+      TRENDS_URL = #{record.trendsUrl,jdbcType=VARCHAR},
+      SCORE_STANDARD = #{record.scoreStandard,jdbcType=VARCHAR},
+      MARKET_PRICE = #{record.marketPrice,jdbcType=VARCHAR},
+      SALE_PRICE = #{record.salePrice,jdbcType=VARCHAR},
+      UNIT = #{record.unit,jdbcType=VARCHAR},
+      PRODUCT_LABLE = #{record.productLable,jdbcType=CHAR},
+      SUPPLIER_CODE = #{record.supplierCode,jdbcType=VARCHAR},
+      PRODUCT_TYPE_CODE = #{record.productTypeCode,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      CONTENT = #{record.content,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update product
+    set ID = #{record.id,jdbcType=INTEGER},
+      CODE = #{record.code,jdbcType=VARCHAR},
+      NAME = #{record.name,jdbcType=VARCHAR},
+      TITLE = #{record.title,jdbcType=VARCHAR},
+      PIC = #{record.pic,jdbcType=VARCHAR},
+      BUY_URL = #{record.buyUrl,jdbcType=VARCHAR},
+      UP_DOWN = #{record.upDown,jdbcType=CHAR},
+      SHARE_URL = #{record.shareUrl,jdbcType=VARCHAR},
+      TRENDS_URL = #{record.trendsUrl,jdbcType=VARCHAR},
+      SCORE_STANDARD = #{record.scoreStandard,jdbcType=VARCHAR},
+      MARKET_PRICE = #{record.marketPrice,jdbcType=VARCHAR},
+      SALE_PRICE = #{record.salePrice,jdbcType=VARCHAR},
+      UNIT = #{record.unit,jdbcType=VARCHAR},
+      PRODUCT_LABLE = #{record.productLable,jdbcType=CHAR},
+      SUPPLIER_CODE = #{record.supplierCode,jdbcType=VARCHAR},
+      PRODUCT_TYPE_CODE = #{record.productTypeCode,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.stem.entity.Product" >
+    update product
+    <set >
+      <if test="code != null" >
+        CODE = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="pic != null" >
+        PIC = #{pic,jdbcType=VARCHAR},
+      </if>
+      <if test="buyUrl != null" >
+        BUY_URL = #{buyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="upDown != null" >
+        UP_DOWN = #{upDown,jdbcType=CHAR},
+      </if>
+      <if test="shareUrl != null" >
+        SHARE_URL = #{shareUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="trendsUrl != null" >
+        TRENDS_URL = #{trendsUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="scoreStandard != null" >
+        SCORE_STANDARD = #{scoreStandard,jdbcType=VARCHAR},
+      </if>
+      <if test="marketPrice != null" >
+        MARKET_PRICE = #{marketPrice,jdbcType=VARCHAR},
+      </if>
+      <if test="salePrice != null" >
+        SALE_PRICE = #{salePrice,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null" >
+        UNIT = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="productLable != null" >
+        PRODUCT_LABLE = #{productLable,jdbcType=CHAR},
+      </if>
+      <if test="supplierCode != null" >
+        SUPPLIER_CODE = #{supplierCode,jdbcType=VARCHAR},
+      </if>
+      <if test="productTypeCode != null" >
+        PRODUCT_TYPE_CODE = #{productTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        CONTENT = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.stem.entity.Product" >
+    update product
+    set CODE = #{code,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      TITLE = #{title,jdbcType=VARCHAR},
+      PIC = #{pic,jdbcType=VARCHAR},
+      BUY_URL = #{buyUrl,jdbcType=VARCHAR},
+      UP_DOWN = #{upDown,jdbcType=CHAR},
+      SHARE_URL = #{shareUrl,jdbcType=VARCHAR},
+      TRENDS_URL = #{trendsUrl,jdbcType=VARCHAR},
+      SCORE_STANDARD = #{scoreStandard,jdbcType=VARCHAR},
+      MARKET_PRICE = #{marketPrice,jdbcType=VARCHAR},
+      SALE_PRICE = #{salePrice,jdbcType=VARCHAR},
+      UNIT = #{unit,jdbcType=VARCHAR},
+      PRODUCT_LABLE = #{productLable,jdbcType=CHAR},
+      SUPPLIER_CODE = #{supplierCode,jdbcType=VARCHAR},
+      PRODUCT_TYPE_CODE = #{productTypeCode,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      CONTENT = #{content,jdbcType=LONGVARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.stem.entity.Product" >
+    update product
+    set CODE = #{code,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      TITLE = #{title,jdbcType=VARCHAR},
+      PIC = #{pic,jdbcType=VARCHAR},
+      BUY_URL = #{buyUrl,jdbcType=VARCHAR},
+      UP_DOWN = #{upDown,jdbcType=CHAR},
+      SHARE_URL = #{shareUrl,jdbcType=VARCHAR},
+      TRENDS_URL = #{trendsUrl,jdbcType=VARCHAR},
+      SCORE_STANDARD = #{scoreStandard,jdbcType=VARCHAR},
+      MARKET_PRICE = #{marketPrice,jdbcType=VARCHAR},
+      SALE_PRICE = #{salePrice,jdbcType=VARCHAR},
+      UNIT = #{unit,jdbcType=VARCHAR},
+      PRODUCT_LABLE = #{productLable,jdbcType=CHAR},
+      SUPPLIER_CODE = #{supplierCode,jdbcType=VARCHAR},
+      PRODUCT_TYPE_CODE = #{productTypeCode,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

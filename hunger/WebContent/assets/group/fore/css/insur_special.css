@@ -1,0 +1,270 @@
+@charset "UTF-8";
+/* 投保流程 */
+
+body,div,article,section,header,footer,figure,p,time,ul,li,form,input,button,select,table,tr,th,td,h1,h2,h3,dl,dt,dd{
+	margin:0;
+	padding:0;
+	font-family: "微软雅黑", 'Microsoft Yahei','HelveticaNeue',sans-serif;	
+}
+
+body{background-color:#eee;}
+ul,li{list-style:none;}
+input,button{border:0 none;}
+input:focus, select:focus, input:active{ outline:none;}
+h1,h2,h3{font-weight:normal;}
+em{font-style:normal;}
+a:link,a:visited{
+	color:#006994;
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:underline;
+}
+.red{color:#e00505;}
+.gray{color:#a6a6a6;}
+.del{ text-decoration:line-through;}
+.clearfix:after{
+	content:"";
+	display:block;
+	clear:both;
+	height:0;
+	font-size:12px;
+}
+.txtc{text-align:center !important;}
+.txtr{ text-align:right;}
+.fl{ float:left;}
+.fr{ float:right !important;}
+.dFixed{ position:fixed !important; top:0; z-index:1000;}
+.borderBottom{ border-bottom:1px solid #cecece;}
+.position_r{ position:relative;}
+.mar_t03{margin-top:0.3em;}
+.mar_t1{margin-top:1em;}
+.mar_t15{margin-top:1.5em;}
+.mar_t2{margin-top:2em;}
+.mar_t4{margin-top:0.4em;}
+.mar_bot1{margin-bottom:1em;}
+.mar_l2{margin-left:2em;}
+.mar_r1{margin-right:1em;}
+.pad_t30{padding-top:30px;}
+.font1_4{font-size:1.4em;}
+.font07{font-size:0.7em; font-weight:normal;}
+.font1{font-size:1.2em;}
+.d_none{ display:none;}
+
+/* public */
+#headRed{
+	width:100%;
+	background:url(/assets/wxdgid/products/special/images/head_red_bg.gif) repeat-x;
+	text-align:center;
+	box-shadow:0 3px 6px rgba(0,0,0,0.3);
+	display:-moz-box;
+	-moz-box-pack:center;
+	-moz-box-align:center;
+	display:-webkit-box;
+	-webkit-box-pack:center;
+	-webkit-box-align:center;
+	display:box;
+	box-pack:center;
+	box-align:center;
+	position:relative;
+}
+
+
+
+/*慧理财活动页*/
+#maskbg{position:absolute;width:100%;height:100%;background:black;filter:Alpha(opacity=60);opacity:0.6;top:0;left:0;z-index:20; display: none;}
+#wxtips{position:absolute;width:90%;height:172px;background:url('/assets/wxdgid/products/special/images/wxtips.png') right top no-repeat; background-size: 60% auto; right:10px;top:10px;z-index:22; display: none;}
+/*按钮*/
+.btnBox{ width: 90%; margin-left: auto; margin-right: auto; }
+.btnBox img{ display: block; width: 100%; }
+.btnBox .sbtn{ width: 45%; }
+/*客服电话*/
+.telBox{ width: 90%; margin: 0 auto; padding: 1em 0 2em; text-align: center; font-size: 1.5em; color: #00896d; }
+.telBox img{ max-width: 49px; margin-right: 1em; vertical-align: middle; }
+/*专题图片*/
+.proBanner{ width: 100%;}
+.proBanner img{ display: block; width: 100%;}
+/*专题标题*/
+.pr{position: relative;}
+.proTitle{ width: 100%; }
+.proTitle img{ display: block; width: 90%; margin: 0 auto;  }
+.bg_yellow{background: #ffd31a !important;}
+/*保险流程*/
+.boll{ display: block; position: absolute; width: 12px; height: 12px; border-radius: 12px; background: #c53e19;}
+.bo1{ top: 50%; left: 0em; margin-top: -5px;}
+.bo2{ top: 50%; left: -2.5em; margin-top: -5px;}
+.bo3{ top: 50%; left: 10px; margin-top: -5px;}
+.bo4{ top: 1em; left:15px;}
+.bo5{ top: 1em; left:-5px;}
+.procedure{ width: 100%; background:#ffd31a ; }
+.procedure_b{ padding-bottom: 1em; margin-top:1em;  background: #fff;}
+.procedure_b img{ display: block; width: 100%;}
+.procedureBox{ width: 90%; margin: 0 auto;padding: 1px 0 0 0;}
+.pro_line1{ background: url(/assets/wxdgid/products/special/images/icon_pro.png) left center no-repeat; background-size: auto 100%;}
+.pro_line2{ background: url(/assets/wxdgid/products/special/images/icon_pro_2.png) left center no-repeat; background-size: auto 100%;}
+.pro_line3{ background: url(/assets/wxdgid/products/special/images/icon_pro_3.png) left center no-repeat; background-size: auto 100%;}
+.procedure_txt{ padding: 0.5em 1em 0.5em 3em; line-height: 1.5em; font-size: 1em; color: #cd5c00; text-align: left;}
+.procedure_txt2{ padding: 0.5em 1em 1em 3.5em; line-height: 2em; font-size: 0.8em; color: #cd5c00; text-align: left;}
+
+.procedure_tit{ margin: 0 0 0 3.5em; padding: 0.5em 0; width: 80%; line-height: 2em; text-align: center; color: #fff; border-radius: 0.3em; background: #c53e19; font-size: 0.8em;}
+
+.procedure_tit2{ padding: 0 0 0 3em; line-height: 2em; text-align: left; color: #cd5c00; font-size: 1em; font-weight: bold;}
+
+.procedureBox .tal1{border-top:#ffcc01 solid 1px;border-left:#ffcc01 solid 1px; width: 80%; margin: 0.5em 0 0 3em; border-spacing:0;}
+.procedureBox .tal1 th, .procedureBox .tal1 td{ padding: 0.5em 0; border-bottom:#ffcc01 solid 1px;border-right:#ffcc01 solid 1px; line-height: 1.5em; font-size: 0.8em; text-align: center; }
+.procedureBox .tal1 th{background: #fdedad;}
+.procedureBox .tal1 td{background: #fff;}
+.procedureBox .tal1 td img.pic1{ display: block; width: 70%; max-width: 82px; height: auto; margin:0 auto; }
+.procedureBox .tal1 td img.pic2{ display: block; width: 60%; max-width: 73px; height: auto; margin:0 auto; }
+.procedureBox .tal1 td img.pic3{ display: block; width: 50%; max-width: 63px; height: auto; margin:0 auto; }
+
+.procedureBox .tal2{border:#eb6877 dashed 1px; width: 80%; margin: 0.5em 0 0 3em; border-spacing:0;background: #fff;}
+.grey{ background: #f3f3f3 !important;}
+.procedureBox .tal2 th, .procedureBox .tal2 td{ padding: 0.5em 0; line-height: 1.5em; font-size: 0.8em; text-align: center; }
+.procedureBox .tal2 th{background: #ffd8cd; border-bottom:#eb6877 dashed 1px;}
+
+.procedure_pic{ padding: 0.5em 1em 0.5em 3em;  }
+.procedure_pic img{ display: block; width: 90%; }
+
+.procedureBox .t03 a.btn01{display: block; width: 5em; height: 2em; float: right; line-height: 2em; text-align: center; color: #fff; font-size: 1em; font-weight: bold; background: #f32c32; border-radius: 0.3em; }
+.procedureBox .t03 a.btn02{display: block; width: 5em; height: 2em; float: right; line-height: 2em; text-align: center; color: #fff; font-size: 1em; font-weight: bold; background: #f32c32 url(/assets/wxdgid/products/special/images/hlc_bg_02.gif) repeat-y; background-size: 100% auto; border-radius: 0.3em; }
+.procedureBox .t03{ padding: 0.5em 1em 0.5em 3.5em; font-size: 0.8em; line-height: 2em; color: #cc5b00;}
+.procedureBox .t03 span{ font-size: 1.2em;}
+.procedureBox .t03 img{ display: block; width: 60%; margin-top:0.5em; float: right;  }
+
+
+
+@media screen and (min-width:600px){
+
+.boll{ width: 18px; height: 18px; border-radius: 18px; background: #c53e19;}
+.bo1{ top: 50%; left: 0.2em; margin-top: -9px;}
+.bo2{ top: 50%; left: -2em; margin-top: -9px;}
+.bo3{ top: 50%; left: 15px; margin-top: -9px;}
+.bo4{ top: 1em; left:20px;}
+.bo5{ top: 1em; left:-5px;}
+
+.procedure_txt{ font-size: 1.4em;}
+.procedure_txt2{ font-size: 1em;}
+.procedure_tit{ margin: 0 0 0 3em; line-height: 2em; font-size: 1.2em;}
+.procedure_tit2{ padding: 0 0 0 2.5em; font-size: 1.4em;}
+
+.procedureBox .tal1, .procedureBox .tal2{ margin: 0.5em 0 0 3.5em;}
+.procedureBox .tal1 th, .procedureBox .tal1 td{  font-size: 1em; }
+.procedureBox .tal2 th, .procedureBox .tal2 td{  font-size: 1em; }
+
+.procedureBox .t03{ padding: 0.5em 1em 0.5em 3.5em; font-size: 1em; line-height: 2em; color: #cc5b00;}
+.procedureBox .t03 span{ font-size: 1.4em;}
+.procedureBox .t03 a.btn01{ font-size: 1.2em; }
+.procedureBox .t03 a.btn02{ font-size: 1.2em; }
+
+.changeH{
+	height:86px;
+}
+#headRed h1{
+	font-size:2em;
+	color:#fff;
+	letter-spacing:1px;
+}
+#headRed .backHome{
+	position:absolute;
+	right:14px;
+	top:16px;
+	float:right;
+	width:56px;
+	height:52px;
+	background:url(/assets/wxdgid/products/special/images/home_icon_56x52.png) no-repeat;
+}
+#headRed .leftBar{
+	position:absolute;
+	left:0;
+	top:0;
+	width:100px;
+	height:86px;
+	background:url(/assets/wxdgid/products/special/images/line2x86.png) right top no-repeat;
+}
+#headRed .upPage{
+	float:left;
+	width:56px;
+	height:52px;
+	margin:16px 0 0 20px;
+	background:url(/assets/wxdgid/products/special/images/back_icon_56x52.png) no-repeat;
+}
+#conBox{
+	width:100%;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+	padding:20px;
+	font-size:24px;
+}
+
+}
+
+@media screen and (min-width:320px) and (max-width:599px){
+
+/*客服电话*/
+.telBox{ font-size: 1em; }
+.telBox img{ max-width: 30px; }
+
+
+.changeH{
+	height:46px;
+	background-size:auto 46px;
+}
+#headRed h1{
+	font-size:1.2em;
+	color:#fff;
+	letter-spacing:1px;
+}
+#headRed .backHome{
+	position:absolute;
+	right:10px;
+	top:8px;
+	float:right;
+	width:30px;
+	height:26px;
+	background:url(/assets/wxdgid/products/special/images/home_icon_56x52.png) no-repeat;
+	background-size:30px auto;
+}
+#headRed .leftBar{
+	position:absolute;
+	left:0;
+	top:0;
+	width:60px;
+	height:46px;
+	background:url(/assets/wxdgid/products/special/images/line2x86.png) right top no-repeat;
+	background-size:2px 46px;
+}
+#headRed .upPage{
+	float:left;
+	width:30px;
+	height:26px;
+	margin:8px 0 0 10px;
+	background:url(/assets/wxdgid/products/special/images/back_icon_56x52.png) no-repeat;
+	background-size:36px 32px;
+}
+#conBox{
+	width:100%;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+	padding:15px;
+	font-size:0.9em;
+}
+
+/*保险流程*/
+
+
+}
+
+@media screen and (min-width:480px) and (max-width:599px){
+/*支付*/
+.bankChoice li img{ width:50%;}
+
+.procedureBox .t03 em.e1{ top: 1em; left:20px; }
+.procedureBox .t03 em.e2{ top: 1em; left:0; }
+
+}
+
+
+

@@ -1,0 +1,247 @@
+@charset "UTF-8";
+/* 数字id 2014.5.29 */
+
+body,div,article,section,header,footer,figure,p,time,ul,li,form,input,button,select,table,tr,th,td,h1,h2,h3,dl,dt,dd{
+    margin:0;
+    padding:0;
+    font-family: "微软雅黑",'HelveticaNeue',sans-serif; 
+}
+
+body{
+    font-size: 100%;
+    background: #fff;
+}
+
+img{width:100%;}
+ul,li{list-style:none;}
+input,button,input:focus,input:active{ outline:none;-webkit-appearance:none;}
+a:link,a:visited{text-decoration:none;}
+ul,li{list-style:none;}
+input,button{border:0 none;}
+input:focus, select:focus, input:active{ outline:none;}
+h1,h2,h3{font-weight:normal;}
+em{font-style:normal;}
+
+/*文本排列*/
+.txtc{text-align:center;}
+.txtr{text-align:right !important;}
+.txtr{text-align:left;}
+.pr{position: relative;}
+.fl{float: left;}
+.fr{float: right;}
+.clearfix:after{
+    content:"";
+    display:block;
+    clear:both;
+    height:0;
+    font-size:0;
+}
+.white{ color: #fff !important;}
+.w{ color: #fff !important; font-size: 1em !important;}
+.gray{ color: #97eac6 !important;}
+/*边距*/
+.mar_t02{margin-top:0.2em;}
+.mar_t1{margin-top:1em !important;}
+.mar_t1e{margin-top:1em;}
+.mar_t15{margin-top:1.5em;}
+.mar_t2{margin-top:2em;}
+.mar_t3{margin-top:3em;}
+.mar_t4{margin-top:4em;}
+.mar_t10{margin-top:5em;}
+.pad_l15{padding-left:15px;}
+.pad_b1{padding-bottom:1em;}
+.skewx{
+    transform:skewx(-15deg);
+    -ms-transform:skewx(-15deg);     /* IE 9 */
+    -moz-transform:skewx(-15deg);    /* Firefox */
+    -webkit-transform:skewx(-15deg); /* Safari 和 Chrome */
+    -o-transform:skewx(-15deg); 
+}
+.skewx_0{
+    transform:skewx(15deg);
+    -ms-transform:skewx(15deg);  /* IE 9 */
+    -moz-transform:skewx(15deg);     /* Firefox */
+    -webkit-transform:skewx(15deg); /* Safari 和 Chrome */
+    -o-transform:skewx(15deg); 
+}
+
+#maskbg{position:absolute;width:100%;height:100%;background:black;filter:Alpha(opacity=60);opacity:0.6;top:0;left:0;z-index:20; display: none;}
+#wxtips{position:absolute;width:90%;height:172px;background:url('/assets/wxdgid/images/wxtips.png') right top no-repeat; background-size: 60% auto; right:10px;top:10px;z-index:22; display: none;}
+
+
+/*专题图片*/
+.proBanner{ width: 100%;}
+.proBanner img{ display: block; max-width: 100%;}
+.buy{position: absolute; bottom: 40px; right: 20px; width: 90px; height: 25px; font-size: 0.9em; line-height: 25px; color: #fff; font-weight: bold; vertical-align: middle; text-align: center; background: #ff7101;}
+.buy_num{position: absolute; bottom: 10px; right: 20px; width: 140px; height: 25px; font-size: 0.8em; line-height: 25px; color: #fff; font-weight: bold; vertical-align: middle; text-align: center; background: #ff7101;}
+.buy_num span{color:#fcff00; }
+.buy_num a{color:#fff; }
+.buy_num .pic1{display: inline-block; width: 5px; height: 5px; vertical-align: middle; margin-right:4px;}
+.buy_num .pic2{display: inline-block; width: 10px; height: 9px; vertical-align: middle; margin-right:4px;}
+#heart{position: absolute; z-index: 20; bottom:0; right: 0; width: 300px; height: 300px;background:url('/assets/wxdgid/images/heart.png') center bottom no-repeat; background-size: 0%; opacity: 0; display: none;}
+
+/*专题标题*/
+.proTitle{ width: 100%; padding-bottom: 0.8em; background: url(/assets/wxdgid/images/hlc_bg_01.gif); }
+.proTitle h1{ position: absolute; top:15%; left: 1.5em; font-size: 2em; color: #176dc0; text-align: left; font-weight: bold;}
+.proTitle h1 span{ font-size: 0.7em; font-weight: normal;}
+.proTitle p{ position: absolute; top:20%; right: 5%; font-size: 1.2em; color: #176dc0; text-align: right; font-style: italic;}
+.bg_yellow{background: #ffd31a !important;}
+
+/*保险介绍*/
+.proBox{ width: 100%; margin-bottom: 10px;}
+.proBox h1{ padding-left: 3.4em; height: 2em; line-height: 2em; font-size: 1em; font-weight: bold;}
+.proBox h1 span{ font-size: 1.2em; color: #ffea7d;}
+.proBox h1 samp{ display: block; position: absolute; top:-1px; left: 3%; width: 2.5em;}
+.proBox h1 samp img{ display: block; width: 100%;}
+
+.proTb{padding: 1em; width: 90%; margin: 0 auto; }
+.proTb img{display: block; width: 100%; }
+.proUl{width: 90%; margin: 0 auto; padding: 1em 0;}
+.proUl li{display: inline-block; width: 33%; text-align: center;}
+.proUl li p{ width: 70px; height: 50px; padding-top: 20px; margin: 0 auto; border-radius: 35px; background: #479c01; color: #fff; font-size: 0.8em;}
+.proUl li p span{ font-weight: bold; font-size: 1.3em;font-family: arial; }
+.proWx{padding: 1em 0; width: 90%; margin: 0 auto; text-align: left; color: #fff; font-size: 0.8em; }
+.proWx img{margin-right: 1em; width: 3em; vertical-align: middle; }
+.proTable{border-top:#95bdd6 solid 1px;border-left:#95bdd6 solid 1px; width: 90%; margin: 0 auto ; border-spacing:0;}
+.proTable th, .proTable td{ padding:0.25em 0; border-bottom:#95bdd6 solid 1px;border-right:#95bdd6 solid 1px; line-height: 1.5em; text-align: left; color: #197ab1; text-align: center; font-size: 0.8em;}
+.proTable th{background: #fff;}
+.proTable th.red{background: #ff0000; color: #fff}
+.proTable td.blue{background: #00a3ff; color: #fff}
+.proTable td.blue1{background: #b0dcf5; }
+
+.proBg1{ background: url(/assets/wxdgid/images/hlc_bg_01.gif);}
+.proBg1 h1{ background: #176dc0; border: #00b7ee dashed 1px; color: #fff;}
+.proBg1 p{ padding: 1em 0 1em 4em; text-align: left; line-height: 1.5em; font-size: 0.8em; color: #00509e;}
+.proBg2{ background: url(/assets/wxdgid/images/hlc_bg_03.gif);}
+.proBg2 h1{ background: #a0dcff; border: #00b7ee dashed 1px; color: #176dc0;}
+.proBg2 p{ padding: 1em ; text-align: left; line-height: 1.5em; font-size: 0.8em; color: #197ab1;}
+.proBg3{ background: url(/assets/wxdgid/images/hlc_bg_04.gif);}
+.proBg3 h1{ background: #a4cd3e; border: #22ac38 dashed 1px; color: #fff;}
+.proBg4{ background: url(/assets/wxdgid/images/hlc_bg_06.gif);}
+.proBg4 h1{ background: #fe8081; border: #e5004f dashed 1px; color: #fff;}
+.proBg4 p{ padding: 1em 1em 1em 2em; text-align: left; line-height: 1.5em; font-size: 0.8em; color: #d82a2a;background: url(/assets/wxdgid/images/hlc_bg_05.gif);}
+.proBg4 p span{ font-weight: bold;}
+.proBg5{ background: url(/assets/wxdgid/images/hlc_bg_07.gif);}
+.proBg5 h1{ background: #f32c32; border: #a40000 dashed 1px; color: #fff;}
+.proBg5 p{ padding: 1em 0 1em 4em; text-align: left; line-height: 1.5em; font-size: 0.8em; color: #fff;}
+.proBg6{ background: url(/assets/wxdgid/images/hlc_bg_08.gif);}
+.proBg6 h1{ background: #94459d; border: #440062 dashed 1px; color: #fff;}
+.proBg6 p{ padding: 1em 0 1em 4em; text-align: left; line-height: 1.5em; font-size: 0.8em; color: #fff;}
+.proBg7{ background: url(/assets/wxdgid/images/hlc_bg_09.gif);}
+.proBg7 h1{ background: #3ac0a5; border: #009944 dashed 1px; color: #fff;}
+.proBg7 p{ padding: 1em 0 1em 4em; text-align: left; line-height: 1.5em; font-size: 0.8em; color: #fff;}
+
+/*保险流程*/
+.procedure{ width: 100%; background:#ffd31a ;}
+.procedure_b{ padding-bottom: 1em; margin-top:1em;  background: #fff;}
+.procedure_b img{ display: block; width: 100%;}
+.procedure_txt{ width: 85%; margin:0 auto; padding: 0.5em; background:#fff ; border: #eb6100 dashed 1px; border-radius: 0.3em; text-align: left; line-height: 2em;font-size: 1.4em; color: #cd5c00; font-weight: bold;}
+.procedure_txt span{ font-weight: normal; display: block; text-align: right;font-size: 1em;}
+.procedureBox{ z-index: 99; width: 90%; margin: 0 auto;padding: 1px 0 0 0; background: url(/assets/wxdgid/images/icon_pro.png) left top no-repeat; background-size: auto 100%;}
+.procedureBox h2{ position: relative; margin-bottom: 0.2em; text-align: left; font-size: 1.8em; color: #cd5c00; font-weight: bolder; }
+.procedureBox h2 span{ position: absolute; display: block; }
+.procedureBox h2 span.p01{ top:-15px; left: 45px; }
+.procedureBox h2 span.p02{ top:-15px; left: 40px; }
+.procedureBox h2 span.p03{ top:-15px; left: 30px; }
+.procedureBox h2 span.p04{ top:-15px; left: 10px; }
+.procedureBox h2 span img{ display: block; max-width: 74px; }
+.procedureBox p{ text-align: left; font-size: 1.2em; line-height: 1.5em; color: #cd5c00; }
+.procedureBox .t01{padding: 0 1em 0 160px; }
+.procedureBox .t01_img{padding: 1em 1em 0 160px; }
+.procedureBox .t02{padding: 0 1em 0 176px; }
+.procedureBox .t03 a.btn01{display: block; width: 5em; height: 2em; float: right; line-height: 2em; text-align: center; color: #fff; font-size: 1em; font-weight: bold; background: #f32c32; border-radius: 0.3em; }
+.procedureBox .t03 a.btn02{display: block; width: 5em; height: 2em; float: right; line-height: 2em; text-align: center; color: #fff; font-size: 1em; font-weight: bold; background: #f32c32 url(/assets/wxdgid/images/hlc_bg_02.gif) repeat-y; background-size: 100% auto; border-radius: 0.3em; }
+.procedureBox .t03{ padding: 0 1em 0 176px; line-height: 2em;}
+.procedureBox .t03 span{ font-size: 1.3em;}
+.procedureBox .t03 img{ display: block; width: 60%; margin-top:0.5em; float: right;  }
+.procedureBox .mt50{margin-top:50px; }
+.procedureBox .mt70{margin-top:80px; }
+.procedureBox table{border-top:#ffcc01 solid 1px;border-left:#ffcc01 solid 1px; width: 360px; margin: 10px 0 0 160px; border-spacing:0;}
+.procedureBox table th, .procedureBox table td{ padding: 0.5em 0; border-bottom:#ffcc01 solid 1px;border-right:#ffcc01 solid 1px; line-height: 1.5em; font-size: 1em; text-align: center; }
+.procedureBox table th{background: #fdedad;}
+.procedureBox table td{background: #fff;}
+.procedureBox table td img.pic1{ display: block; width: 70%; height: auto; margin:0 auto; }
+.procedureBox table td img.pic2{ display: block; width: 60%; height: auto; margin:0 auto; }
+.procedureBox table td img.pic3{ display: block; width: 50%; height: auto; margin:0 auto; }
+
+/*按钮*/
+.btnBox{ width: 90%; margin-left: auto; margin-right: auto; }
+.btnBox img{ display: block; width: 100%; }
+.btnBox .sbtn{ width: 45%; }
+
+
+/*客服电话*/
+.telBox{ width: 90%; margin: 0 auto; padding: 1em 0 2em; text-align: center; font-size: 1.5em; color: #00896d; }
+.telBox img{ max-width: 49px; margin-right: 1em; vertical-align: middle; }
+
+@media screen and (min-width:320px) and (max-width:599px){
+
+.mar_t1{margin-top:0.6em;}
+
+#heart{ width: 200px; height: 200px;}
+
+.proTitle h1{bottom:30%; font-size: 1.1em; }
+.proTitle h1 span{ font-size: 0.7em;}
+.proTitle p{  font-size: 0.7em; }
+
+/*保险介绍*/
+
+
+/*保险流程*/
+.procedure_txt{ line-height: 1.5em; font-size: 1em;}
+.procedureBox{ z-index: 99; width: 90%; margin: 0 auto;padding: 1px 0 10px 0; background: url(/assets/wxdgid/images/icon_pro.png) left top no-repeat; background-size:60px 100%;}
+.procedureBox h2{ font-size: 1.2em; }
+.procedureBox h2 span{ position: absolute; display: block; }
+.procedureBox h2 span.p01{ top:-8px; left: 25px; }
+.procedureBox h2 span.p02{ top:-8px; left: 20px; }
+.procedureBox h2 span.p03{ top:-8px; left: 20px; }
+.procedureBox h2 span img{ display: block; max-width: 37px; }
+.procedureBox p{ font-size: 0.8em; }
+.procedureBox .t01{padding: 0 0 0 80px; }
+.procedureBox .t01_img{padding: 1em 0 0 80px; }
+.procedureBox .t02{padding: 0 1em 0 80px;}
+.procedureBox .t03{padding: 0 0 0 80px; line-height: 2em; }
+.procedureBox .t03 span{ font-size: 1.3em;}
+.procedureBox .mt50{margin-top:20px; }
+.procedureBox .mt70{margin-top:25px; }
+.procedureBox table{ margin: 10px 0 0 60px; width: 220px; }
+.procedureBox table th, .procedureBox table td{ line-height: 1.5em; padding: 0.5em; font-size: 0.5em}
+
+/*客服电话*/
+.telBox{ font-size: 1em; }
+.telBox img{ max-width: 30px; }
+
+}
+
+@media screen and (min-width:360px) and (max-width:599px){
+
+.procedureBox .h0{height: 145px; }
+.procedureBox table{ margin: 10px 0 0 80px; width: 230px; }
+
+}
+
+@media screen and (min-width:600px) and (max-width:767px),screen and (min-width:600px){
+
+.buy{ bottom: 70px; width: 154px; height: 46px; font-size: 1.3em; line-height: 46px;}
+.buy_num{ bottom: 30px; width: 236px; height: 36px; font-size: 1.2em; line-height: 36px; }
+.buy_num .pic1{ width: 9px; height: 10px; margin-right:4px;}
+.buy_num .pic2{width: 20px; height: 18px; margin-right:4px;}
+
+.proBox{ margin-bottom: 20px;}
+.proBox h1{ font-size: 2em;}
+.proBg1 p{ padding: 1em 0 1em 6em; font-size: 1.2em; line-height: 1.8em;}
+.proBg2 p{ padding: 1em ; line-height: 1.8em; font-size: 1.2em;}
+.proBg4 p{ padding: 1em 1em 1em 4em; text-align: left; line-height: 1.8em; font-size: 1.2em; color: #d82a2a;}
+.proBg5 p{ padding: 1em 0 1em 5em; font-size: 1.2em; line-height: 1.8em;}
+.proBg6 p{ padding: 1em 0 1em 5em; font-size: 1.2em; line-height: 1.8em;}
+
+.proTb{padding: 2em; width: 85%; margin: 0 auto; }
+.proUl{ padding: 2em 0;}
+.proUl li p{ width: 140px; height: 110px; border-radius: 70px; font-size: 1.5em; padding-top: 30px}
+.proUl li p span{ font-size: 2em; }
+.proWx{padding: 1em 0; width: 80%; font-size: 1.2em; }
+.proWx img{margin-right: 1em; width: 4em; vertical-align: middle; }
+.proTable th, .proTable td{ line-height: 2em; font-size: 1.2em;}
+
+}
+

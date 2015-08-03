@@ -1,0 +1,55 @@
+@charset "UTF-8";
+/* 投保流程 */
+
+body,div,article,section,header,footer,figure,p,time,ul,li,form,input,button,select,table,tr,th,td,h1,h2,h3,dl,dt,dd{
+	margin:0;
+	padding:0;
+	font-family: "微软雅黑", 'Microsoft Yahei','HelveticaNeue',sans-serif;	
+}
+body{background:#de1a40;}
+div{overflow:hidden}
+ul,li{list-style:none;}
+input,button{border:0 none;}
+input:focus, select:focus, input:active{ outline:none;}
+h1,h2,h3{font-weight:normal;}
+em{font-style:normal;}
+a:link,a:visited{color:#006994;text-decoration:none;}
+a:hover{text-decoration:underline;}
+.red{color:#e00505;}
+.gray{color:#a6a6a6;}
+.del{ text-decoration:line-through;}
+.clearfix:after{content:"";display:block;clear:both;height:0;font-size:12px;}
+.txtc{text-align:center !important;}
+.txtr{ text-align:right !important;}
+.fl{ float:left;}
+.fr{ float:right !important;}
+.dFixed{ position:fixed !important; top:0; z-index:1000;}
+.borderBottom{ border-bottom:1px solid #cecece;}
+.position_r{ position:relative;}
+.mar_t03{margin-top:0.3em;}
+.mar_t1{margin-top:1em;}
+.mar_t15{margin-top:1.5em;}
+.mar_t2{margin-top:2em;}
+.mar_t4{margin-top:0.4em;}
+.mar_bot1{margin-bottom:1em;}
+.mar_l2{margin-left:2em;}
+.mar_r1{margin-right:1em;}
+.pad_t30{padding-top:30px;}
+.font1_4{font-size:1.4em;}
+.font07{font-size:0.7em; font-weight:normal;}
+.font1{font-size:1.2em;}
+.d_none{ display:none;}
+.pr{position: relative;}
+
+
+
+
+article{width:100%;}
+article img{width:100%;display:block;}
+
+.procedureBox{padding:0 0 1em;}
+.procedureBox .tal2{border:#fff solid 2px; width: 90%; margin: 0.5em auto; border-spacing:0;}
+.procedureBox .tal2 th, .procedureBox .tal2 td{ padding: 0.5em 0; line-height: 1.5em; font-size: 1em; text-align: center; color:#fff;border-bottom:#fff solid 1px;}
+.procedureBox .tal2 th{font-weight:bold;font-size:1.2em;}
+.procedureBox i{width:1em;height:1em;background:url(/assets/wxdgid/images/cdrcb/ico_01.png) center center no-repeat;background-size:100%;display:inline-block;margin-left:0.4em;}
+.txtAlignL{text-align:left!important;width:3em;padding-left:0.6em!important;}

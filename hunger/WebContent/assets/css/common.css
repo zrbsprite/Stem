@@ -1,0 +1,14 @@
+.wid_20{
+	width: 25px;
+	border: solid 1px silver;
+}
+.font_10{
+	font-size: 12px;	
+}
+p button{
+	cursor: pointer;
+	font-weight: bold;
+}
+.mid{
+	text-align: center;
+}

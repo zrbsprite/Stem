@@ -1,0 +1,597 @@
+@charset "UTF-8";
+html,body{padding:0;margin:0;width:100%;height:100%;background-color:#fff;font-size:14px}
+@-webkit-keyframes start{
+	0%{opacity:0;-webkit-transform:translate(0, -15px)}
+	50%{opacity:1;-webkit-transform:translate(0, -5px)}
+	100%{opacity:0;-webkit-transform:translate(0, 10px)}
+}
+@-moz-keyframes start{
+	0%{opacity:0;-moz-transform:translate(0, -15px)}
+	50%{opacity:1;-moz-transform:translate(0, -5px)}
+	100%{opacity:0;-moz-transform:translate(0, 10px)}
+}
+@-o-keyframes start{
+	0%{opacity:0;-o-transform:translate(0, -15px)}
+	50%{opacity:1;-o-transform:translate(0, -5px)}
+	100%{opacity:0;-o-transform:translate(0, 10px)}
+}
+@-ms-keyframes start{
+	0%{opacity:0;-ms-transform:translate(0, -15px)}
+	50%{opacity:1;-ms-transform:translate(0, -5px)}
+	100%{opacity:0;-ms-transform:translate(0, 10px)}
+}
+@keyframes start{
+	0%{opacity:0;transform:translate(0, -15px)}
+	50%{opacity:1;transform:translate(0, -5px)}
+	100%{opacity:0;transform:translate(0, 10px)}
+}
+
+@-webkit-keyframes sec2Pica{
+	0%	{-webkit-transform:scale(1);}
+	100%{-webkit-transform:scale(1.08);}
+}
+@-moz-keyframes sec2Pica{
+	0%	{-moz-transform:scale(1);}
+	100%{-moz-transform:scale(1.08);}
+}
+@-o-keyframes sec2Pica{
+	0%	{-o-transform:scale(1);}
+	100%{-o-transform:scale(1.08);}
+}
+@-ms-keyframes sec2Pica{
+	0%	{-ms-transform:scale(1);}
+	100%{-ms-transform:scale(1.08);}
+}
+@keyframes sec2Pica{
+	0%	{transform:scale(1);}
+	100%{transform:scale(1.08);}
+}
+
+/*@-webkit-keyframes sec2Pica{
+	0%	{background-size:100% auto;}
+	100%{background-size:105% auto;}
+}
+@-moz-keyframes sec2Pica{
+	0%	{background-size:100% auto;}
+	100%{background-size:105% auto;}
+}
+@-o-keyframes sec2Pica{
+	0%	{background-size:100% auto;}
+	100%{background-size:105% auto;}
+}
+@-ms-keyframes sec2Pica{
+	0%	{background-size:100% auto;}
+	100%{background-size:105% auto;}
+}
+@keyframes sec2Pica{
+	0%	{background-size:100% auto;}
+	100%{background-size:105% auto;}
+}*/
+
+@-webkit-keyframes tex_2b{
+	0%	{-webkit-transform:translate3d(0, 0, 0);opacity:0;}
+	100%{-webkit-transform:translate3d(0, 10px, 0);opacity:1;}
+}
+@-moz-keyframes tex_2b{
+	0%	{-moz-transform:translate3d(0, 0, 0);opacity:0;}
+	100%{-moz-transform:translate3d(0, 10px, 0);opacity:1;}
+}
+@-o-keyframes tex_2b{
+	0%	{-o-transform:translate3d(0, 0, 0);opacity:0;}
+	100%{-o-transform:translate3d(0, 10px, 0);opacity:1;}
+}
+@-ms-keyframes tex_2b{
+	0%	{-ms-transform:translate3d(0, 0, 0);opacity:0;}
+	100%{-ms-transform:translate3d(0, 10px, 0);opacity:1;}
+}
+@keyframes tex_2b{
+	0%	{transform:translate3d(0, 0, 0);opacity:0;}
+	100%{transform:translate3d(0, 10px, 0);opacity:1;}
+}
+
+@-webkit-keyframes tex_2bx{
+	0%	{-webkit-transform:translate3d(0, 0, 0);opacity:0;}
+	99% {-webkit-transform:translate3d(0, 10px, 0);opacity:1;}
+	100%{-webkit-transform:translate3d(0, 0, 0);opacity:0;}
+}
+@-moz-keyframes tex_2bx{
+	0%	{-moz-transform:translate3d(0, 0, 0);opacity:0;}
+	100%{-moz-transform:translate3d(0, 10px, 0);opacity:1;}
+}
+@-o-keyframes tex_2bx{
+	0%	{-o-transform:translate3d(0, 0, 0);opacity:0;}
+	100%{-o-transform:translate3d(0, 10px, 0);opacity:1;}
+}
+@-ms-keyframes tex_2bx{
+	0%	{-ms-transform:translate3d(0, 0, 0);opacity:0;}
+	100%{-ms-transform:translate3d(0, 10px, 0);opacity:1;}
+}
+@keyframes tex_2bx{
+	0%	{transform:translate3d(0, 0, 0);opacity:0;}
+	100%{transform:translate3d(0, 10px, 0);opacity:1;}
+}
+
+@-webkit-keyframes mao{
+	0%	{-webkit-transform:rotateZ(-10deg);top:70%;opacity:0;}
+	80% {-webkit-transform:rotateZ(25deg);top:77%;opacity:1;}
+	100%{-webkit-transform:rotateZ(30deg);top:78%;opacity:1;}
+}
+@-moz-keyframes mao{
+	0%	{-moz-transform:rotateZ(0deg);top:60%;opacity:0;}
+	100%{-moz-transform:rotateZ(330deg);top:85%;opacity:1;}
+}
+@-o-keyframes mao{
+	0%	{-o-transform:rotateZ(0deg);top:60%;opacity:0;}
+	100%{-o-transform:rotateZ(330deg);top:85%;opacity:1;}
+}
+@-ms-keyframes mao{
+	0%	{-ms-transform:rotateZ(0deg);top:60%;opacity:0;}
+	100%{-ms-transform:rotateZ(330deg);top:85%;opacity:1;}
+}
+@keyframes mao{
+	0%	{transform:rotateZ(0deg);top:60%;opacity:0;}
+	100%{transform:rotateZ(330deg);top:85%;opacity:1;}
+}
+
+@-webkit-keyframes mao1{
+	0%	{-webkit-transform:rotateZ(-3deg);top:120px;opacity:0;}
+	70% {-webkit-transform:rotateZ(45deg);top:170px;opacity:1;}
+	100%{-webkit-transform:rotateZ(50deg);top:170px;opacity:1;}
+}
+@-moz-keyframes mao1{
+	0%	{-moz-transform:rotateZ(0deg);top:250px;opacity:0;}
+	70% {-moz-transform:rotateZ(25deg);top:300px;opacity:0.9;}
+	100%{-moz-transform:rotateZ(30deg);top:300px;opacity:1;}
+}
+@-o-keyframes mao1{
+	0%	{-o-transform:rotateZ(0deg);top:15%;opacity:0;}
+	60% {-o-transform:rotateZ(70deg);top:18%;opacity:0.9;}
+	100%{-o-transform:rotateZ(80deg);top:20%;opacity:1;}
+}
+@-ms-keyframes mao1{
+	0%	{-ms-transform:rotateZ(0deg);top:15%;opacity:0;}
+	70% {-ms-transform:rotateZ(75deg);top:20%;opacity:0.9;}
+	100%{-ms-transform:rotateZ(80deg);top:20%;opacity:1;}
+}
+@keyframes mao1{
+	0%	{transform:rotateZ(0deg);top:15%;opacity:0;}
+	70% {transform:rotateZ(70deg);top:20%;opacity:0.9;}
+	100%{transform:rotateZ(80deg);top:20%;opacity:1;}
+}
+
+@-webkit-keyframes mao2{
+	0%	{-webkit-transform:rotateZ(0deg);top:70%;opacity:0;}
+	80% {-webkit-transform:rotateZ(180deg);top:83%;opacity:1;}
+	100%{-webkit-transform:rotateZ(200deg);top:85%;opacity:1;}
+}
+@-moz-keyframes mao2{
+	0%	{-moz-transform:rotateZ(0deg);top:60%;opacity:0;}
+	100%{-moz-transform:rotateZ(330deg);top:85%;opacity:1;}
+}
+@-o-keyframes mao2{
+	0%	{-o-transform:rotateZ(0deg);top:60%;opacity:0;}
+	100%{-o-transform:rotateZ(330deg);top:85%;opacity:1;}
+}
+@-ms-keyframes mao2{
+	0%	{-ms-transform:rotateZ(0deg);top:60%;opacity:0;}
+	100%{-ms-transform:rotateZ(330deg);top:85%;opacity:1;}
+}
+@keyframes mao2{
+	0%	{transform:rotateZ(0deg);top:60%;opacity:0;}
+	100%{transform:rotateZ(330deg);top:85%;opacity:1;}
+}
+
+@-webkit-keyframes mo_2c{
+	0%	{opacity:0;}
+	100%{opacity:1;}
+}
+@-moz-keyframes mo_2c{
+	0%	{opacity:0;}
+	100%{opacity:1;}
+}
+@-o-keyframes mo_2c{
+	0%	{opacity:0;}
+	100%{opacity:1;}
+}
+@-ms-keyframes mo_2c{
+	0%	{opacity:0;}
+	100%{opacity:1;}
+}
+@keyframes mo_2c{
+	0%	{opacity:0;}
+	100%{opacity:1;}
+}
+
+
+@-webkit-keyframes sec_Hand{
+	0%	{opacity:0;}
+	70% {opacity:1;}
+	100%{opacity:1;}
+}
+@-moz-keyframes sec_Hand{
+	0%	{opacity:0;}
+	100%{opacity:1;}
+}
+@-o-keyframes sec_Hand{
+	0%	{opacity:0;}
+	100%{opacity:1;}
+}
+@-ms-keyframes sec_Hand{
+	0%	{opacity:0;}
+	100%{opacity:1;}
+}
+@keyframes sec_Hand{
+	0%	{opacity:0;}
+	100%{opacity:1;}
+}
+
+@-webkit-keyframes sec_HandBig{
+	0%	{-webkit-transform:scale(1);opacity:1;}
+	15% {-webkit-transform:scale(1.08);opacity:1;}
+	30%	{-webkit-transform:scale(1);opacity:1;}
+	100%{-webkit-transform:scale(1);opacity:1;}
+}
+@-moz-keyframes sec_HandBig{
+	0%	{-moz-transform:scale(1);opacity:1;}
+	15% {-moz-transform:scale(1.08);opacity:1;}
+	30%	{-moz-transform:scale(1);opacity:1;}
+	100%{-moz-transform:scale(1);opacity:1;}
+}
+@-o-keyframes sec_HandBig{
+	0%	{-o-transform:scale(1);opacity:1;}
+	15% {-o-transform:scale(1.08);opacity:1;}
+	30%	{-o-transform:scale(1);opacity:1;}
+	100%{-o-transform:scale(1);opacity:1;}
+}
+@-ms-keyframes sec_HandBig{
+	0%	{-ms-transform:scale(1);opacity:1;}
+	15% {-ms-transform:scale(1.08);opacity:1;}
+	30%	{-ms-transform:scale(1);opacity:1;}
+	100%{-ms-transform:scale(1);opacity:1;}
+}
+@keyframes sec_HandBig{
+	0%	{transform:scale(1);opacity:1;}
+	15% {transform:scale(1.08);opacity:1;}
+	30%	{transform:scale(1);opacity:1;}
+	100%{transform:scale(1);opacity:1;}
+}
+
+@-webkit-keyframes sec1f{
+	0%	{opacity:1;top:70%;}
+	90% {opacity:0;top:50%;}
+	100%{opacity:0;top:70%;}
+}
+@-moz-keyframes sec1f{
+	0%	{opacity:1;top:70%;}
+	90% {opacity:0;top:50%;}
+	100%{opacity:0;top:70%;}
+}
+@-o-keyframes sec1f{
+	0%	{opacity:1;top:70%;}
+	90% {opacity:0;top:50%;}
+	100%{opacity:0;top:70%;}
+}
+@-ms-keyframes sec1f{
+	0%	{opacity:1;top:70%;}
+	90% {opacity:0;top:50%;}
+	100%{opacity:0;top:70%;}
+}
+@keyframes sec1f{
+	0%	{opacity:1;top:70%;}
+	90% {opacity:0;top:50%;}
+	100%{opacity:0;top:70%;}
+}
+
+#u-globalAudio{color:#666;text-decoration:none;font-size:24px;position:fixed;right:20px;bottom:20px;display:block;z-index:9999}
+#u-globalAudio span{position:absolute;left:-60px;top:10px;text-shadow:1px 1px 1px #000;letter-spacing:2px;-webkit-transition:all .2s linear;opacity:0;-webkit-transform:translateX(-20px)}
+#u-globalAudio .icon-music{width:30px;height:30px;background:url(/assets/wxdgid/products/hjd5/images/units-icons.png) 0 0; background-size: 100%; display:block}
+#u-globalAudio.z-play .icon-music{-webkit-animation:reverseRotataZ 1.2s linear infinite}
+#u-globalAudio span.z-show{opacity:1;-webkit-transform:translateX(0px)}
+#u-globalAudio .coffee-steam-box{-webkit-transform:translate(-40px,-40px)}
+
+@-webkit-keyframes reverseRotataZ{0%{-webkit-transform:rotateZ(0deg)}100%{-webkit-transform:rotateZ(-360deg)}}
+
+.wrapper{position:relative;width:100%;height:100%;overflow:hidden;}
+
+.front{position:absolute;left:0;top:0;bottom:150px;width:100%;background-color:#efefef;-webkit-transform-origin:bottom;-moz-transform-origin:bottom;-o-transform-origin:bottom;-ms-transform-origin:bottom;transform-origin:bottom;-webkit-animation:opencard 0.3s ease-in-out 0.5s backwards;-webkit-animation-fill-mode:backwards;-moz-animation:opencard 0.3s ease-in-out 0.5s backwards backwards;-o-animation:opencard 0.3s ease-in-out 0.5s backwards backwards;-ms-animation:opencard 0.3s ease-in-out 0.5s backwards backwards;animation:opencard 0.3s ease-in-out 0.5s backwards backwards}
+
+.back{position:absolute;left:0;bottom:0;height:150px;width:100%}
+.back:after{content:'';display:block;width:100%;height:0;overflow:hidden;border-width:0 36px 150px 36px;border-style:none solid solid;border-color:transparent transparent #d7d7d7;position:absolute;left:-36px}
+
+section{position:relative;width:100%;height:100%;overflow:hidden;-webkit-perspective:500px;-moz-perspective:500px;-o-perspective:500px;-ms-perspective:500px;perspective:500px}
+
+
+/*第一屏*/
+
+section:nth-child(1){background:#f0efef url(/assets/wxdgid/products/hjd5/images/sec_2.jpg) top no-repeat; background-size:100%}
+section:nth-child(1) .card{position:absolute;height:100%;left:0;right:0;top:0;-webkit-transform-style:preserve-3d;-moz-transform-style:preserve-3d;-o-transform-style:preserve-3d;-ms-transform-style:preserve-3d;transform-style:preserve-3d}
+section:nth-child(1) .sec1a{position:absolute;width:100%;height:280px;max-height:300px;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_1a.png) center bottom no-repeat;background-size:100% auto;top:0;left:50%;margin:0 0 0 -50%;text-indent:-9999px;}
+
+section:nth-child(1) .sec1b{position:absolute;width:56%;height:50%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_1b.png) center 0 no-repeat;background-size:100% auto;top:60%;left:50%;margin:0 0 0 -28%;text-indent:-9999px;}
+
+section:nth-child(1) .sec1c{position:absolute;width:50%;height:10%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_1c.png) center 0 no-repeat;background-size:100% auto;top:96%;left:50%;margin:0 0 0 -40%;text-indent:-9999px;}
+
+section:nth-child(1) .sec1d{position:absolute;width:12%;height:16%;overflow:hidden;top:70%;background:url(/assets/wxdgid/products/hjd5/images/handFira.png) center 0 no-repeat;background-size:100% auto;left:50%;margin:0 0 0 34%;text-indent:-9999px;
+	-webkit-animation:sec1f 1.5s ease-in-out 0.5s infinite;
+	-webkit-animation-fill-mode:both;
+	-moz-animation:sec1f 1.5s ease-in-out 0.5s both infinite;
+	animation:sec1f 1.5s ease-in-out 0.5s both infinite;
+}
+
+section:nth-child(1) .start{position:absolute;width:27px;height:25px;background:url(/assets/wxdgid/products/hjd5/images/next.png) no-repeat;background-size:100%;left:50%;margin:0 0 0 -14px;bottom:30px;-webkit-animation:start 1.2s ease-in-out 1s infinite;-webkit-animation-fill-mode:both;-moz-animation:start 1.2s ease-in-out 1s infinite both;-o-animation:start 1.2s ease-in-out 1s infinite both;-ms-animation:start 1.2s ease-in-out 1s infinite both;animation:start 1.2s ease-in-out 1s infinite both}
+
+
+/*第二屏*/
+section:nth-child(2){background:url(/assets/wxdgid/products/hjd5/images/sec_41.jpg) top repeat; background-size:100%}
+
+section:nth-child(2) .sec4a{position:absolute;width:285px; height:230px;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_4ab.png) center bottom no-repeat;background-size:100% auto;top:20%;left:0;margin:0 0 0 0;text-indent:-9999px;
+	-webkit-animation:sec2Pica 2.5s ease-in-out 0.5s;
+	-webkit-animation-fill-mode:both;
+	-moz-animation:sec2Pica 2.5s ease-in-out 0.5s both;
+	animation:sec2Pica 2.5s ease-in-out 0.5s both;}
+
+section:nth-child(2) .ceng{position:absolute;width:300px;height:220px;overflow:hidden;left:0;top:24%;margin:0 0 0 0;-webkit-transform:rotate(-1deg);background:#181717;border-radius:12px;box-shadow:0 0 5px #000;text-indent:-9999px;}
+
+/*section:nth-child(4) .ceng1{position:absolute;width:75%;height:46.5%;overflow:hidden;left:0;top:18%;margin:0 0 0 0;-webkit-transform:rotate(-5deg);border-radius:12px;box-shadow:0 0 5px #000; border:1px #CCC solid}
+*/
+section:nth-child(2) .sec4b{position:absolute;width:80%;height:100%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_4b.png?v=201407291256) 0 0 no-repeat;background-size:100% auto;top:69%;left:50%;margin:0 0 0 -40%;text-indent:-9999px;
+-webkit-animation:tex_2b 2s linear 0.5s;
+-webkit-animation-fill-mode:both;
+-moz-animation:tex_2b 2s linear 0.5s both;
+animation:tex_2b 2s linear 0.5s both;}
+
+section:nth-child(2) .sec4c{position:absolute;width:15%;height:100%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_4c.png?v=201407291256) 0 0 no-repeat;background-size:100% auto;top:86%;left:50%;margin:0 0 0 30%;text-indent:-9999px;
+-webkit-animation:mo_2c 3s linear 0.5s;
+-webkit-animation-fill-mode:both;
+-moz-animation:mo_2c 3s linear 0.5s both;
+animation:mo_2c 1s 3inear 0.5s both;}
+
+section:nth-child(2) .sec4q{position:absolute;width:13%;height:50%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_4q.png) 0 0 no-repeat;background-size:100% auto;top:17%;left:0;margin:0 0 0 0;text-indent:-9999px;}
+
+/*第三屏*/
+section:nth-child(3){background:url(/assets/wxdgid/products/hjd5/images/sec_2.jpg) top no-repeat; background-size:100%;}
+
+section:nth-child(3) .sec5a{position:absolute;width:100%; height:100%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_5a.jpg?v=201407291256) center top no-repeat;background-size:100% auto;top:0;left:50%;margin:0 0 0 -50%;text-indent:-9999px;
+	-webkit-animation:sec2Pica 2.5s ease-in-out 0.5s;
+	-webkit-animation-fill-mode:both;
+	-moz-animation:sec2Pica 2.5s ease-in-out 0.5s both;
+	animation:sec2Pica 2.5s ease-in-out 0.5s both;}
+	
+section:nth-child(3) .sec5ax{position:absolute;width:50%; height:8%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_5ax.png?v=201407291256) 0 0 no-repeat;background-size:100% auto;top:40%;left:50%;margin:0 0 0 -8%;text-indent:-9999px;}
+
+section:nth-child(3) .ceng{position:absolute;width:91%;height:45%;overflow:hidden;box-shadow:0 0 5px #000;left:50%;margin:0 0 0 -45.5%}
+
+section:nth-child(3) .sec5b{position:absolute;width:35%;height:100%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_5b.png?v=201407291256) 0 0 no-repeat;background-size:100% auto;top:47%;left:50%;margin:0 0 0 -17%;text-indent:-9999px;
+-webkit-animation:tex_2b 2s linear 0.5s;
+-webkit-animation-fill-mode:both;
+-moz-animation:tex_2b 2s linear 0.5s both;
+animation:tex_2b 2s linear 0.5s both;}
+
+section:nth-child(3) .sec5c{position:absolute;width:15%;height:100%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_2c.png?v=201407291256) 0 0 no-repeat;background-size:100% auto;top:83%;left:50%;margin:0 0 0 -40%;text-indent:-9999px;
+-webkit-animation:mo_2c 3s linear 0.5s;
+-webkit-animation-fill-mode:both;
+-moz-animation:mo_2c 3s linear 0.5s both;
+animation:mo_2c 1s 3inear 0.5s both;}
+
+/*第四屏*/
+section:nth-child(4){background:url(/assets/wxdgid/products/hjd5/images/sec_2.jpg) top no-repeat; background-size:100%;}
+
+section:nth-child(4) .sec6atex{position:absolute;width:20%; height:8%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec6tex.png?v=201407291256) 0 0 no-repeat;background-size:100% auto;top:8px;left:50%;margin:0 0 0 -45%;text-indent:-9999px;}
+	
+section:nth-child(4) .sec6a{position:absolute;width:86%;height:90%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec6a.png) 0 0 no-repeat;background-size:100% auto;top:40px;left:50%;margin:0 0 0 -43%;text-indent:-9999px;}
+
+section:nth-child(4) .sec6b{position:absolute;width:60%;height:100%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_6b.png?v=201407291256) 0 0 no-repeat;background-size:100% auto;top:130px;left:50%;margin:0 0 0 -30%;text-indent:-9999px;
+-webkit-animation:tex_2b 2s linear 0.5s;
+-webkit-animation-fill-mode:both;
+-moz-animation:tex_2b 2s linear 0.5s both;
+animation:tex_2b 2s linear 0.5s both;}
+
+
+
+/*第五屏*/
+section:nth-child(5){background:url(/assets/wxdgid/products/hjd5/images/sec_2.jpg) top no-repeat; background-size:100%;}
+
+section:nth-child(5) .sec7tex{position:absolute;width:20%; height:8%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec7tex.png?v=201407291256) 0 0 no-repeat;background-size:100% auto;top:8px;left:50%;margin:0 0 0 -45%;text-indent:-9999px;}
+
+section:nth-child(5) .sec7a{position:absolute;width:70%;height:70%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_7a.png?v=201407291256) 0 0 no-repeat;background-size:100% auto;top:30px;left:50%;margin:0 0 0 -35%;text-indent:-9999px;
+	-webkit-animation:sec2Pica 2.5s ease-in-out 0.5s;
+	-webkit-animation-fill-mode:both;
+	-moz-animation:sec2Pica 2.5s ease-in-out 0.5s both;
+	animation:sec2Pica 2.5s ease-in-out 0.5s both;}
+
+section:nth-child(5) .ceng{position:absolute;width:100%;height:80%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_7ax.png) 0 0 no-repeat;background-size:100% auto;top:0;left:50%;margin:0 0 0 -50%;}
+
+section:nth-child(5) .sec7b{position:absolute;width:100px;height:100px;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_7b.png?v=201407291256) 0 0 no-repeat;background-size:100% auto;top:215px;left:50%;margin:0 0 0 40px;}
+
+section:nth-child(5) .sec7c{position:absolute;width:70%;height:50%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_7c.png?v=201407291256) 0 0 no-repeat;background-size:100% auto;top:65%;left:50%;margin:0 0 0 -35%;text-indent:-9999px;
+-webkit-animation:tex_2b 2s linear 0.5s;
+-webkit-animation-fill-mode:both;
+-moz-animation:tex_2b 2s linear 0.5s both;
+animation:tex_2b 2s linear 0.5s both;}
+
+
+/*第六屏*/
+section:nth-child(6){background:url(/assets/wxdgid/products/hjd5/images/sec_2.jpg) top no-repeat; background-size:100%;}
+section:nth-child(6) .card{position:absolute; width: 100%; height:100%;left:0;right:0;top:0;-webkit-transform-style:preserve-3d;-moz-transform-style:preserve-3d;-o-transform-style:preserve-3d;-ms-transform-style:preserve-3d;transform-style:preserve-3d}
+
+/*section:nth-child(2) .sec2a{position:absolute;width:100%;height:100%;overflow:hidden;background:url(../images/sec_2.jpg?v=201407291256) 0 0 no-repeat;background-size:100% auto;top:0;left:0;margin:0 0 0 0;text-indent:-9999px;}*/
+
+section:nth-child(6) .sec3a{position:absolute;width:100%; height:100%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_3a.jpg?v=201407291256) center top no-repeat;background-size:100% auto;top:0;left:50%;margin:0 0 0 -50%;text-indent:-9999px;
+	-webkit-animation:sec2Pica 2.5s ease-in-out 0.5s;
+	-webkit-animation-fill-mode:both;
+	-moz-animation:sec2Pica 2.5s ease-in-out 0.5s both;
+	animation:sec2Pica 2.5s ease-in-out 0.5s both;}
+
+section:nth-child(6) .ceng{position:absolute;width:91%;height:47%;overflow:hidden;box-shadow:0 0 5px #000;left:50%;margin:0 0 0 -45.5%}
+
+section:nth-child(6) .sec3b{position:absolute;width:64%;height:100%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_3b.png?v=201407291256) 0 0 no-repeat;background-size:100% auto;top:47.6%;left:50%;margin:0 0 0 -32%;text-indent:-9999px;
+-webkit-animation:tex_2b 2s linear 0.5s;
+-webkit-animation-fill-mode:both;
+-moz-animation:tex_2b 2s linear 0.5s both;
+animation:tex_2b 2s linear 0.5s both;}
+	
+section:nth-child(6) .start{position:absolute;width:27px;height:25px;background:url(/assets/wxdgid/products/hjd5/images/next.png) no-repeat;background-size:100%;left:50%;margin:0 0 0 -14px;bottom:30px;-webkit-animation:start 1.2s ease-in-out 4s infinite;-webkit-animation-fill-mode:both;-moz-animation:start 1.2s ease-in-out 4s infinite both;-o-animation:start 1.2s ease-in-out 4s infinite both;-ms-animation:start 1.2s ease-in-out 4s infinite both;animation:start 1.2s ease-in-out 4s infinite both}
+
+
+/*第七屏*/
+section:nth-child(7){background:url(/assets/wxdgid/products/hjd5/images/sec_8.jpg) top no-repeat; background-size:100%;}
+
+section:nth-child(7) .sec8a{position:absolute;width:50%;height:100%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_8a.png?v=201407291256) 0 0 no-repeat;background-size:100% auto;top:2%;left:50%;margin:0 0 0 -2%;text-indent:-9999px;
+-webkit-animation:tex_2b 2s linear 0.5s;
+-webkit-animation-fill-mode:both;
+-moz-animation:tex_2b 2s linear 0.5s both;
+animation:tex_2b 2s linear 0.5s both;}
+
+section:nth-child(7) .ceng{position:absolute;width:280px;height:280px;overflow:hidden;border-radius:140px;box-shadow:0 0 5px #000;top:10%;left:50%;margin:0 0 0 -140px;}
+
+section:nth-child(7) .sec7b{position:absolute;width:100px;height:100px;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_7b.png?v=201407291256) 0 0 no-repeat;background-size:100% auto;top:45%;left:50%;margin:0 0 0 40px;}
+
+section:nth-child(7) .sec7c{position:absolute;width:70%;height:50%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_7c.png?v=201407291256) 0 0 no-repeat;background-size:100% auto;top:70%;left:50%;margin:0 0 0 -30%;text-indent:-9999px;
+-webkit-animation:tex_2b 2s linear 0.5s;
+-webkit-animation-fill-mode:both;
+-moz-animation:tex_2b 2s linear 0.5s both;
+animation:tex_2b 2s linear 0.5s both;}
+
+section:nth-child(7) .sec9c{position:absolute;width:20%;height:12%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_9c.png) 0 0 no-repeat;background-size:100% auto;left:50%;margin:0 0 0 25%;text-indent:-9999px;
+-webkit-animation:mao 2.5s linear 0.3s;
+-webkit-animation-fill-mode:both;
+-moz-animation:mao 5s linear 0.3s both;
+animation:mao 5s inear 0.3s both;}
+
+section:nth-child(7) .sec9d{position:absolute;width:15%;height:8%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_9c.png) 0 0 no-repeat;background-size:100% auto;left:50%;margin:0 0 0 -45%;text-indent:-9999px;
+-webkit-animation:mao1 5s linear 0.5s;
+-webkit-animation-fill-mode:both;
+-moz-animation:mao1 2.5s linear 0.5s both;
+animation:mao1 2.5s inear 0.5s both;}
+
+/*第八屏*/
+section:nth-child(8){background:url(/assets/wxdgid/products/hjd5/images/sec_2.jpg) top no-repeat; background-size:100%;}
+
+section:nth-child(8) .card{position:absolute; width: 100%; height:100%;left:0;right:0;top:0;-webkit-transform-style:preserve-3d;-moz-transform-style:preserve-3d;-o-transform-style:preserve-3d;-ms-transform-style:preserve-3d;transform-style:preserve-3d}
+
+section:nth-child(8) .sec9a{position:absolute;width:100%; height:100%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_9a.jpg?v=201407291256) center top no-repeat;background-size:100% auto;top:0;left:50%;margin:0 0 0 -50%;text-indent:-9999px;
+	-webkit-animation:sec2Pica 2.5s ease-in-out 0.5s;
+	-webkit-animation-fill-mode:both;
+	-moz-animation:sec2Pica 2.5s ease-in-out 0.5s both;
+	animation:sec2Pica 2.5s ease-in-out 0.5s both;}
+	
+section:nth-child(8) .ceng{position:absolute;width:91%;height:43%;overflow:hidden;box-shadow:0 0 5px #000;left:50%;margin:0 0 0 -45.5%}
+
+section:nth-child(8) .sec9b{position:absolute;width:82%;height:100%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_9b.png?v=201407291256) 0 0 no-repeat;background-size:100% auto;top:46%;left:50%;margin:0 0 0 -41%;text-indent:-9999px;
+-webkit-animation:tex_2b 2s linear 0.5s;
+-webkit-animation-fill-mode:both;
+-moz-animation:tex_2b 2s linear 0.5s both;
+animation:tex_2b 2s linear 0.5s both;}
+
+section:nth-child(8) .sec9c{position:absolute;width:20%;height:12%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_9c.png) 0 0 no-repeat;background-size:100% auto;left:50%;margin:0 0 0 25%;text-indent:-9999px;
+-webkit-animation:mao2 4s linear 0.5s;
+-webkit-animation-fill-mode:both;
+-moz-animation:mao2 4s linear 0.5s both;
+animation:mao2 4s inear 0.5s both;}
+
+/*第九屏*/
+section:nth-child(9){background:url(/assets/wxdgid/products/hjd5/images/sec_2.jpg) top no-repeat; background-size:100%;}
+
+section:nth-child(9) .card{position:absolute; width: 100%; height:100%;left:0;right:0;top:0;-webkit-transform-style:preserve-3d;-moz-transform-style:preserve-3d;-o-transform-style:preserve-3d;-ms-transform-style:preserve-3d;transform-style:preserve-3d}
+
+section:nth-child(9) .sec10a{position:absolute;width:80%; height:100%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_10a.png) center top no-repeat;background-size:100% auto;top:0%;left:50%;margin:0 0 0 -40%;text-indent:-9999px;}
+	
+section:nth-child(9) .sec10b{position:absolute;width:35%;height:100%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_10b.png?v=201407291256) 0 0 no-repeat;background-size:100% auto;top:5%;left:50%;margin:0 0 0 10%;text-indent:-9999px;
+-webkit-animation:tex_2b 2s linear 0.5s;
+-webkit-animation-fill-mode:both;
+-moz-animation:tex_2b 2s linear 0.5s both;
+animation:tex_2b 2s linear 0.5s both;}
+
+section:nth-child(9) .sec10c{position:absolute;width:20%;height:100%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_10c.png) 0 0 no-repeat;background-size:100% auto;top:60%;left:50%;margin:0 0 0 25%;text-indent:-9999px;
+-webkit-animation:mo_2c 3s linear 0.5s;
+-webkit-animation-fill-mode:both;
+-moz-animation:mo_2c 3s linear 0.5s both;
+animation:mo_2c 1s 3inear 0.5s both;}
+
+/*第十屏*/
+section:nth-child(10){background:url(/assets/wxdgid/products/hjd5/images/sec_2.jpg) top no-repeat; background-size:100%;}
+
+section:nth-child(10) .card{position:absolute; width: 100%; height:100%;left:0;right:0;top:0;-webkit-transform-style:preserve-3d;-moz-transform-style:preserve-3d;-o-transform-style:preserve-3d;-ms-transform-style:preserve-3d;transform-style:preserve-3d}
+
+section:nth-child(10) .sec11a{position:absolute;width:100%; height:100%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_11a.jpg?v=201407291256) center top no-repeat;background-size:100% auto;top:0;left:0;margin:0 0 0 0;text-indent:-9999px;
+-webkit-animation:sec2Pica 2.5s ease-in-out 0.5s;
+-webkit-animation-fill-mode:both;
+-moz-animation:sec2Pica 2.5s ease-in-out 0.5s both;
+animation:sec2Pica 2.5s ease-in-out 0.5s both;}
+	
+section:nth-child(10) .ceng{position:absolute;width:91%;height:53%;overflow:hidden;bottom:3%;box-shadow:0 0 5px #000;left:50%;margin:0 0 0 -45.5%}
+
+section:nth-child(10) .sec11b{position:absolute;width:70%;height:100%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_11b.png) 0 0 no-repeat;background-size:100% auto;top:5%;left:50%;margin:0 0 0 -35%;text-indent:-9999px;
+-webkit-animation:tex_2b 2s linear 0.5s;
+-webkit-animation-fill-mode:both;
+-moz-animation:tex_2b 2s linear 0.5s both;
+animation:tex_2b 2s linear 0.5s both;}
+
+/*section:nth-child(10) .sec11d{position:absolute;width:20%;height:12%;overflow:hidden;background:url(../images/hb.png) 0 0 no-repeat;background-size:100% auto;left:50%;margin:0 0 0 25%;text-indent:-9999px;
+-webkit-animation:mao 2.5s linear 0.3s;
+-webkit-animation-fill-mode:both;
+-moz-animation:mao 5s linear 0.3s both;
+animation:mao 5s inear 0.3s both;}*/
+
+
+/*第十一屏*/
+section:nth-child(11){background:url(/assets/wxdgid/products/hjd5/images/sec_12.jpg) top no-repeat; background-size:100%;}
+
+section:nth-child(11) .card{position:absolute; width: 100%; height:100%;left:0;right:0;top:0;-webkit-transform-style:preserve-3d;-moz-transform-style:preserve-3d;-o-transform-style:preserve-3d;-ms-transform-style:preserve-3d;transform-style:preserve-3d}
+
+section:nth-child(11) .sec12a{position:absolute;width:100%; height:60%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_12a.png) center bottom no-repeat;background-size:100% auto;bottom:0;left:0;margin:0 0 0 0;text-indent:-9999px;}
+	
+section:nth-child(11) .ceng{position:absolute;width:91%;height:53%;overflow:hidden;bottom:3%;box-shadow:0 0 5px #000;left:50%;margin:0 0 0 -45.5%}
+
+section:nth-child(11) .sec12b{position:absolute;width:86%;height:100%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_12b.png?v=201407291256) 0 0 no-repeat;background-size:100% auto;top:1%;left:50%;margin:0 0 0 -43%;text-indent:-9999px;
+-webkit-animation:tex_2b 2s linear 0.5s;
+-webkit-animation-fill-mode:both;
+-moz-animation:tex_2b 2s linear 0.5s both;
+animation:tex_2b 2s linear 0.5s both;}
+
+/*第十二屏*/
+section:nth-child(12){background:url(/assets/wxdgid/products/hjd5/images/sec_13.jpg) top no-repeat; background-size:100%;}
+
+section:nth-child(12) .card{position:absolute; width: 100%; height:100%;left:0;right:0;top:0;-webkit-transform-style:preserve-3d;-moz-transform-style:preserve-3d;-o-transform-style:preserve-3d;-ms-transform-style:preserve-3d;transform-style:preserve-3d}
+
+section:nth-child(12) .sec13a{position:absolute;width:70%; height:20%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_13a.png) center 0 no-repeat;background-size:100% auto;top:4%;left:50%;margin:0 0 0 -35%;text-indent:-9999px;}
+
+section:nth-child(12) .sec13b{position:absolute;width:70%;height:60%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_13b.png) center 0 no-repeat;background-size:100% auto;top:26%;left:50%;margin:0 0 0 -35%;text-indent:-9999px;
+-webkit-animation:tex_2bx 2s linear 0.5s;
+-webkit-animation-fill-mode:both;
+-moz-animation:tex_2bx 2s linear 0.5s both;
+animation:tex_2bx 2s linear 0.5s both;}
+
+section:nth-child(12) .sec13c{position:absolute;width:70%; height:25%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_13c.png) center 0 no-repeat;background-size:100% auto;top:86%;left:50%;margin:0 0 0 -35%;text-indent:-9999px;}
+
+/*section:nth-child(12) .secHand{position:absolute;width:12%;height:12%;overflow:hidden;-webkit-transform:rotate(-20deg);background:url(../images/hand.png) center 0 no-repeat;background-size:100% auto;top:44%;left:50%;margin:0 0 0 18%;text-indent:-9999px;
+-webkit-animation:sec_Hand 2s ease-in-out 2.5s infinite;
+-webkit-animation-fill-mode:both;
+-moz-animation:sec_Hand 2s linear 0.5s both;
+animation:sec_Hand 2s linear 0.5s both;}*/
+
+section:nth-child(12) .sec13e{position:absolute;width:70%;height:60%;overflow:hidden;background:url(/assets/wxdgid/products/hjd5/images/sec_13b.png) center 0 no-repeat;background-size:100% auto;top:27.2%;left:50%;margin:0 0 0 -35%;text-indent:-9999px;
+opacity:0;
+-webkit-animation:sec_HandBig 2s linear 0.5s infinite;
+-webkit-animation-fill-mode:both;
+-moz-animation:sec_HandBig 2s linear 0.5s both;
+animation:sec_HandBig 2s linear 0.5s both;}
+
+
+#share{ display:none; width:100%; height:100%;background:#000; opacity:.6; position:absolute; top:0; left:0;}
+#share i{ width:320px; height:142px;background:url(/assets/wxdgid/products/hjd5/images/sec_6.png?v=201407291256) right top no-repeat;background-size:320px auto; position:absolute; right:0;}
+
+
+/*section .start{position:absolute;width:27px;height:25px;background:url(../images/next.png) no-repeat;background-size:100%;left:50%;margin:0 0 0 -14px;bottom:30px;-webkit-animation:start 1.2s ease-in-out 4s infinite;-webkit-animation-fill-mode:both;-moz-animation:start 1.2s ease-in-out 4s infinite both;-o-animation:start 1.2s ease-in-out 4s infinite both;-ms-animation:start 1.2s ease-in-out 4s infinite both;animation:start 1.2s ease-in-out 4s infinite both}*/
+
+@media screen and (min-width: 360px){
+section:nth-child(3) i.ico_1{left:48%;}
+section:nth-child(3) i.ico_2{left:61%;}
+section:nth-child(3) i.ico_3{left:60%;}
+}
+
+@media only screen and (max-height: 480px){
+.card{zoom:.8}
+.create{zoom:.9}
+section:nth-child(5) .btn_right,section:nth-child(5) .btn_left{bottom:240px}
+}

@@ -1,0 +1,416 @@
+@charset "UTF-8";
+/* 数字id 2014.5.29 */
+
+body,div,article,section,header,footer,figure,p,time,ul,li,form,input,button,select,table,tr,th,td,h1,h2,h3,dl,dt,dd{
+    margin:0;
+    padding:0;
+    font-family: "微软雅黑",'HelveticaNeue',sans-serif; 
+}
+
+body{
+    font-size: 100%;
+    background: #ffffff;
+}
+
+img{width:100%;}
+ul,li{list-style:none;}
+input,button,input:focus,input:active{ outline:none;-webkit-appearance:none;}
+a:link,a:visited{text-decoration:none;}
+ul,li{list-style:none;}
+input,button{border:0 none;}
+input:focus, select:focus, input:active{ outline:none;}
+h1,h2,h3{font-weight:normal;}
+em{font-style:normal;}
+
+/*文本排列*/
+.txtc{text-align:center;}
+.txtr{text-align:right;}
+.txtr{text-align:left;}
+.pr{position: relative;}
+.fl{float: left;}
+.fr{float: right;}
+.clearfix:after{
+    content:"";
+    display:block;
+    clear:both;
+    height:0;
+    font-size:12px;
+}
+.white{ color: #fff !important;}
+.w{ color: #fff !important; font-size: 1em !important;}
+.gray{ color: #008149 !important;}
+.yellow{color:#f9c153;}
+/*边距*/
+.mar_t02{margin-top:0.2em;}
+.mar_t1{margin-top:1em;}
+.mar_t1e{margin-top:1em;}
+.mar_t15{margin-top:1.5em;}
+.mar_t2{margin-top:2em;}
+.mar_t3{margin-top:3em;}
+.mar_t4{margin-top:4em;}
+.mar_t10{margin-top:5em;}
+.pad_l15{padding-left:15px;}
+.skewY{
+    transform:skewY(-2deg);
+    -ms-transform:skewY(-2deg);     /* IE 9 */
+    -moz-transform:skewY(-2deg);    /* Firefox */
+    -webkit-transform:skewY(-2deg); /* Safari 和 Chrome */
+    -o-transform:skewY(-2deg); 
+}
+.skewY_0{
+    transform:skewY(2deg);
+    -ms-transform:skewY(2deg);  /* IE 9 */
+    -moz-transform:skewY(2deg);     /* Firefox */
+    -webkit-transform:skewY(2deg); /* Safari 和 Chrome */
+    -o-transform:skewY(2deg); 
+}
+#maskbg{position:absolute;width:100%;height:100%;background:black;filter:Alpha(opacity=60);opacity:0.6;top:0;left:0;z-index:20; display: none;}
+#wxtips{position:absolute;width:90%;height:172px;background:url('../images/re1/wxtips.png') right top no-repeat; background-size: 60% auto; right:10px;top:10px;z-index:22; display: none;}
+
+/* 遮罩层 */
+.mask{display:none;width:100%;height:100%;background-color:#000;position:absolute;top:0;left:0;-moz-opacity:0.6;	-khtml-opacity:0.6;opacity:0.6;	z-index:100;}
+.openNewBox_hb{
+	width:90%;
+	border-radius:8px;
+	display:none;
+	z-index:100001;
+	position:absolute;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	box-sizing:border-box;
+	background-color:#ebebeb/*;	-moz-opacity:0.8;-khtml-opacity:0.8;opacity:0.8;*/
+}
+.openNewBox_hb .blockCon{
+	padding:1.5em;
+	font-size:1em;
+	line-height:1.2em;
+}
+.openNewBox_hb .block_btn{color:#fff;text-align:center;width:90%;font-size:1.2em;background:url(../images/insur_green_btn76.png) repeat-x;border-radius:4px;cursor:pointer;margin:0 auto 1em auto;line-height:2em;}
+.openNewBox_hb a:hover.closeWinBtn{ text-decoration:none!important;}
+
+.botBar{
+	width:90%; 
+	margin:0 auto; 
+	padding-bottom:2em;
+}
+.userInfo{
+	width:90%;
+	margin:3em auto 0.5em;
+}
+.errorTxt{
+	width:90%;
+	margin:0 auto 2em;
+	text-align:center;
+	font-size:0.9em;
+	color:#ff610b;
+}
+.userInfo li{
+	padding-bottom:0.6em;
+}
+.infoInputxt{
+	height:2.2em;
+	line-height:2.2m;
+	width:64%;
+	background-color:#fff;
+	font-size:1em;
+	display:inline-block;
+	border:1px solid #d1d1d1;
+	padding:0 6px;
+	box-shadow:inset 2px 2px 2px rgba(204,204,204, 0.18);
+	box-sizing:border-box;
+}
+.infoItem{
+	display:inline-block;
+	width:32%;
+	height:1.8em;
+	line-height:1.8em;
+	color:#008149;
+	font-size:1em;
+}
+.rong1Box{
+	width:90%;
+	border-radius:6px;
+	display:none;
+	z-index:100001;
+	position:absolute;
+	box-sizing:border-box;
+	background:#fff;
+	background:-moz-linear-gradient(top, #89e8be 5%, #fff 40%);
+	background:-webkit-gradient(linear, left top, left bottom, form(#89e8be) 5%, to(#fff) 40%);
+	background:-webkit-linear-gradient(top, #89e8be 5%, #fff 40%);
+	background:linear-gradient(top, #89e8be 5%, #fff 40%);
+	
+}
+.closeBtn{
+	position:absolute;
+	right:0.6em;
+	top:0.6em;
+	width:26px;
+	height:auto;
+	cursor:pointer;
+}/* 蓉e一号弹层样式 */
+
+/*产品列表页*/
+.purplBg{
+	background-color:#403d6a;
+	background-image:url(../images/re1/dashed_bg.png);
+	background-size:1% auto;
+}
+.proListBox{
+	background-color:#403d6a;
+	color:#fff;
+	border-bottom:1px dotted #6e6b8e;
+}
+.proList{
+	width:90%;
+	margin:0 auto;
+}
+.proList li{
+	padding-bottom:2em;
+}
+.proList h2{
+	font-size:1em;
+}
+.proList h2 a{
+	font-size:1.2em;
+	color:#fff;
+	font-weight:normal;
+}
+.proInfos img{
+	width:40%;
+	float:left;
+	border:1px solid #d1d1d1;
+	max-width:232px;
+}
+.proInfos .proTxt{
+	width:50%;
+	float:left;
+	line-height:180%;
+	margin-top:-4px;
+	margin-left:4%;
+	font-size:1em;
+}
+.proTxt2{
+	line-height:180%;
+	margin-top:0.6em;
+	font-size:1em;
+}
+
+
+/*头图销售档期*/
+.salesNumberBox{position:absolute; top:66%; left:6%; z-index:100; font-size:1.05em;font-weight:bold;color:#952D0F;text-shadow:0.1px 0.1em 0.1em rgba(249, 188, 76, 0.8); }
+.salesNumberBox .salesNumber{font-family:"TradeGothicW01-BoldCn20 675334",Helvetica,Arial,sans-serif;/*font-size:2.2em!important;*/}
+
+
+/*专题图片*/
+.proBanner{ width: 100%; position:relative;}
+.proBanner img{ display: block; max-width: 100%;}
+.proBanner .sellover_red{display: block; z-index:10; position:absolute; top:0.3em; right:0.2em; width: 45%; height:100%; background: url(../images/re1/sellover_red.png) top center no-repeat; background-size: 100% auto;}
+.buy{position: absolute; bottom: 1em; right: 5%; width: 168px; height: 66px; background: url(../images/re1/buy_icon_168x66.png);}
+.buy a{ display: block; width: 168px; height: 49px; line-height: 49px; text-align: center; font-size: 20px; font-weight: bold; color: #fff;}
+.buy_blue{position: absolute; bottom: 10px; left: 136px; width: 87px; height: 25px;}
+.buy_blue a{ display: block; width: 87px; height: 25px; line-height: 25px; text-align: center; font-size: 20px; font-weight: bold; color: #fff; background: url(../images/re1/btn_bg.gif);}
+.buy_num{position: absolute; bottom: 10px; left: 0; width: 135px; height: 25px; font-size: 0.8em; line-height: 25px; color: #fff; font-weight: bold; vertical-align: middle; text-align: center; background: #fd8f1e;}
+.buy_num span{color:#fcff00; }
+.buy_num a{color:#fff; }
+.buy_num .pic1{display: inline-block; width: 5px; height: 5px; vertical-align: middle; margin-right:4px;}
+.buy_num .pic2{display: inline-block; width: 10px; height: 9px; vertical-align: middle; margin-right:4px;}
+#heart{position: absolute; z-index: 20; bottom:-50px; left: -30px; width: 300px; height: 300px;background:url('../images/heart.png') center bottom no-repeat; background-size: 0%; opacity: 0; display: none;}
+
+/*专题标题*/
+.proTitle{ width: 100%; margin: 0 0 1em; top:-4px;}
+.proTitle h1{ position: absolute; bottom:30%; left: 0.5em; font-size: 2em; color: #1b9e65; text-align: left; font-weight: bold;}
+.proTitle h1 span{ font-size: 0.7em; font-weight: normal;}
+.proTitle p{ position: absolute; bottom:40%; right: 5%; font-size: 1.2em; color: #1b9e65; text-align: right;}
+
+/*保险介绍*/
+.probg{ padding-bottom: 2em; background: url(../images/re1/bg_blue_4x4.gif);}
+.proBox{ width: 90%; padding: 0.8em 0 ; margin-right: auto; margin-left: auto; border: #007130 dashed 1px; background: #faf48c;}
+.proBox span.num{ display: block; position: absolute; top:-1px; left: 2%; width: 8%;}
+.proBox span.num img{ display: block; max-width: 100%;}
+.proBox h2{ padding: 0 0 0 3em; margin-bottom: 0.4em; text-align: left; font-size: 2em; color: #208edd; font-weight: bold; }
+.proBox p{ padding: 0 1em 0 6em; text-align: left; font-size: 1em; line-height: 1.5em; color: #208edd; }
+.proBox p span{ color: #ff0000; font-weight: bold; }
+.proBox p.more{ padding: 0 1em 0 6em; text-align: right; font-size: 1em; line-height: 1.5em; color: #fffc01; }
+.proBox p.more a{ color: #fffc01; }
+.proBox_img{ display: block; width: 100%; max-width: 450px; margin-bottom: 1em; }
+.proBox .sbox{ margin: 1em 1em 0 6em; background: #149e62;}
+.proBox .sbox p{ padding: 3em 2em 2em 2em; text-align: left; font-size: 0.8em; line-height: 1.8em;}
+.proBox .sbox p span{ display: block; padding-left: 4em; text-indent: -3em;}
+.proBox .sbox h5{ display: block; position: absolute; top:-35px; left: -8px; width: 100px;}
+.proBox .sbox h5 img{ display: block; max-width: 100%;}
+
+/*保险流程*/
+.procedure{ width: 100%; margin-bottom: 70px; background: url(../images/re1/bg_green_4x4.gif);}
+.procedure_b{ position: absolute; bottom: -25px; left: 0; z-index: 1; height: 50px; width: 100%; background:url(../images/re1/bg_green_4x4.gif);}
+.procedureBox{ z-index: 99; width: 90%; margin: 0 auto;padding: 1px 0 0 0; background: url(../images/re1/icon_pro.png) left top no-repeat; background-size: auto 100%;}
+.procedureBox h2{ position: relative; margin-bottom: 0.2em; text-align: left; font-size: 1.8em; color: #ffe139; font-weight: bolder; }
+.procedureBox h2 span{ position: absolute; display: block; }
+.procedureBox h2 span.p01{ top:-15px; left: 10px; }
+.procedureBox h2 span.p02{ top:-15px; left: -20px; }
+.procedureBox h2 span.p03{ top:-15px; left: 0; }
+.procedureBox h2 span.p04{ top:-15px; left: 20px; }
+.procedureBox h2 span img{ display: block; max-width: 74px; }
+.procedureBox p{ text-align: left; font-size: 1.2em; color: #fff; height: 150px; }
+.procedureBox .t01{padding: 0 1em 0 130px;}
+.procedureBox .t02{padding: 0 1em 0 100px;}
+.procedureBox .t03{padding: 0 1em 0 130px;}
+.procedureBox .t04{padding: 0 1em 0 150px;}
+.procedureBox .h0{height: 210px; }
+.procedureBox .mt50{margin-top:50px; }
+.procedureBox .mt70{margin-top:80px; }
+.procedureBox table{border-top:#ffcc01 solid 1px;border-left:#ffcc01 solid 1px; width: 360px; margin: 10px 0 0 160px; border-spacing:0;}
+.procedureBox table th, .procedureBox table td{border-bottom:#ffcc01 solid 1px;border-right:#ffcc01 solid 1px; line-height: 39px; text-align: left; padding: 0 10px;}
+.procedureBox table th{background: #fdedad;}
+.procedureBox table td{background: #fff;}
+
+/*按钮*/
+.btnBox{ width: 90%; margin-left: auto; margin-right: auto; }
+.btnBox img{ display: block; width: 100%; }
+.btnBox .sbtn{ width: 45%; }
+
+
+/*客服电话*/
+.telBox{ width:90%; margin: 0 auto; padding: 1em 0 2em; text-align: center; font-size: 1em; color: #008149; box-sizing:border-box; }
+.telBox img{ max-width: 49px; margin-right: 1em; vertical-align: middle; }
+
+
+@media screen and (min-width:320px) and (max-width:599px){
+
+.mar_t1{margin-top:0.6em;}
+
+.buy_blue a{  font-size: 14px; }
+
+.proTitle h1{bottom:30%; font-size: 1.1em; }
+.proTitle h1 span{ font-size: 0.7em;}
+.proTitle p{  font-size: 0.7em; }
+
+/*保险介绍*/
+.proBox span.num{ left: 2%; width: 12%;}
+.proBox h2{ padding: 0 0 0 18%; font-size: 1.1em;}
+.proBox p{ padding: 0 1em 0 18%; font-size: 0.8em; }
+.proBox p a{ font-size: 0.7em; }
+.proBox .sbox{ margin: 1em 1em 0 8%; background: #149e62;}
+.proBox .sbox p{ padding: 2em 1em 1em 1em; text-align: left; font-size: 0.7em; line-height: 1.8em;}
+.proBox .sbox h5{ display: block; position: absolute; top:-35px; left: -8px; width: 80px;}
+
+/*保险流程*/
+.procedure_b{ position: absolute; bottom: -40px; left: 0; z-index: 1; height: 50px; width: 100%;}
+.procedureBox{ z-index: 99; width: 90%; margin: 0 auto;padding: 1px 0 0 0; background: url(../images/re1/icon_pro.png) left top no-repeat; background-size: auto 100%;}
+.procedureBox h2{ font-size: 1.2em; }
+.procedureBox h2 span{ position: absolute; display: block; }
+.procedureBox h2 span.p01{ top:-8px; left: 10px; }
+.procedureBox h2 span.p02{ top:-8px; left: -5px; }
+.procedureBox h2 span.p03{ top:-8px; left: 0; }
+.procedureBox h2 span.p04{ top:-8px; left: 10px; }
+.procedureBox h2 span img{ display: block; max-width: 37px; }
+.procedureBox p{ font-size: 0.8em; height: 72px; }
+.procedureBox .t01{padding: 0 1em 0 70px; }
+.procedureBox .t02{padding: 0 1em 0 50px;}
+.procedureBox .t03{padding: 0 1em 0 60px;}
+.procedureBox .t04{padding: 0 1em 0 70px;}
+.procedureBox .h0{height: 110px; }
+.procedureBox .mt50{margin-top:20px; }
+.procedureBox .mt70{margin-top:25px; }
+.procedureBox table{ margin: 10px 0 0 60px; width: 220px; }
+.procedureBox table th, .procedureBox table td{ line-height: 20px; padding: 0 5px; font-size: 0.5em}
+
+/*客服电话*/
+.telBox{ width:280px; margin:0 auto; font-size: 1.2em;}
+.telBox img{ max-width: 30px; }
+
+}
+
+@media screen and (max-width:320px){
+/* 产品列表页 */
+.proList h2{
+	font-size:1em;
+}
+.proList h2 a{
+	font-size:1.1em;
+	color:#fff;
+	font-weight:normal;
+}
+.proInfos img{
+	width:40%;
+	float:left;
+	border:1px solid #d1d1d1;
+	max-width:232px;
+}
+.proInfos .proTxt{
+	width:50%;
+	float:left;
+	line-height:190%;
+	margin-top:-4px;
+	margin-left:4%;
+	font-size:0.8em;
+}
+.proTxt2{
+	line-height:180%;
+	margin-top:0.6em;
+	font-size:0.8em;
+}
+}
+
+@media screen and (min-width:600px){
+.telBox{ width:360px; margin: 0 auto; padding: 1em 0 2em; text-align: center; font-size: 1.4em; color: #008149; box-sizing:border-box; }
+.telBox img{ max-width: 49px; margin-right: 1em; vertical-align: middle; }
+
+.mar_t1e{margin-top:1.5em;}
+.proBox p a{ font-size: 0.8em; }
+
+.proTitle{ width: 100%; margin: 0 0 1em; top:-6px;}
+
+.buy_blue{position: absolute; bottom: 15px; left: 253px; width: 175px; height: 50px;}
+.buy_blue a{ display: block; width: 175px; height: 50px; line-height: 50px; font-size: 1.2em; }
+.buy_num{ bottom: 15px; width: 252px; height: 50px; font-size: 1.2em; line-height: 50px; }
+.buy_num .pic1{ width: 9px; height: 10px; margin-right:4px;}
+.buy_num .pic2{width: 20px; height: 18px; margin-right:4px;}
+/*头图销售档期*/
+.salesNumberBox{ position:absolute; top:66%; left:6%; z-index:100; font-size:3em; }
+.salesNumberBox .salesNumber{font-family: "TradeGothicW01-BoldCn20 675334",Helvetica,Arial,sans-serif;/*font-size:2.8em!important;*/}
+
+/* 产品列表页 */
+.proList h2 a{
+	font-size:1.4em;
+}
+.proInfos .proTxt{
+	font-size:1.2em;
+	line-height:220%;
+	margin-top:-8px;
+}
+.proTxt2{
+	line-height:180%;
+	margin-top:0.6em;
+	font-size:1.2em;
+}
+
+
+}
+
+@media screen and (min-width:768px) and (max-width:1024px),screen and (min-width:1024px){
+
+.proTitle{ width: 100%; margin: 0 0 1em; top:-7px;}
+
+.buy_blue{position: absolute; bottom: 30px; left: 253px; width: 175px; height: 50px;}
+.buy_blue a{ display: block; width: 175px; height: 50px; line-height: 50px; font-size: 1.2em; }
+.buy_num{ bottom: 30px; width: 252px; height: 50px; font-size: 1.2em; line-height: 50px; }
+.buy_num .pic1{ width: 9px; height: 10px; margin-right:4px;}
+.buy_num .pic2{width: 20px; height: 18px; margin-right:4px;}
+
+.mar_t1e{margin-top:2em;}
+.proTitle h1{  top:25%; font-size: 2.5em; }
+.proBox{ padding: 2em 0 ; }
+.proBox span.num{ display: block; position: absolute; top:-1px; left: 2%; width: 7%;}
+.proBox .sbox p{ padding: 3em 2em 2em 2em; text-align: left; font-size: 1em; line-height: 1.8em;}
+.proBox .sbox h5{ display: block; position: absolute; top:-35px; left: -8px; width: 100px;}
+
+.procedureBox .mt{margin-top:140px; }
+.procedureBox .mt50{margin-top:50px; }
+.procedureBox .mt70{margin-top:80px; }
+.procedureBox .mt90{margin-top:120px; }
+/*头图销售档期*/
+.salesNumberBox{ position:absolute; top:66%; left:6%; z-index:100; font-size:2em;}
+.salesNumberBox .salesNumber{font-family: "TradeGothicW01-BoldCn20 675334",Helvetica,Arial,sans-serif;/*font-size:2.8em!important;*/}
+
+}

@@ -1,0 +1,167 @@
+@charset "UTF-8";
+html,body{padding:0;margin:0;width:100%;height:100%;background-color:#ccc;font-size:16px;font-family: "微软雅黑",'HelveticaNeue',sans-serif;}
+@-webkit-keyframes start{
+	0%{opacity:0;-webkit-transform:translate(0, -15px)}
+	50%{opacity:1;-webkit-transform:translate(0, -5px)}
+	100%{opacity:0;-webkit-transform:translate(0, 10px)}
+}
+@-moz-keyframes start{
+	0%{opacity:0;-moz-transform:translate(0, -15px)}
+	50%{opacity:1;-moz-transform:translate(0, -5px)}
+	100%{opacity:0;-moz-transform:translate(0, 10px)}
+}
+@-o-keyframes start{
+	0%{opacity:0;-o-transform:translate(0, -15px)}
+	50%{opacity:1;-o-transform:translate(0, -5px)}
+	100%{opacity:0;-o-transform:translate(0, 10px)}
+}
+@-ms-keyframes start{
+	0%{opacity:0;-ms-transform:translate(0, -15px)}
+	50%{opacity:1;-ms-transform:translate(0, -5px)}
+	100%{opacity:0;-ms-transform:translate(0, 10px)}
+}
+@keyframes start{
+	0%{opacity:0;transform:translate(0, -15px)}
+	50%{opacity:1;transform:translate(0, -5px)}
+	100%{opacity:0;transform:translate(0, 10px)}
+}
+
+@-webkit-keyframes dnone{100%{opacity:0}}
+@-moz-keyframes dnone{100%{opacity:0}}
+@-o-keyframes dnone{100%{opacity:0}}
+@-ms-keyframes dnone{100%{opacity:0}}
+@keyframes dnone{100%{opacity:0}}
+
+@-webkit-keyframes tleft{0%{-webkit-transform:translate3d(150%, 0, 0);opacity:0}70%{-webkit-transform:translate3d(-10%, 0, 0);opacity:1}100%{-webkit-transform:translate3d(0, 0%, 0);opacity:1}}
+@-moz-keyframes tleft{0%{-moz-transform:translate3d(150%, 0, 0);opacity:0}70%{-moz-transform:translate3d(-10%, 0, 0);opacity:1}100%{-moz-transform:translate3d(0, 0%, 0);opacity:1}}
+@-o-keyframes tleft{0%{-o-transform:translate3d(150%, 0, 0);opacity:0}70%{-o-transform:translate3d(-10%, 0, 0);opacity:1}100%{-o-transform:translate3d(0, 0%, 0);opacity:1}}
+@-ms-keyframes tleft{0%{-ms-transform:translate3d(150%, 0, 0);opacity:0}70%{-ms-transform:translate3d(-10%, 0, 0);opacity:1}100%{-ms-transform:translate3d(0, 0%, 0);opacity:1}}
+@keyframes tleft{0%{transform:translate3d(150%, 0, 0);opacity:0}70%{transform:translate3d(-10%, 0, 0);opacity:1}100%{transform:translate3d(0, 0%, 0);opacity:1}}
+
+@-webkit-keyframes tright{0%{-webkit-transform:translate3d(-150%, 0, 0);opacity:0}70%{-webkit-transform:translate3d(10%, 0, 0);opacity:1}100%{-webkit-transform:translate3d(0, 0%, 0);opacity:1}}
+@-moz-keyframes tright{0%{-moz-transform:translate3d(-150%, 0, 0);opacity:0}70%{-moz-transform:translate3d(10%, 0, 0);opacity:1}100%{-moz-transform:translate3d(0, 0%, 0);opacity:1}}
+@-o-keyframes tright{0%{-o-transform:translate3d(-150%, 0, 0);opacity:0}70%{-o-transform:translate3d(10%, 0, 0);opacity:1}100%{-o-transform:translate3d(0, 0%, 0);opacity:1}}
+@-ms-keyframes tright{0%{-ms-transform:translate3d(-150%, 0, 0);opacity:0}70%{-ms-transform:translate3d(10%, 0, 0);opacity:1}100%{-ms-transform:translate3d(0, 0%, 0);opacity:1}}
+@keyframes tright{0%{transform:translate3d(-150%, 0, 0);opacity:0}70%{transform:translate3d(10%, 0, 0);opacity:1}100%{transform:translate3d(0, 0%, 0);opacity:1}}
+
+@-webkit-keyframes fadein{0%{opacity:0}100%{opacity:1}}
+@-moz-keyframes fadein{0%{opacity:0}100%{opacity:1}}
+@-o-keyframes fadein{0%{opacity:0}100%{opacity:1}}
+@-ms-keyframes fadein{0%{opacity:0}100%{opacity:1}}
+@keyframes fadein{0%{opacity:0}100%{opacity:1}}
+
+@-webkit-keyframes loading{0%{-webkit-transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg)}}
+@-moz-keyframes loading{0%{-moz-transform:rotate(0deg)}100%{-moz-transform:rotate(360deg)}}
+@-o-keyframes loading{0%{-o-transform:rotate(0deg)}100%{-o-transform:rotate(360deg)}}
+@-ms-keyframes loading{0%{-ms-transform:rotate(0deg)}100%{-ms-transform:rotate(360deg)}}
+@keyframes loading{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+
+@-webkit-keyframes scard{0%{-webkit-transform:rotate3d(1, 0, 0, 90deg)}100%{-webkit-transform:rotate3d(1, 0, 0, 0)}}
+@-moz-keyframes scard{0%{-moz-transform:rotate3d(1, 0, 0, 90deg)}100%{-moz-transform:rotate3d(1, 0, 0, 0)}}
+@-o-keyframes scard{0%{-o-transform:rotate3d(1, 0, 0, 90deg)}100%{-o-transform:rotate3d(1, 0, 0, 0)}}
+@-ms-keyframes scard{0%{-ms-transform:rotate3d(1, 0, 0, 90deg)}100%{-ms-transform:rotate3d(1, 0, 0, 0)}}
+@keyframes scard{0%{transform:rotate3d(1, 0, 0, 90deg)}100%{transform:rotate3d(1, 0, 0, 0)}}
+
+@-webkit-keyframes ocard{0%{-webkit-transform:rotate3d(0, 1, 0, 45deg)}100%{-webkit-transform:rotate3d(0, 1, 0, 0)}}
+@-moz-keyframes ocard{0%{-moz-transform:rotate3d(0, 1, 0, 45deg)}100%{-moz-transform:rotate3d(0, 1, 0, 0)}}
+@-o-keyframes ocard{0%{-o-transform:rotate3d(0, 1, 0, 45deg)}100%{-o-transform:rotate3d(0, 1, 0, 0)}}
+@-ms-keyframes ocard{0%{-ms-transform:rotate3d(0, 1, 0, 45deg)}100%{-ms-transform:rotate3d(0, 1, 0, 0)}}
+@keyframes ocard{0%{transform:rotate3d(0, 1, 0, 45deg)}100%{transform:rotate3d(0, 1, 0, 0)}}
+
+#u-globalAudio{color:#666;text-decoration:none;font-size:24px;position:fixed;right:10px;top:10px;display:block;z-index:9999}
+#u-globalAudio span{position:absolute;left:-60px;top:10px;text-shadow:1px 1px 1px #000;letter-spacing:2px;-webkit-transition:all .2s linear;opacity:0;-webkit-transform:translateX(-20px)}
+#u-globalAudio .icon-music{width:30px;height:30px;background:url(/assets/wxdgid/products/ywsh/dyn_images/units-icons.png) 0 0; background-size: 100%; display:block;-webkit-tap-highlight-color: transparent;-webkit-touch-callout: none;-webkit-user-select: none;}
+#u-globalAudio.z-play .icon-music{-webkit-animation:reverseRotataZ 1.2s linear infinite}
+#u-globalAudio span.z-show{opacity:1;-webkit-transform:translateX(0px)}
+#u-globalAudio .coffee-steam-box{-webkit-transform:translate(-40px,-40px)}
+
+@-webkit-keyframes reverseRotataZ{0%{-webkit-transform:rotateZ(0deg)}100%{-webkit-transform:rotateZ(-360deg)}}
+
+.ttbg{position:absolute;width:100%;height:100%;overflow:hidden; background: url(/assets/wxdgid/products/ywsh/dyn_images/bg.jpg); background-size:100%;}
+.wrapper{position:relative;width:100%;height:100%;overflow:hidden;}
+
+section{position:relative;width:100%;height:100%;overflow:hidden;-webkit-perspective:500px;-moz-perspective:500px;-o-perspective:500px;-ms-perspective:500px;perspective:500px}
+
+/*第一屏*/
+
+section:nth-child(1){ z-index: 99;}
+section:nth-child(1) ul{margin:0;padding:0;list-style:none;position:absolute;left:0;top:0;width:100%;height:100%;}
+
+section:nth-child(1) ul li{ margin:0;padding:0;position:absolute;left:0;top:0;width:100%;height:100%;overflow:hidden}
+
+section:nth-child(1) ul li:nth-child(1){left:0%}
+section:nth-child(1) ul li:nth-child(2){left:100%}
+section:nth-child(1) ul li:nth-child(3){left:200%}
+section:nth-child(1) ul li:nth-child(4){left:300%}
+section:nth-child(1) ul li:nth-child(5){left:400%}
+section:nth-child(1) ul li:nth-child(6){left:500%}
+section:nth-child(1) ul li:nth-child(7){left:600%}
+
+section:nth-child(1) .card{position:absolute;height:100%;width: 100%;}
+.dpage{position:absolute; bottom: 3.5rem; left: 0; height:1rem; width: 100%; text-align: center;}
+.dpage p{ display:inline-block; width:1rem; height:1rem; overflow:hidden; margin:0 6px; border-bottom: #fff solid 2px;    }
+.dpage p.on{ background:url(/assets/wxdgid/products/ywsh/dyn_images/icon.png) center no-repeat; background-size: auto 80%; }
+#lp{z-index: 0; position:absolute; top:10%; left: -73%; width:80%; height:70%; overflow:hidden;-webkit-transform:rotate3d(0, 1, 0, 45deg);-o-transform:rotate3d(0, 1, 0, -45deg);-moz-transform:rotate3d(0, 1, 0, -45deg);transform:rotate3d(0, 1, 0, -45deg); }
+#rp{z-index: 0; position:absolute; top:10%; right: -73%; width:80%; height:70%; overflow:hidden;-webkit-transform:rotate3d(0, 1, 0, -45deg);-o-transform:rotate3d(0, 1, 0, -45deg);-moz-transform:rotate3d(0, 1, 0, -45deg);transform:rotate3d(0, 1, 0, -45deg); }
+#lp p, #rp p{ position:absolute; top: -10%; left: 0; width:100%; height:120%; opacity: 0.5; background: #000; }
+.bg1{ background: url(/assets/wxdgid/products/ywsh/dyn_images/bg_page1.jpg) top center no-repeat; background-size: 100% 100%; }
+.bg2{ background: url(/assets/wxdgid/products/ywsh/dyn_images/bg_page2.jpg) top center no-repeat; background-size: 100% 100%; }
+.bg3{ background: url(/assets/wxdgid/products/ywsh/dyn_images/bg_page3.jpg) top center no-repeat; background-size: 100% 100%; }
+.bg4{ background: url(/assets/wxdgid/products/ywsh/dyn_images/bg_page4.jpg) top center no-repeat; background-size: 100% 100%; }
+.bg5{ background: url(/assets/wxdgid/products/ywsh/dyn_images/bg_page5.jpg) top center no-repeat; background-size: 100% 100%; }
+.bg6{ background: url(/assets/wxdgid/products/ywsh/dyn_images/bg_page6.jpg) top center no-repeat; background-size: 100% 100%; }
+.bg7{ background: url(/assets/wxdgid/products/ywsh/dyn_images/bg_page7.jpg) top center no-repeat; background-size: 100% 100%; }
+
+section:nth-child(1) li:nth-child(1) .bg{ z-index: 100; position:absolute; overflow:hidden; background:#ccc; top:30px; bottom: 5rem; left:10%; right: 10%; margin:0 ; background: url(/assets/wxdgid/products/ywsh/dyn_images/bg_page1.jpg) top center no-repeat; background-size: 100% 100%; border-radius: 2px; /*-webkit-animation:ocard 0.3s linear 0s;-webkit-animation-fill-mode:both;-moz-animation:ocard 0.3s linear 0s both;-o-animation:ocard 0.3s linear 0s both;-ms-animation:ocard 0.3s linear 0s both;animation:ocard 0.3s linear 0s both;*/}
+section:nth-child(1) li:nth-child(1) .tit{position:absolute;width:100%;height:6%;overflow:hidden;background:#ccc; bottom:40%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_tit1.png) top center no-repeat; background-size: auto 100%; -webkit-animation:fadein 0.5s linear 0.5s;-webkit-animation-fill-mode:both;-moz-animation:fadein 0.5s linear 0.5s both;-o-animation:fadein 0.5s linear 0.5s both;-ms-animation:fadein 0.5s linear 0.5s both;animation:fadein 0.5s linear 0.5s both;}
+section:nth-child(1) li:nth-child(1) .txt1{position:absolute;width:100%;height:5%;overflow:hidden;background:#ccc; bottom:31%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt1_1.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 1.5s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 1.5s both;-o-animation:scard 0.3s linear 1.5s both;-ms-animation:scard 0.3s linear 1.5s both;animation:scard 0.3s linear 1.5s both;}
+section:nth-child(1) li:nth-child(1) .txt2{position:absolute;width:100%;height:5%;overflow:hidden;background:#ccc; bottom:23%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt1_2.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 2s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 2s both;-o-animation:scard 0.3s linear 2s both;-ms-animation:scard 0.3s linear 2s both;animation:scard 0.3s linear 2s both;}
+section:nth-child(1) li:nth-child(1) .txt3{position:absolute;width:100%;height:5%;overflow:hidden;background:#ccc; bottom:15%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt1_3.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 2.5s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 2.5s both;-o-animation:scard 0.3s linear 2.5s both;-ms-animation:scard 0.3s linear 2.5s both;animation:scard 0.3s linear 2.5s both;}
+section:nth-child(1) li:nth-child(1) .txt4{position:absolute;width:100%;height:5%;overflow:hidden;background:#ccc; bottom:7%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt1_4.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 3s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 3s both;-o-animation:scard 0.3s linear 3s both;-ms-animation:scard 0.3s linear 3s both;animation:scard 0.3s linear 3s both;}
+
+section:nth-child(1) li:nth-child(2) .bg{ z-index: 100;position:absolute;width:80%;overflow:hidden;background:#ccc; top:30px; bottom: 5rem; left:10%;margin:0 ; background: url(/assets/wxdgid/products/ywsh/dyn_images/bg_page2.jpg) top center no-repeat; background-size: 100% 100%; border-radius: 2px;/* -webkit-animation:ocard 0.3s linear 0s;-webkit-animation-fill-mode:both;-moz-animation:ocard 0.3s linear 0s both;-o-animation:ocard 0.3s linear 0s both;-ms-animation:ocard 0.3s linear 0s both;animation:ocard 0.3s linear 0s both;*/}
+section:nth-child(1) li:nth-child(2) .tit{position:absolute;width:100%;height:4%;overflow:hidden;background:#ccc; top:4%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_tit2.png) top center no-repeat; background-size: auto 100%; -webkit-animation:fadein 0.5s linear 0.5s;-webkit-animation-fill-mode:both;-moz-animation:fadein 0.5s linear 0.5s both;-o-animation:fadein 0.5s linear 0.5s both;-ms-animation:fadein 0.5s linear 0.5s both;animation:fadein 0.5s linear 0.5s both;}
+section:nth-child(1) li:nth-child(2) .txt1{position:absolute;width:100%;height:4%;overflow:hidden;background:#ccc; top:11%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt2_1.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 1.5s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 1.5s both;-o-animation:scard 0.3s linear 1.5s both;-ms-animation:scard 0.3s linear 1.5s both;animation:scard 0.3s linear 1.5s both;}
+section:nth-child(1) li:nth-child(2) .txt2{position:absolute;width:100%;height:4%;overflow:hidden;background:#ccc; top:17%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt2_2.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 2s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 2s both;-o-animation:scard 0.3s linear 2s both;-ms-animation:scard 0.3s linear 2s both;animation:scard 0.3s linear 2s both;}
+
+section:nth-child(1) li:nth-child(3) .bg{ z-index: 100;position:absolute;width:80%;overflow:hidden;background:#ccc; top:30px; bottom: 5rem; left:10%;margin:0 ; background: url(/assets/wxdgid/products/ywsh/dyn_images/bg_page3.jpg) top center no-repeat; background-size: 100% 100%; border-radius: 2px;}
+section:nth-child(1) li:nth-child(3) .tit{position:absolute;width:100%;height:6%;overflow:hidden;background:#ccc; top:9%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_tit3.png) top center no-repeat; background-size: auto 100%; -webkit-animation:fadein 0.5s linear 0.5s;-webkit-animation-fill-mode:both;-moz-animation:fadein 0.5s linear 0.5s both;-o-animation:fadein 0.5s linear 0.5s both;-ms-animation:fadein 0.5s linear 0.5s both;animation:fadein 0.5s linear 0.5s both;}
+section:nth-child(1) li:nth-child(3) .txt1{position:absolute;width:100%;height:5%;overflow:hidden;background:#ccc; top:21%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt3_1.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 1.5s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 1.5s both;-o-animation:scard 0.3s linear 1.5s both;-ms-animation:scard 0.3s linear 1.5s both;animation:scard 0.3s linear 1.5s both;}
+section:nth-child(1) li:nth-child(3) .txt2{position:absolute;width:100%;height:5%;overflow:hidden;background:#ccc; top:28%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt3_2.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 2s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 2s both;-o-animation:scard 0.3s linear 2s both;-ms-animation:scard 0.3s linear 2s both;animation:scard 0.3s linear 2s both;}
+section:nth-child(1) li:nth-child(3) .txt3{position:absolute;width:100%;height:5%;overflow:hidden;background:#ccc; top:35%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt3_3.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 2.5s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 2.5s both;-o-animation:scard 0.3s linear 2.5s both;-ms-animation:scard 0.3s linear 2.5s both;animation:scard 0.3s linear 2.5s both;}
+section:nth-child(1) li:nth-child(3) .txt4{position:absolute;width:100%;height:5%;overflow:hidden;background:#ccc; top:42%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt3_4.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 3s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 3s both;-o-animation:scard 0.3s linear 3s both;-ms-animation:scard 0.3s linear 3s both;animation:scard 0.3s linear 3s both;}
+
+section:nth-child(1) li:nth-child(4) .bg{ z-index: 100;position:absolute;width:80%;overflow:hidden;background:#ccc; top:30px; bottom: 5rem; left:10%;margin:0 ; background: url(/assets/wxdgid/products/ywsh/dyn_images/bg_page4.jpg) top center no-repeat; background-size: 100% 100%; border-radius: 2px;}
+section:nth-child(1) li:nth-child(4) .tit{position:absolute;width:100%;height:6%;overflow:hidden;background:#ccc; bottom:30%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_tit4.png) top center no-repeat; background-size: auto 100%; -webkit-animation:fadein 0.5s linear 0.5s;-webkit-animation-fill-mode:both;-moz-animation:fadein 0.5s linear 0.5s both;-o-animation:fadein 0.5s linear 0.5s both;-ms-animation:fadein 0.5s linear 0.5s both;animation:fadein 0.5s linear 0.5s both;}
+section:nth-child(1) li:nth-child(4) .txt1{position:absolute;width:100%;height:5%;overflow:hidden;background:#ccc; bottom:20%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt4_1.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 1.5s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 1.5s both;-o-animation:scard 0.3s linear 1.5s both;-ms-animation:scard 0.3s linear 1.5s both;animation:scard 0.3s linear 1.5s both;}
+section:nth-child(1) li:nth-child(4) .txt2{position:absolute;width:100%;height:5%;overflow:hidden;background:#ccc; bottom:13%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt4_2.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 2s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 2s both;-o-animation:scard 0.3s linear 2s both;-ms-animation:scard 0.3s linear 2s both;animation:scard 0.3s linear 2s both;}
+
+section:nth-child(1) li:nth-child(5) .bg{ z-index: 100;position:absolute;width:80%;overflow:hidden;background:#ccc; top:30px; bottom: 5rem; left:10%;margin:0 ; background: url(/assets/wxdgid/products/ywsh/dyn_images/bg_page5.jpg) top center no-repeat; background-size: 100% 100%; border-radius: 2px;}
+section:nth-child(1) li:nth-child(5) .tit{position:absolute;width:100%;height:6%;overflow:hidden;background:#ccc; bottom:34%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_tit5.png) top center no-repeat; background-size: auto 100%; -webkit-animation:fadein 0.5s linear 0.5s;-webkit-animation-fill-mode:both;-moz-animation:fadein 0.5s linear 0.5s both;-o-animation:fadein 0.5s linear 0.5s both;-ms-animation:fadein 0.5s linear 0.5s both;animation:fadein 0.5s linear 0.5s both;}
+section:nth-child(1) li:nth-child(5) .txt1{position:absolute;width:100%;height:5%;overflow:hidden;background:#ccc; bottom:24%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt5_1.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 1.5s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 1.5s both;-o-animation:scard 0.3s linear 1.5s both;-ms-animation:scard 0.3s linear 1.5s both;animation:scard 0.3s linear 1.5s both;}
+section:nth-child(1) li:nth-child(5) .txt2{position:absolute;width:100%;height:5%;overflow:hidden;background:#ccc; bottom:17%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt5_2.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 2s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 2s both;-o-animation:scard 0.3s linear 2s both;-ms-animation:scard 0.3s linear 2s both;animation:scard 0.3s linear 2s both;}
+section:nth-child(1) li:nth-child(5) .txt3{position:absolute;width:100%;height:5%;overflow:hidden;background:#ccc; bottom:10%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt5_3.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 2.5s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 2.5s both;-o-animation:scard 0.3s linear 2.5s both;-ms-animation:scard 0.3s linear 2.5s both;animation:scard 0.3s linear 2.5s both;}
+
+section:nth-child(1) li:nth-child(6) .bg{ z-index: 100;position:absolute;width:80%;overflow:hidden;background:#ccc; top:30px; bottom: 5rem; left:10%;margin:0 ; background:#fd860e url(/assets/wxdgid/products/ywsh/dyn_images/bg_page6.jpg) top center no-repeat; background-size: 100% 100%; border-radius: 2px;}
+section:nth-child(1) li:nth-child(6) .tit{position:absolute;width:100%;height:5%;overflow:hidden;background:#ccc; bottom:33%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_tit6.png) top center no-repeat; background-size: auto 100%; -webkit-animation:fadein 0.5s linear 0.5s;-webkit-animation-fill-mode:both;-moz-animation:fadein 0.5s linear 0.5s both;-o-animation:fadein 0.5s linear 0.5s both;-ms-animation:fadein 0.5s linear 0.5s both;animation:fadein 0.5s linear 0.5s both;}
+section:nth-child(1) li:nth-child(6) .txt1{position:absolute;width:100%;height:4%;overflow:hidden;background:#ccc; bottom:25%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt6_1.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 1.5s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 1.5s both;-o-animation:scard 0.3s linear 1.5s both;-ms-animation:scard 0.3s linear 1.5s both;animation:scard 0.3s linear 1.5s both;}
+section:nth-child(1) li:nth-child(6) .txt2{position:absolute;width:100%;height:4%;overflow:hidden;background:#ccc; bottom:19%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt6_2.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 2s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 2s both;-o-animation:scard 0.3s linear 2s both;-ms-animation:scard 0.3s linear 2s both;animation:scard 0.3s linear 2s both;}
+section:nth-child(1) li:nth-child(6) .txt3{position:absolute;width:100%;height:4%;overflow:hidden;background:#ccc; bottom:12%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt6_3.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 2.5s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 2.5s both;-o-animation:scard 0.3s linear 2.5s both;-ms-animation:scard 0.3s linear 2.5s both;animation:scard 0.3s linear 2.5s both;}
+section:nth-child(1) li:nth-child(6) .txt4{position:absolute;width:100%;height:4%;overflow:hidden;background:#ccc; bottom:6%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt6_4.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 3s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 3s both;-o-animation:scard 0.3s linear 3s both;-ms-animation:scard 0.3s linear 3s both;animation:scard 0.3s linear 3s both;}
+
+section:nth-child(1) li:nth-child(7) .bg{position:absolute;width:80%;overflow:hidden;background:#ccc; top:30px; bottom: 5rem; left:10%;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/bg_page7.jpg) top center no-repeat; background-size: 100% 100%; border-radius: 2px;}
+section:nth-child(1) li:nth-child(7) .tit{position:absolute;width:100%;height:6%;overflow:hidden;background:#ccc; bottom:26%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_tit7.png) top center no-repeat; background-size: auto 100%; -webkit-animation:fadein 0.5s linear 0.5s;-webkit-animation-fill-mode:both;-moz-animation:fadein 0.5s linear 0.5s both;-o-animation:fadein 0.5s linear 0.5s both;-ms-animation:fadein 0.5s linear 0.5s both;animation:fadein 0.5s linear 0.5s both;}
+section:nth-child(1) li:nth-child(7) .txt1{position:absolute;width:100%;height:6%;overflow:hidden;background:#ccc; bottom:18%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt7_1.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 1.5s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 1.5s both;-o-animation:scard 0.3s linear 1.5s both;-ms-animation:scard 0.3s linear 1.5s both;animation:scard 0.3s linear 1.5s both;}
+section:nth-child(1) li:nth-child(7) .txt2{position:absolute;width:100%;height:6%;overflow:hidden;background:#ccc; bottom:11%;left:0;margin:0 ; background:url(/assets/wxdgid/products/ywsh/dyn_images/page_txt7_2.png) top center no-repeat; background-size: auto 100%;-webkit-animation:scard 0.3s linear 2s;-webkit-animation-fill-mode:both;-moz-animation:scard 0.3s linear 2s both;-o-animation:scard 0.3s linear 2s both;-ms-animation:scard 0.3s linear 2s both;animation:scard 0.3s linear 2s both;}
+
+.btn_buy{position:absolute; bottom:0; left: 0; width:100%; height:2.5rem; text-align: center; color: #fff; line-height: 2.5rem; font-size: 1.2rem; background:#eb2728 ; cursor: pointer;}
+
+
+
+@media screen and (min-width: 640px){
+
+
+#u-globalAudio .icon-music{width:60px;height:60px;}
+section .btn_tb{width:60px;height:60px;}
+}
+

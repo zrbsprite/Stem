@@ -1,0 +1,45 @@
+@charset "UTF-8";
+/* 预约开户 */
+html,body{font-size:62.5%; margin:0; padding:0; background:#f8f7f5}
+.secuArt{width:100%; overflow:hidden}
+.secuAtit{width:100%; background:#e10608; color:#ffffff; font-size:2rem; text-align:center; padding:1rem 0}
+.secuBox{width:90%; margin:0 auto; overflow:hidden}
+.secuYa{padding-top:0.5rem;}
+.secuYadx{margin:0.6rem 0; width:99%; overflow:hidden;}
+.secuYadx span{border-radius:5px; border:1px #e0e0e0 solid; display:inline-block; width:65%; background:#ffffff}
+.secuYa dt{font-size:1.6rem; margin-left:1.6rem; padding:0.5rem 0 0 0; color:#828282}
+.secuYa dd{margin:0.6rem 0; width:99%; overflow:hidden; border:1px #e0e0e0 solid; background:#ffffff; border-radius:5px;}
+
+.secuInpa{width:88%; padding:0 5%; height:4rem; display:block; font-size:1.6rem; border:none}
+.secuInpb{width:88%; padding:0 0 0 10%; height:4rem; display:block; font-size:1.6rem; border:none; float:left}
+.secuInpc{width:100%; height:4rem; border:none; float:left; background:#de0002 url(/assets/wxdgid/images/century_securities/secuLogobg1.gif);; color:#ffffff; border-radius:15px; font-size:2rem}
+.secu_code_Btn{width:30%; background:#ff7200 url(/assets/wxdgid/images/century_securities/secuLogobg1.gif); border:none; color:#ffffff; height:4rem; text-align:center; font-size:1.2rem; float:right}
+.secu_code_Btn_gray{width:30%; background:#a0a0a0 url(/assets/wxdgid/images/century_securities/secuLogobg3.gif); border:none; color:#ffffff; height:4rem; text-align:center; font-size:1.2rem; float:right}
+
+.secuYz dt{font-size:1.6rem; color:#828282; float:left; width:28%; line-height:4rem; margin:0; padding:0; text-align:right}
+.secuYz dd{float:right; width:70%; margin:0; padding:0; border:1px #e0e0e0 solid; background:#ffffff; border-radius:5px;}
+.secuBtn{width:80%; margin:2rem auto; overflow:hidden}
+
+/* 下载页面 */
+.secuDrt{width:94%; margin:3% auto; padding-bottom:2%; background:#ffffff; border:1px #e0e0e0 solid; border-radius:5px; text-align:center; overflow:hidden}
+.secuDlog{width:96%; margin:2% auto;}
+.secuDlog img{width:80%; display:block}
+.secuDa{font-size:3rem; font-weight:bold; color:#ca0d10; margin-top:2rem}
+.secuDb{font-size:2rem; margin-top:1rem}
+.secuDc{font-size:1.4rem; color:#828282; margin-top:0.6rem}
+.secuDe{width:80%; margin:0 auto 3rem auto; overflow:hidden}
+.secuDf{width:94%; margin:0 auto; overflow:hidden; text-align:left;}
+.secuDg{font-size:1.8rem; color:#828282}
+.secuDh{width:46%; padding-top:3rem; font-size:1.8rem; color:#ca0d10; line-height:2rem; float:right}
+.secuDh span{font-size:2rem}
+.secuImg{display:block; width:40%; margin:1rem auto 2.5rem auto}
+.secuImga{width:50%; float:left; display:block}
+
+.secu_down_But{width:46%;border:none;background:#ff7200 url(/assets/wxdgid/images/century_securities/secuDownbg.gif);line-height:3rem;border-radius:5px;font-size:1.8rem;color:#ffffff;}
+.secuFlo{float:left;}
+.secuFlor{float:right;}
+
+
+@media screen and (min-width:640px){
+html,body{font-size:100%}
+}

@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+body,div,p,h2,img{padding:0; margin:0;font-family:"微软雅黑",Microsoft YaHei;}
+body{background:#dbdbdb;}
+.main{text-align:center; overflow:hidden;}
+.content{position:relative;width:70%;}
+.content img{width:100%;display:block;}
+
+
+/*兼容平板*/
+
+/*兼容iphone*/
+@media screen and (min-width:320px) and (max-width:767px){
+.content{width:90%;}	
+}
+
+
+@media screen and (min-width:768px) and (max-width:1023px){
+.content{width:90%; }	
+}
+
