@@ -1,1 +1,0 @@
-<link rel="stylesheet" type="text/css" media="screen" href="${basepath}/assets/js/layer/skin/layer.css" />
