@@ -15,13 +15,13 @@
 <#assign menuval = '4'>
 <article class="u_info clearfix">
     <div class="u_info_pic">
-		<img src="${basepath}/assets/group/fore/images/ab_group.png" />
+		<img src="${basepath}/assets/group/fore/images/ab_group.png" /><#-- 个人头像 -->
 	</div>
     <div class="u_info_txt">
    		<div> 
-			${name!""}<span class="sh">(审核中)</span>
+			${name?default("张日波")}<span class="sh"><#--用户状态--></span>
 			<br/>
-		    <span>${kuser!""}</span>
+		    积分：<span>${score?default(0)}</span>
         </div>
     </div>
     <div class="clearfix"></div>
@@ -53,13 +53,17 @@
 <article class="u_link pr">
     <a href=""><img src="${basepath}/assets/group/fore/images/icon_u_03.png" class="t1" />修改密码</a><a href=""><img src="${basepath}/assets/group/fore/images/icon_u_04.png" class="t2" />帮助中心</a>
     <a href=""><img src="${basepath}/assets/group/fore/images/icon_u_01.png" class="t1" />我的积分</a><a href=""><img src="${basepath}/assets/group/fore/images/icon_u_05.png" class="t2" />积分兑换</a>
-    <a href=""><img src="${basepath}/assets/group/fore/images/icon_u_02.png" class="t1" />排行榜&nbsp;&nbsp;&nbsp;</a><a href="" class="yellow"><img src="${basepath}/assets/group/fore/images/icon_u_06.png" class="t3" style="margin-top:-5px;" />做任务，得邦豆</a>
+    <#-- <a href=""><img src="${basepath}/assets/group/fore/images/icon_u_02.png" class="t1" />排行榜&nbsp;&nbsp;&nbsp;</a><a href="" class="yellow"><img src="${basepath}/assets/group/fore/images/icon_u_06.png" class="t3" style="margin-top:-5px;" />做任务，得邦豆</a> -->
+    <a href=""><img src="${basepath}/assets/group/fore/images/icon_u_01.png" class="t1" />购物车&nbsp;&nbsp;&nbsp;&nbsp;</a><a href=""><img src="${basepath}/assets/group/fore/images/icon_u_05.png" class="t2" />我的订单</a>
+    <a href=""><img src="${basepath}/assets/group/fore/images/icon_u_01.png" class="t1" />馋吧会员</a><a href=""><img src="${basepath}/assets/group/fore/images/icon_u_05.png" class="t2" />馋吧订单</a>
+    <a href=""><img src="${basepath}/assets/group/fore/images/icon_u_01.png" class="t1" />赚吧会员</a><a href=""><img src="${basepath}/assets/group/fore/images/icon_u_05.png" class="t2" />花吧订单</a>
+    <a href=""><img src="${basepath}/assets/group/fore/images/icon_u_01.png" class="t1" />意见反馈</a><a href=""><img src="${basepath}/assets/group/fore/images/icon_u_05.png" class="t2" />版本升级</a>
     <div class="u_link_icon u_link_bg6"></div>
 </article>
     
 
 <article class="wrapper">
-	    <div class="u_warning">好消息！任务系统惊喜上线，做任务即可得邦豆兑换红包，快去看看吧！</div>
+	    <div class="u_warning">好消息！任务系统惊喜上线，做任务即可得邦豆兑换红包，快去看看吧！</div><#-- 消息中心 -->
 </article>
 
 <#include "/commons/footer.ftl"/>

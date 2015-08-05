@@ -12,3 +12,14 @@ p button{
 .mid{
 	text-align: center;
 }
+.slider{
+	position: relative;
+	overflow: hidden;
+	margin: 0px auto;
+	display: block;
+	height: 3.6rem;
+	width:100%;
+}
+.slider ul,.slider li{
+	height: 100%;
+}

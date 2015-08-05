@@ -11,9 +11,17 @@
 <link rel="stylesheet" type="text/css" media="screen" href="${basepath}/assets/group/fore/css/style.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="${basepath}/assets/group/fore/css/page.css" />
 <link rel="stylesheet" type="text/css" media="screen" href="${basepath}/assets/css/common.css" />
+<link rel="stylesheet" type="text/css" href="${basepath}/assets/js/art/ui-dialog.css"/>
 </head>
 <body>
 <#assign menuval = '1'>
+	<div class="slider">
+		<ul>
+		    <li>
+		    	<a href="" target="_blank"><img src="${basepath}/assets/group/fore/images/lunFan/bangdou_640x143.gif" alt="" style="width: 100%; height: 100%;">专题活动（团购）</a>
+		    </li>
+		</ul>
+	</div>
     <article class="wrapper" id="wrapper">
 	<ul class="proUl" id="ul_com">
         <#if page?exists>
@@ -32,6 +40,9 @@
             <p class="tin_5" style="display:none">
             	<span>当前活动：</span><a href="#" style="color:#1A8DE3"></a>
             </p>
+            <div class="btnline clearfix">
+	            <a href="#" class="fl btn c3">产品介绍</a>
+	        </div>
             <#-- 
             <div class="btnline clearfix">
 	            <a href="#" class="fl btn c1 fs08">产品介绍（静态）</a>
@@ -57,6 +68,7 @@
 		$ul = $("#ul_com");
 		//data
 		$.post("${basepath}/pro/data.htm",{"pageIndex":pageIndex},function(data){
+			window.winIndex.close();
 			if(data&&data.errcode==200){
 				var mate = data.page.data;
 				if(mate.length<=0){
@@ -65,12 +77,14 @@
 				}
 				for(var i=0;i<mate.length;i++){
 					var d = mate[i];
-					var $content =  $('<li><div class="pic clearfix"><a href="'+d.buyUrl+'"><img src="'+basepath+'/anno/img.htm?path='+d.pic+'" /></a><input type="hidden" value="'+d.code+'" />'+
-					+'<p>商品名称：'+d.title+'<br />商品价格：￥'+d.salePrice+' <span class="font_10">￥'+d.marketPrice+'</span><br />销售单位：'+d.unit+'<br />加入购物车：<button class="btn_plus">+</button><input name="buyCount" class="wid_20 mid" value="0"/><button class="btn_mul">-</button></p></div>');
+					var content = '<li><div class="pic clearfix"><a href="'+d.buyUrl+'"><img src="'+basepath+'/anno/img.htm?path='+d.pic+'" /></a><input type="hidden" value="'+d.code+'" />';
+					content += '<p>商品名称：'+d.title+'<br />商品价格：￥'+d.salePrice+' <span class="font_10">￥'+d.marketPrice+'</span><br />销售单位：'+d.unit+'<br />';
+					content += '加入购物车：<button class="btn_plus">+</button><input name="buyCount" class="wid_20 mid" value="0"/><button class="btn_mul">-</button></p></div>';
+					content += '<div class="btnline clearfix"><a href="#" class="fl btn c3">产品介绍</a></div></li>';
+					var $content =  $(content);
 					$ul.append($content);
 				}			
 				myScroll.refresh();
-				window.win.close();
 			}
 		}, "json");
 	}
@@ -94,22 +108,11 @@
 	document.addEventListener('DOMContentLoaded', loaded, false);
 	
 	function loading(){
-		window.win = dialog({
-   			width: '20em'
-		});
-		window.win.showModal();
+		window.winIndex = win.loading();
 	}
 	
 	function showTip(msg){
-		var d = dialog({
-			fixed: true,
-		    title: '提示信息',
-		    content: msg,
-		    ok: function () {
-		    	this.close();
-		    }
-		});
-		d.width(250).showModal();
+		win.alert(msg);
 	}
 	$(function(){
 		$(".btn_plus").click(function(){

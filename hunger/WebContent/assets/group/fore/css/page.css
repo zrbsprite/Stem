@@ -498,7 +498,7 @@
 .u_link_icon{ width: 8px; height: 90%; position: absolute; top:0; left: 50%; margin-left: -4px; background-size: 100% auto ;}
 .u_link_bg2{ background: url(../images/u_icon_45.png) top center no-repeat;}
 .u_link_bg4{ background: url(../images/u_icon_90.png) top center no-repeat;}
-.u_link_bg6{ background: url(../images/u_icon_135.png) top center no-repeat;}
+.u_link_bg6{ background: url(../images/u_icon_135.png) top center repeat-y;}
 .u_link_icon1{ width: 7px; height: 130px; position: absolute; top:0; left: 50%; margin-left: -3px; background: url(../images/u_icon.png) center center no-repeat; background-size:  100% 100%;}
 
 
@@ -1290,7 +1290,8 @@
 /*轮换图*/
 .slider{
 	display:none;
-}/*用于获取更加体验*/
+}
+/*用于获取更加体验*/
 .focus span{
 	width:20px;
 	height:20px;
