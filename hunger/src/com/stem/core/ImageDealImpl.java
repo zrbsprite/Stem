@@ -33,8 +33,8 @@ public class ImageDealImpl implements IFileDeal {
 	public String store(InputStream stream, String fileName) {
 		String basePath = PropertiesUtils.getConfigByKey("file_upload_basepath");
 		String sp = File.separator;
-		SimpleDateFormat sf = new SimpleDateFormat("yyyy"+ sp + "MM" + sp +"dd");
-		String path = sp + sf.format(new Date()) + sp + System.currentTimeMillis() + "-" + RandomUtils.nextInt(6) + StringUtils.getFilenameExtension(fileName);
+		SimpleDateFormat sf = new SimpleDateFormat("yyyyMMdd");
+		String path = sp + sf.format(new Date()) + sp + System.currentTimeMillis() + "-" + RandomUtils.nextInt(6) + "." + StringUtils.getFilenameExtension(fileName);
 		File destination = new File(basePath + sp + "image" + path);
 		try {
 			FileUtils.copyInputStreamToFile(stream, destination);

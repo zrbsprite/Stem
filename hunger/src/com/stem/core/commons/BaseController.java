@@ -1,30 +1,27 @@
 package com.stem.core.commons;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.servlet.support.RequestContext;
+
 public abstract class BaseController {
 
-	private HttpServletRequest request;
+	protected HttpServletRequest request;
 	
-	private HttpServletResponse response;
+	protected HttpServletResponse response;
 	
-	public HttpServletRequest getRequest() {
-		return request;
-	}
-
-	@Resource
-	public void setRequest(HttpServletRequest request) {
+	private RequestContext context;
+	
+	@ModelAttribute
+	private void bind(HttpServletRequest request, HttpServletResponse response){
 		this.request = request;
-	}
-
-	public HttpServletResponse getResponse() {
-		return response;
-	}
-
-	@Resource
-	public void setResponse(HttpServletResponse response) {
 		this.response = response;
+		this.context = new RequestContext(request);
+	}
+	
+	protected final String getMessage(String key){
+		return context.getMessage(key);
 	}
 }

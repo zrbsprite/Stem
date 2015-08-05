@@ -1,8 +1,8 @@
 package com.stem.controller;
 
+import java.io.PrintWriter;
+
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.support.RequestContext;
 
 import com.alibaba.fastjson.JSONObject;
 import com.stem.core.commons.AjaxConroller;
@@ -40,24 +39,23 @@ public class LoginController extends AjaxConroller{
 	}
 
 	@RequestMapping("/login")
-	public void doLogin(@ModelAttribute UserLoginVO user, Model model, HttpServletRequest request, HttpServletResponse response) {
+	public void doLogin(@ModelAttribute UserLoginVO user, Model model, PrintWriter pw) {
 		if(null==user){
 			user = new UserLoginVO();
 		}
 		User entity = this.userService.selectByUserName(user.getUserName());
 		JSONObject resultObject = new JSONObject();
-		RequestContext context = new RequestContext(request);
 		if(null==entity){
 			resultObject.put("errcode", ErrorConstant.USER_PWD_ERROR);
-			resultObject.put("errmsg", context.getMessage("user.noexist"));
-			writeJson(response, resultObject.toJSONString());
+			resultObject.put("errmsg", getMessage("user.noexist"));
+			writeJson(resultObject.toJSONString());
 			return;
 		}
 		String encryptedPwd = Md5Encrypt.getMD5ofStr(user.getPassword());
 		if(!encryptedPwd.equalsIgnoreCase(entity.getPassword())){
 			resultObject.put("errcode", ErrorConstant.USER_PWD_ERROR);
-			resultObject.put("errmsg", context.getMessage("user.login.up.error"));
-			writeJson(response, resultObject.toJSONString());
+			resultObject.put("errmsg", getMessage("user.login.up.error"));
+			writeJson(resultObject.toJSONString());
 			return;
 		}
 		//登录成功
@@ -66,12 +64,12 @@ public class LoginController extends AjaxConroller{
 		logger.debug("用户【"+user.getUserName()+"】登录成功...");
 		
 		resultObject.put("errcode", ErrorConstant.OPERATION_SUCCESS);
-		resultObject.put("errmsg", context.getMessage("user.login.success"));
-		writeJson(response, resultObject.toJSONString());
+		resultObject.put("errmsg", getMessage("user.login.success"));
+		writeJson(resultObject.toJSONString());
 	}
 
 	@RequestMapping("/welcome")
-	public String content(HttpServletRequest request, Model model) {
+	public String content(Model model) {
 		return "redirect:pro/index.htm";
 	}
 

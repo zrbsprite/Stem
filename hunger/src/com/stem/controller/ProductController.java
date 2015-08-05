@@ -1,5 +1,7 @@
 package com.stem.controller;
 
+import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -38,20 +40,23 @@ public class ProductController extends AjaxConroller{
 	}
 
 	@RequestMapping("data")
-	public void ajaxData(Integer pageIndex){
+	public void ajaxData(Integer pageIndex, PrintWriter pw){
 		ProductExample example = new ProductExample();
 		if(null==pageIndex || pageIndex<=0)
 			return;
 		int count = this.productService.countByExample(example);
-		PageHelper.startPage(pageIndex, Pagination.ROWS);
-		List<Product> data = this.productService.selectByExample(example);
 		Pagination<Product> page = new Pagination<Product>(count, pageIndex);
+		List<Product> data = new ArrayList<Product>();
+		if(page.getPages()>=pageIndex){
+			PageHelper.startPage(pageIndex, Pagination.ROWS);
+			data = this.productService.selectByExample(example);
+		}
 		page.setData(data);
 		JSONObject result = new JSONObject();
 		result.put("errcode", ErrorConstant.OPERATION_SUCCESS);
 		result.put("page", page);
 		String json = result.toJSONString();
-		writeJson(getResponse(), json);
+		writeJson(json);
 	}
 	
 	public ProductService getProductService() {
