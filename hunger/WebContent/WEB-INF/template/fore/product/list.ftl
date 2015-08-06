@@ -54,6 +54,15 @@
         </#if>
     </ul>
 </article>
+<div class="jdm-toolbar-tabs">
+	<div class="jdm-toolbar-tab jdm-tbar-tab-cart">
+		<i class="tab-ico"></i> <em class="tab-text">购物车</em>
+		<span class="tab-sub J-count hide" style="display: none;">0</span>
+		<div class="tabs-tip hide">
+			<span class="ico"></span> <span class="text">成功加入购物车!</span> <b></b>
+		</div>
+	</div>
+</div>
 <#include "commons/footer.ftl"/>
 
 <#include "commons/commonJS.ftl">
@@ -141,6 +150,12 @@
 			$text.val(txt);
 			var $code = $(this).parent("div").find(":hidden");
 			addData($code.val(), txt);
+		});
+		
+		$(".tab-ico").mouseenter(function(){
+			$(this).next().css("background-color","#c81623").animate({"left":"-60px"},"fast");
+		}).mouseout(function(){
+			$(this).next().animate({"left":"35px"},"fast");
 		});
 	});
 	function addData(code, num){
