@@ -2,6 +2,7 @@ package com.stem.controller;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -15,8 +16,12 @@ import com.github.pagehelper.PageHelper;
 import com.stem.core.commons.AjaxConroller;
 import com.stem.core.commons.Pagination;
 import com.stem.core.constant.ErrorConstant;
+import com.stem.core.constant.ProductUpDownConstant;
 import com.stem.entity.Product;
+import com.stem.entity.ProductActivity;
+import com.stem.entity.ProductActivityExample;
 import com.stem.entity.ProductExample;
+import com.stem.service.EatActivityService;
 import com.stem.service.ProductService;
 
 @Controller
@@ -25,9 +30,12 @@ public class ProductController extends AjaxConroller{
 
 	private ProductService productService;
 	
+	private EatActivityService eatActivityService;
+	
 	@RequestMapping("index")
 	public String index(Integer pageIndex, Model model){
 		ProductExample example = new ProductExample();
+		example.createCriteria().andUpDownEqualTo(ProductUpDownConstant.UP.value());
 		if(null==pageIndex || pageIndex<=0)
 			pageIndex = 1;
 		int count = this.productService.countByExample(example);
@@ -58,13 +66,50 @@ public class ProductController extends AjaxConroller{
 		String json = result.toJSONString();
 		writeJson(json);
 	}
-	
-	public ProductService getProductService() {
-		return productService;
-	}
 
+	/**
+	 * @author: Samite stem zhang
+	 * @modifyTime：2015年8月6日 下午2:34:13<br/>
+	 * @description：获取产品详细页面内容<br/>
+	 * @return 产品详细视图
+	 */
+	@RequestMapping("detail")
+	public String renderDetail(Integer serial, Model model){
+		if(serial==null){
+			serial = 0;
+		}
+		Product bean = this.productService.selectByPrimaryKey(serial);
+		model.addAttribute("bean",bean);
+		return "fore/product/product_detail";
+	}
+	
+	/**
+	 * @author: Samite stem zhang
+	 * @modifyTime：2015年8月6日 下午2:41:45<br/>
+	 * @description：团购活动<br/>
+	 * @return
+	 */
+	@RequestMapping("group")
+	public String renderGroupBuy(Model model){
+		ProductActivityExample example = new ProductActivityExample();
+		Date now = new Date();
+		example.createCriteria().andStartDateLessThan(now).andEndDateGreaterThan(now);
+		List<ProductActivity> list = this.eatActivityService.list(example);
+		if(list.size()>0){
+			ProductActivity bean = list.get(0);
+			model.addAttribute("bean",bean);
+		}
+		return "fore/product/product_activity";
+	}
+	
 	@Resource
 	public void setProductService(ProductService productService) {
 		this.productService = productService;
+	}
+
+	@Resource
+	public void setEatActivityService(EatActivityService eatActivityService){
+	
+		this.eatActivityService = eatActivityService;
 	}
 }

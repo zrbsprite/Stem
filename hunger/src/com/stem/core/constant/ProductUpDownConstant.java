@@ -17,4 +17,8 @@ public enum ProductUpDownConstant {
 	public int intValue(){
 		return this.type;
 	}
+	
+	public String value(){
+		return this.type+"";
+	}
 }
