@@ -1,7 +1,7 @@
 @CHARSET "utf-8";
 .wid_20{
-	width: 25px;
-	border: solid 1px silver;
+	width: 2.0rem;
+	border: 1px solid #ccc;
 }
 .font_10{
 	font-size: 12px;	
@@ -161,11 +161,37 @@ p button{
 }
 
 /*header*/
-.topnav{position:fixed;top:0;height:3rem;z-index:20150807;width:100%;background-color:#fff;border-bottom:1px solid #d2d2d2;
- .nav_back{ color:#3d3e42; font-size:.95rem; height:3rem; line-height:3rem; position:absolute; left:1rem; top:0; width:3rem; text-align:right;cursor:pointer; background:url(../images/nav_back.png) no-repeat 0 center; background-size:.68rem 1.2rem; 
- }
- .title{color:#3d3e42;font-size:1.2rem;height:3rem;line-height:3rem;text-align:center;}
- .nav_icon{position:absolute;width:1.6rem;height:2rem;right:1rem;top:.8rem; cursor:pointer;
- 	.hb{display:block;width:100%;height:.24rem;margin-bottom:.26rem;background-color:#8f8f8e;}
- }
+.topnav { position: fixed; top: 0; height: 3rem; z-index: 20150807; width: 100%; background-color: #fff; border-bottom: 1px solid #d2d2d2; }
+.topnav .nav_back { color: #3d3e42; font-size: .95rem; height: 3rem; line-height: 3rem; position: absolute; left: 1rem; top: 0; width: 3rem; text-align: right; cursor: pointer; background: url(../images/nav_back.png) no-repeat 0 center; background-size: .68rem 1.2rem; }
+.topnav .title { color: #3d3e42; font-size: 1.2rem; height: 3rem; line-height: 3rem; text-align: center; }
+.topnav .nav_icon { position: absolute; width: 1.6rem; height: 2rem; right: 1rem; top: .8rem; cursor: pointer; }
+.topnav .nav_icon .hb { display: block; width: 100%; height: .24rem; margin-bottom: .26rem; background-color: #8f8f8e; }
+
+/*购买数量*/
+button.btn_plus{
+	background: #f2f2f2 url(../images/num_add.png) no-repeat center;
+	background-size: 0.8rem 0.8rem;
+	width: 1.3rem;
+    height: 1.3rem;
+  	text-align: center;
+  	border: 1px solid #ccc;
+	float:left;
+}
+button.btn_mul{
+	background: #f2f2f2 url(../images/num_minus.png) no-repeat center;
+	background-size: 0.8rem 0.8rem;
+	width: 1.3rem;
+    height: 1.3rem;
+  	text-align: center;
+  	border: 1px solid #ccc;
+  	float:left;
+}
+.one_line input{
+    height: 1.25rem;
+}
+.one_line input,.one_line span{
+	float:left;
+}
+.wrapper{
+	margin-top: 2rem;
 }

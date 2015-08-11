@@ -12,8 +12,15 @@
 <title>购物车</title>
 </head>
 <body>
-	<#assign headerTitle="购物车">
-	<#include "commons/header.ftl"/>
+	<div class="topnav">
+	<div class="nav_back"></div>
+	<div class="title">购物车</div>
+	<div class="nav_icon">
+		<span class="hb"></span>
+		<span class="hb"></span>
+		<span class="hb"></span>
+	</div>
+</div>
 	
 	<nav class="botNav">
 		<a class="blueBtn2" href="">购买</a>

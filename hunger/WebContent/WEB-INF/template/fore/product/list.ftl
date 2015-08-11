@@ -15,12 +15,14 @@
 </head>
 <body>
 <#assign menuval = '1'>
-	<div class="slider">
-		<ul>
-		    <li>
-		    	<a href="" target="_blank"><img src="${basepath}/assets/group/fore/images/lunFan/bangdou_640x143.gif" alt="" style="width: 100%; height: 100%;">专题活动（团购）</a>
-		    </li>
-		</ul>
+	<div class="topnav">
+		<div class="nav_back"></div>
+		<div class="title">专题活动(团购)</div>
+		<div class="nav_icon">
+			<span class="hb"></span>
+			<span class="hb"></span>
+			<span class="hb"></span>
+		</div>
 	</div>
     <article class="wrapper" id="wrapper">
 	<ul class="proUl" id="ul_com">
@@ -35,7 +37,8 @@
             <div class="pic clearfix">
             	<a href="${bean.buyUrl?default('#')}"><img src="${basepath}/anno/img.htm?path=${bean.pic}" /></a>
             	<input type="hidden" value="${bean.code}" />
-                <p>商品名称：${bean.title}<br />商品价格：￥${bean.salePrice} <span class="font_10">￥${bean.marketPrice}</span><br />销售单位：${bean.unit}<br />加入购物车：<button class="btn_plus">+</button><input name="buyCount" class="wid_20 mid" value="0"/><button class="btn_mul">-</button></p>
+                <p>商品名称：${bean.title}<br />商品价格：￥${bean.salePrice} <span class="font_10">￥${bean.marketPrice}</span><br />销售单位：${bean.unit}<br />
+                	<span class="one_line"><span>加入购物车：</span><button class="btn_mul"></button><input name="buyCount" class="wid_20 mid" value="0"/><button class="btn_plus"></button></span></p>
             </div>
             <p class="tin_5" style="display:none">
             	<span>当前活动：</span><a href="#" style="color:#1A8DE3"></a>
@@ -88,7 +91,7 @@
 					var d = mate[i];
 					var content = '<li><div class="pic clearfix"><a href="'+d.buyUrl+'"><img src="'+basepath+'/anno/img.htm?path='+d.pic+'" /></a><input type="hidden" value="'+d.code+'" />';
 					content += '<p>商品名称：'+d.title+'<br />商品价格：￥'+d.salePrice+' <span class="font_10">￥'+d.marketPrice+'</span><br />销售单位：'+d.unit+'<br />';
-					content += '加入购物车：<button class="btn_plus">+</button><input name="buyCount" class="wid_20 mid" value="0"/><button class="btn_mul">-</button></p></div>';
+					content += '<span class="one_line"><span>加入购物车：</span><button class="btn_mul"></button><input name="buyCount" class="wid_20 mid" value="0"/><button class="btn_plus"></button></span></p></div>';
 					content += '<div class="btnline clearfix"><a href="#" class="fl btn c3">产品介绍</a></div></li>';
 					var $content =  $(content);
 					$ul.append($content);
@@ -152,11 +155,16 @@
 			addData($code.val(), txt);
 		});
 		
-		$(".tab-ico").mouseenter(function(){
-			$(this).next().css("background-color","#c81623").animate({"left":"-60px"},"fast");
-		}).mouseout(function(){
-			$(this).next().animate({"left":"35px"},"fast");
+		$(".tab-ico").click(function(){
+			window.location.href="${basepath}/shop/index.htm";
 		});
+		<#-- 
+		.mouseenter(function(){
+			$(this).find("li").next().css("background-color","#c81623").animate({"left":"-60px"},"fast");
+		}).mouseout(function(){
+			$(this).find("li").next().animate({"left":"35px"},"fast");
+		});
+		 -->
 	});
 	function addData(code, num){
 		if(!!window.sessionStorage){
