@@ -25,4 +25,20 @@
 	<nav class="botNav">
 		<a class="blueBtn2" href="">购买</a>
 	</nav>
+	
+	<#include "commons/commonJS.ftl">
+	<script>
+		function getStore(){
+			if(!!window.sessionStorage){
+				for(var i=0;i<window.sessionStorage.length;i++){
+					var key = sessionStorage.key(i);
+					var value = sessionStorage.getItem(key);
+					console.log(key+"- - -"+value);
+				}
+			}
+		}
+		$(function(){
+			getStore();
+		});
+	</script>
 </body>

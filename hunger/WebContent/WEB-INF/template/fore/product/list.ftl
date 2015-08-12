@@ -128,7 +128,7 @@
 	}
 	$(function(){
 		$(".btn_plus").click(function(){
-			var $text = $(this).next();
+			var $text = $(this).prev();
 			var txt = $text.val();
 			if(txt==""){
 				txt = 0;
@@ -136,11 +136,11 @@
 			txt = parseInt(txt);
 			txt += 1;
 			$text.val(txt);
-			var $code = $(this).parent("div").find(":hidden");
+			var $code = $(this).closest("div.pic").children().find("input");
 			addData($code.val(), txt);
 		});
 		$(".btn_mul").click(function(){
-			var $text = $(this).prev();
+			var $text = $(this).next();
 			var txt = $text.val();
 			if(txt==""){
 				txt = 0;
@@ -151,7 +151,7 @@
 				txt = 0;
 			}
 			$text.val(txt);
-			var $code = $(this).parent("div").find(":hidden");
+			var $code = $(this).closest("div.pic").children().find("input");
 			addData($code.val(), txt);
 		});
 		
@@ -172,10 +172,6 @@
 				window.sessionStorage.name = 'stem';
 			}
 			window.sessionStorage.setItem(code, num);
-			for(var i=0;i<window.sessionStorage.length;i++){
-				var key = sessionStorage.key(i);
-				var value = sessionStorage.getItem(key);
-			}
 		}
 	}
 </script>
