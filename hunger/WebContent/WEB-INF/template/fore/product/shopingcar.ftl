@@ -23,7 +23,9 @@
 </div>
 	
 	<nav class="botNav">
-		<a class="blueBtn2" href="">购买</a>
+		<div class="botTab right">
+			<a href="">购买</a>
+		<div>
 	</nav>
 	
 	<#include "commons/commonJS.ftl">
@@ -33,7 +35,7 @@
 				for(var i=0;i<window.sessionStorage.length;i++){
 					var key = sessionStorage.key(i);
 					var value = sessionStorage.getItem(key);
-					console.log(key+"- - -"+value);
+					key = key.replace("p_", "");
 				}
 			}
 		}

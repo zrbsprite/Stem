@@ -168,9 +168,7 @@
 	});
 	function addData(code, num){
 		if(!!window.sessionStorage){
-			if(!window.sessionStorage.name){
-				window.sessionStorage.name = 'stem';
-			}
+			code = "p_"+code;
 			window.sessionStorage.setItem(code, num);
 		}
 	}
