@@ -1,0 +1,197 @@
+@CHARSET "utf-8";
+.wid_20{
+	width: 2.0rem;
+	border: 1px solid #ccc;
+}
+.font_10{
+	font-size: 12px;	
+}
+p button{
+	cursor: pointer;
+	font-weight: bold;
+}
+.mid{
+	text-align: center;
+}
+.slider{
+	position: relative;
+	overflow: hidden;
+	margin: 0px auto;
+	display: block;
+	height: 3.6rem;
+	width:100%;
+}
+.slider ul,.slider li{
+	height: 100%;
+}
+
+/*购物车*/
+.hide{
+	display:none;
+}
+.jdm-toolbar-tabs {
+	position: fixed;
+	top: 70%;
+	right:0px;
+	width: 35px;
+}
+
+.jdm-toolbar-tabs .tabs-tip {
+	position: absolute;
+	top: 0;
+	right: 35px;
+	height: 35px;
+	line-height: 35px;
+	white-space: nowrap;
+	border-radius: 5px;
+	background: #c81623;
+	color: #fff;
+	padding: 0 10px;
+	padding-left: 30px;
+}
+
+.jdm-toolbar-tabs .tabs-tip .ico {
+	width: 15px;
+	height: 12px;
+	background-position: -98px -162px;
+	position: absolute;
+	top: 13px;
+	left: 10px
+}
+
+.jdm-toolbar-tabs .tabs-tip b {
+	width: 0;
+	height: 0;
+	line-height: 0;
+	font-size: 0;
+	border: transparent 6px dashed;
+	border-left: 6px solid #c81623;
+	position: absolute;
+	right: -12px;
+	top: 12px;
+	z-index: 20
+}
+
+.jdm-toolbar-tab {
+	position: relative;
+	width: 35px;
+	height: 35px;
+	margin-bottom: 1px;
+	cursor: pointer;
+	background-color: #7a6e6e;
+	-webkit-border-radius: 3px 0 0 3px;
+	-moz-border-radius: 3px 0 0 3px;
+	border-radius: 3px 0 0 3px
+}
+
+.jdm-toolbar-tab .tab-ico {
+	width: 34px;
+	height: 35px;
+	margin-left: 1px;
+	position: relative;
+	z-index: 2;
+	display:inline-block;
+	background-color: #7a6e6e;
+	_display: block;
+	background-image:
+		url(../images/jdm-toolbar-icons.png);
+	_background-image:
+		url(../images/jdm-toolbar-icons-png8.png);
+	background-repeat: no-repeat;
+}
+
+.jdm-toolbar-tab .tab-text {
+	width: 62px;
+	height: 35px;
+	line-height: 35px;
+	color: #fff;
+	text-align: center;
+	font-family: "微软雅黑";
+	position: absolute;
+	z-index: 1;
+	left: 35px;
+	top: 0;
+	background-color: #7a6e6e;
+	-webkit-border-radius: 3px 0 0 3px;
+	-moz-border-radius: 3px 0 0 3px;
+	border-radius: 3px 0 0 3px;
+	-webkit-transition: left .3s ease-in-out .1s;
+	-moz-transition: left .3s ease-in-out .1s;
+	transition: left .3s ease-in-out .1s;
+	_display: none;
+	font-style: normal;
+	font-size: 12px/150%;
+}
+
+.jdm-toolbar-tab .tab-sub {
+	position: absolute;
+	z-index: 3;
+	right: 2px;
+	top: -5px;
+	height: 11px;
+	padding: 1px 2px;
+	border: 1px solid #b61d1d;
+	overflow: hidden;
+	color: #fff;
+	font: 11px/11px verdana;
+	text-align: center;
+	min-width: 11px;
+	_width: 20px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	background-color: #cc6060;
+	background-image: -moz-linear-gradient(top, #cc6060, #b61d1d);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #cc6060),
+		color-stop(1, #b61d1d));
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc6060',
+		endColorstr='#b61d1d', GradientType='0');
+	-ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cc6060',
+		endColorstr='#b61d1d');
+	background-image: linear-gradient(to bottom, #cc6060 0, #b61d1d 100%)
+}
+
+.jdm-tbar-tab-cart .tab-ico {
+	background-position: -50px 0;
+	background-repeat: no-repeat;
+}
+
+.tab-ico:HOVER {
+	background-color:#c81326
+}
+
+/*header*/
+.topnav { position: fixed; top: 0; height: 3rem; z-index: 20150807; width: 100%; background-color: #fff; border-bottom: 1px solid #d2d2d2; }
+.topnav .nav_back { color: #3d3e42; font-size: .95rem; height: 3rem; line-height: 3rem; position: absolute; left: 1rem; top: 0; width: 3rem; text-align: right; cursor: pointer; background: url(../images/nav_back.png) no-repeat 0 center; background-size: .68rem 1.2rem; }
+.topnav .title { color: #3d3e42; font-size: 1.2rem; height: 3rem; line-height: 3rem; text-align: center; }
+.topnav .nav_icon { position: absolute; width: 1.6rem; height: 2rem; right: 1rem; top: .8rem; cursor: pointer; }
+.topnav .nav_icon .hb { display: block; width: 100%; height: .24rem; margin-bottom: .26rem; background-color: #8f8f8e; }
+
+/*购买数量*/
+button.btn_plus{
+	background: #f2f2f2 url(../images/num_add.png) no-repeat center;
+	background-size: 0.8rem 0.8rem;
+	width: 1.3rem;
+    height: 1.3rem;
+  	text-align: center;
+  	border: 1px solid #ccc;
+	float:left;
+}
+button.btn_mul{
+	background: #f2f2f2 url(../images/num_minus.png) no-repeat center;
+	background-size: 0.8rem 0.8rem;
+	width: 1.3rem;
+    height: 1.3rem;
+  	text-align: center;
+  	border: 1px solid #ccc;
+  	float:left;
+}
+.one_line input{
+    height: 1.25rem;
+}
+.one_line input,.one_line span{
+	float:left;
+}
+.wrapper{
+	margin-top: 2rem;
+}
