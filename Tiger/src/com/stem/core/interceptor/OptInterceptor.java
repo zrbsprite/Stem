@@ -48,6 +48,7 @@ public class OptInterceptor extends HandlerInterceptorAdapter {
 			if(obj!=null){
 				openid = (String)obj;
 			}
+			request.setAttribute("openid",openid);
 			TiggerUserOpt model = new TiggerUserOpt();
 			model.setOpenid(openid);
 			model.setOptCode(state);
