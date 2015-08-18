@@ -4,8 +4,6 @@ import java.io.Serializable;
 
 /**
  * 群发图文消息对象
- * @author ____′↘夏悸
- *
  */
 public class Article implements Serializable{
 	private static final long serialVersionUID = 1L;

@@ -1,17 +1,9 @@
-/**
- * 微信公众平台开发模式(JAVA) SDK
- * (c) 2012-2014 ____′↘夏悸 <wmails@126.cn>, MIT Licensed
- * http://www.jeasyuicn.com/wechat
- */
 package com.stem.wechat.bean;
 
 import java.util.HashMap;
 
 /**
  * 模板消息数据对象
- *
- * @author ____′↘夏悸
- * @date 2014-11-10 下午3:32:30
  * @description 模板消息数据对象
  */
 public class TemplateData {

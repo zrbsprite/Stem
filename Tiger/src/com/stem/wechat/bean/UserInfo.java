@@ -2,8 +2,6 @@ package com.stem.wechat.bean;
 
 /**
  * 用戶实体
- * @author ____′↘夏悸
- *
  */
 public class UserInfo {
 

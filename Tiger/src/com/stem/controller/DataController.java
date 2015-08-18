@@ -22,8 +22,9 @@ public class DataController extends AjaxConroller {
 	private TiggerNamingService tiggerNamingService;
 
 	/**
-	 * @author: stem zhang 修改时间：2015年8月13日 - 下午4:42:28<br/>
-	 *          功能说明：查询个人投资者的收益数据<br/>
+	 * @author: stem zhang <br/>
+	 * @修改时间：2015年8月13日 - 下午4:42:28<br/>
+	 * @功能说明：查询个人投资者的收益数据<br/>
 	 * @return
 	 */
 	@RequestMapping("index")

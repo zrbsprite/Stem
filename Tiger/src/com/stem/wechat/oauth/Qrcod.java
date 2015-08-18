@@ -13,11 +13,6 @@ import org.apache.commons.lang.StringUtils;
 import com.alibaba.fastjson.JSONObject;
 import com.stem.wechat.tools.HttpKit;
 
-/**
- * 创建二维码
- *
- * @author ____′↘夏悸
- */
 public class Qrcod {
 
     private static final String QRCOD_CREATE = "https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=";

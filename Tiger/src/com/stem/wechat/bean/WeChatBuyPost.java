@@ -1,16 +1,7 @@
-/**
- * 微信公众平台开发模式(JAVA) SDK
- * (c) 2012-2013 ____′↘夏悸 <wmails@126.cn>, MIT Licensed
- * http://www.jeasyuicn.com/wechat
- */
 package com.stem.wechat.bean;
 
 /**
  * 微信post过来的xml转换成bean
- * @author L.cm
- * email: 596392912@qq.com
- * site:  http://www.dreamlu.net
- * @date 2014-4-23 上午9:48:47
  */
 public class WeChatBuyPost {
 

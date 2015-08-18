@@ -1,8 +1,3 @@
-/**
- * 微信公众平台开发模式(JAVA) SDK
- * (c) 2012-2014 ____′↘夏悸 <wmails@126.cn>, MIT Licensed
- * http://www.jeasyuicn.com/wechat
- */
 package com.stem.wechat.oauth;
 
 import java.io.IOException;
@@ -18,11 +13,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.stem.wechat.bean.UserInfo;
 import com.stem.wechat.tools.HttpKit;
 
-
-/**
- * 用户操作接口
- * @author ____′↘夏悸
- */
 public class User {
 
 	private static final String USER_INFO_URI = "https://api.weixin.qq.com/cgi-bin/user/info";

@@ -1,9 +1,3 @@
-/* 
- * jeasyPro
- * (c) 2012-2013 ____′↘夏悸 <wmails@126.cn>, MIT Licensed
- * http://www.jeasyuicn.com/
- * 2013-8-11 下午3:32:55
- */
 package com.stem.wechat.bean;
 
 import java.util.ArrayList;
@@ -11,9 +5,6 @@ import java.util.List;
 
 /**
  * 输出图文消息
- * 
- * @author ____′↘夏悸
- * 
  */
 public class NewsOutMessage extends OutMessage {
 
