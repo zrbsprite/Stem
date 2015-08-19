@@ -5,7 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="initial-scale=1, width=device-width, minimum-scale=1, maximum-scale=1">
     <title>登录</title>
-    <#include "commons/tiglib.ftl" />
+    <#include "commons/taglib.ftl" />
 	<link rel="stylesheet" type="text/css" media="screen" href="${basepath}/assets/group/fore/css/style.css" />
 	<link rel="stylesheet" type="text/css" media="screen" href="${basepath}/assets/group/fore/css/page.css" />
 	<link rel="stylesheet" type="text/css" href="${basepath}/assets/js/art/ui-dialog.css"/>

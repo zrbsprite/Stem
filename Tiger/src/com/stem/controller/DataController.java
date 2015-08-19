@@ -44,7 +44,7 @@ public class DataController extends AjaxConroller {
 		return "";
 	}
 
-	@Resource
+//	@Resource
 	public void setPipeline(IDataPipeline pipeline){
 
 		this.pipeline = pipeline;

@@ -73,6 +73,11 @@ public class LoginController extends AjaxConroller{
 		return "redirect:pro/index.htm";
 	}
 
+	@RequestMapping("test")
+	public String test(){
+		return "fore/index";
+	}
+	
 	public UserService getUserService() {
 		return userService;
 	}

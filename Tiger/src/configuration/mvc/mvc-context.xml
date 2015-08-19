@@ -29,6 +29,7 @@
         	<property name="noFilters">
         		<list>
         			<value>verifycode.htm</value>
+        			<value>test.htm</value>
         		</list>
         	</property>
         	<property name="whiteListRule">
