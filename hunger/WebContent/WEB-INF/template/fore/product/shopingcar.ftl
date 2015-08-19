@@ -36,6 +36,7 @@
 					var key = sessionStorage.key(i);
 					var value = sessionStorage.getItem(key);
 					key = key.replace("p_", "");
+					//Render data with html
 				}
 			}
 		}
