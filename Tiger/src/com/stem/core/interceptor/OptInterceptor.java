@@ -13,8 +13,8 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.stem.core.commons.PropertiesInitBean.PropertiesUtils;
-import com.stem.entity.TiggerUserOpt;
-import com.stem.service.TiggerUserOptService;
+import com.stem.entity.TigerUserOpt;
+import com.stem.service.TigerUserOptService;
 import com.stem.util.HttpUtils;
 
 /**
@@ -26,7 +26,7 @@ import com.stem.util.HttpUtils;
  */
 public class OptInterceptor extends HandlerInterceptorAdapter {
 
-	private TiggerUserOptService tiggerUserOptService;
+	private TigerUserOptService tigerUserOptService;
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request,HttpServletResponse response,Object handler)
@@ -49,18 +49,18 @@ public class OptInterceptor extends HandlerInterceptorAdapter {
 				openid = (String)obj;
 			}
 			request.setAttribute("openid",openid);
-			TiggerUserOpt model = new TiggerUserOpt();
+			TigerUserOpt model = new TigerUserOpt();
 			model.setOpenid(openid);
 			model.setOptCode(state);
 			model.setOptTime(new Date());
-			this.tiggerUserOptService.add(model);
+			this.tigerUserOptService.add(model);
 		}
 		return true;
 	}
 	
 	@Resource
-	public void setTiggerUserOptService(TiggerUserOptService tiggerUserOptService){
+	public void setTigerUserOptService(TigerUserOptService tigerUserOptService){
 	
-		this.tiggerUserOptService = tiggerUserOptService;
+		this.tigerUserOptService = tigerUserOptService;
 	}
 }

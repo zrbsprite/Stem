@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.stem.dao.StatementMapper" >
+  <resultMap id="BaseResultMap" type="com.stem.entity.Statement" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <id column="Month" property="month" jdbcType="VARCHAR" />
+    <id column="FundName" property="fundname" jdbcType="VARCHAR" />
+    <result column="Name" property="name" jdbcType="VARCHAR" />
+    <result column="Phone" property="phone" jdbcType="VARCHAR" />
+    <result column="NetValueOfBuyDay" property="netvalueofbuyday" jdbcType="VARCHAR" />
+    <result column="PurchaseAmount" property="purchaseamount" jdbcType="VARCHAR" />
+    <result column="PurchaseShares" property="purchaseshares" jdbcType="VARCHAR" />
+    <result column="CurrentBalance" property="currentbalance" jdbcType="VARCHAR" />
+    <result column="RedemptionShares" property="redemptionshares" jdbcType="VARCHAR" />
+    <result column="RedemptionAmount" property="redemptionamount" jdbcType="VARCHAR" />
+    <result column="TotalShares" property="totalshares" jdbcType="VARCHAR" />
+    <result column="TotalAmount" property="totalamount" jdbcType="VARCHAR" />
+    <result column="TotalBalance" property="totalbalance" jdbcType="VARCHAR" />
+    <result column="Profit" property="profit" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ID, Month, FundName, Name, Phone, NetValueOfBuyDay, PurchaseAmount, PurchaseShares, 
+    CurrentBalance, RedemptionShares, RedemptionAmount, TotalShares, TotalAmount, TotalBalance, 
+    Profit
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.stem.entity.StatementExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from statement
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.stem.entity.StatementKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from statement
+    where ID = #{id,jdbcType=VARCHAR}
+      and Month = #{month,jdbcType=VARCHAR}
+      and FundName = #{fundname,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.stem.entity.StatementKey" >
+    delete from statement
+    where ID = #{id,jdbcType=VARCHAR}
+      and Month = #{month,jdbcType=VARCHAR}
+      and FundName = #{fundname,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.stem.entity.StatementExample" >
+    delete from statement
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.stem.entity.Statement" >
+    insert into statement (ID, Month, FundName, 
+      Name, Phone, NetValueOfBuyDay, 
+      PurchaseAmount, PurchaseShares, CurrentBalance, 
+      RedemptionShares, RedemptionAmount, TotalShares, 
+      TotalAmount, TotalBalance, Profit
+      )
+    values (#{id,jdbcType=VARCHAR}, #{month,jdbcType=VARCHAR}, #{fundname,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{netvalueofbuyday,jdbcType=VARCHAR}, 
+      #{purchaseamount,jdbcType=VARCHAR}, #{purchaseshares,jdbcType=VARCHAR}, #{currentbalance,jdbcType=VARCHAR}, 
+      #{redemptionshares,jdbcType=VARCHAR}, #{redemptionamount,jdbcType=VARCHAR}, #{totalshares,jdbcType=VARCHAR}, 
+      #{totalamount,jdbcType=VARCHAR}, #{totalbalance,jdbcType=VARCHAR}, #{profit,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.stem.entity.Statement" >
+    insert into statement
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="month != null" >
+        Month,
+      </if>
+      <if test="fundname != null" >
+        FundName,
+      </if>
+      <if test="name != null" >
+        Name,
+      </if>
+      <if test="phone != null" >
+        Phone,
+      </if>
+      <if test="netvalueofbuyday != null" >
+        NetValueOfBuyDay,
+      </if>
+      <if test="purchaseamount != null" >
+        PurchaseAmount,
+      </if>
+      <if test="purchaseshares != null" >
+        PurchaseShares,
+      </if>
+      <if test="currentbalance != null" >
+        CurrentBalance,
+      </if>
+      <if test="redemptionshares != null" >
+        RedemptionShares,
+      </if>
+      <if test="redemptionamount != null" >
+        RedemptionAmount,
+      </if>
+      <if test="totalshares != null" >
+        TotalShares,
+      </if>
+      <if test="totalamount != null" >
+        TotalAmount,
+      </if>
+      <if test="totalbalance != null" >
+        TotalBalance,
+      </if>
+      <if test="profit != null" >
+        Profit,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null" >
+        #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="fundname != null" >
+        #{fundname,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="netvalueofbuyday != null" >
+        #{netvalueofbuyday,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseamount != null" >
+        #{purchaseamount,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseshares != null" >
+        #{purchaseshares,jdbcType=VARCHAR},
+      </if>
+      <if test="currentbalance != null" >
+        #{currentbalance,jdbcType=VARCHAR},
+      </if>
+      <if test="redemptionshares != null" >
+        #{redemptionshares,jdbcType=VARCHAR},
+      </if>
+      <if test="redemptionamount != null" >
+        #{redemptionamount,jdbcType=VARCHAR},
+      </if>
+      <if test="totalshares != null" >
+        #{totalshares,jdbcType=VARCHAR},
+      </if>
+      <if test="totalamount != null" >
+        #{totalamount,jdbcType=VARCHAR},
+      </if>
+      <if test="totalbalance != null" >
+        #{totalbalance,jdbcType=VARCHAR},
+      </if>
+      <if test="profit != null" >
+        #{profit,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.stem.entity.StatementExample" resultType="java.lang.Integer" >
+    select count(*) from statement
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update statement
+    <set >
+      <if test="record.id != null" >
+        ID = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.month != null" >
+        Month = #{record.month,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fundname != null" >
+        FundName = #{record.fundname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        Name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null" >
+        Phone = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.netvalueofbuyday != null" >
+        NetValueOfBuyDay = #{record.netvalueofbuyday,jdbcType=VARCHAR},
+      </if>
+      <if test="record.purchaseamount != null" >
+        PurchaseAmount = #{record.purchaseamount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.purchaseshares != null" >
+        PurchaseShares = #{record.purchaseshares,jdbcType=VARCHAR},
+      </if>
+      <if test="record.currentbalance != null" >
+        CurrentBalance = #{record.currentbalance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.redemptionshares != null" >
+        RedemptionShares = #{record.redemptionshares,jdbcType=VARCHAR},
+      </if>
+      <if test="record.redemptionamount != null" >
+        RedemptionAmount = #{record.redemptionamount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalshares != null" >
+        TotalShares = #{record.totalshares,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalamount != null" >
+        TotalAmount = #{record.totalamount,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalbalance != null" >
+        TotalBalance = #{record.totalbalance,jdbcType=VARCHAR},
+      </if>
+      <if test="record.profit != null" >
+        Profit = #{record.profit,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update statement
+    set ID = #{record.id,jdbcType=VARCHAR},
+      Month = #{record.month,jdbcType=VARCHAR},
+      FundName = #{record.fundname,jdbcType=VARCHAR},
+      Name = #{record.name,jdbcType=VARCHAR},
+      Phone = #{record.phone,jdbcType=VARCHAR},
+      NetValueOfBuyDay = #{record.netvalueofbuyday,jdbcType=VARCHAR},
+      PurchaseAmount = #{record.purchaseamount,jdbcType=VARCHAR},
+      PurchaseShares = #{record.purchaseshares,jdbcType=VARCHAR},
+      CurrentBalance = #{record.currentbalance,jdbcType=VARCHAR},
+      RedemptionShares = #{record.redemptionshares,jdbcType=VARCHAR},
+      RedemptionAmount = #{record.redemptionamount,jdbcType=VARCHAR},
+      TotalShares = #{record.totalshares,jdbcType=VARCHAR},
+      TotalAmount = #{record.totalamount,jdbcType=VARCHAR},
+      TotalBalance = #{record.totalbalance,jdbcType=VARCHAR},
+      Profit = #{record.profit,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.stem.entity.Statement" >
+    update statement
+    <set >
+      <if test="name != null" >
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        Phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="netvalueofbuyday != null" >
+        NetValueOfBuyDay = #{netvalueofbuyday,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseamount != null" >
+        PurchaseAmount = #{purchaseamount,jdbcType=VARCHAR},
+      </if>
+      <if test="purchaseshares != null" >
+        PurchaseShares = #{purchaseshares,jdbcType=VARCHAR},
+      </if>
+      <if test="currentbalance != null" >
+        CurrentBalance = #{currentbalance,jdbcType=VARCHAR},
+      </if>
+      <if test="redemptionshares != null" >
+        RedemptionShares = #{redemptionshares,jdbcType=VARCHAR},
+      </if>
+      <if test="redemptionamount != null" >
+        RedemptionAmount = #{redemptionamount,jdbcType=VARCHAR},
+      </if>
+      <if test="totalshares != null" >
+        TotalShares = #{totalshares,jdbcType=VARCHAR},
+      </if>
+      <if test="totalamount != null" >
+        TotalAmount = #{totalamount,jdbcType=VARCHAR},
+      </if>
+      <if test="totalbalance != null" >
+        TotalBalance = #{totalbalance,jdbcType=VARCHAR},
+      </if>
+      <if test="profit != null" >
+        Profit = #{profit,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+      and Month = #{month,jdbcType=VARCHAR}
+      and FundName = #{fundname,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.stem.entity.Statement" >
+    update statement
+    set Name = #{name,jdbcType=VARCHAR},
+      Phone = #{phone,jdbcType=VARCHAR},
+      NetValueOfBuyDay = #{netvalueofbuyday,jdbcType=VARCHAR},
+      PurchaseAmount = #{purchaseamount,jdbcType=VARCHAR},
+      PurchaseShares = #{purchaseshares,jdbcType=VARCHAR},
+      CurrentBalance = #{currentbalance,jdbcType=VARCHAR},
+      RedemptionShares = #{redemptionshares,jdbcType=VARCHAR},
+      RedemptionAmount = #{redemptionamount,jdbcType=VARCHAR},
+      TotalShares = #{totalshares,jdbcType=VARCHAR},
+      TotalAmount = #{totalamount,jdbcType=VARCHAR},
+      TotalBalance = #{totalbalance,jdbcType=VARCHAR},
+      Profit = #{profit,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+      and Month = #{month,jdbcType=VARCHAR}
+      and FundName = #{fundname,jdbcType=VARCHAR}
+  </update>
+</mapper>

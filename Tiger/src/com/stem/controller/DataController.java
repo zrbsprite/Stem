@@ -2,16 +2,14 @@ package com.stem.controller;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.stem.core.commons.AjaxConroller;
 import com.stem.core.interfaces.IDataPipeline;
-import com.stem.entity.TiggerNaming;
-import com.stem.entity.TiggerNamingExample;
-import com.stem.service.TiggerNamingService;
+import com.stem.entity.TigerNaming;
+import com.stem.entity.TigerNamingExample;
+import com.stem.service.TigerNamingService;
 
 @Controller
 @RequestMapping("data")
@@ -19,7 +17,7 @@ public class DataController extends AjaxConroller {
 
 	private IDataPipeline pipeline;
 	
-	private TiggerNamingService tiggerNamingService;
+	private TigerNamingService tigerNamingService;
 
 	/**
 	 * @author: stem zhang <br/>
@@ -30,12 +28,12 @@ public class DataController extends AjaxConroller {
 	@RequestMapping("index")
 	public String index(){
 		String openid = request.getAttribute("openid").toString(); 
-		TiggerNamingExample example = new TiggerNamingExample();
+		TigerNamingExample example = new TigerNamingExample();
 		example.createCriteria().andOpenidEqualTo(openid);
-		List<TiggerNaming> list = this.tiggerNamingService.list(example);
+		List<TigerNaming> list = this.tigerNamingService.list(example);
 		String userid = "";
 		if(list.size()>0){
-			TiggerNaming entity = list.get(0);
+			TigerNaming entity = list.get(0);
 			userid = entity.getUserid();
 		}
 		// 调用接口查询收益数据

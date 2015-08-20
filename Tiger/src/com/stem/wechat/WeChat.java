@@ -38,12 +38,6 @@ import com.stem.wechat.tools.Tools;
 import com.stem.wechat.tools.XStreamFactory;
 import com.thoughtworks.xstream.XStream;
 
-/**
- * 微信常用的API
- *
- * @author L.cm & ____′↘夏悸
- * @date 2013-11-5 下午3:01:20
- */
 public class WeChat {
     private static final String ACCESSTOKEN_URL = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential";
     private static final String PAYFEEDBACK_URL = "https://api.weixin.qq.com/payfeedback/update";
