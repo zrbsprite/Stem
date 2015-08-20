@@ -44,7 +44,8 @@ public class ProductController extends AjaxConroller{
 		Pagination<Product> page = new Pagination<Product>(count, pageIndex);
 		page.setData(data);
 		model.addAttribute("page", page);
-		return "fore/product/list";
+//		return "fore/product/list";
+		return "fore/thirsty/product_list";
 	}
 
 	@RequestMapping("data")

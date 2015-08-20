@@ -11,6 +11,7 @@ public class IncomeController extends BaseController{
 
 	@RequestMapping("index")
 	public String index(){
-		return "fore/income/list";
+//		return "fore/income/list";
+		return "fore/earn/product_list";
 	}
 }

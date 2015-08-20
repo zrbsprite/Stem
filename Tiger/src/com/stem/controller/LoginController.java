@@ -78,6 +78,11 @@ public class LoginController extends AjaxConroller{
 		return "fore/index";
 	}
 	
+	@RequestMapping("anno/temp")
+	public String temp(){
+		return "fore/temp";
+	}
+	
 	public UserService getUserService() {
 		return userService;
 	}

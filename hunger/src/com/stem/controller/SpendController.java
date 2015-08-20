@@ -9,6 +9,7 @@ public class SpendController {
 
 	@RequestMapping("index")
 	public String index(){
-		return "fore/spend/list";
+//		return "fore/spend/list";
+		return "fore/spend/product_list";
 	}
 }

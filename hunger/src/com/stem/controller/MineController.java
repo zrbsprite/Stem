@@ -9,6 +9,7 @@ public class MineController {
 
 	@RequestMapping("index")
 	public String index(){
-		return "fore/mine/account";
+//		return "fore/mine/account";
+		return "fore/myself/product_list";
 	}
 }
