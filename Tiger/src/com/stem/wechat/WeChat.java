@@ -21,6 +21,7 @@ import org.apache.commons.lang.math.NumberUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.stem.core.commons.PropertiesInitBean.PropertiesUtils;
 import com.stem.wechat.bean.Articles;
 import com.stem.wechat.bean.Attachment;
 import com.stem.wechat.bean.InMessage;
@@ -31,7 +32,6 @@ import com.stem.wechat.oauth.Menu;
 import com.stem.wechat.oauth.Message;
 import com.stem.wechat.oauth.Qrcod;
 import com.stem.wechat.oauth.User;
-import com.stem.wechat.tools.ConfKit;
 import com.stem.wechat.tools.HttpKit;
 import com.stem.wechat.tools.JsApiSign;
 import com.stem.wechat.tools.Tools;
@@ -75,8 +75,8 @@ public class WeChat {
      * @throws Exception
      */
     public static String getAccessToken() throws Exception {
-        String appid = ConfKit.get("AppId");
-        String secret = ConfKit.get("AppSecret");
+        String appid = PropertiesUtils.getConfigByKey("AppId");
+        String secret = PropertiesUtils.getConfigByKey("AppSecret");
         String jsonStr = HttpKit.get(ACCESSTOKEN_URL.concat("&appid=") + appid + "&secret=" + secret);
         Map<String, Object> map = JSONObject.parseObject(jsonStr);
         return map.get("access_token").toString();
@@ -136,7 +136,7 @@ public class WeChat {
         // 加载处理器
         if (messageProcessingHandlerClazz == null) {
             // 获取自定消息处理器，如果自定义处理器则使用默认处理器。
-            String handler = ConfKit.get("MessageProcessingHandlerImpl");
+            String handler = PropertiesUtils.getConfigByKey("MessageProcessingHandlerImpl");
             handler = handler == null ? DEFAULT_HANDLER : handler;
             try {
                 messageProcessingHandlerClazz = Thread.currentThread().getContextClassLoader().loadClass(handler);

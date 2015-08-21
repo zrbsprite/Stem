@@ -8,13 +8,10 @@ import java.security.NoSuchProviderException;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.stem.wechat.tools.ConfKit;
+import com.stem.core.commons.PropertiesInitBean.PropertiesUtils;
 import com.stem.wechat.tools.HttpKit;
 /**
  * 微信Oauth和支付工具类
- *
- * @author L.cm
- * @date 2013-11-14 下午4:42:42
  */
 public class Oauth {
 
@@ -27,8 +24,8 @@ public class Oauth {
 
     public Oauth() {
         super();
-        this.appid = ConfKit.get("AppId");
-        this.secret = ConfKit.get("AppSecret");
+        this.appid = PropertiesUtils.getConfigByKey("AppId");
+        this.secret = PropertiesUtils.getConfigByKey("AppSecret");
     }
 
     public Oauth(String appid, String secret) {
@@ -46,12 +43,32 @@ public class Oauth {
         Map<String, String> params = new HashMap<String, String>();
         params.put("appid", getAppid());
         params.put("response_type", "code");
-        params.put("redirect_uri", ConfKit.get("redirect_uri"));
+        params.put("redirect_uri", PropertiesUtils.getConfigByKey("redirect_uri"));
         params.put("scope", "snsapi_base"); // snsapi_base（不弹出授权页面，只能拿到用户openid）snsapi_userinfo
         // （弹出授权页面，这个可以通过 openid 拿到昵称、性别、所在地）
         params.put("state", "wx#wechat_redirect");
         String para = Pay.createSign(params, false);
         return CODE_URI + "?" + para;
+    }
+    
+    /**
+     * @author: stem zhang
+     * 修改时间：2015年8月21日 - 上午9:09:59<br/>
+     * 功能说明：获取code<br/>
+     * @param state
+     * @return
+     * @throws UnsupportedEncodingException
+     */
+    public String getCodeUrl(String state, String redirectUrl) throws UnsupportedEncodingException {
+    	Map<String, String> params = new HashMap<String, String>();
+    	params.put("appid", getAppid());
+    	params.put("response_type", "code");
+    	params.put("redirect_uri", redirectUrl);
+    	params.put("scope", "snsapi_base"); // snsapi_base（不弹出授权页面，只能拿到用户openid）snsapi_userinfo
+    	// （弹出授权页面，这个可以通过 openid 拿到昵称、性别、所在地）
+    	params.put("state", state);
+    	String para = Pay.createSign(params, false);
+    	return CODE_URI + "?" + para;
     }
 
     /**

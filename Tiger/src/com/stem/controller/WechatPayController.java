@@ -18,11 +18,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.stem.core.commons.AjaxConroller;
+import com.stem.core.commons.PropertiesInitBean.PropertiesUtils;
 import com.stem.wechat.WeChat;
 import com.stem.wechat.bean.WeChatBuyPost;
 import com.stem.wechat.bean.WeChatFeedBack;
 import com.stem.wechat.oauth.Pay;
-import com.stem.wechat.tools.ConfKit;
 import com.stem.wechat.tools.Tools;
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
@@ -69,7 +69,7 @@ public class WechatPayController extends AjaxConroller {
 			String paySign = Pay.paySign(timeStamp,nonceStr,packagestring); // 构造签名
 
 			// appId
-			model.addAttribute("appid",ConfKit.get("AppId"));
+			model.addAttribute("appid",PropertiesUtils.getConfigByKey("AppId"));
 			// timeStamp
 			model.addAttribute("timeStamp", timeStamp);
 			// nonceStr

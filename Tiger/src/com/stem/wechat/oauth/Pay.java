@@ -16,15 +16,11 @@ import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang.StringUtils;
 
 import com.alibaba.fastjson.JSONObject;
-import com.stem.wechat.tools.ConfKit;
+import com.stem.core.commons.PropertiesInitBean.PropertiesUtils;
 import com.stem.wechat.tools.HttpKit;
 
 /**
  * 支付相关方法
- * @author L.cm
- * email: 596392912@qq.com
- * site:  http://www.dreamlu.net
- *
  */
 public class Pay {
 
@@ -39,9 +35,9 @@ public class Pay {
      * @throws UnsupportedEncodingException 
      */
     public static String getPackage(Map<String, String> params) throws UnsupportedEncodingException {
-        String partnerKey = ConfKit.get("partnerKey");
-        String partnerId = ConfKit.get("partnerId");
-        String notifyUrl = ConfKit.get("notify_url");
+        String partnerKey = PropertiesUtils.getConfigByKey("partnerKey");
+        String partnerId = PropertiesUtils.getConfigByKey("partnerId");
+        String notifyUrl = PropertiesUtils.getConfigByKey("notify_url");
         // 公共参数
         params.put("bank_type", "WX");
         params.put("attach", "yongle");
@@ -110,11 +106,11 @@ public class Pay {
      */
     public static String paySign(String timestamp, String noncestr,String packages) throws UnsupportedEncodingException {
         Map<String, String> paras = new HashMap<String, String>();
-        paras.put("appid", ConfKit.get("AppId"));
+        paras.put("appid", PropertiesUtils.getConfigByKey("AppId"));
         paras.put("timestamp", timestamp);
         paras.put("noncestr", noncestr);
         paras.put("package", packages);
-        paras.put("appkey", ConfKit.get("paySignKey"));
+        paras.put("appkey", PropertiesUtils.getConfigByKey("paySignKey"));
         // appid、timestamp、noncestr、package 以及 appkey。
         String string1 = createSign(paras, false);
         String paySign = DigestUtils.sha1Hex(string1);
@@ -134,8 +130,8 @@ public class Pay {
     public static boolean verifySign(long timestamp,
             String noncestr, String openid, int issubscribe, String appsignature) throws UnsupportedEncodingException {
         Map<String, String> paras = new HashMap<String, String>();
-        paras.put("appid", ConfKit.get("AppId"));
-        paras.put("appkey", ConfKit.get("paySignKey"));
+        paras.put("appid", PropertiesUtils.getConfigByKey("AppId"));
+        paras.put("appkey", PropertiesUtils.getConfigByKey("paySignKey"));
         paras.put("timestamp", String.valueOf(timestamp));
         paras.put("noncestr", noncestr);
         paras.put("openid", openid);
@@ -155,7 +151,7 @@ public class Pay {
      * @参数 appid、appkey、openid、transid、out_trade_no、deliver_timestamp、deliver_status、deliver_msg；
      */
     private static String deliverSign(Map<String, String> paras) throws UnsupportedEncodingException {
-        paras.put("appkey", ConfKit.get("paySignKey"));
+        paras.put("appkey", PropertiesUtils.getConfigByKey("paySignKey"));
         String string1 = createSign(paras, false);
         String paySign = DigestUtils.sha1Hex(string1);
         return paySign;
@@ -179,7 +175,7 @@ public class Pay {
 
     public static boolean delivernotify(String access_token, String openid, String transid, String out_trade_no) throws IOException, ExecutionException, InterruptedException {
         Map<String, String> paras = new HashMap<String, String>();
-        paras.put("appid", ConfKit.get("AppId"));
+        paras.put("appid", PropertiesUtils.getConfigByKey("AppId"));
         paras.put("openid", openid);
         paras.put("transid", transid);
         paras.put("out_trade_no", out_trade_no);

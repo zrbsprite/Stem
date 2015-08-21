@@ -4,9 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
 import org.springframework.util.StringUtils;
 
 import com.stem.core.commons.SpringContextUtil;
@@ -20,7 +17,7 @@ import com.stem.wechat.bean.InMessage;
 import com.stem.wechat.bean.OutMessage;
 import com.stem.wechat.bean.TextOutMessage;
 
-public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHandler, ApplicationContextAware{
+public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHandler{
 
 	private OutMessage outMessage;
 	
@@ -74,12 +71,8 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 		//如果是获取收益数据
 		if(eventKey.equals("V1001_FETCH_DATA")){
 			TextOutMessage out = new TextOutMessage();
-			StringBuffer sb = new StringBuffer();
-			
 			//make data
-			//获取用户openid
-			String openid = "";
-			
+			String openid = msg.getFromUserName();
 			//获取用户id card no
 			TigerNamingService namingService = SpringContextUtil.getBean("tigerNamingService");
 			TigerNamingExample namingExample = new TigerNamingExample();
@@ -95,7 +88,13 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 			SimpleDateFormat sf = new SimpleDateFormat("yyyy.M");
 			example.createCriteria().andMonthEqualTo(sf.format(date)).andIdEqualTo(naming.getUserid());
 			List<Statement> list = service.list(example);
-			
+			StringBuffer sb = new StringBuffer("您本月的相关资金信息如下：\n\n");
+			for(Statement statement : list){
+				sb.append("产品《"+statement.getFundname()+"》");
+				sb.append("\n");
+				sb.append("开放日净值："+statement.getNetvalueofbuyday());
+				sb.append("\n");
+			}
 			out.setContent(sb.toString());
 			setOutMessage(out);
 		}else{
@@ -115,10 +114,5 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 	@Override
 	public OutMessage getOutMessage() {
 		return outMessage;
-	}
-
-	@Override
-	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException{
-		
 	}
 }
