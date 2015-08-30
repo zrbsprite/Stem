@@ -30,7 +30,7 @@
 </div>
 
 <div id="section_container">
-	<section id="single_section" data-role="section" class="active" data-aside-right="#right_push_aside" __init_controller__="true">
+	<section id="single_section" data-role="section" class="active" data-aside-right="#right_push_aside">
 		<header>
 		    <div class="titlebar">
 		    	<a data-toggle="back" href="#"><i class="iconfont iconline-arrow-left"></i></a>
@@ -38,7 +38,7 @@
 		    	<a data-toggle="aside" href="#right_push_aside"><i class="iconfont iconline-list"></i></a>
 		    </div>
 		</header>
-		<article data-role="article" id="main_article" data-scroll="pullup" class="active" style="top:44px;bottom:50px;">
+		<article data-role="article" id="main_article" data-scroll="pullup" class="active" style="top:44px;bottom:44px;overflow: hidden;">
 		 	<div class="scroller">
 			 	<div id="slide" data-role="slider" class="full-width" style="heigh:154px;overflow: hidden;">
 			 		<div class="scroller">
