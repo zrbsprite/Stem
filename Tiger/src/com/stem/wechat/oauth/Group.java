@@ -8,11 +8,6 @@ import org.apache.commons.lang.StringUtils;
 import com.alibaba.fastjson.JSONObject;
 import com.stem.wechat.tools.HttpKit;
 
-
-/**
- * 用户操作接口
- * @author ____′↘夏悸
- */
 public class Group {
 
 	private static final String GROUP_CREATE_URI = "https://api.weixin.qq.com/cgi-bin/groups/create?access_token=";

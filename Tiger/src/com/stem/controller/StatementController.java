@@ -30,6 +30,7 @@ public class StatementController extends AjaxConroller{
 		String echostr = request.getParameter("echostr");
 		String token = PropertiesUtils.getConfigByKey("token");
 		
+		//验证URL有效性
 		if(!StringUtils.isEmpty(nonce)&&!StringUtils.isEmpty(echostr)){
 			List<String> list = new ArrayList<String>();
 			list.add(timestamp);

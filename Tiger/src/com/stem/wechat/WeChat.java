@@ -3,11 +3,9 @@ package com.stem.wechat;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
@@ -26,6 +24,7 @@ import com.stem.wechat.bean.Articles;
 import com.stem.wechat.bean.Attachment;
 import com.stem.wechat.bean.InMessage;
 import com.stem.wechat.bean.OutMessage;
+import com.stem.wechat.inf.DefaultMessageProcessingHandlerImpl;
 import com.stem.wechat.inf.MessageProcessingHandler;
 import com.stem.wechat.oauth.Group;
 import com.stem.wechat.oauth.Menu;
@@ -41,11 +40,12 @@ import com.thoughtworks.xstream.XStream;
 public class WeChat {
     private static final String ACCESSTOKEN_URL = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential";
     private static final String PAYFEEDBACK_URL = "https://api.weixin.qq.com/payfeedback/update";
-    private static final String DEFAULT_HANDLER = "com.gson.inf.DefaultMessageProcessingHandlerImpl";
     private static final String GET_MEDIA_URL = "http://file.api.weixin.qq.com/cgi-bin/media/get?access_token=";
     private static final String UPLOAD_MEDIA_URL = "http://file.api.weixin.qq.com/cgi-bin/media/upload?access_token=";
     private static final String JSAPI_TICKET = "https://api.weixin.qq.com/cgi-bin/ticket/getticket?type=jsapi&access_token=";
-    private static Class<?> messageProcessingHandlerClazz = null;
+    
+    private static  MessageProcessingHandler messageProcessingHandler = new DefaultMessageProcessingHandlerImpl();; 
+    
     /**
      * 消息操作接口
      */
@@ -132,53 +132,30 @@ public class WeChat {
      */
     public static String processing(String responseInputString) {
         InMessage inMessage = parsingInMessage(responseInputString);
+        
+        //取得消息类型
+        String type = inMessage.getMsgType();
+        switch (type) {
+			case "event":
+				messageProcessingHandler.eventTypeMsg(inMessage);
+				break;
+			default:
+				messageProcessingHandler.allType(inMessage);
+				break;
+		}
+        
+        Object obj =  messageProcessingHandler.getOutMessage();
         OutMessage oms = null;
-        // 加载处理器
-        if (messageProcessingHandlerClazz == null) {
-            // 获取自定消息处理器，如果自定义处理器则使用默认处理器。
-            String handler = PropertiesUtils.getConfigByKey("MessageProcessingHandlerImpl");
-            handler = handler == null ? DEFAULT_HANDLER : handler;
-            try {
-                messageProcessingHandlerClazz = Thread.currentThread().getContextClassLoader().loadClass(handler);
-            } catch (Exception e) {
-                throw new RuntimeException("messageProcessingHandler Load Error！");
-            }
-        }
         String xml = "";
-        try {
-            MessageProcessingHandler messageProcessingHandler = (MessageProcessingHandler) messageProcessingHandlerClazz.newInstance();
-            //取得消息类型
-            String type = inMessage.getMsgType();
-            Method getOutMessage = messageProcessingHandler.getClass().getMethod("getOutMessage");
-            Method alMt = messageProcessingHandler.getClass().getMethod("allType", InMessage.class);
-            Method mt = messageProcessingHandler.getClass().getMethod(type + "TypeMsg", InMessage.class);
-
-            alMt.invoke(messageProcessingHandler, inMessage);
-
-            if (mt != null) {
-                mt.invoke(messageProcessingHandler, inMessage);
-            }
-
-            Object obj = getOutMessage.invoke(messageProcessingHandler);
-            if (obj != null) {
-                oms = (OutMessage) obj;
-            }
+        if (obj != null) {
+            oms = (OutMessage) obj;
             //调用事后处理
-            try {
-                Method aftMt = messageProcessingHandler.getClass().getMethod("afterProcess", InMessage.class, OutMessage.class);
-                aftMt.invoke(messageProcessingHandler, inMessage, oms);
-            } catch (Exception e) {
-            }
-
-            obj = getOutMessage.invoke(messageProcessingHandler);
-            if (obj != null) {
-                oms = (OutMessage) obj;
-                setMsgInfo(oms, inMessage);
-            }
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-        if (oms != null) {
+            messageProcessingHandler.afterProcess(inMessage,oms);
+            try{
+				setMsgInfo(oms, inMessage);
+			} catch (Exception e){
+				e.printStackTrace();
+			}
             // 把发送发送对象转换为xml输出
             XStream xs = XStreamFactory.init(true);
             xs.alias("xml", oms.getClass());
@@ -205,7 +182,7 @@ public class WeChat {
             CreateTime.setAccessible(true);
             FromUserName.setAccessible(true);
 
-            CreateTime.set(oms, new Date().getTime());
+            CreateTime.set(oms, System.currentTimeMillis());
             ToUserName.set(oms, msg.getFromUserName());
             FromUserName.set(oms, msg.getToUserName());
         }

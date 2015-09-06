@@ -2,10 +2,6 @@ package com.stem.wechat.inf;
 
 /**
  * 消息类型
- * @author L.cm
- * email: 596392912@qq.com
- * site:  http://www.dreamlu.net
- *
  */
 public enum MsgTypes {
 	TEXT("text"), 
