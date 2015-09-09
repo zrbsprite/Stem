@@ -20,7 +20,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript">
 	//当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。
 	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
-		alert("init");
 		//公众号支付
 		$('#getBrandWCPayRequest').click(function(e){
 			WeixinJSBridge.invoke('getBrandWCPayRequest',{

@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 import com.stem.core.commons.SpringContextUtil;
+import com.stem.core.commons.PropertiesInitBean.PropertiesUtils;
 import com.stem.entity.Statement;
 import com.stem.entity.StatementExample;
 import com.stem.entity.TigerNaming;
@@ -199,7 +200,18 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 		TigerNamingExample namingExample = new TigerNamingExample();
 		namingExample.createCriteria().andOpenidEqualTo(openid);
 		List<TigerNaming> namings = namingService.list(namingExample);
+		//如果用户未绑定，给出提示的消息并提供绑定的连接
 		if(namings.size()==0){
+			StringBuffer sb = new StringBuffer();
+			sb.append("由于您未绑定微信号，我们暂时不能提供相关服务！您可以先绑定微信：");
+			sb.append("\n");
+			String bindUrl = PropertiesUtils.getConfigByKey("auth_code_url");
+			String appid = PropertiesUtils.getConfigByKey("AppId");
+			String reUrl = PropertiesUtils.getConfigByKey("wechat_bind_url");
+			bindUrl = String.format(bindUrl, appid, reUrl, 10);
+			sb.append("<a href='"+bindUrl+"'> 绑定微信 </a>");
+			out.setContent(sb.toString());
+			setOutMessage(out);
 			return;
 		}
 		TigerNaming naming = namings.get(0);
@@ -214,7 +226,7 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 			sb.append("产品《"+statement.getFundname()+"》");
 			sb.append("\n");
 			sb.append("开放日净值："+statement.getNetvalueofbuyday());
-			sb.append("\n");
+			sb.append("\n\n");
 		}
 		out.setContent(sb.toString());
 		setOutMessage(out);

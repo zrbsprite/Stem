@@ -1,0 +1,185 @@
+@charset "UTF-8";
+/*全局变量定义*/
+/*宏定义*/
+/*初始化*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, legend, button form, fieldset, input, textarea, p, blockquote, th, td { padding: 0; margin: 0; }
+
+input { outline: none; -webkit-appearance: none; }
+
+input[type="date"]::-webkit-inner-spin-button { visibility: hidden; }
+
+input[type="date"]::-webkit-clear-button { -webkit-appearance: none; visibility: hidden; }
+
+input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; /* 上下小箭头按钮，你丫太丑了，滚粗，负分 */ }
+
+body { background: #fff; color: #676767; font: 1rem Microsoft YaHei, Helvitica, Verdana, Arial, san-serif; }
+
+/* 短引用的内容可取值：''或"" */
+q:before, q:after { content: ''; }
+
+/* 缩写，图片等无边框 */
+fieldset, img, abbr, acronym { border: 0 none; }
+
+abbr, acronym { font-variant: normal; }
+
+legend { color: #000; }
+
+/* 清除特殊标记的字体和字号 */
+address, caption, cite, code, dfn, em, strong, th, var { font-weight: normal; font-style: normal; }
+
+/* 上下标 */
+sup { vertical-align: text-top; }
+
+sub { vertical-align: text-bottom; }
+
+/* 设置表格的边框被合并为一个单一的边框, 指定分隔边框模型中单元格边界之间的距离为0*/
+table { border-collapse: collapse; border-spacing: 0; }
+
+/* 表格标题及内容居左显示 */
+caption, th { text-align: left; }
+
+input, img, select { vertical-align: middle; }
+
+/* 清除列表样式 */
+ol, ul { list-style: none; }
+
+/* 输入控件字体 */
+input, button, textarea, select, optgroup, option { font-family: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; }
+
+/* 标题元素样式清除 */
+h1, h2, h3, h4, h5, h6 { font-weight: normal; font-size: 100%; }
+
+/* 链接样式，颜色*/
+del, ins, a { text-decoration: none; }
+
+a:link { color: #009; }
+
+a:visited { color: #800080; }
+
+a:hover, a:active, a:focus { color: #c00; text-decoration: underline; }
+
+/* 鼠标样式 */
+input[type="submit"] { cursor: pointer; }
+
+button { cursor: pointer; }
+
+input::-moz-focus-inner { border: 0; padding: 0; }
+
+.clear { clear: both; }
+
+/*flex布局*/
+.flex { display: flex; display: -moz-flex; display: -webkit-flex; display: -o-flex; display: -ms-flex; }
+
+.box { display: box; display: -moz-box; display: -webkit-box; display: -o-box; display: -ms-box; }
+
+/*表单元素---登录、注册、找回密码、报名申请页面*/
+/*input*/
+.input-text { display: block; width: 94%; padding: 0 .5rem; border-radius: 1rem; background: #fff; border: 1px solid #a1a1a1; height: 2rem; line-height: 2rem; }
+
+.wrong { background-color: #ffe3e0; border: 1px solid #fd695a; }
+
+/*topnav*/
+.topnav { position: fixed; top: 0; height: 3rem; z-index: 20150807; width: 100%; background-color: #fff; border-bottom: 1px solid #d2d2d2; }
+.topnav .nav_back { color: #3d3e42; font-size: .95rem; height: 3rem; line-height: 3rem; position: absolute; left: 1rem; top: 0; width: 3rem; text-align: right; cursor: pointer; background: url("../../images/phone/nav_back.png") no-repeat 0 center; background-size: .68rem 1.2rem; }
+.topnav .title { color: #3d3e42; font-size: 1.2rem; height: 3rem; line-height: 3rem; text-align: center; }
+.topnav .nav_icon { position: absolute; width: 1.6rem; height: 2rem; right: 1rem; top: .8rem; cursor: pointer; }
+.topnav .nav_icon .hb { display: block; width: 100%; height: .24rem; margin-bottom: .26rem; background-color: #8f8f8e; }
+.topnav .nav_Link { position: absolute; width: 4.5rem; height: 2rem; right: 1rem; top: .8rem; text-align: right; cursor: pointer; }
+.topnav .nav_Link a { color: #fd695a; font-size: 1rem; text-decoration: none; }
+
+/*content页面内容容器*/
+.content { margin: 3rem 0 0 0; }
+
+.loadadv { position: absolute; z-index: 120150831; width: 100%; height: 100%; background-color: pink; }
+
+/*右侧菜单*/
+.opaci_Bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 20150808; display: none; }
+.opaci_Bg .opacity { width: 100%; height: 100%; z-index: 20150809; background: #000; opacity: 0.3; }
+
+.sideMenu { width: 66.8%; height: 100%; position: fixed; top: 0; right: -100%; z-index: 20150810; background: #fff; opacity: 0; }
+.sideMenu .sidePic { width: 97%; padding: .6rem 0 .6rem 3%; background: #f5f3f2; }
+.sideMenu .sidePic .pic { display: inline-block; }
+.sideMenu .sidePic .pic img { width: 3rem; height: 3rem; border-radius: 3rem; border: 0.2rem solid #fd695a; }
+.sideMenu .sidePic .text { display: inline-block; font-size: 0.7rem; margin-left: 2px; color: #fd695a; }
+.sideMenu .sidePic .text span { color: #7c7c7f; }
+@media screen and (min-width: 330px) { .sideMenu .sidePic .pic img { width: 4rem; height: 4rem; border-radius: 4rem; } }
+@media screen and (min-width: 380px) { .sideMenu .sidePic .text { font-size: 0.96rem; margin-left: 10px; } }
+.sideMenu .sideList ul { width: 100%; overflow: hidden; /*幼儿园首页*/ /*今日小明星*/ /*班级通知*/ /**/ /*我要邀请*/ /**/ /*班级风采*/ /**/ /*接送卡*/ /*在线请假*/ /*今日所学*/ }
+.sideMenu .sideList ul li { width: 80%; float: left; height: 2.5rem; line-height: 2.5rem; border-bottom: 1px solid #c3c3c3; padding: 0 10%; }
+.sideMenu .sideList ul li a { display: block; width: 100%; height: 2.5rem; color: #7c7c7f; font-size: 1rem; }
+.sideMenu .sideList ul li a .circ { float: left; margin: 4% 8% 0 3%; width: 1.7rem; height: 1.7rem; background: url("../../images/phone/idx.png"); background-size: 58px 284px; }
+.sideMenu .sideList ul li a p { float: left; width: 5rem; text-align: left; }
+.sideMenu .sideList ul li a span { float: left; background: #fd695a; color: #fff; border-radius: 1rem; padding: 0 .5rem; font-size: .6rem; height: 1rem; line-height: 1rem; margin-top: 7%; }
+.sideMenu .sideList ul li.li_1 .circ { background-position: 0px 5px; }
+.sideMenu .sideList ul li.li_2 .circ { background-position: 0px -16px; }
+.sideMenu .sideList ul li.li_3 .circ { background-position: 0px -39px; }
+.sideMenu .sideList ul li.li_4 .circ { background-position: 0px -61px; }
+.sideMenu .sideList ul li.li_5 .circ { background-position: 0px -87px; }
+.sideMenu .sideList ul li.li_6 .circ { background-position: 0px -113px; }
+.sideMenu .sideList ul li.li_7 .circ { background-position: 0px -141px; }
+.sideMenu .sideList ul li.li_8 .circ { background-position: 0px -169px; }
+.sideMenu .sideList ul li.li_9 .circ { background-position: 0px -198px; }
+.sideMenu .sideList ul li.li_10 .circ { background-position: 0px -228px; }
+.sideMenu .sideList ul li.li_11 .circ { background-position: 0px -257px; }
+.sideMenu .sideList ul li.current { background: #fd695a; }
+.sideMenu .sideList ul li.current a { color: #fff; }
+.sideMenu .sideList ul li.li_1.current .circ { background-position: -32px 5px; }
+.sideMenu .sideList ul li.li_2.current .circ { background-position: -32px -16px; }
+.sideMenu .sideList ul li.li_3.current .circ { background-position: -32px -39px; }
+.sideMenu .sideList ul li.li_4.current .circ { background-position: -32px -61px; }
+.sideMenu .sideList ul li.li_5.current .circ { background-position: -32px -87px; }
+.sideMenu .sideList ul li.li_6.current .circ { background-position: -32px -113px; }
+.sideMenu .sideList ul li.li_7.current .circ { background-position: -32px -141px; }
+.sideMenu .sideList ul li.li_8.current .circ { background-position: -32px -169px; }
+.sideMenu .sideList ul li.li_9.current .circ { background-position: -32px -198px; }
+.sideMenu .sideList ul li.li_10.current .circ { background-position: -32px -228px; }
+.sideMenu .sideList ul li.li_11.current .circ { background-position: -32px -257px; }
+@media screen and (min-width: 330px) { .sideMenu .sideList ul li { height: 3rem; line-height: 3rem; }
+  .sideMenu .sideList ul li p { font-size: 1rem; }
+  .sideMenu .sideList ul li span { font-size: .8rem; } }
+.sideMenu .exitBtn { display: block; width: 68.6%; border-radius: 1rem; background: #53c5ac; color: #fff; height: 2rem; line-height: 1.9rem; margin: 1.5rem auto 1rem auto; text-align: center; font-size: 1rem; text-decoration: none; }
+@media screen and (min-width: 330px) { .sideMenu .exitBtn { margin: 4rem auto 1rem auto; } }
+@media screen and (min-width: 380px) { .sideMenu .exitBtn { height: 2.3rem; line-height: 2.2rem; font-size: 1.3rem; } }
+
+html, body, .h100 { height: 100%; }
+
+.h100 { margin-top: 0; box-orient: vertical; -webkit-box-orient: vertical; -moz-box-orient: vertical; -ms-box-orient: vertical; -o-box-orient: vertical; }
+
+/**/
+.login { width: 100%; margin-top: 3rem; }
+.login .form { width: 100%; }
+.login section { width: 90%; margin: 1.3rem auto 0; font-size: 1rem; position: relative; }
+.login .marTop { margin-top: 1.8rem; }
+.login label { display: block; width: 90%; padding: .5rem 5%; }
+.login .input-text { display: block; width: 94%; padding: 0 .5rem; border-radius: 1rem; background: #fff; border: 1px solid #a1a1a1; height: 2rem; line-height: 2rem; }
+.login .input_btn, .login .input_btn2 { text-decoration: none; cursor: pointer; text-align: center; display: block; width: 100%; border-radius: 1rem; background: #fd695a; font-size: 1.2rem; color: #fff; border: 1px solid #fd695a; height: 2.2rem; line-height: 2.1rem; }
+.login a:link, .login a:visited, .login a:hover, .login a:active { text-decoration: none; }
+.login .input_btn2 { border: 1px solid #f8a214; background: #f8a214; }
+.login .get_code { width: 135px; background: #fd695a; border-radius: 2px; border: none; color: #fff; padding: 0px 5px 2px 5px; position: absolute; top: 2.6rem; right: 1rem; }
+.login a.for_pass, .login a.user_term { display: block; width: 100%; text-align: right; color: #fd695a; text-decoration: none; }
+.login a.user_term { color: #767676; text-decoration: none; }
+.login a.user_term span { color: #fd695a; }
+.login .bottom { width: 100%; margin-top: 2rem; }
+.login .bottom img { width: 100%; }
+
+@media (max-height: 500px) { .login section { font-size: 0.9rem; margin: .8rem auto 0; }
+  .login section .input_btn2 { font-size: 1.1rem; } }
+@media screen and (min-height: 500px) { .login .bottom { position: fixed; bottom: 0px; } }
+@keyframes tipsMove { 0% { border-color: #fd695a; }
+  50% { border-color: #ffb7b0; }
+  100% { border-color: #fd695a; } }
+@-moz-keyframes tipsMove { 0% { border-color: #fd695a; }
+  50% { border-color: #ffb7b0; }
+  100% { border-color: #fd695a; } }
+@-webkit-keyframes tipsMove { 0% { border-color: #fd695a; }
+  50% { border-color: #ffb7b0; }
+  100% { border-color: #fd695a; } }
+@-o-keyframes tipsMove { 0% { border-color: #fd695a; }
+  50% { border-color: #ffb7b0; }
+  100% { border-color: #fd695a; } }
+@keyframes tipsLeave { border-color: #a1a1a1; }
+@-moz-keyframes tipsLeave { border-color: #a1a1a1; }
+@-webkit-keyframes tipsLeave { border-color: #a1a1a1; }
+@-o-keyframes tipsLeave { border-color: #a1a1a1; }
+
+/*# sourceMappingURL=login.css.map */

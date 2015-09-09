@@ -1,94 +1,83 @@
 package com.stem.controller;
 
-import java.io.PrintWriter;
+import java.io.IOException;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.stem.core.commons.AjaxConroller;
-import com.stem.core.constant.CookieConstant;
-import com.stem.core.constant.ErrorConstant;
-import com.stem.entity.User;
-import com.stem.service.UserService;
-import com.stem.util.CookieUtil;
-import com.stem.util.Md5Encrypt;
-import com.stem.vo.UserLoginVO;
+import com.stem.core.commons.PropertiesInitBean.PropertiesUtils;
+import com.stem.entity.TigerNaming;
+import com.stem.entity.TigerUserinfo;
+import com.stem.entity.TigerUserinfoExample;
+import com.stem.service.TigerNamingService;
+import com.stem.service.TigerUserinfoService;
+import com.stem.util.HttpUtils;
 
 @Controller
-@RequestMapping("")
+@RequestMapping("wechat")
 public class LoginController extends AjaxConroller{
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	
-	@Value("#{propertiesReader[cookie_username_key]}")
-	private String cookieUserNameKey;
-
-	private UserService userService;
-
-	@RequestMapping("/index")
-	public String index() {
-		return "fore/home";
-	}
-
-	@RequestMapping("/login")
-	public void doLogin(@ModelAttribute UserLoginVO user, Model model, PrintWriter pw) {
-		if(null==user){
-			user = new UserLoginVO();
-		}
-		User entity = this.userService.selectByUserName(user.getUserName());
-		JSONObject resultObject = new JSONObject();
-		if(null==entity){
-			resultObject.put("errcode", ErrorConstant.USER_PWD_ERROR);
-			resultObject.put("errmsg", getMessage("user.noexist"));
-			writeJson(resultObject.toJSONString());
-			return;
-		}
-		String encryptedPwd = Md5Encrypt.getMD5ofStr(user.getPassword());
-		if(!encryptedPwd.equalsIgnoreCase(entity.getPassword())){
-			resultObject.put("errcode", ErrorConstant.USER_PWD_ERROR);
-			resultObject.put("errmsg", getMessage("user.login.up.error"));
-			writeJson(resultObject.toJSONString());
-			return;
-		}
-		//登录成功
-		CookieUtil.addCookie(response, CookieConstant.COOKIE_USERNAME_KEY, user.getUserName());
-		
-		logger.debug("用户【"+user.getUserName()+"】登录成功...");
-		
-		resultObject.put("errcode", ErrorConstant.OPERATION_SUCCESS);
-		resultObject.put("errmsg", getMessage("user.login.success"));
-		writeJson(resultObject.toJSONString());
-	}
-
-	@RequestMapping("/welcome")
-	public String content(Model model) {
-		return "redirect:pro/index.htm";
-	}
-
-	@RequestMapping("test")
-	public String test(){
-		return "fore/index";
-	}
-	
-	@RequestMapping("anno/temp")
-	public String temp(){
-		return "fore/temp";
-	}
-	
-	public UserService getUserService() {
-		return userService;
-	}
-
 	@Resource
-	public void setUserService(UserService userService) {
-		this.userService = userService;
+	private TigerUserinfoService tigerUserinfoService;
+	
+	@Resource
+	private TigerNamingService tigerNamingService;
+	
+	@RequestMapping("index")
+	public String index(){
+		return "fore/login";
+	}
+	
+	@RequestMapping("bind")
+	public String login(@ModelAttribute TigerUserinfo entity, String code, Model model){
+		
+		String viewName = "fore/success";
+		
+		TigerUserinfoExample example = new TigerUserinfoExample();
+		example.createCriteria().andIdcardEqualTo(entity.getIdcard()).andPhoneEqualTo(entity.getPhone()).andRealNameEqualTo(entity.getRealName());
+		List<TigerUserinfo> list= this.tigerUserinfoService.list(example);
+		if(list.size()>0){
+			String accessTokenUrl = PropertiesUtils.getConfigByKey("mp_access_token_url");
+			String appid = PropertiesUtils.getConfigByKey("AppId");
+			String secret = PropertiesUtils.getConfigByKey("AppSecret");
+			accessTokenUrl = String.format(accessTokenUrl, appid, secret, code);
+			String result;
+			try{
+				result = HttpUtils.postHttpByJsonData(accessTokenUrl,"");
+			} catch (IOException e){
+				e.printStackTrace();
+				result = "";
+			}
+			JSONObject object = JSON.parseObject(result);
+			Map map = JSON.toJavaObject(object, Map.class);
+			Object obj = map.get("openid");
+			String openid = ""; 
+			if(obj!=null){
+				openid = (String)obj;
+			}
+			TigerNaming naming = new TigerNaming();
+			naming.setOpenid(openid);
+			naming.setOptTime(new Date());
+			naming.setUserid(entity.getIdcard());
+			this.tigerNamingService.add(naming);
+		}else{
+			//没有用户信息
+			model.addAttribute("msg","没用此用户");
+		}
+		return viewName;
 	}
 }
