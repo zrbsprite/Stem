@@ -15,9 +15,9 @@
 		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
 			<level>INFO</level>
 		</filter>
-		<file>D:/logs/quickstart.log</file>
+		<file>D:/MyProject/ProjectLogs/hunger.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<fileNamePattern>quickstart.%d{yyyy-MM-dd}.log</fileNamePattern>
+			<fileNamePattern>hunger.%d{yyyy-MM-dd}.log</fileNamePattern>
 			<maxHistory>10</maxHistory>
 		</rollingPolicy>
 		<encoder>
