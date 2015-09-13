@@ -1,0 +1,1 @@
+<input type="button" value="预付定金" onclick="window.location.href="wechat/pay?productName=&productId=&totalFee=&showwxpaytitle=1"/>

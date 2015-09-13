@@ -13,9 +13,6 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public final class JsonUtil {
-	public static void main(String[] args) {
-
-	}
 
 	private static ObjectMapper getObjectMapper() {
 		ObjectMapper mapper = new ObjectMapper();

@@ -223,4 +223,28 @@ public class HttpUtils {
 		post.releaseConnection();
 		throw new IOException("请求状态码返回：" + code);
 	}
+    
+    public static final String postHttpAsXml(String url, String body) throws IOException{
+    	HttpClient client = new HttpClient();
+		HttpConnectionManagerParams params = client.getHttpConnectionManager().getParams();
+		params.setConnectionTimeout(5000);
+		params.setSoTimeout(3000);
+		params.setParameter(HttpMethodParams.HTTP_CONTENT_CHARSET, "UTF-8");
+		client.getHttpConnectionManager().setParams(params);
+		PostMethod post = new PostMethod(url);
+		StringRequestEntity strRequest = new StringRequestEntity(body, "text/xml", "utf-8");
+		post.setRequestEntity(strRequest);
+		logger.info("Http请求["+url+"]发出请求...");
+		int code = client.executeMethod(post);
+		if(code==HttpStatus.SC_OK){
+			String charset = post.getResponseCharSet().toLowerCase();
+			String postResponse = post.getResponseBodyAsString();
+			postResponse = new String (postResponse.getBytes(charset), "utf-8");
+			post.releaseConnection();
+			logger.info("请求响应正文是：" + postResponse);
+			return postResponse;
+		}
+		post.releaseConnection();
+		throw new IOException("请求状态码返回：" + code);
+    }
 }

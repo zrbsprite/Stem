@@ -9,6 +9,7 @@ import java.security.NoSuchProviderException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
 
@@ -17,6 +18,7 @@ import org.apache.commons.lang.StringUtils;
 
 import com.alibaba.fastjson.JSONObject;
 import com.stem.core.commons.PropertiesInitBean.PropertiesUtils;
+import com.stem.util.HttpUtils;
 import com.stem.wechat.tools.HttpKit;
 
 /**
@@ -24,27 +26,46 @@ import com.stem.wechat.tools.HttpKit;
  */
 public class Pay {
 
+	//y预支付接口
+	private static final String UNIFIEDORDER_URL = "https://api.mch.weixin.qq.com/pay/unifiedorder";
+	
     // 发货通知接口
     private static final String DELIVERNOTIFY_URL = "https://api.weixin.qq.com/pay/delivernotify?access_token=";
 
-    /**
-     * 参与 paySign 签名的字段包括：appid、timestamp、noncestr、package 以及 appkey。
-     * 这里 signType 并不参与签名微信的Package参数
-     * @param params
-     * @return
-     * @throws UnsupportedEncodingException 
-     */
     public static String getPackage(Map<String, String> params) throws UnsupportedEncodingException {
-        String partnerKey = PropertiesUtils.getConfigByKey("partnerKey");
-        String partnerId = PropertiesUtils.getConfigByKey("partnerId");
         String notifyUrl = PropertiesUtils.getConfigByKey("notify_url");
-        // 公共参数
-        params.put("bank_type", "WX");
-        params.put("attach", "yongle");
-        params.put("partner", partnerId);
+        //微信会将此参数原样返回
+        //params.put("attach", "yongle");
+        //接收微信支付异步通知回调地址
         params.put("notify_url", notifyUrl);
-        params.put("input_charset", "UTF-8");
-        return packageSign(params, partnerKey);
+        //交易类型
+        params.put("trade_type","JSAPI");
+        
+        String str = createSign(params, false);
+        String sign = DigestUtils.md5Hex(str);
+        params.put("sign",sign);
+        
+        //将map转换成xml
+        StringBuffer xml = new StringBuffer("<xml>");
+        Set<Entry<String, String>> set = params.entrySet();
+        for(Entry<String, String> entry : set){
+        	xml.append("<");
+        	xml.append(entry.getKey());
+        	xml.append(">");
+        	xml.append(entry.getValue());
+        	xml.append("<");
+        	xml.append("/");
+        	xml.append(entry.getKey());
+        	xml.append(">");
+        }
+        xml.append("</xml>");
+        //发送http请求
+        try{
+        	return HttpUtils.postHttpAsXml(UNIFIEDORDER_URL , xml.toString());
+		} catch(IOException e){
+			e.printStackTrace();
+		}
+        return null;
     }
 
     /**
@@ -82,21 +103,6 @@ public class Pay {
     }
 
     /**
-     * 构造package, 这是我见到的最草蛋的加密，尼玛文档还有错
-     * @param params
-     * @param paternerKey
-     * @return
-     * @throws UnsupportedEncodingException 
-     */
-    private static String packageSign(Map<String, String> params, String paternerKey) throws UnsupportedEncodingException {
-        String string1 = createSign(params, false);
-        String stringSignTemp = string1 + "&key=" + paternerKey;
-        String signValue = DigestUtils.md5Hex(stringSignTemp).toUpperCase();
-        String string2 = createSign(params, true);
-        return string2 + "&sign=" + signValue;
-    }
-
-    /**
      * 支付签名
      * @param timestamp
      * @param noncestr
@@ -107,40 +113,14 @@ public class Pay {
     public static String paySign(String timestamp, String noncestr,String packages) throws UnsupportedEncodingException {
         Map<String, String> paras = new HashMap<String, String>();
         paras.put("appid", PropertiesUtils.getConfigByKey("AppId"));
-        paras.put("timestamp", timestamp);
-        paras.put("noncestr", noncestr);
+        paras.put("timeStamp", timestamp);
+        paras.put("nonceStr", noncestr);
         paras.put("package", packages);
-        paras.put("appkey", PropertiesUtils.getConfigByKey("paySignKey"));
-        // appid、timestamp、noncestr、package 以及 appkey。
-        String string1 = createSign(paras, false);
-        String paySign = DigestUtils.sha1Hex(string1);
-        return paySign;
+        paras.put("signType", "MD5");
+        String str = createSign(paras, false);
+        return DigestUtils.md5Hex(str);
     }
     
-    /**
-     * 支付回调校验签名
-     * @param timestamp
-     * @param noncestr
-     * @param openid
-     * @param issubscribe
-     * @param appsignature
-     * @return
-     * @throws UnsupportedEncodingException 
-     */
-    public static boolean verifySign(long timestamp,
-            String noncestr, String openid, int issubscribe, String appsignature) throws UnsupportedEncodingException {
-        Map<String, String> paras = new HashMap<String, String>();
-        paras.put("appid", PropertiesUtils.getConfigByKey("AppId"));
-        paras.put("appkey", PropertiesUtils.getConfigByKey("paySignKey"));
-        paras.put("timestamp", String.valueOf(timestamp));
-        paras.put("noncestr", noncestr);
-        paras.put("openid", openid);
-        paras.put("issubscribe", String.valueOf(issubscribe));
-        // appid、appkey、productid、timestamp、noncestr、openid、issubscribe
-        String string1 = createSign(paras, false);
-        String paySign = DigestUtils.sha1Hex(string1);
-        return paySign.equalsIgnoreCase(appsignature);
-    }
     
     /**
      * 发货通知签名

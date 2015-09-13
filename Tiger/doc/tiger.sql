@@ -130,3 +130,17 @@ CREATE TABLE `user` (
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES ('1', '1', 'zhangribo', '96E79218965EB72C92A549DD5A330112', '15133953627', 'stem', null, null, null, null, null, null, null, null, null, '2015-08-13 14:04:43', null);
+
+
+DROP TABLE IF EXISTS `tiger_pay`;
+CREATE TABLE `tiger_pay` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `openid` varchar(50) DEFAULT NULL,
+  `trade_id` varchar(50) DEFAULT NULL COMMENT '微信交易号',
+  `pay_status` int(11) DEFAULT NULL COMMENT ' 支付状态',
+  `pay_money` int(11) DEFAULT NULL COMMENT '支付金额 ，单位是分',
+  `pay_time` varchar(20) DEFAULT NULL COMMENT ' 支付日期',
+  `product_name` varchar(11) DEFAULT NULL COMMENT ' 产品名称',
+  `order_id` varchar(32) DEFAULT NULL COMMENT '商户订单号',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

@@ -46,7 +46,7 @@
             <property name="useActualColumnNames" value="false" />
         </table>
           -->
-        <table schema="" tableName="tiger_userinfo" domainObjectName="TigerUserinfo">
+        <table schema="" tableName="tiger_pay" domainObjectName="TigerPay">
             <property name="useActualColumnNames" value="false" />
         </table>
         
