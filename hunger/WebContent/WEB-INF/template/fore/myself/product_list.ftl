@@ -7,11 +7,11 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <#include "commons/tiglib.ftl"/>
-<link rel="stylesheet" href="${basepath}/assets/agile/css/agile.layout.css">
-<link rel="stylesheet" href="${basepath}/assets/agile/css/flat/flat.component.css">
-<link rel="stylesheet" href="${basepath}/assets/agile/css/flat/flat.color.css">
-<link rel="stylesheet" href="${basepath}/assets/agile/css/flat/iconline.css">
-<link rel="stylesheet" href="${basepath}/assets/app/css/app.css">
+<link rel="stylesheet" href="${basepath}/assets/group/agile/agile/css/agile.layout.css">
+<link rel="stylesheet" href="${basepath}/assets/group/agile/agile/css/flat/flat.component.css">
+<link rel="stylesheet" href="${basepath}/assets/group/agile/agile/css/flat/flat.color.css">
+<link rel="stylesheet" href="${basepath}/assets/group/agile/agile/css/flat/iconline.css">
+<link rel="stylesheet" href="${basepath}/assets/group/agile/app/css/app.css">
 </head>
 <body>
 <div id="aside_container">
@@ -131,11 +131,11 @@
 	</section>
 </div>
 
-<script src="${basepath}/assets/third/jquery/jquery-2.1.3.min.js"></script>
-<script src="${basepath}/assets/third/jquery/jquery.mobile.custom.min.js"></script>
-<script src="${basepath}/assets/third/iscroll/iscroll-probe.js"></script>
-<script src="${basepath}/assets/third/arttemplate/template-native.js"></script>
-<script type="text/javascript" src="${basepath}/assets/agile/js/agile.js"></script>
-<script type="text/javascript" src="${basepath}/assets/app/js/app.js"></script>
+<script src="${basepath}/assets/group/agile/third/jquery/jquery-2.1.3.min.js"></script>
+<script src="${basepath}/assets/group/agile/third/jquery/jquery.mobile.custom.min.js"></script>
+<script src="${basepath}/assets/group/agile/third/iscroll/iscroll-probe.js"></script>
+<script src="${basepath}/assets/group/agile/third/arttemplate/template-native.js"></script>
+<script type="text/javascript" src="${basepath}/assets/group/agile/agile/js/agile.js"></script>
+<script type="text/javascript" src="${basepath}/assets/group/agile/app/js/app.js"></script>
 </body>
 </html>
