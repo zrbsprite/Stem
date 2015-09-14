@@ -98,7 +98,7 @@ public class WechatPayController extends AjaxConroller {
 			// paySign
 			model.addAttribute("paySign", paySign);
 		}
-		return "pay";
+		return "pay/pay";
 	}
 	
 	private String createOrderId(String id){

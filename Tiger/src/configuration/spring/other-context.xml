@@ -36,6 +36,4 @@
 	</bean>
 	
 	<bean id="store" class="com.stem.core.DBVerifyCodeStore"></bean>
-		
-	<bean id="menuCreaterBean" class="com.stem.wechat.MenuCreationBean"></bean>
 </beans>

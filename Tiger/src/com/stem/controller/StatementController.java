@@ -1,7 +1,10 @@
 package com.stem.controller;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,9 +19,11 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.alibaba.fastjson.JSON;
+import com.stem.core.AppContext;
 import com.stem.core.commons.AjaxConroller;
 import com.stem.core.commons.PropertiesInitBean.PropertiesUtils;
 import com.stem.wechat.WeChat;
+import com.stem.wechat.oauth.Menu;
 import com.stem.wechat.oauth.Oauth;
 import com.stem.wechat.tools.SHA1;
 
@@ -87,5 +92,36 @@ public class StatementController extends AjaxConroller{
 			e.printStackTrace();
 		}
 		return "fore/list";
+	}
+	
+	@RequestMapping("menu")
+	public String menu(){
+		logger.info("重新生成菜单开始");
+		try{
+			String path = getClass().getClassLoader().getResource("/").getPath();
+			String realPath = path + "configuration/menu.json";
+			FileInputStream fis = new FileInputStream(realPath);
+			InputStreamReader isr = new InputStreamReader(fis);
+			BufferedReader br = new BufferedReader(isr);
+			StringBuffer json = new StringBuffer();
+			String line;
+			while(null!=(line=br.readLine())){
+				json.append(line.trim());
+			}
+			Menu menu = new Menu();
+			String accessToken = (String) AppContext.getContext().getValue(AppContext.ACCESS_TOKEN_KEY);
+			boolean isSuccess = menu.createMenu(accessToken, json.toString());
+			if(!isSuccess){
+				logger.error("创建微信菜单失败！");
+			}
+			br.close();
+			isr.close();
+			fis.close();
+		} catch (Exception e){
+			e.printStackTrace();
+			logger.error("菜单创建异常\n" + e.getMessage());
+		}
+		logger.info("重新生成菜单结束！");
+		return "fore/ok";
 	}
 }

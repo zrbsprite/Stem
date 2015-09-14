@@ -8,63 +8,42 @@ import java.util.List;
  */
 public class NewsOutMessage extends OutMessage {
 
-	private String			MsgType	= "news";
-	private Integer			ArticleCount;
-	private String			Title;
-	private String			Description;
-	private String			PicUrl;
-	private String			Url;
+	private String MsgType = "news";
 
-	private List<Articles>	Articles;
+	private Integer ArticleCount;
 
-	public String getMsgType() {
+	private List<Articles> Articles;
+
+	public String getMsgType(){
+
 		return MsgType;
 	}
 
-	public int getArticleCount() {
+	public int getArticleCount(){
+
 		return ArticleCount;
 	}
 
-	public String getTitle() {
-		return Title;
-	}
+	public List<Articles> getArticles(){
 
-	public void setTitle(String title) {
-		Title = title;
-	}
-
-	public String getDescription() {
-		return Description;
-	}
-
-	public void setDescription(String description) {
-		Description = description;
-	}
-
-	public String getPicUrl() {
-		return PicUrl;
-	}
-
-	public void setPicUrl(String picUrl) {
-		PicUrl = picUrl;
-	}
-
-	public String getUrl() {
-		return Url;
-	}
-
-	public void setUrl(String url) {
-		Url = url;
-	}
-
-	public List<Articles> getArticles() {
 		return Articles;
 	}
 
-	public void setArticles(List<Articles> articles) {
-		if (articles != null) {
-			if (articles.size() > 10)
-				articles = new ArrayList<Articles>(articles.subList(0, 10));
+	public void setMsgType(String msgType){
+
+		MsgType = msgType;
+	}
+
+	public void setArticleCount(Integer articleCount){
+
+		ArticleCount = articleCount;
+	}
+
+	public void setArticles(List<Articles> articles){
+
+		if(articles != null){
+			if(articles.size() > 10)
+				articles = new ArrayList<Articles>(articles.subList(0,10));
 
 			ArticleCount = articles.size();
 		}

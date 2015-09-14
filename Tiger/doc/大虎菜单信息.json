@@ -1,0 +1,164 @@
+{
+	"is_menu_open": 1,
+	"selfmenu_info": 
+	{
+		"button": 
+		[
+			{
+				"name": "了解大虎",
+				"sub_button": 
+				{
+					"list": 
+					[
+						{
+							"type": "text",
+							"name": "团队介绍",
+							"value": "【大虎交易简介】\n大虎交易（TIGER trade）是北京金大虎资本管理有限公司旗下专注于二级市场的多元化自营型交易团队品牌。公司成立于2011年，由拥有多年金融行业实战经验的投资精英共同发起成立，同时融合了一批学识广博、严谨务实的专业人才，致力于追求投资收益的稳定增长。公司通过建立专业化、科学化的投资收益评估体系，为市场发掘优秀的投资管理人才，为广大投资者和产业资金提供个性化、专业化的优质投资管理、投资咨询服务。\n团队已取得私募基金资质，是国内一支年轻的私募基金运作团队。"
+						},
+
+						{
+							"type": "img",
+							"name": "团队资质",
+							"value": "pVmOsRuKiVg0KwVnvJqn6WocUCoWzgsiTZ7fXUzvX5g9Jtkp2U83gtinQdcz2EZs"
+						},
+
+						{
+							"type": "news",
+							"name": "团队动态",
+							"value": "sOmdter6Ol8xhOvo1fBBPrfUPyrdzD0kVzq3HsqvCpY",
+							"news_info": 
+							{
+								"list": 
+								[
+									{
+										"title": "【限时1元体验】大虎私募投研报告",
+										"author": "",
+										"digest": "本次体验为大虎为合格投资者提供除基金产品以外的原创研究型内容体验。",
+										"show_cover": 0,
+										"cover_url": "http:\/\/mmbiz.qpic.cn\/mmbiz\/CupWaH0t22peEqoHnohFWmDaiaHlqp4lIgcEbc1vibrv8E4aAQB0t5E3lFuAvwUebJFzElcsEyQMiagvyicBXGxZ6w\/0?wx_fmt=jpeg",
+										"content_url": "http:\/\/mp.weixin.qq.com\/s?__biz=MjM5NTI4MDk4OA==&mid=209184917&idx=1&sn=073a205b7a3a633e98f2ee41e8dd8b94&scene=18#rd",
+										"source_url": "http:\/\/wd.koudai.com\/item.html?itemID=1444198751"
+									}
+								]
+							}
+						}
+					]
+				}
+			},
+
+			{
+				"name": "大虎产品",
+				"sub_button": 
+				{
+					"list": 
+					[
+						{
+							"type": "news",
+							"name": "产品净值",
+							"value": "kaMSZlgFfJiGys9lhKqwKInSdLFUc6eWrvaXuFtoteE",
+							"news_info": 
+							{
+								"list": 
+								[
+									{
+										"title": "【产品净值】大虎交易基金产品净值表现",
+										"author": "",
+										"digest": "大虎交易基金产品净值表现",
+										"show_cover": 0,
+										"cover_url": "http:\/\/mmbiz.qpic.cn\/mmbiz\/CupWaH0t22rem5j2ibY0H8gibPh6ibCiaohOpBVdhcSE9muQg5V9oxMZTxP3XvpPjbMOGVibEqpQicI4u9412jNDpO6Q\/0?wx_fmt=jpeg",
+										"content_url": "http:\/\/mp.weixin.qq.com\/s?__biz=MjM5NTI4MDk4OA==&mid=206134857&idx=1&sn=210ae8718bc62adf86bbab5bcbc6335b&scene=18#rd",
+										"source_url": ""
+									}
+								]
+							}
+						},
+
+						{
+							"type": "img",
+							"name": "产品认购",
+							"value": "9amgL4twFMc61L07pGHPa3pRRA94OXPohGg_EW1VvGClzm0Ix3nMpEy-tlOwOYDp"
+						},
+
+						{
+							"type": "news",
+							"name": "产品列表",
+							"value": "2j0ncmXuYxtlO98UEUg1xwXCAv90sI2EZAPGaIg0dnk",
+							"news_info": 
+							{
+								"list": 
+								[
+									{
+										"title": "【产品列表】大虎交易基金产品列表",
+										"author": "",
+										"digest": "大虎交易基金产品列表",
+										"show_cover": 0,
+										"cover_url": "http:\/\/mmbiz.qpic.cn\/mmbiz\/CupWaH0t22rem5j2ibY0H8gibPh6ibCiaohOpBVdhcSE9muQg5V9oxMZTxP3XvpPjbMOGVibEqpQicI4u9412jNDpO6Q\/0?wx_fmt=jpeg",
+										"content_url": "http:\/\/mp.weixin.qq.com\/s?__biz=MjM5NTI4MDk4OA==&mid=210456651&idx=1&sn=41d62058de1044f321f5e43208731e22&scene=18#rd",
+										"source_url": ""
+									}
+								]
+							}
+						}
+					]
+				}
+			},
+
+			{
+				"name": "合作发展",
+				"sub_button": 
+				{
+					"list": 
+					[
+						{
+							"type": "news",
+							"name": "加入我们",
+							"value": "2j0ncmXuYxtlO98UEUg1x2OdMGbYe9yNEPOJs0fIlO0",
+							"news_info": 
+							{
+								"list": 
+								[
+									{
+										"title": "【加入我们】大虎交易精英招募",
+										"author": "",
+										"digest": "大虎交易精英招募",
+										"show_cover": 0,
+										"cover_url": "http:\/\/mmbiz.qpic.cn\/mmbiz\/CupWaH0t22rem5j2ibY0H8gibPh6ibCiaohOpBVdhcSE9muQg5V9oxMZTxP3XvpPjbMOGVibEqpQicI4u9412jNDpO6Q\/0?wx_fmt=jpeg",
+										"content_url": "http:\/\/mp.weixin.qq.com\/s?__biz=MjM5NTI4MDk4OA==&mid=210458020&idx=1&sn=9144440a030cd2c59dc078cddac4831a&scene=18#rd",
+										"source_url": "http:\/\/www.tigertrade.cn\/?c=news&catid=2"
+									}
+								]
+							}
+						},
+
+						{
+							"type": "news",
+							"name": "发展合作",
+							"value": "Ih40RwuF99XqNbzpAo98jRPjvlYnPPeICANf31zKkD0",
+							"news_info": 
+							{
+								"list": 
+								[
+									{
+										"title": "【发展合作】大虎资本基金经理百人计划",
+										"author": "",
+										"digest": "大虎资本基金经理百人计划【发起方】北京金大虎资本管理有限公司【计划目的】为市场中的成长型交易员、投顾提供无成",
+										"show_cover": 0,
+										"cover_url": "http:\/\/mmbiz.qpic.cn\/mmbiz\/CupWaH0t22rMcacdNGu6sOATa5IJYIy6zA2079OJ5RCyyFnRFsyruRLeuEWqOh6YFJ48jgwk2Af8VvPLbodicQA\/0?wx_fmt=jpeg",
+										"content_url": "http:\/\/mp.weixin.qq.com\/s?__biz=MjM5NTI4MDk4OA==&mid=206513046&idx=1&sn=6017d5a22878c2f3f5cf1d214660f877&scene=18#rd",
+										"source_url": "http:\/\/www.tigertrade.cn\/?c=about&id=4"
+									}
+								]
+							}
+						},
+
+						{
+							"type": "text",
+							"name": "联系我们",
+							"value": "欢迎来到大虎交易TIGERTrade。如有任何问题欢迎与万能客服虎小妹联系（微信号：13241862849），虎小妹定能第一时间为您答忧解惑！~\/得意"
+						}
+					]
+				}
+			}
+		]
+	}
+}

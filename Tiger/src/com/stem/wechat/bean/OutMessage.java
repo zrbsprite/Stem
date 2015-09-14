@@ -2,28 +2,38 @@ package com.stem.wechat.bean;
 
 public class OutMessage {
 
-	private String	ToUserName;
-	private String	FromUserName;
-	private Long	CreateTime;
-	private int		FuncFlag	= 0;
+	private String ToUserName;
+	private String FromUserName;
+	private Long CreateTime;
 
-	public String getToUserName() {
+	public String getToUserName(){
+
 		return ToUserName;
 	}
 
-	public String getFromUserName() {
+	public String getFromUserName(){
+
 		return FromUserName;
 	}
 
-	public Long getCreateTime() {
+	public Long getCreateTime(){
+
 		return CreateTime;
 	}
 
-	public int getFuncFlag() {
-		return FuncFlag;
+	public void setToUserName(String toUserName){
+
+		ToUserName = toUserName;
 	}
 
-	public void setFuncFlag(int funcFlag) {
-		FuncFlag = funcFlag;
+	public void setFromUserName(String fromUserName){
+
+		FromUserName = fromUserName;
 	}
+
+	public void setCreateTime(Long createTime){
+
+		CreateTime = createTime;
+	}
+
 }

@@ -107,6 +107,9 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 					case "M3_COR_COR":
 						responseMenuCor(msg);
 						break;
+					case "M3_COR_ABOUT":
+						responseMenuAbout(msg);
+						break;
 					default:
 						break;
 				}
@@ -114,39 +117,58 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 			case "view":
 				logger.info("用户点击菜单跳转："+msg.getEventKey());
 				break;
+			case "subscribe":
+				responseSubscribe(msg);
+				break;
 			default:
 				break;
 		}
 		
 	}
 	
-	private void responseMenuCor(InMessage msg){
+	private void responseMenuAbout(InMessage msg){
 		TextOutMessage out = new TextOutMessage();
 		StringBuffer sb = new StringBuffer();
 		sb.append("欢迎来到大虎交易TIGERTrade。如有任何问题欢迎与万能客服虎小妹联系（微信号：13241862849），虎小妹定能第一时间为您答忧解惑！~/得意");
 		out.setContent(sb.toString());
 		setOutMessage(out);
+		
+	}
+
+	private void responseSubscribe(InMessage msg){
+		TextOutMessage out = new TextOutMessage();
+		StringBuffer sb = new StringBuffer();
+		sb.append("欢迎关注大虎交易TIGERTrade！在这里，你将与中国最具潜力的私募生力军一起，感受交易为你带来的最新财经资讯、最炫产品信息和最靠谱的专业团队。大虎交易祝你一切顺利！www.tigertrade.com.cn。任何问题或投研需求，可直接加万能客服虎小妹微信：13241862849，虎小妹定会第一时间与你联系！~mo-得意");
+		out.setContent(sb.toString());
+		setOutMessage(out);
+	}
+	
+	private void responseMenuCor(InMessage msg){
+		setOutMessage(createNews("大虎资本基金经理百人计划【发起方】北京金大虎资本管理有限公司【计划目的】为市场中的成长型交易员、投顾提供无成","http://mmbiz.qpic.cn/mmbiz/CupWaH0t22rMcacdNGu6sOATa5IJYIy6zA2079OJ5RCyyFnRFsyruRLeuEWqOh6YFJ48jgwk2Af8VvPLbodicQA/0?wx_fmt=jpeg",
+				"【发展合作】大虎资本基金经理百人计划","http://mp.weixin.qq.com/s?__biz=MjM5NTI4MDk4OA==&mid=206513046&idx=1&sn=6017d5a22878c2f3f5cf1d214660f877&scene=18#rd"));
 	}
 
 	private void responseMenuJOIN(InMessage msg){
-		setOutMessage(createNews("", "", "", ""));
+		setOutMessage(createNews("大虎交易精英招募", "http://mmbiz.qpic.cn/mmbiz/CupWaH0t22rem5j2ibY0H8gibPh6ibCiaohOpBVdhcSE9muQg5V9oxMZTxP3XvpPjbMOGVibEqpQicI4u9412jNDpO6Q/0?wx_fmt=jpeg",
+				"【加入我们】大虎交易精英招募", "http://mp.weixin.qq.com/s?__biz=MjM5NTI4MDk4OA==&mid=210458020&idx=1&sn=9144440a030cd2c59dc078cddac4831a&scene=18#rd"));
 	}
 
 	private void responseMenuBUY(InMessage msg){
 		ImageOutMessage image = new ImageOutMessage();
-		// TODO 设置mediaid
 		Image img = new Image();
-		img.setMediaId("");
+		img.setMediaId("9amgL4twFMc61L07pGHPa3pRRA94OXPohGg_EW1VvGClzm0Ix3nMpEy-tlOwOYDp");
 		image.setImage(img);
 		setOutMessage(image);
 	}
 	
 	private void responseMenuJZ(InMessage msg){
-		setOutMessage(createNews("", "", "", ""));
+		setOutMessage(createNews("大虎交易基金产品净值表现", "http://mmbiz.qpic.cn/mmbiz/CupWaH0t22rem5j2ibY0H8gibPh6ibCiaohOpBVdhcSE9muQg5V9oxMZTxP3XvpPjbMOGVibEqpQicI4u9412jNDpO6Q/0?wx_fmt=jpeg",
+				"【产品净值】大虎交易基金产品净值表现", "http://mp.weixin.qq.com/s?__biz=MjM5NTI4MDk4OA==&mid=206134857&idx=1&sn=210ae8718bc62adf86bbab5bcbc6335b&scene=18#rd"));
 	}
 	
 	private void responseMenuDT(InMessage msg){
-		setOutMessage(createNews("", "", "", ""));
+		setOutMessage(createNews("本次体验为大虎为合格投资者提供除基金产品以外的原创研究型内容体验。", "http://mmbiz.qpic.cn/mmbiz/CupWaH0t22peEqoHnohFWmDaiaHlqp4lIgcEbc1vibrv8E4aAQB0t5E3lFuAvwUebJFzElcsEyQMiagvyicBXGxZ6w/0?wx_fmt=jpeg",
+				"【限时1元体验】大虎私募投研报告", "http://mp.weixin.qq.com/s?__biz=MjM5NTI4MDk4OA==&mid=209184917&idx=1&sn=073a205b7a3a633e98f2ee41e8dd8b94&scene=18#rd"));
 	}
 	
 	/*
@@ -155,10 +177,11 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 	private NewsOutMessage createNews(String des, String picUrl, String title, String url){
 		//可以从多图文获取
 		Articles articles = new Articles();
-		articles.setDescription("");
-		articles.setPicUrl("");
-		articles.setTitle("");
-		articles.setUrl("");
+		articles.setDescription(des);
+		articles.setPicUrl(picUrl);
+		articles.setTitle(title);
+		articles.setUrl(url);
+		
 		List<Articles> list = new ArrayList<Articles>();
 		list.add(articles);
 		
@@ -170,9 +193,8 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 	//发送图片
 	private void responseMenuZZ(InMessage msg){
 		ImageOutMessage image = new ImageOutMessage();
-		// TODO 设置mediaid
 		Image img = new Image();
-		img.setMediaId("");
+		img.setMediaId("pVmOsRuKiVg0KwVnvJqn6WocUCoWzgsiTZ7fXUzvX5g9Jtkp2U83gtinQdcz2EZs");
 		image.setImage(img);
 		setOutMessage(image);
 	}
@@ -239,6 +261,7 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 	
 	@Override
 	public void afterProcess(InMessage inMessage,OutMessage outMessage) {
+		//do nothing
 	}
 	
 	@Override
