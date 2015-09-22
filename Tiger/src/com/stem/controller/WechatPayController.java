@@ -77,8 +77,8 @@ public class WechatPayController extends AjaxConroller {
 			// 参数
 			String timeStamp = System.currentTimeMillis() + "";
 			String nonceStr = RandomStringUtils.random(8, "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-			
-			String packageStr = Pay.getPackage(params);
+			String serverPath = getServerLocalePath();
+			String packageStr = Pay.getPackage(params, serverPath);
 			XStream xs = XStreamFactory.init(false);
 	        xs.ignoreUnknownElements();
 	        xs.alias("xml", PrePay.class);

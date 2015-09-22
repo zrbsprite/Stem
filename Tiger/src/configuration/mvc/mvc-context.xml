@@ -24,6 +24,7 @@
     <mvc:resources mapping="/assets/**" location="/assets/" />
     <mvc:resources mapping="/upload/**" location="/upload/" />
     <!-- 拦截器 -->
+    <!-- 
     <mvc:interceptors>  
         <bean class="com.stem.core.interceptor.SystemInterceptor">
         	<property name="noFilters">
@@ -37,7 +38,7 @@
         	</property>
         </bean>
     </mvc:interceptors>  
-
+ 	-->
 
 	<bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
 	    <!-- 国际化信息所在的文件名 -->                     
@@ -79,6 +80,7 @@
                 <prop key="default_encoding">UTF-8</prop><!--模板的编码格式 -->
                 <prop key="locale">UTF-8</prop><!-- 本地化设置 -->
                 <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+                <prop key="date_format">yyyy-MM-dd</prop>
                 <prop key="time_format">HH:mm:ss</prop>
                 <prop key="number_format">0.####</prop>
                 <prop key="boolean_format">true,false</prop>

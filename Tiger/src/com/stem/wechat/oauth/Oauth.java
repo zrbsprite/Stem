@@ -1,7 +1,6 @@
 package com.stem.wechat.oauth;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
@@ -32,41 +31,6 @@ public class Oauth {
         super();
         this.appid = appid;
         this.secret = secret;
-    }
-
-    /**
-     * 请求code
-     * @return
-     * @throws UnsupportedEncodingException 
-     */
-    public String getUrlCode() throws UnsupportedEncodingException {
-        Map<String, String> params = new HashMap<String, String>();
-        params.put("appid", getAppid());
-        params.put("response_type", "code");
-        params.put("redirect_uri", PropertiesUtils.getConfigByKey("redirect_uri"));
-        params.put("scope", "snsapi_base"); // snsapi_base（不弹出授权页面，只能拿到用户openid）snsapi_userinfo（弹出授权页面，这个可以通过 openid 拿到昵称、性别、所在地）
-        params.put("state", "wx#wechat_redirect");
-        String para = Pay.createSign(params, false);
-        return CODE_URI + "?" + para;
-    }
-    
-    /**
-     * @author: stem zhang
-     * 修改时间：2015年8月21日 - 上午9:09:59<br/>
-     * 功能说明：获取code<br/>
-     * @param state
-     * @return
-     * @throws UnsupportedEncodingException
-     */
-    public String getCodeUrl(String state, String redirectUrl) throws UnsupportedEncodingException {
-    	Map<String, String> params = new HashMap<String, String>();
-    	params.put("appid", getAppid());
-    	params.put("response_type", "code");
-    	params.put("redirect_uri", redirectUrl);
-    	params.put("scope", "snsapi_base"); // snsapi_base（不弹出授权页面，只能拿到用户openid）snsapi_userinf（弹出授权页面，这个可以通过 openid 拿到昵称、性别、所在地）
-    	params.put("state", state);
-    	String para = Pay.createSign(params, false);
-    	return CODE_URI + "?" + para;
     }
 
     /**

@@ -130,14 +130,14 @@ public class WeChat {
      * @param responseInputString 微信发送过来的xml消息体
      * @return
      */
-    public static String processing(String responseInputString) {
+    public static String processing(String responseInputString, String serverPath) {
         InMessage inMessage = parsingInMessage(responseInputString);
         
         //取得消息类型
         String type = inMessage.getMsgType();
         switch (type) {
 			case "event":
-				messageProcessingHandler.eventTypeMsg(inMessage);
+				messageProcessingHandler.eventTypeMsg(inMessage, serverPath);
 				break;
 			default:
 				messageProcessingHandler.allType(inMessage);

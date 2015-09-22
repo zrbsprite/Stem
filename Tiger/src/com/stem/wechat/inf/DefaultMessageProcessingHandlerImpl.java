@@ -17,6 +17,7 @@ import com.stem.entity.TigerNaming;
 import com.stem.entity.TigerNamingExample;
 import com.stem.service.StatementService;
 import com.stem.service.TigerNamingService;
+import com.stem.util.JsonUtil;
 import com.stem.wechat.bean.Articles;
 import com.stem.wechat.bean.Image;
 import com.stem.wechat.bean.ImageOutMessage;
@@ -73,7 +74,7 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 	 * @param msg
 	 */
 	@Override
-	public void eventTypeMsg(InMessage msg) {
+	public void eventTypeMsg(InMessage msg, String serverPath) {
 		String event = msg.getEvent().toLowerCase();
 		switch (event) {
 			case "click":
@@ -84,7 +85,7 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 				//如果是获取收益数据
 				switch (eventKey) {
 					case "M2_PRO_MINE":
-						responseMenuMine(msg);
+						responseMenuMine(msg, serverPath);
 						break;
 					case "M1_TEAM_INFO":
 						responseMenuInfo(msg);
@@ -213,7 +214,7 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 		setOutMessage(out);
 	}
 
-	private void responseMenuMine(InMessage msg){
+	private void responseMenuMine(InMessage msg, String serverPath){
 		TextOutMessage out = new TextOutMessage();
 		//make data
 		String openid = msg.getFromUserName();
@@ -229,7 +230,7 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 			sb.append("\n");
 			String bindUrl = PropertiesUtils.getConfigByKey("auth_code_url");
 			String appid = PropertiesUtils.getConfigByKey("AppId");
-			String reUrl = PropertiesUtils.getConfigByKey("wechat_bind_url");
+			String reUrl = serverPath + PropertiesUtils.getConfigByKey("wechat_bind_url");
 			bindUrl = String.format(bindUrl, appid, reUrl, 10);
 			sb.append("<a href='"+bindUrl+"'> 绑定微信 </a>");
 			out.setContent(sb.toString());
@@ -261,7 +262,8 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 	
 	@Override
 	public void afterProcess(InMessage inMessage,OutMessage outMessage) {
-		//do nothing
+		logger.info("传来的消息：< " + JsonUtil.Object2Json(inMessage) +" >");
+		logger.info("回写消息是：< "+ JsonUtil.Object2Json(outMessage) +" >");
 	}
 	
 	@Override

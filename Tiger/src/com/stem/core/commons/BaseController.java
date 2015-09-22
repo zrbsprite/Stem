@@ -55,4 +55,22 @@ public abstract class BaseController {
 		}
 		return ip;
 	}
+	
+	/**
+	 * @author: stem zhang
+	 * 修改时间：2015年9月22日 - 下午4:47:40<br/>
+	 * 功能说明：获取contextPath 全地址<br/>
+	 * @return
+	 */
+	protected String getServerLocalePath(){
+		String schame = request.getScheme();
+		String serverName = request.getServerName();
+		int port = request.getServerPort();
+		String contextPath = request.getContextPath();
+		String sPort = "";
+		if(port!=80){
+			sPort = ":" + port;
+		}
+		return schame + "://" + serverName + sPort + "/" + contextPath;
+	}
 }

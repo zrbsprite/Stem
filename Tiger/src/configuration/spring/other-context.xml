@@ -15,6 +15,7 @@
 	</bean>
 	<bean class="com.stem.core.commons.SpringContextUtil"></bean>
 
+	<!-- 
 	<bean id="captchaProducer" class="com.google.code.kaptcha.impl.DefaultKaptcha">
 		<property name="config">
 			<bean class="com.google.code.kaptcha.util.Config">
@@ -36,4 +37,5 @@
 	</bean>
 	
 	<bean id="store" class="com.stem.core.DBVerifyCodeStore"></bean>
+	 -->
 </beans>

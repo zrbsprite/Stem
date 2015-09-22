@@ -71,7 +71,7 @@ public interface MessageProcessingHandler {
 	 * @param msg
 	 * @return
 	 */
-	public void eventTypeMsg(InMessage msg);
+	public void eventTypeMsg(InMessage msg, String serverPath);
 
 	/**
 	 * 处理流程结束，返回输出信息之前执行

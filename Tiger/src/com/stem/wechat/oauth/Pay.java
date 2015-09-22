@@ -32,8 +32,8 @@ public class Pay {
     // 发货通知接口
     private static final String DELIVERNOTIFY_URL = "https://api.weixin.qq.com/pay/delivernotify?access_token=";
 
-    public static String getPackage(Map<String, String> params) throws UnsupportedEncodingException {
-        String notifyUrl = PropertiesUtils.getConfigByKey("notify_url");
+    public static String getPackage(Map<String, String> params, String serverPath) throws UnsupportedEncodingException {
+        String notifyUrl = serverPath + PropertiesUtils.getConfigByKey("notify_url");
         //微信会将此参数原样返回
         //params.put("attach", "yongle");
         //接收微信支付异步通知回调地址

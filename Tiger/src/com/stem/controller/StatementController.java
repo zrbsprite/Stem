@@ -60,9 +60,10 @@ public class StatementController extends AjaxConroller{
 			writer.write(echostr);
 			return null;
 		}else{
+			String path = getServerLocalePath();
 			InputStream stream = request.getInputStream();
 			String responseInputString = IOUtils.toString(stream);
-			String xml = WeChat.processing(responseInputString);
+			String xml = WeChat.processing(responseInputString, path);
 			if(!StringUtils.isEmpty(xml)){
 				writer.write(xml);
 			}
