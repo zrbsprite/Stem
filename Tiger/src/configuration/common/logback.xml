@@ -6,7 +6,7 @@
 			<level>debug</level>
 		</filter>
 		<encoder>
-			<charset>GBK</charset>
+			<charset>UTF-8</charset>
 			<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
 		</encoder>
 	</appender>

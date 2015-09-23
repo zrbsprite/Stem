@@ -51,6 +51,11 @@
 					"name": "产品列表",
 					"url":"https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=ttp://localhost:8888/tiger/wechat/index.htm&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect"	
 				},
+				{
+					"type": "click",
+					"name": "产品列表",
+					"key":"M2_PRO_LIST"	
+				},
 
 				{
 					"type": "click",

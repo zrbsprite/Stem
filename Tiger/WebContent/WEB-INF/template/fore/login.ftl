@@ -5,7 +5,8 @@
 <meta name="format-detection" content="telephone=no" />
 <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
 <title>大虎交易</title>
-<link rel="stylesheet" href="${basepath}/css/login.css"/>
+<#include "include/taglib.ftl">
+<link rel="stylesheet" href="${basepath}/assets/css/login.css"/>
 </head>
 <body>
     <!--公用部分头部导航:begin-->
@@ -36,9 +37,9 @@
     </div>
 </div>
 </body>
-<script type="text/javascript" src="${basepath}/js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="${basepath}/js/stem/stem.m.js"></script>
-<script type="text/javascript" src="${basepath}/js/stem/alert.js"></script>
+<script type="text/javascript" src="${basepath}/assets/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="${basepath}/assets/js/stem/stem.m.js"></script>
+<script type="text/javascript" src="${basepath}/assets/js/stem/alert.js"></script>
 <script type="text/javascript">
 function checkForm(){
 	var phone = document.getElementById("phone").value;

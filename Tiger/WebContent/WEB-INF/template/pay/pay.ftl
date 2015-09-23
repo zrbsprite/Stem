@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="initial-scale=1, width=device-width, minimum-scale=1, maximum-scale=1">
+    <#include "include/taglib.ftl">
     <title>微信支付</title>
 </head>  
 <body>

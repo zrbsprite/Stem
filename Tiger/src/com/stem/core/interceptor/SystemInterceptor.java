@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.stem.core.commons.UserNotLoginException;
@@ -82,6 +83,20 @@ public class SystemInterceptor extends HandlerInterceptorAdapter {
 			return false;
 		}
 		return true;
+	}
+	
+	@Override
+	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,ModelAndView modelAndView) throws Exception {
+		if(modelAndView!=null){
+			if(!modelAndView.getModelMap().containsKey("basepath")){
+				modelAndView.addObject("basepath", request.getContextPath());
+			}
+		}else{
+			if(request.getAttribute("basepath")==null){
+				request.setAttribute("basepath", request.getContextPath());
+			}
+		}
+		super.postHandle(request, response, handler, modelAndView);
 	}
 
 	public List<String> getNoFilters() {

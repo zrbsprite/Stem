@@ -5,6 +5,7 @@
 <meta name="format-detection" content="telephone=no" />
 <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
 	<title>大虎交易</title>
+	<#include "include/taglib.ftl">
 	<link rel="stylesheet" href="${basepath}/css/success.css"/>
 </head>
 <body>

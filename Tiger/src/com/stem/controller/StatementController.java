@@ -79,7 +79,7 @@ public class StatementController extends AjaxConroller{
 	 * 修改日期：2015年9月13日-上午8:30:57<br/>
 	 * @return
 	 */
-	@RequestMapping("index")
+	@RequestMapping("pro")
 	public String index(String code){
 		Oauth auth = new Oauth();
 		try{
