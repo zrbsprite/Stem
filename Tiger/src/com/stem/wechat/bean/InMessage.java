@@ -1,13 +1,12 @@
 package com.stem.wechat.bean;
 
-import com.stem.wechat.inf.MsgTypes;
-
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
-public class InMessage {
+import com.stem.wechat.inf.MsgTypes;
 
+public class InMessage {
 	private String ToUserName;
 	private String FromUserName;
 	private Long CreateTime;
@@ -341,4 +340,5 @@ public class InMessage {
 	public Boolean isVerify(){
 		return this.MsgType.equals(MsgTypes.VERIFY.getType());
 	}
+
 }

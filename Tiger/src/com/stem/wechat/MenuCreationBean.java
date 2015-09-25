@@ -8,8 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 
-import com.stem.core.AppContext;
 import com.stem.core.commons.PropertiesInitBean.PropertiesUtils;
+import com.stem.core.commons.SpringContextUtil;
+import com.stem.entity.TigerAccessToken;
+import com.stem.service.TigerAccessTokenService;
 import com.stem.wechat.oauth.Menu;
 
 public class MenuCreationBean implements InitializingBean{
@@ -33,7 +35,9 @@ public class MenuCreationBean implements InitializingBean{
 				json.append(line.trim());
 			}
 			Menu menu = new Menu();
-			String accessToken = (String) AppContext.getContext().getValue(AppContext.ACCESS_TOKEN_KEY);
+			TigerAccessTokenService tigerAccessTokenService = SpringContextUtil.getBean("tigerAccessTokenService");
+			TigerAccessToken accessTokenBean = TigerUtils.getAccessTokenBean(tigerAccessTokenService);
+			String accessToken = accessTokenBean.getAccesstoken(); 
 			boolean isSuccess = menu.createMenu(accessToken, json.toString());
 			if(!isSuccess){
 				logger.error("创建微信菜单失败！");

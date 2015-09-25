@@ -21,23 +21,25 @@ public class XStreamFactory {
 	 * @return
 	 */
 	public static XStream init(boolean isAddCDATA) {
-		XStream xstream = null;
-		if (isAddCDATA) {
-			xstream = new XStream(new XppDriver() {
-				public HierarchicalStreamWriter createWriter(Writer out) {
-					return new PrettyPrintWriter(out) {
-						protected void writeText(QuickWriter writer, String text) {
-							if (!text.startsWith(PREFIX_CDATA)) {
-								text = PREFIX_CDATA + text + SUFFIX_CDATA;
-							}
+		XStream xstream = new XStream(new XppDriver() {
+			public HierarchicalStreamWriter createWriter(Writer out) {
+				return new PrettyPrintWriter(out) {
+					@SuppressWarnings("rawtypes")
+					public void startNode(String name, Class clazz) {
+						super.startNode(name, clazz);
+					}
+					protected void writeText(QuickWriter writer, String text) {
+						if (isAddCDATA) {
+							writer.write("<![CDATA[");
+							writer.write(text);
+							writer.write("]]>");
+						} else {
 							writer.write(text);
 						}
-					};
+					}
 				};
-			});
-		} else {
-			xstream = new XStream();
-		}
+			}
+		});
 		return xstream;
 	}
 }

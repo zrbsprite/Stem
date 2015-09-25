@@ -8,6 +8,8 @@ import java.io.Serializable;
 public class Articles implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
+	public Articles(){}
+	
 	private String Title;
 	private String Description;
 	private String PicUrl;

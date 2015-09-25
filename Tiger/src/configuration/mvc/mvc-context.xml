@@ -23,6 +23,7 @@
     <!-- 定义一些不被拦截的静态资源 -->
     <mvc:resources mapping="/assets/**" location="/assets/" />
     <mvc:resources mapping="/upload/**" location="/upload/" />
+    <mvc:resources mapping="/*/**" location="/*/" />
     <!-- 拦截器 -->
     <!-- 
     <mvc:interceptors>  

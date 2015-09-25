@@ -45,8 +45,11 @@
         <table schema="" tableName="tiger_user_opt" domainObjectName="TigerUserOpt">
             <property name="useActualColumnNames" value="false" />
         </table>
-          -->
         <table schema="" tableName="tiger_pay" domainObjectName="TigerPay">
+            <property name="useActualColumnNames" value="false" />
+        </table>
+          -->
+        <table schema="" tableName="tiger_access_token" domainObjectName="TigerAccessToken">
             <property name="useActualColumnNames" value="false" />
         </table>
         

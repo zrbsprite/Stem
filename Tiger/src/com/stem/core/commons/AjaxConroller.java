@@ -26,6 +26,7 @@ public abstract class AjaxConroller extends BaseController{
 			pw = response.getWriter();
 			pw.write(str);
 			pw.flush();
+			pw.close();
 		} catch (IOException e) {
 			logger.error("发生IO异常!");
 		}

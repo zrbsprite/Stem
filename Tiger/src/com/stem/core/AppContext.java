@@ -19,11 +19,6 @@ public class AppContext {
 	}
 
 	/**
-	 * AccessToken的键值
-	 */
-	public static final String ACCESS_TOKEN_KEY = "access_token";
-	
-	/**
 	 * 设置键值对
 	 * 
 	 * @param key

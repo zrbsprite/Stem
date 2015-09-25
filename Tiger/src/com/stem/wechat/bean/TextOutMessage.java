@@ -1,30 +1,42 @@
 package com.stem.wechat.bean;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * 输出文字消息
  */
+@XmlRootElement(name = "xml")
 public class TextOutMessage extends OutMessage {
 
-	private String	MsgType	= "text";
+	private String MsgType = "text";
 	// 文本消息
-	private String	Content;
-	
-	public TextOutMessage() {
+	private String Content;
+
+	public TextOutMessage(){
+
 	}
-	
-	public TextOutMessage(String content) {
+
+	public TextOutMessage(String content){
 		Content = content;
 	}
 
-	public String getMsgType() {
+	public String getMsgType(){
+
 		return MsgType;
 	}
 
-	public String getContent() {
+	public void setMsgType(String msgType){
+
+		MsgType = msgType;
+	}
+	
+	public String getContent(){
+
 		return Content;
 	}
 
-	public void setContent(String content) {
+	public void setContent(String content){
+
 		Content = content;
 	}
 }

@@ -11,6 +11,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,9 +21,11 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.alibaba.fastjson.JSON;
-import com.stem.core.AppContext;
 import com.stem.core.commons.AjaxConroller;
 import com.stem.core.commons.PropertiesInitBean.PropertiesUtils;
+import com.stem.entity.TigerAccessToken;
+import com.stem.service.TigerAccessTokenService;
+import com.stem.wechat.TigerUtils;
 import com.stem.wechat.WeChat;
 import com.stem.wechat.oauth.Menu;
 import com.stem.wechat.oauth.Oauth;
@@ -33,8 +37,11 @@ public class StatementController extends AjaxConroller{
 	
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	
+	@Resource
+	private TigerAccessTokenService tigerAccessTokenService;
+	
 	@RequestMapping("msg")
-	public String index(PrintWriter writer) throws IOException{
+	public void index(PrintWriter writer) throws IOException{
 		//validate wechat msg
 		String signature = request.getParameter("signature");
 		String timestamp = request.getParameter("timestamp");
@@ -55,19 +62,22 @@ public class StatementController extends AjaxConroller{
 			}
 			String result = SHA1.encode(str.toString());
 			if(!result.equals(signature)){
-				return "";
+				writer.write("");
+				return ;
 			}
 			writer.write(echostr);
-			return null;
 		}else{
 			String path = getServerLocalePath();
 			InputStream stream = request.getInputStream();
 			String responseInputString = IOUtils.toString(stream);
+			logger.info("微信接口传来报文："+responseInputString);
 			String xml = WeChat.processing(responseInputString, path);
 			if(!StringUtils.isEmpty(xml)){
 				writer.write(xml);
+			}else{
+				logger.error("响应xml异常为空！");
+				writer.write("");
 			}
-			return null;
 		}
 	}
 	
@@ -107,10 +117,15 @@ public class StatementController extends AjaxConroller{
 			StringBuffer json = new StringBuffer();
 			String line;
 			while(null!=(line=br.readLine())){
-				json.append(line.trim());
+				line = line.trim();
+				line = line.replace("${APPID}", PropertiesUtils.getConfigByKey("AppId"));
+				line = line.replace("${AppSecret}", PropertiesUtils.getConfigByKey("AppSecret"));
+				json.append(line);
 			}
 			Menu menu = new Menu();
-			String accessToken = (String) AppContext.getContext().getValue(AppContext.ACCESS_TOKEN_KEY);
+			
+			TigerAccessToken accessTokenBean = TigerUtils.getAccessTokenBean(tigerAccessTokenService);
+			String accessToken = accessTokenBean.getAccesstoken(); 
 			boolean isSuccess = menu.createMenu(accessToken, json.toString());
 			if(!isSuccess){
 				logger.error("创建微信菜单失败！");

@@ -38,13 +38,14 @@ public class LoginController extends AjaxConroller{
 	private TigerNamingService tigerNamingService;
 	
 	@RequestMapping("index")
-	public String index(){
+	public String index(Model model){
+		model.addAttribute("wxurl", getServerLocalePath());
 		return "fore/login";
 	}
 	
 	@RequestMapping("bind")
 	public String login(@ModelAttribute TigerUserinfo entity, String code, Model model){
-		
+		model.addAttribute("wxurl", getServerLocalePath());
 		String viewName = "fore/success";
 		
 		TigerUserinfoExample example = new TigerUserinfoExample();

@@ -83,7 +83,7 @@ input::-moz-focus-inner { border: 0; padding: 0; }
 .findPass a:hover { text-decoration: none; }
 
 .content.findPass { margin: 4.5rem 3% 0 3%; }
-.content.findPass .title { font-size: 1.1rem; color: #7c7c7f; margin: 8% 0 0.8rem 8%; text-align: center; }
+.content.findPass .title { font-size: 1.1rem; color: #7c7c7f; margin: 8% 0 8% 0.8rem; text-align: center; }
 .content.findPass .button { margin-top: 8%; text-align: center; }
 .content.findPass .button a { color: #fff; text-align: center; display: inline-block; width: 93%; border-radius: 1.3rem; height: 3rem; line-height: 3rem; background-color: #fd695a; }
 .content.findPass .b_img { text-align: center; }

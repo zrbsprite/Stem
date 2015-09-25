@@ -18,7 +18,7 @@ public class AccessTokenTask {
 	public void run(){
 		try{
 			String accessToken = WeChat.getAccessToken();
-			AppContext.getContext().setSyncValue(AppContext.ACCESS_TOKEN_KEY,accessToken);
+//			AppContext.getContext().setSyncValue(AppContext.ACCESS_TOKEN_KEY,accessToken);
 			logger.info("更新AccessToken成功，值被更新为["+accessToken+"]");
 		} catch (Exception e){
 			e.printStackTrace();

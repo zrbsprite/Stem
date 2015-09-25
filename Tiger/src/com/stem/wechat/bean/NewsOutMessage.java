@@ -3,11 +3,16 @@ package com.stem.wechat.bean;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * 输出图文消息
  */
+@XmlRootElement(name="xml")
 public class NewsOutMessage extends OutMessage {
 
+	public NewsOutMessage(){}
+	
 	private String MsgType = "news";
 
 	private Integer ArticleCount;

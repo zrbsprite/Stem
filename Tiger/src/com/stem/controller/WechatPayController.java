@@ -17,11 +17,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.stem.core.AppContext;
 import com.stem.core.commons.AjaxConroller;
 import com.stem.core.commons.PropertiesInitBean.PropertiesUtils;
+import com.stem.entity.TigerAccessToken;
 import com.stem.entity.TigerPay;
+import com.stem.service.TigerAccessTokenService;
 import com.stem.service.TigerPayService;
+import com.stem.wechat.TigerUtils;
 import com.stem.wechat.WeChat;
 import com.stem.wechat.bean.PrePay;
 import com.stem.wechat.bean.ProductInfo;
@@ -41,6 +43,9 @@ public class WechatPayController extends AjaxConroller {
 	
 	@Resource
 	private TigerPayService tigerPayService;
+	
+	@Resource
+	private TigerAccessTokenService tigerAccessTokenService;
 	
 	@RequestMapping("pay")
 	public String pay(@ModelAttribute ProductInfo info, Model model) throws UnsupportedEncodingException{
@@ -80,7 +85,6 @@ public class WechatPayController extends AjaxConroller {
 			String serverPath = getServerLocalePath();
 			String packageStr = Pay.getPackage(params, serverPath);
 			XStream xs = XStreamFactory.init(false);
-	        xs.ignoreUnknownElements();
 	        xs.alias("xml", PrePay.class);
 	        PrePay bean = (PrePay) xs.fromXML(packageStr);
 			String packagestring = bean.getPrepay_id();
@@ -129,7 +133,6 @@ public class WechatPayController extends AjaxConroller {
 			// 转换微信post过来的xml内容
 			XStream xs = new XStream(new DomDriver());
 			xs.alias("xml", WeChatBuyPost.class);
-			xs.ignoreUnknownElements();
 			String xmlMsg = Tools.inputStream2String(in);
 			postData = (WeChatBuyPost) xs.fromXML(xmlMsg);
 			
@@ -161,7 +164,8 @@ public class WechatPayController extends AjaxConroller {
 		
 		// 发送客服消息
 		try {
-			String accessToken = (String) AppContext.getContext().getValue(AppContext.ACCESS_TOKEN_KEY);
+			TigerAccessToken accessTokenBean = TigerUtils.getAccessTokenBean(tigerAccessTokenService);
+			String accessToken = accessTokenBean.getAccesstoken(); 
 			WeChat.message.sendText(accessToken, openid, "您的订单号" + orderId + "已经支付成功！");
 		} catch (Exception e) {
 			e.printStackTrace();
