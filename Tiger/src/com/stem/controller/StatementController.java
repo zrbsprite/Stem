@@ -120,6 +120,7 @@ public class StatementController extends AjaxConroller{
 				line = line.trim();
 				line = line.replace("${APPID}", PropertiesUtils.getConfigByKey("AppId"));
 				line = line.replace("${AppSecret}", PropertiesUtils.getConfigByKey("AppSecret"));
+				line = line.replace("${serverPath}", getServerLocalePath());
 				json.append(line);
 			}
 			Menu menu = new Menu();

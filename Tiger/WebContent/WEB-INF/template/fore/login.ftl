@@ -6,7 +6,7 @@
 <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,width=device-width" />
 <title>大虎交易</title>
 <#include "include/taglib.ftl">
-<link rel="stylesheet" href="${wxurl}/assets/css/login.css"/>
+<link rel="stylesheet" href="${basepath}/assets/css/login.css"/>
 </head>
 <body>
     <!--公用部分头部导航:begin-->
@@ -16,7 +16,7 @@
 <!--公用部分头部导航:end-->        
 <div class='content flex h100'>
     <div class="login">
-    <form class="form" method="post" id="loginForm" action="${wxurl}/wechat/bind.htm">
+    <form class="form" method="post" id="loginForm" action="${basepath}/wechat/bind.htm">
         <section>
             <label for="tel">手机号&nbsp;&nbsp;</label>
             <input type="number" value="" name="phone" placeholder="请输入您的手机号" id="phone" class="input-text" maxlength="11" autocomplete="off">
@@ -37,9 +37,9 @@
     </div>
 </div>
 </body>
-<script type="text/javascript" src="${wxurl}/assets/js/jquery-1.8.3.min.js"></script>
-<script type="text/javascript" src="${wxurl}/assets/js/stem/stem.m.js"></script>
-<script type="text/javascript" src="${wxurl}/assets/js/stem/alert.js"></script>
+<script type="text/javascript" src="${basepath}/assets/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="${basepath}/assets/js/stem/stem.m.js"></script>
+<script type="text/javascript" src="${basepath}/assets/js/stem/alert.js"></script>
 <script type="text/javascript">
 function checkForm(){
 	var phone = document.getElementById("phone").value;

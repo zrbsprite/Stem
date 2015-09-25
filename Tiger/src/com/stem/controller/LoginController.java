@@ -78,6 +78,7 @@ public class LoginController extends AjaxConroller{
 		}else{
 			//没有用户信息
 			model.addAttribute("msg","没用此用户");
+			viewName = "fore/error";
 		}
 		return viewName;
 	}

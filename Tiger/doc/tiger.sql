@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50622
 File Encoding         : 65001
 
-Date: 2015-09-14 15:50:57
+Date: 2015-09-25 21:12:12
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -53,6 +53,28 @@ INSERT INTO `statement` VALUES ('杨靖', '110111198706111000', '13581536386', '
 INSERT INTO `statement` VALUES ('杨靖', '110111198706111000', '13581536386', '2015.7', 'A股-1号', '3.72', '0', '0', '0.0', '0', '0', '0', '0.0', '0.0', '0.0');
 INSERT INTO `statement` VALUES ('杨靖', '110111198706111000', '13581536386', '2015.7', '期货-1号', '1.5', '0', '0', '0.0', '0', '0', '0', '0.0', '0.0', '0.0');
 INSERT INTO `statement` VALUES ('杨靖', '110111198706111000', '13581536386', '2015.7', '美股-1号', '1.17', '500', '427', '0.41', '0', '0', '2759', '3228.03', '0.71', '228.74');
+
+-- ----------------------------
+-- Table structure for tiger_access_token
+-- ----------------------------
+DROP TABLE IF EXISTS `tiger_access_token`;
+CREATE TABLE `tiger_access_token` (
+  `id` varchar(30) COLLATE utf8_unicode_ci NOT NULL COMMENT 'id',
+  `accessToken` varchar(512) COLLATE utf8_unicode_ci NOT NULL COMMENT '高级功能token',
+  `expiresIn` int(11) NOT NULL DEFAULT '7200' COMMENT '过期时间（单位：秒）',
+  `refreshToken` varchar(512) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '刷新token，在oauth和授权登录中能获取该值',
+  `openid` varchar(256) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '用户OPENID',
+  `scope` varchar(256) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `errcode` int(11) DEFAULT NULL COMMENT '错误码',
+  `errmsg` varchar(512) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '错误信息',
+  `created` bigint(15) DEFAULT '0' COMMENT '当前时间戳（毫秒）',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- ----------------------------
+-- Records of tiger_access_token
+-- ----------------------------
+INSERT INTO `tiger_access_token` VALUES ('TIGER@AUTH#ACCESS#TOKEN', 'pSJOuKxdqFbizo45TeBm7MUMsYOLKT1TWNRZ49A9g567Y6tPiORFAPUssbtRF-IuxMbaRUGQIzOnFNNiTegd70UQuhwgFTIb44rRQaRQ6rs', '7200', null, null, null, null, null, '1443182281302');
 
 -- ----------------------------
 -- Table structure for tiger_naming

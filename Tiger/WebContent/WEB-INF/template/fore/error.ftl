@@ -14,8 +14,8 @@
     </div>
     
 	<div class='content findPass'>
-		<div class="b_img"><img src="${basepath}/assets/images/dui.jpg" /></div>
-		<div class="title">${msg?default('绑定成功！')}</div>
+		<div class="b_img"><img src="${basepath}/assets/images/warn.png" /></div>
+		<div class="title">${msg?default('系统异常！')}</div>
 		<div class="button" style="margin-bottom:20%;"><a href="javascript:void(0);" target="_self" id="closeWindow">关闭</a></div>
 	</div>
 </body>

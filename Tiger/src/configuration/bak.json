@@ -32,7 +32,7 @@
 				{
 					"type": "view",
 					"name": "绑定微信",
-					"url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=ttp://localhost:8888/tiger/wechat/index.htm&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect"
+					"url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${APPID}&redirect_uri=${serverPath}wechat/index.htm&response_type=code&scope=snsapi_base&state=bind#wechat_redirect"
 				},
 				{
 					"type": "click",
@@ -49,7 +49,7 @@
 				{
 					"type": "view",
 					"name": "产品列表",
-					"url":"https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=ttp://localhost:8888/tiger/wechat/index.htm&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect"	
+					"url":"https://open.weixin.qq.com/connect/oauth2/authorize?appid=${APPID}&redirect_uri=${serverPath}wechat/index.htm&response_type=code&scope=snsapi_base&state=pro#wechat_redirect"	
 				},
 				{
 					"type": "click",
