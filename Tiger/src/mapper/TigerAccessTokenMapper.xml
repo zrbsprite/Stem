@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.stem.dao.TigerAccessTokenMapper" >
+  <resultMap id="BaseResultMap" type="com.stem.entity.TigerAccessToken" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="accessToken" property="accesstoken" jdbcType="VARCHAR" />
+    <result column="expiresIn" property="expiresin" jdbcType="INTEGER" />
+    <result column="refreshToken" property="refreshtoken" jdbcType="VARCHAR" />
+    <result column="openid" property="openid" jdbcType="VARCHAR" />
+    <result column="scope" property="scope" jdbcType="VARCHAR" />
+    <result column="errcode" property="errcode" jdbcType="INTEGER" />
+    <result column="errmsg" property="errmsg" jdbcType="VARCHAR" />
+    <result column="created" property="created" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, accessToken, expiresIn, refreshToken, openid, scope, errcode, errmsg, created
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.stem.entity.TigerAccessTokenExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tiger_access_token
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tiger_access_token
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from tiger_access_token
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.stem.entity.TigerAccessTokenExample" >
+    delete from tiger_access_token
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.stem.entity.TigerAccessToken" >
+    insert into tiger_access_token (id, accessToken, expiresIn, 
+      refreshToken, openid, scope, 
+      errcode, errmsg, created
+      )
+    values (#{id,jdbcType=VARCHAR}, #{accesstoken,jdbcType=VARCHAR}, #{expiresin,jdbcType=INTEGER}, 
+      #{refreshtoken,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR}, #{scope,jdbcType=VARCHAR}, 
+      #{errcode,jdbcType=INTEGER}, #{errmsg,jdbcType=VARCHAR}, #{created,jdbcType=BIGINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.stem.entity.TigerAccessToken" >
+    insert into tiger_access_token
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="accesstoken != null" >
+        accessToken,
+      </if>
+      <if test="expiresin != null" >
+        expiresIn,
+      </if>
+      <if test="refreshtoken != null" >
+        refreshToken,
+      </if>
+      <if test="openid != null" >
+        openid,
+      </if>
+      <if test="scope != null" >
+        scope,
+      </if>
+      <if test="errcode != null" >
+        errcode,
+      </if>
+      <if test="errmsg != null" >
+        errmsg,
+      </if>
+      <if test="created != null" >
+        created,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="accesstoken != null" >
+        #{accesstoken,jdbcType=VARCHAR},
+      </if>
+      <if test="expiresin != null" >
+        #{expiresin,jdbcType=INTEGER},
+      </if>
+      <if test="refreshtoken != null" >
+        #{refreshtoken,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="scope != null" >
+        #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="errcode != null" >
+        #{errcode,jdbcType=INTEGER},
+      </if>
+      <if test="errmsg != null" >
+        #{errmsg,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.stem.entity.TigerAccessTokenExample" resultType="java.lang.Integer" >
+    select count(*) from tiger_access_token
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update tiger_access_token
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=VARCHAR},
+      </if>
+      <if test="record.accesstoken != null" >
+        accessToken = #{record.accesstoken,jdbcType=VARCHAR},
+      </if>
+      <if test="record.expiresin != null" >
+        expiresIn = #{record.expiresin,jdbcType=INTEGER},
+      </if>
+      <if test="record.refreshtoken != null" >
+        refreshToken = #{record.refreshtoken,jdbcType=VARCHAR},
+      </if>
+      <if test="record.openid != null" >
+        openid = #{record.openid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.scope != null" >
+        scope = #{record.scope,jdbcType=VARCHAR},
+      </if>
+      <if test="record.errcode != null" >
+        errcode = #{record.errcode,jdbcType=INTEGER},
+      </if>
+      <if test="record.errmsg != null" >
+        errmsg = #{record.errmsg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.created != null" >
+        created = #{record.created,jdbcType=BIGINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update tiger_access_token
+    set id = #{record.id,jdbcType=VARCHAR},
+      accessToken = #{record.accesstoken,jdbcType=VARCHAR},
+      expiresIn = #{record.expiresin,jdbcType=INTEGER},
+      refreshToken = #{record.refreshtoken,jdbcType=VARCHAR},
+      openid = #{record.openid,jdbcType=VARCHAR},
+      scope = #{record.scope,jdbcType=VARCHAR},
+      errcode = #{record.errcode,jdbcType=INTEGER},
+      errmsg = #{record.errmsg,jdbcType=VARCHAR},
+      created = #{record.created,jdbcType=BIGINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.stem.entity.TigerAccessToken" >
+    update tiger_access_token
+    <set >
+      <if test="accesstoken != null" >
+        accessToken = #{accesstoken,jdbcType=VARCHAR},
+      </if>
+      <if test="expiresin != null" >
+        expiresIn = #{expiresin,jdbcType=INTEGER},
+      </if>
+      <if test="refreshtoken != null" >
+        refreshToken = #{refreshtoken,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null" >
+        openid = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="scope != null" >
+        scope = #{scope,jdbcType=VARCHAR},
+      </if>
+      <if test="errcode != null" >
+        errcode = #{errcode,jdbcType=INTEGER},
+      </if>
+      <if test="errmsg != null" >
+        errmsg = #{errmsg,jdbcType=VARCHAR},
+      </if>
+      <if test="created != null" >
+        created = #{created,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.stem.entity.TigerAccessToken" >
+    update tiger_access_token
+    set accessToken = #{accesstoken,jdbcType=VARCHAR},
+      expiresIn = #{expiresin,jdbcType=INTEGER},
+      refreshToken = #{refreshtoken,jdbcType=VARCHAR},
+      openid = #{openid,jdbcType=VARCHAR},
+      scope = #{scope,jdbcType=VARCHAR},
+      errcode = #{errcode,jdbcType=INTEGER},
+      errmsg = #{errmsg,jdbcType=VARCHAR},
+      created = #{created,jdbcType=BIGINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>
