@@ -49,7 +49,7 @@
             <property name="useActualColumnNames" value="false" />
         </table>
           -->
-        <table schema="" tableName="tiger_access_token" domainObjectName="TigerAccessToken">
+        <table schema="" tableName="wx_userinfo" domainObjectName="WxUserinfo">
             <property name="useActualColumnNames" value="false" />
         </table>
         

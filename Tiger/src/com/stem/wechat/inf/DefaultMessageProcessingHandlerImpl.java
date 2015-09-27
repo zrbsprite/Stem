@@ -111,6 +111,9 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 					case "M3_COR_ABOUT":
 						responseMenuAbout(msg);
 						break;
+					case "M2_PRO_LIST":
+						responseMenuList(msg);
+						break;
 					default:
 						break;
 				}
@@ -127,6 +130,12 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 		
 	}
 	
+	//产品列表
+	private void responseMenuList(InMessage msg){
+		setOutMessage(createNews("大虎交易基金产品列表", "http://mmbiz.qpic.cn/mmbiz/CupWaH0t22rem5j2ibY0H8gibPh6ibCiaohOpBVdhcSE9muQg5V9oxMZTxP3XvpPjbMOGVibEqpQicI4u9412jNDpO6Q/0?wx_fmt=jpeg",
+				"【产品列表】大虎交易基金产品列表", "http://mp.weixin.qq.com/s?__biz=MjM5NTI4MDk4OA==&mid=210456651&idx=1&sn=41d62058de1044f321f5e43208731e22&scene=18#rd"));
+	}
+
 	private void responseMenuAbout(InMessage msg){
 		TextOutMessage out = new TextOutMessage();
 		StringBuffer sb = new StringBuffer();

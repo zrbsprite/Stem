@@ -29,7 +29,7 @@ import com.stem.wechat.oauth.Group;
 import com.stem.wechat.oauth.Menu;
 import com.stem.wechat.oauth.Message;
 import com.stem.wechat.oauth.Qrcod;
-import com.stem.wechat.oauth.User;
+import com.stem.wechat.oauth.WechatUserUtils;
 import com.stem.wechat.tools.HttpKit;
 import com.stem.wechat.tools.JsApiSign;
 import com.stem.wechat.tools.Tools;
@@ -57,7 +57,7 @@ public class WeChat {
 	/**
 	 * 用户操作接口
 	 */
-	public static final User user = new User();
+	public static final WechatUserUtils user = new WechatUserUtils();
 	/**
 	 * 分组操作接口
 	 */
