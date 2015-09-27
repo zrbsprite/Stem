@@ -1,0 +1,16 @@
+{
+	"button": 
+	[
+		{
+			"name": "了解大虎",
+			"sub_button": 
+			[
+				{
+					"type": "view",
+					"name": "绑定微信",
+					"url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${APPID}&redirect_uri=http://zrb.unbank.org/tiger/wechat/index.htm&response_type=code&scope=snsapi_base&state=10#wechat_redirect"
+				}
+			]
+		}
+	]
+}
