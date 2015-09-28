@@ -30,6 +30,12 @@
 			"sub_button": 
 			[
 				{
+					"type": "view",
+					"name": "绑定微信",
+					"url": "https://open.weixin.qq.com/connect/oauth2/authorize?appid=${APPID}&redirect_uri=${serverPath}/wechat/index.htm&response_type=code&scope=snsapi_base&state=bind#wechat_redirect"
+				},
+
+				{
 					"type": "click",
 					"name": "产品净值",
 					"key": "M2_PRO_JZ"
@@ -44,7 +50,12 @@
 				{
 					"type": "click",
 					"name": "产品列表",
-					"key":"M2_PRO_LIST"	
+					"key": "M2_PRO_LIST"
+				},
+				{
+					"type": "click",
+					"name": "我的资产",
+					"key": "M2_PRO_MINE"
 				}
 			]
 		},

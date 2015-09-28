@@ -5,11 +5,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
-import com.stem.core.commons.SpringContextUtil;
 import com.stem.core.commons.PropertiesInitBean.PropertiesUtils;
 import com.stem.entity.Statement;
 import com.stem.entity.StatementExample;
@@ -31,6 +32,12 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	
 	private OutMessage outMessage;
+	
+	@Resource
+	private TigerNamingService tigerNamingService;
+	
+	@Resource
+	private StatementService statementService;
 	
 	@Override
 	public void allType(InMessage msg){
@@ -139,8 +146,8 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 	private void responseMenuAbout(InMessage msg){
 		TextOutMessage out = new TextOutMessage();
 		StringBuffer sb = new StringBuffer();
-//		sb.append("欢迎来到大虎交易TIGERTrade。如有任何问题欢迎与万能客服虎小妹联系（微信号：13241862849），虎小妹定能第一时间为您答忧解惑！\ue402");
-		sb.append("欢迎来到大虎交易TIGERTrade。如有任何问题欢迎与万能客服虎小妹联系（微信号：13241862849），虎小妹定能第一时间为您答忧解惑！/得意 [得意] /:8-)");
+//		sb.append("欢迎来到大虎交易TIGERTrade。如有任何问题欢迎与万能客服虎小妹联系（微信号：13241862849），虎小妹定能第一时间为您答忧解惑！~/得意 [得意] /:8-)");
+		sb.append("欢迎来到大虎交易TIGERTrade。如有任何问题欢迎与万能客服虎小妹联系（微信号：13241862849），虎小妹定能第一时间为您答忧解惑！~/得意");
 		out.setContent(sb.toString());
 		setOutMessage(out);
 		
@@ -149,8 +156,8 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 	private void responseSubscribe(InMessage msg){
 		TextOutMessage out = new TextOutMessage();
 		StringBuffer sb = new StringBuffer();
-		//sb.append("欢迎关注大虎交易TIGERTrade！在这里，你将与中国最具潜力的私募生力军一起，感受交易为你带来的最新财经资讯、最炫产品信息和最靠谱的专业团队。大虎交易祝你一切顺利！www.tigertrade.com.cn。任何问题或投研需求，可直接加万能客服虎小妹微信：13241862849，虎小妹定会第一时间与你联系！\ue402");
-		sb.append("欢迎关注大虎交易TIGERTrade！在这里，你将与中国最具潜力的私募生力军一起，感受交易为你带来的最新财经资讯、最炫产品信息和最靠谱的专业团队。大虎交易祝你一切顺利！www.tigertrade.com.cn。任何问题或投研需求，可直接加万能客服虎小妹微信：13241862849，虎小妹定会第一时间与你联系！/得意 [得意] /:8-)");
+		//sb.append("欢迎关注大虎交易TIGERTrade！在这里，你将与中国最具潜力的私募生力军一起，感受交易为你带来的最新财经资讯、最炫产品信息和最靠谱的专业团队。大虎交易祝你一切顺利！www.tigertrade.com.cn。任何问题或投研需求，可直接加万能客服虎小妹微信：13241862849，虎小妹定会第一时间与你联系！~/得意 [得意] /:8-)");
+		sb.append("欢迎关注大虎交易TIGERTrade！在这里，你将与中国最具潜力的私募生力军一起，感受交易为你带来的最新财经资讯、最炫产品信息和最靠谱的专业团队。大虎交易祝你一切顺利！www.tigertrade.com.cn。任何问题或投研需求，可直接加万能客服虎小妹微信：13241862849，虎小妹定会第一时间与你联系！~/得意");
 		out.setContent(sb.toString());
 		setOutMessage(out);
 	}
@@ -168,7 +175,8 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 	private void responseMenuBUY(InMessage msg){
 		ImageOutMessage image = new ImageOutMessage();
 		Image img = new Image();
-		img.setMediaId("9amgL4twFMc61L07pGHPa3pRRA94OXPohGg_EW1VvGClzm0Ix3nMpEy-tlOwOYDp");
+//		img.setMediaId("9amgL4twFMc61L07pGHPa3pRRA94OXPohGg_EW1VvGClzm0Ix3nMpEy-tlOwOYDp");
+		img.setMediaId("Coj-6cHiiFlkfvtx8730FZwUtbHrs73GfjR3g521dec");
 		image.setImage(img);
 		setOutMessage(image);
 	}
@@ -206,7 +214,8 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 	private void responseMenuZZ(InMessage msg){
 		ImageOutMessage image = new ImageOutMessage();
 		Image img = new Image();
-		img.setMediaId("pVmOsRuKiVg0KwVnvJqn6WocUCoWzgsiTZ7fXUzvX5g9Jtkp2U83gtinQdcz2EZs");
+//		img.setMediaId("pVmOsRuKiVg0KwVnvJqn6WocUCoWzgsiTZ7fXUzvX5g9Jtkp2U83gtinQdcz2EZs");
+		img.setMediaId("Coj-6cHiiFlkfvtx8730FbKATk1eSwVsbNf3s4XREZg");
 		image.setImage(img);
 		setOutMessage(image);
 	}
@@ -215,11 +224,11 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 		TextOutMessage out = new TextOutMessage();
 		StringBuffer sb = new StringBuffer();
 		sb.append("【大虎交易简介】");
-		sb.append("\\n");
+		sb.append("\n");
 		sb.append("大虎交易（TIGER trade）是北京金大虎资本管理有限公司旗下专注于二级市场的多元化自营型交易团队品牌。公司成立于2011年，由拥有多年金融行业实战经验的投资精英共同发起成立，");
 		sb.append("同事融合了一批学识广博、严谨务实的专业人才，致力于追求投资收益的稳定增长。公司通过建立专业化、科学化的投资收益评估体系，为市场发掘优秀的投资管理人才，为广大投资者和产业资金");
 		sb.append("提供个性化、专业化的优秀投资管理、投资咨询服务。");
-		sb.append("\\n");
+		sb.append("\n");
 		sb.append("团队已取得私募基金资质，是国内一支年轻的私募基金运作团队。");
 		out.setContent(sb.toString());
 		setOutMessage(out);
@@ -230,10 +239,9 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 		//make data
 		String openid = msg.getFromUserName();
 		//获取用户id card no
-		TigerNamingService namingService = SpringContextUtil.getBean("tigerNamingService");
 		TigerNamingExample namingExample = new TigerNamingExample();
 		namingExample.createCriteria().andOpenidEqualTo(openid);
-		List<TigerNaming> namings = namingService.list(namingExample);
+		List<TigerNaming> namings = tigerNamingService.list(namingExample);
 		//如果用户未绑定，给出提示的消息并提供绑定的连接
 		if(namings.size()==0){
 			StringBuffer sb = new StringBuffer();
@@ -249,20 +257,23 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 			return;
 		}
 		TigerNaming naming = namings.get(0);
-		StatementService service = SpringContextUtil.getBean("statementService");
 		StatementExample example = new StatementExample();
 		Date date = new Date();
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy.M");
 		example.createCriteria().andMonthEqualTo(sf.format(date)).andIdEqualTo(naming.getUserid());
-		List<Statement> list = service.list(example);
-		StringBuffer sb = new StringBuffer("您本月的相关资金信息如下：\n\n");
-		for(Statement statement : list){
-			sb.append("产品《"+statement.getFundname()+"》");
-			sb.append("\n");
-			sb.append("开放日净值："+statement.getNetvalueofbuyday());
-			sb.append("\n\n");
+		List<Statement> list = statementService.list(example);
+		if(list.size()>0){
+			StringBuffer sb = new StringBuffer("您本月的相关资金信息如下：\n\n");
+			for(Statement statement : list){
+				sb.append("产品《"+statement.getFundname()+"》");
+				sb.append("\n");
+				sb.append("开放日净值："+statement.getNetvalueofbuyday());
+				sb.append("\n\n");
+			}
+			out.setContent(sb.toString());
+		}else{
+			out.setContent("未能找到你本月的投资信息!");
 		}
-		out.setContent(sb.toString());
 		setOutMessage(out);
 	}
 	

@@ -32,6 +32,7 @@
         <section class="marTop">
             <a onClick="checkForm();" class="input_btn">绑定微信</a>
         </section>
+        <input type="hidden" name="vc" value="${code?default('')}"/>
         </form>
         <div class="bottom"><#-- <img src=""/> --></div>
     </div>

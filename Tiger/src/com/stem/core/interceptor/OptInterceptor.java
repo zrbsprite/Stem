@@ -36,7 +36,7 @@ public class OptInterceptor extends HandlerInterceptorAdapter {
 		String code = request.getParameter("code");
 		if(!StringUtils.isEmpty(state) && !StringUtils.isEmpty(code)){
 			//请求openid
-			String accessTokenUrl = PropertiesUtils.getConfigByKey("mp_access_token_url");
+			String accessTokenUrl = PropertiesUtils.getConfigByKey("mp_web_access_token_url");
 			String appid = PropertiesUtils.getConfigByKey("AppId");
 			String secret = PropertiesUtils.getConfigByKey("AppSecret");
 			accessTokenUrl = String.format(accessTokenUrl,appid, secret, code);

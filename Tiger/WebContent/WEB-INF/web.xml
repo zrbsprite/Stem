@@ -15,7 +15,8 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>
 		    classpath:configuration/spring/applicationContext.xml,
-		    classpath:configuration/spring/other-context.xml
+		    classpath:configuration/spring/other-context.xml,
+		    classpath:configuration/spring/quartz-context.xml
 	</param-value>
   </context-param>
   <filter>

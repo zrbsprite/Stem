@@ -5,28 +5,18 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
-import com.stem.core.commons.UserNotLoginException;
-import com.stem.util.CookieUtil;
-
-@Repository
 public class SystemInterceptor extends HandlerInterceptorAdapter {
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
-	
-	@Value("#{propertiesReader[cookie_username_key]}")
-	private String cookieUserKey;
 	
 	private List<String> noFilters = new ArrayList<String>();
 	
@@ -71,16 +61,6 @@ public class SystemInterceptor extends HandlerInterceptorAdapter {
 			}
 		} catch (Exception e) {
 			logger.error("非法的地址过滤正则表达式【" + this.whiteListRule +"】，规则未启用...");
-		}
-		
-		
-		Cookie cookieUserName = CookieUtil.getCookieByName(request, cookieUserKey);
-		if(null==cookieUserName){
-			logger.warn("用户无权访问地址: " + uri + " 已被阻止！");
-			UserNotLoginException exception =  new UserNotLoginException("用户无权访问");
-			request.setAttribute("exceptionMessage", exception.getMessage());
-			request.getRequestDispatcher("/anno/nologin.htm").forward(request, response);
-			return false;
 		}
 		return true;
 	}

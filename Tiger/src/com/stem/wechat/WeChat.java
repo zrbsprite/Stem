@@ -19,11 +19,11 @@ import org.apache.commons.lang.math.NumberUtils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.stem.core.commons.PropertiesInitBean.PropertiesUtils;
+import com.stem.core.commons.SpringContextUtil;
 import com.stem.wechat.bean.Articles;
 import com.stem.wechat.bean.Attachment;
 import com.stem.wechat.bean.InMessage;
 import com.stem.wechat.bean.OutMessage;
-import com.stem.wechat.inf.DefaultMessageProcessingHandlerImpl;
 import com.stem.wechat.inf.MessageProcessingHandler;
 import com.stem.wechat.oauth.Group;
 import com.stem.wechat.oauth.Menu;
@@ -44,7 +44,7 @@ public class WeChat {
 	private static final String UPLOAD_MEDIA_URL = "http://file.api.weixin.qq.com/cgi-bin/media/upload?access_token=";
 	private static final String JSAPI_TICKET = "https://api.weixin.qq.com/cgi-bin/ticket/getticket?type=jsapi&access_token=";
 
-	private static MessageProcessingHandler messageProcessingHandler = new DefaultMessageProcessingHandlerImpl();;
+	private static MessageProcessingHandler messageProcessingHandler;
 
 	/**
 	 * 消息操作接口
@@ -157,6 +157,8 @@ public class WeChat {
 	 */
 	public static String processing(String responseInputString,String serverPath){
 
+		messageProcessingHandler = SpringContextUtil.getBean("messageProcessingHandler");
+		
 		InMessage inMessage = parsingInMessage(responseInputString);
 		// 取得消息类型
 		String type = inMessage.getMsgType();
@@ -186,14 +188,6 @@ public class WeChat {
 		return xml;
 	}
 
-	public static void main(String[] args){
-
-		String xml = "<xml><ToUserName><![CDATA[toUser]]></ToUserName><FromUserName><![CDATA[FromUser]]></FromUserName>"+
-					"<CreateTime>123456789</CreateTime><MsgType><![CDATA[event]]></MsgType><Event><![CDATA[subscribe]]></Event></xml>";
-		String out = processing(xml, "");
-		System.out.println(out);
-	}
-	
 	/**
 	 * 消息体转换
 	 * 

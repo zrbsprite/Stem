@@ -12,7 +12,7 @@ import com.stem.entity.TigerNamingExample;
 import com.stem.service.TigerNamingService;
 
 @Service("tigerNamingService")
-public class TigerNamigServiceImpl implements TigerNamingService {
+public class TigerNamingServiceImpl implements TigerNamingService {
 
 	private TigerNamingMapper tigerNamingMapper;
 	

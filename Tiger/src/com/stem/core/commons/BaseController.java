@@ -71,6 +71,16 @@ public abstract class BaseController {
 		if(port!=80){
 			sPort = ":" + port;
 		}
-		return schame + "://" + serverName + sPort + "/" + contextPath;
+		return schame + "://" + serverName + sPort + contextPath;
+	}
+	
+	/**
+	 * @author: stem zhang
+	 * 修改时间：2015年9月28日 - 上午9:46:09<br/>
+	 * 功能说明：返回项目根目录的真实地址<br/>
+	 * @return
+	 */
+	protected String getContentRealPath(){
+		return this.request.getSession().getServletContext().getRealPath("/");
 	}
 }

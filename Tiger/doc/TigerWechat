@@ -5,15 +5,18 @@ AppSecret=ee929858564b7709eda442ab750bf1ae
 
 douwei@tigercapital.com.cn jindahu123
 
-
 EncodingAESKey=a5pWRu7qQCQR7tdJeArayfvTGJz5aU4yHNrBEIZjw5M
-
 
 远程服务器
 ip:101.200.195.221
 userName:Administrator
 password:Jindahu123
 
+域名：www.tigercapital.cn
 
-菜单生成   --图片和图文
-获取用户详细信息
+
+---需要注意的情况---
+1、80端口
+2、去除项目名称--不能去掉
+3、需要维护用户信息
+4、确认资产信息显示内容
