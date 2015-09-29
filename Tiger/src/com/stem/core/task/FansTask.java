@@ -10,6 +10,7 @@ import java.util.Observer;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -123,7 +124,7 @@ public class FansTask extends Observable{
 									wxUserinfo.setSubscribeTime(objMap.get("subscribe_time").toString());
 									wxUserinfo.setSubscribe(isSub);
 									wxUserinfo.setOpenid(objMap.get("openid").toString());
-									wxUserinfo.setNickname(objMap.get("nickname").toString());
+									wxUserinfo.setNickname(filterEmoji(objMap.get("nickname").toString()));
 									wxUserinfo.setSex(objMap.get("sex").toString());
 									wxUserinfo.setCity(objMap.get("city").toString());
 									wxUserinfo.setCountry(objMap.get("country").toString());
@@ -180,4 +181,17 @@ public class FansTask extends Observable{
 			task.synTables();
 		}
 	} 
+	
+	/**
+     * 将emoji表情替换成*
+     * @param source
+     * @return 过滤后的字符串
+     */
+    private String filterEmoji(String source) {
+        if(StringUtils.isNotBlank(source)){
+            return source.replaceAll("[\\ud800\\udc00-\\udbff\\udfff\\ud800-\\udfff]", "*");
+        }else{
+            return source;
+        }
+    }
 }
