@@ -65,4 +65,27 @@ public class WxUserinfoServiceImpl implements WxUserinfoService {
 		return this.wxUserinfoMapper.insertSelective(model);
 	}
 
+	@Override
+	public void doBatchAdd(List<WxUserinfo> wxUserinfoList){
+		this.wxUserinfoMapper.batchInsertTemp(wxUserinfoList);
+	}
+
+	@Override
+	public void doClearTable(){
+		this.wxUserinfoMapper.truncateTable();
+	}
+
+	@Override
+	public void doSynTables(){
+		//清空用户信息表
+		this.wxUserinfoMapper.truncateTable();
+		//将临时表的数据导入用户信息表
+		this.wxUserinfoMapper.synTables();
+	}
+
+	@Override
+	public void doTruncateTempTable(){
+		this.wxUserinfoMapper.truncateTempTable();
+	}
+
 }

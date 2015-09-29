@@ -335,4 +335,27 @@
       groupid = #{groupid,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  
+  <delete id="truncateTable">
+  	truncate table wx_userinfo
+  </delete>
+  <delete id="truncateTempTable">
+  	truncate table wx_userinfo_temp
+  </delete>
+  <insert id="batchInsertTemp" parameterType="java.util.List">
+  	insert into wx_userinfo_temp (id, subscribe, openid, 
+      nickname, sex, city, country, 
+      province, language, headimgurl, 
+      subscribe_time, remark, groupid)
+      values
+    <foreach collection="list" item="item" index="index" separator="," >  
+      (#{item.id,jdbcType=INTEGER}, #{item.subscribe,jdbcType=CHAR}, #{item.openid,jdbcType=VARCHAR}, 
+      #{item.nickname,jdbcType=VARCHAR}, #{item.sex,jdbcType=CHAR}, #{item.city,jdbcType=VARCHAR}, #{item.country,jdbcType=VARCHAR}, 
+      #{item.province,jdbcType=VARCHAR}, #{item.language,jdbcType=VARCHAR}, #{item.headimgurl,jdbcType=VARCHAR}, 
+      #{item.subscribeTime,jdbcType=VARCHAR}, #{item.remark,jdbcType=VARCHAR}, #{item.groupid,jdbcType=VARCHAR})
+    </foreach>
+  </insert>
+  <insert id="synTables">
+  	insert into wx_userinfo select * from wx_userinfo_temp
+  </insert>
 </mapper>

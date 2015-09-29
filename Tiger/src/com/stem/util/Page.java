@@ -37,8 +37,11 @@ public class Page<T> {
 		this.currentPage = currentPage == 0 ? 1 : currentPage;
 		this.pernum = pernum;
 		this.pages = (int) Math.ceil((total + 0.0) / pernum);
+		if(currentPage>=pages){
+			this.currentPage = pages;
+		}
 		count();
-		nextAndprevious(currentPage);
+		nextAndprevious(this.currentPage);
 	}
 
 	private void nextAndprevious(int currentPage) {
@@ -145,5 +148,4 @@ public class Page<T> {
 	public void setEnd(int end) {
 		this.end = end;
 	}
-
 }

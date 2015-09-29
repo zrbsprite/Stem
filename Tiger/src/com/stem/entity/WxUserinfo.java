@@ -1,133 +1,178 @@
 package com.stem.entity;
 
+import org.apache.commons.lang.time.DateFormatUtils;
+import org.springframework.util.StringUtils;
+
 public class WxUserinfo {
-    private Integer id;
 
-    private String subscribe;
+	private Integer id;
 
-    private String openid;
+	private String subscribe;
 
-    private String nickname;
+	private String openid;
 
-    private String sex;
+	private String nickname;
 
-    private String city;
+	private String sex;
 
-    private String country;
+	private String city;
 
-    private String province;
+	private String country;
 
-    private String language;
+	private String province;
 
-    private String headimgurl;
+	private String language;
 
-    private String subscribeTime;
+	private String headimgurl;
 
-    private String remark;
+	private String subscribeTime;
 
-    private String groupid;
+	private String remark;
 
-    public Integer getId() {
-        return id;
-    }
+	private String groupid;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	private String subscribeTimeLable;
 
-    public String getSubscribe() {
-        return subscribe;
-    }
+	public Integer getId(){
 
-    public void setSubscribe(String subscribe) {
-        this.subscribe = subscribe;
-    }
+		return id;
+	}
 
-    public String getOpenid() {
-        return openid;
-    }
+	public void setId(Integer id){
 
-    public void setOpenid(String openid) {
-        this.openid = openid;
-    }
+		this.id = id;
+	}
 
-    public String getNickname() {
-        return nickname;
-    }
+	public String getSubscribe(){
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
+		return subscribe;
+	}
 
-    public String getSex() {
-        return sex;
-    }
+	public void setSubscribe(String subscribe){
 
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
+		this.subscribe = subscribe;
+	}
 
-    public String getCity() {
-        return city;
-    }
+	public String getOpenid(){
 
-    public void setCity(String city) {
-        this.city = city;
-    }
+		return openid;
+	}
 
-    public String getCountry() {
-        return country;
-    }
+	public void setOpenid(String openid){
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
+		this.openid = openid;
+	}
 
-    public String getProvince() {
-        return province;
-    }
+	public String getNickname(){
 
-    public void setProvince(String province) {
-        this.province = province;
-    }
+		return nickname;
+	}
 
-    public String getLanguage() {
-        return language;
-    }
+	public void setNickname(String nickname){
 
-    public void setLanguage(String language) {
-        this.language = language;
-    }
+		this.nickname = nickname;
+	}
 
-    public String getHeadimgurl() {
-        return headimgurl;
-    }
+	public String getSex(){
 
-    public void setHeadimgurl(String headimgurl) {
-        this.headimgurl = headimgurl;
-    }
+		return sex;
+	}
 
-    public String getSubscribeTime() {
-        return subscribeTime;
-    }
+	public void setSex(String sex){
 
-    public void setSubscribeTime(String subscribeTime) {
-        this.subscribeTime = subscribeTime;
-    }
+		this.sex = sex;
+	}
 
-    public String getRemark() {
-        return remark;
-    }
+	public String getCity(){
 
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
+		return city;
+	}
 
-    public String getGroupid() {
-        return groupid;
-    }
+	public void setCity(String city){
 
-    public void setGroupid(String groupid) {
-        this.groupid = groupid;
-    }
+		this.city = city;
+	}
+
+	public String getCountry(){
+
+		return country;
+	}
+
+	public void setCountry(String country){
+
+		this.country = country;
+	}
+
+	public String getProvince(){
+
+		return province;
+	}
+
+	public void setProvince(String province){
+
+		this.province = province;
+	}
+
+	public String getLanguage(){
+
+		return language;
+	}
+
+	public void setLanguage(String language){
+
+		this.language = language;
+	}
+
+	public String getHeadimgurl(){
+
+		return headimgurl;
+	}
+
+	public void setHeadimgurl(String headimgurl){
+
+		this.headimgurl = headimgurl;
+	}
+
+	public String getSubscribeTime(){
+
+		return subscribeTime;
+	}
+
+	public void setSubscribeTime(String subscribeTime){
+		this.subscribeTime = subscribeTime;
+		if(!StringUtils.isEmpty(subscribeTime)){
+			long sb = Long.parseLong(subscribeTime)*1000;
+			this.subscribeTimeLable = DateFormatUtils.format(sb,"yyyy-MM-dd");
+		}
+	}
+
+	public String getRemark(){
+
+		return remark;
+	}
+
+	public void setRemark(String remark){
+
+		this.remark = remark;
+	}
+
+	public String getGroupid(){
+
+		return groupid;
+	}
+
+	public void setGroupid(String groupid){
+
+		this.groupid = groupid;
+	}
+
+	public String getSubscribeTimeLable(){
+
+		return subscribeTimeLable;
+	}
+
+	public void setSubscribeTimeLable(String subscribeTimeLable){
+
+		this.subscribeTimeLable = subscribeTimeLable;
+	}
 }

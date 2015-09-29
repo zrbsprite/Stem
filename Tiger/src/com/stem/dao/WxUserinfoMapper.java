@@ -6,7 +6,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface WxUserinfoMapper {
-    int countByExample(WxUserinfoExample example);
+	int countByExample(WxUserinfoExample example);
 
     int deleteByExample(WxUserinfoExample example);
 
@@ -27,4 +27,14 @@ public interface WxUserinfoMapper {
     int updateByPrimaryKeySelective(WxUserinfo record);
 
     int updateByPrimaryKey(WxUserinfo record);
+    
+    void batchInsert(List<WxUserinfo> list);
+    
+    void truncateTable();
+    
+    void batchInsertTemp(List<WxUserinfo> list);
+    
+    void truncateTempTable();
+    
+    void synTables();
 }

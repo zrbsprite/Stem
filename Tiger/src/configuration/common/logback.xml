@@ -43,7 +43,8 @@
 	</logger>
 	
 	<!-- project default level -->
-	<logger name="com.stem.controller" level="debug" />
+	<logger name="com.stem.controller" level="info" />
+	<logger name="com.stem" level="info" />
 
 	<!-- log4jdbc -->
 	<logger name="jdbc.audit" level="OFF" />

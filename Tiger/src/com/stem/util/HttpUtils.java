@@ -50,7 +50,7 @@ public class HttpUtils {
             result = "";
             e.printStackTrace();
         }
-        logger.info(result);
+        //logger.info(result);
         return result;
     }
     
@@ -217,7 +217,7 @@ public class HttpUtils {
 			String postResponse = post.getResponseBodyAsString();
 			postResponse = new String (postResponse.getBytes(charset), "utf-8");
 			post.releaseConnection();
-			logger.info("请求响应正文是：" + postResponse);
+			//logger.info("请求响应正文是：" + postResponse);
 			return postResponse;
 		}
 		post.releaseConnection();
