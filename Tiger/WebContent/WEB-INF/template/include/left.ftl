@@ -7,8 +7,8 @@
 		<ul id="menu">
 			<a class="nav-header nav-header-current"><b class="base"></b>基础设置</a>
 			<ul>
-				<li <#if current=='menu_fans'>class="selected"<#else>class="subCatalogList"</#if>><a href="${basepath}/admin/fanslist.htm">粉丝信息</a></li>
-				<li <#if current=='menu_menu'>class="selected"<#else>class="subCatalogList"</#if>><a href="${basepath}/admin/menulistonly.htm">微信菜单</a></li>
+				<li <#if current=='menu_fans'>class="selected"<#else>class="subCatalogList"</#if>><a href="${basePath}/sub/index">粉丝信息</a></li>
+				<li <#if current=='menu_menu'>class="selected"<#else>class="subCatalogList"</#if>><a href="${basePath}/txt/list">微信菜单</a></li>
 			</ul>
 		</ul>
 	</div>

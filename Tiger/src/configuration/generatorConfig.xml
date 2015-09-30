@@ -49,7 +49,7 @@
             <property name="useActualColumnNames" value="false" />
         </table>
           -->
-        <table schema="" tableName="wx_news_resource" domainObjectName="WxNewsResource">
+        <table schema="" tableName="wx_userinfo" domainObjectName="WxUserinfo">
             <property name="useActualColumnNames" value="false" />
         </table>
         
