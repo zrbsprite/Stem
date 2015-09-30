@@ -6,7 +6,6 @@
 	<#include "include/taglib.ftl">
 	<link rel="stylesheet" type="text/css" href="${basepath}/assets/css/style-1.css" />
 	<link rel="stylesheet" type="text/css" href="${basepath}/assets/css/style_2_common.css" />
-	<link rel="stylesheet" type="text/css" href="${basepath}/assets/css/cymain.css" />
 </head>
 <body id="nv_member" class="pg_CURMODULE">
 	<#assign current='menu_fans'>

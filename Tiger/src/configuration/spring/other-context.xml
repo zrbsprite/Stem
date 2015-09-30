@@ -16,6 +16,7 @@
 	<bean class="com.stem.core.commons.SpringContextUtil"></bean>
 	
 	<bean class="com.stem.wechat.inf.DefaultMessageProcessingHandlerImpl" name="messageProcessingHandler"></bean>
+	<!-- <bean class="com.stem.wechat.inf.TigerMessageProcessingHandlerImpl" name="messageProcessingHandler"></bean> -->
 	
 	<bean class="com.stem.core.task.FansTask" name="fansTask"></bean>
 	<!-- 
