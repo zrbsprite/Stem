@@ -155,8 +155,6 @@ public class TigerMessageProcessingHandlerImpl implements MessageProcessingHandl
 			WxNewsResource bean = list.get(0);
 			setOutMessage(createNews(bean.getNewsDes(), bean.getPicUrl(), bean.getNewsTitle(), bean.getNewsUrl()));
 		}
-		/*setOutMessage(createNews("大虎交易基金产品列表", "http://mmbiz.qpic.cn/mmbiz/CupWaH0t22rem5j2ibY0H8gibPh6ibCiaohOpBVdhcSE9muQg5V9oxMZTxP3XvpPjbMOGVibEqpQicI4u9412jNDpO6Q/0?wx_fmt=jpeg",
-				"【产品列表】大虎交易基金产品列表", "http://mp.weixin.qq.com/s?__biz=MjM5NTI4MDk4OA==&mid=210456651&idx=1&sn=41d62058de1044f321f5e43208731e22&scene=18#rd"));*/
 	}
 
 	private void responseMenuAbout(InMessage msg){
@@ -186,8 +184,6 @@ public class TigerMessageProcessingHandlerImpl implements MessageProcessingHandl
 			WxNewsResource bean = list.get(0);
 			setOutMessage(createNews(bean.getNewsDes(), bean.getPicUrl(), bean.getNewsTitle(), bean.getNewsUrl()));
 		}
-		/*setOutMessage(createNews("大虎资本基金经理百人计划【发起方】北京金大虎资本管理有限公司【计划目的】为市场中的成长型交易员、投顾提供无成","http://mmbiz.qpic.cn/mmbiz/CupWaH0t22rMcacdNGu6sOATa5IJYIy6zA2079OJ5RCyyFnRFsyruRLeuEWqOh6YFJ48jgwk2Af8VvPLbodicQA/0?wx_fmt=jpeg",
-				"【发展合作】大虎资本基金经理百人计划","http://mp.weixin.qq.com/s?__biz=MjM5NTI4MDk4OA==&mid=206513046&idx=1&sn=6017d5a22878c2f3f5cf1d214660f877&scene=18#rd"));*/
 	}
 
 	private void responseMenuJOIN(InMessage msg){
@@ -198,8 +194,6 @@ public class TigerMessageProcessingHandlerImpl implements MessageProcessingHandl
 			WxNewsResource bean = list.get(0);
 			setOutMessage(createNews(bean.getNewsDes(), bean.getPicUrl(), bean.getNewsTitle(), bean.getNewsUrl()));
 		}
-		/*setOutMessage(createNews("大虎交易精英招募", "http://mmbiz.qpic.cn/mmbiz/CupWaH0t22rem5j2ibY0H8gibPh6ibCiaohOpBVdhcSE9muQg5V9oxMZTxP3XvpPjbMOGVibEqpQicI4u9412jNDpO6Q/0?wx_fmt=jpeg",
-				"【加入我们】大虎交易精英招募", "http://mp.weixin.qq.com/s?__biz=MjM5NTI4MDk4OA==&mid=210458020&idx=1&sn=9144440a030cd2c59dc078cddac4831a&scene=18#rd"));*/
 	}
 
 	private void responseMenuBUY(InMessage msg){
@@ -223,8 +217,6 @@ public class TigerMessageProcessingHandlerImpl implements MessageProcessingHandl
 			WxNewsResource bean = list.get(0);
 			setOutMessage(createNews(bean.getNewsDes(), bean.getPicUrl(), bean.getNewsTitle(), bean.getNewsUrl()));
 		}
-		/*setOutMessage(createNews("大虎交易基金产品净值表现", "http://mmbiz.qpic.cn/mmbiz/CupWaH0t22rem5j2ibY0H8gibPh6ibCiaohOpBVdhcSE9muQg5V9oxMZTxP3XvpPjbMOGVibEqpQicI4u9412jNDpO6Q/0?wx_fmt=jpeg",
-				"【产品净值】大虎交易基金产品净值表现", "http://mp.weixin.qq.com/s?__biz=MjM5NTI4MDk4OA==&mid=206134857&idx=1&sn=210ae8718bc62adf86bbab5bcbc6335b&scene=18#rd"));*/
 	}
 	
 	private void responseMenuDT(InMessage msg){
@@ -235,8 +227,6 @@ public class TigerMessageProcessingHandlerImpl implements MessageProcessingHandl
 			WxNewsResource bean = list.get(0);
 			setOutMessage(createNews(bean.getNewsDes(), bean.getPicUrl(), bean.getNewsTitle(), bean.getNewsUrl()));
 		}
-		/*setOutMessage(createNews("本次体验为大虎为合格投资者提供除基金产品以外的原创研究型内容体验。", "http://mmbiz.qpic.cn/mmbiz/CupWaH0t22peEqoHnohFWmDaiaHlqp4lIgcEbc1vibrv8E4aAQB0t5E3lFuAvwUebJFzElcsEyQMiagvyicBXGxZ6w/0?wx_fmt=jpeg",
-				"【限时1元体验】大虎私募投研报告", "http://mp.weixin.qq.com/s?__biz=MjM5NTI4MDk4OA==&mid=209184917&idx=1&sn=073a205b7a3a633e98f2ee41e8dd8b94&scene=18#rd"));*/
 	}
 	
 	/*

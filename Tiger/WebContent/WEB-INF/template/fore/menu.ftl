@@ -86,7 +86,6 @@ function checkForm(){
 	}
 	$("form").submit();
 }
-
 function synMenu(){
 	layer.confirm('您是如何看待前端开发？', {
     	btn: ['确定','取消']
