@@ -1,22 +1,14 @@
 /*
-Navicat MySQL Data Transfer
-
-Source Server         : localhost
-Source Server Version : 50622
-Source Host           : localhost:3306
-Source Database       : tiger
-
-Target Server Type    : MYSQL
-Target Server Version : 50622
-File Encoding         : 65001
-
-Date: 2015-09-30 09:13:58
+MySQL Backup
+Source Server Version: 5.5.25
+Source Database: tiger_u
+Date: 2015/10/6 星期二 14:48:21
 */
 
 SET FOREIGN_KEY_CHECKS=0;
 
 -- ----------------------------
--- Table structure for statement
+--  Table structure for `statement`
 -- ----------------------------
 DROP TABLE IF EXISTS `statement`;
 CREATE TABLE `statement` (
@@ -39,7 +31,7 @@ CREATE TABLE `statement` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='业务数据';
 
 -- ----------------------------
--- Table structure for tiger_access_token
+--  Table structure for `tiger_access_token`
 -- ----------------------------
 DROP TABLE IF EXISTS `tiger_access_token`;
 CREATE TABLE `tiger_access_token` (
@@ -56,7 +48,7 @@ CREATE TABLE `tiger_access_token` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='系统token记录表';
 
 -- ----------------------------
--- Table structure for tiger_naming
+--  Table structure for `tiger_naming`
 -- ----------------------------
 DROP TABLE IF EXISTS `tiger_naming`;
 CREATE TABLE `tiger_naming` (
@@ -68,7 +60,7 @@ CREATE TABLE `tiger_naming` (
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='认证表';
 
 -- ----------------------------
--- Table structure for tiger_opt
+--  Table structure for `tiger_opt`
 -- ----------------------------
 DROP TABLE IF EXISTS `tiger_opt`;
 CREATE TABLE `tiger_opt` (
@@ -79,7 +71,7 @@ CREATE TABLE `tiger_opt` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='操作信息表';
 
 -- ----------------------------
--- Table structure for tiger_pay
+--  Table structure for `tiger_pay`
 -- ----------------------------
 DROP TABLE IF EXISTS `tiger_pay`;
 CREATE TABLE `tiger_pay` (
@@ -95,7 +87,7 @@ CREATE TABLE `tiger_pay` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='支付信息表';
 
 -- ----------------------------
--- Table structure for tiger_userinfo
+--  Table structure for `tiger_userinfo`
 -- ----------------------------
 DROP TABLE IF EXISTS `tiger_userinfo`;
 CREATE TABLE `tiger_userinfo` (
@@ -107,7 +99,7 @@ CREATE TABLE `tiger_userinfo` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 -- ----------------------------
--- Table structure for tiger_user_opt
+--  Table structure for `tiger_user_opt`
 -- ----------------------------
 DROP TABLE IF EXISTS `tiger_user_opt`;
 CREATE TABLE `tiger_user_opt` (
@@ -119,7 +111,66 @@ CREATE TABLE `tiger_user_opt` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户操作记录表';
 
 -- ----------------------------
--- Table structure for wx_userinfo
+--  Table structure for `wx_image_resource`
+-- ----------------------------
+DROP TABLE IF EXISTS `wx_image_resource`;
+CREATE TABLE `wx_image_resource` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `media_id` varchar(50) DEFAULT NULL,
+  `name` varchar(100) DEFAULT '',
+  `update_time` varchar(15) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=173 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Table structure for `wx_image_resource_temp`
+-- ----------------------------
+DROP TABLE IF EXISTS `wx_image_resource_temp`;
+CREATE TABLE `wx_image_resource_temp` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `media_id` varchar(50) DEFAULT NULL,
+  `name` varchar(100) DEFAULT '',
+  `update_time` varchar(15) DEFAULT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=173 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Table structure for `wx_menu`
+-- ----------------------------
+DROP TABLE IF EXISTS `wx_menu`;
+CREATE TABLE `wx_menu` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `menu_name` varchar(50) DEFAULT NULL,
+  `menu_type` varchar(10) DEFAULT NULL,
+  `menu_key` varchar(100) DEFAULT NULL,
+  `menu_order` int(11) DEFAULT NULL,
+  `is_parent` char(1) DEFAULT NULL,
+  `parent_id` int(11) DEFAULT NULL,
+  `menu_url` varchar(255) DEFAULT NULL,
+  `resource_id` varchar(100) DEFAULT NULL COMMENT '微信资源id，如mediaid或多图文的mediaid',
+  `response_type` varchar(50) DEFAULT NULL COMMENT '回复类型,news、image、text',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='微信菜单';
+
+-- ----------------------------
+--  Table structure for `wx_news_resource`
+-- ----------------------------
+DROP TABLE IF EXISTS `wx_news_resource`;
+CREATE TABLE `wx_news_resource` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `menu_key` varchar(100) DEFAULT NULL,
+  `media_id` varchar(50) DEFAULT NULL,
+  `news_title` varchar(200) DEFAULT NULL,
+  `news_des` varchar(500) DEFAULT NULL,
+  `pic_url` varchar(500) DEFAULT NULL,
+  `news_url` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+--  Table structure for `wx_userinfo`
 -- ----------------------------
 DROP TABLE IF EXISTS `wx_userinfo`;
 CREATE TABLE `wx_userinfo` (
@@ -140,7 +191,7 @@ CREATE TABLE `wx_userinfo` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2296 DEFAULT CHARSET=utf8 COMMENT='粉丝信息表';
 
 -- ----------------------------
--- Table structure for wx_userinfo_temp
+--  Table structure for `wx_userinfo_temp`
 -- ----------------------------
 DROP TABLE IF EXISTS `wx_userinfo_temp`;
 CREATE TABLE `wx_userinfo_temp` (
@@ -159,3 +210,7 @@ CREATE TABLE `wx_userinfo_temp` (
   `groupid` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='粉丝信息临时表';
+
+-- ----------------------------
+--  Records 
+-- ----------------------------

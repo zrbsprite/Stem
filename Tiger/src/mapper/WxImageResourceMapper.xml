@@ -216,7 +216,7 @@
       values
     <foreach collection="list" item="item" index="index" separator="," >  
       (#{item.id,jdbcType=INTEGER}, #{item.mediaId,jdbcType=VARCHAR},
-      #{item.name,jdbcType=VARCHAR},#{item.updateTime,jdbcType=VARCHAR} )
+      #{item.name,jdbcType=VARCHAR},#{item.updateTime,jdbcType=VARCHAR},
       #{item.url,jdbcType=VARCHAR} )
     </foreach>
   </insert>

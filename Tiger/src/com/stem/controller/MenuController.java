@@ -169,7 +169,7 @@ public class MenuController extends AjaxConroller {
 		jsonMap.put("type", "image");
 		jsonMap.put("count", 20);
 		
-		this.wxImageResourceService.clearTempTable();
+		this.wxImageResourceService.doClearTempTable();
 		boolean stopGoOn = false;
 		int start = 0;
 		while(!stopGoOn){
@@ -183,11 +183,15 @@ public class MenuController extends AjaxConroller {
 				if(items.size()>0){
 					List<WxImageResource> wir = new ArrayList<>();
 					for(Object obj : items){
-						Map<String, String> m = (Map<String, String>) obj;
-						String mid = m.get("media_id");
-						String name = m.get("name");
-						String updateTime = m.get("update_time");
-						String url = m.get("url").replace("\\","");
+						Map<String, Object> m = (Map<String, Object>) obj;
+						String mid = m.get("media_id").toString();
+						String name = m.get("name").toString();
+						String updateTime = m.get("update_time").toString();
+						Object urlObj = m.get("url");
+						String url = "";
+						if(null!=urlObj){
+							url = urlObj.toString().replace("\\","");
+						}
 						WxImageResource resource = new WxImageResource();
 						resource.setMediaId(mid);
 						resource.setName(name);
@@ -207,8 +211,8 @@ public class MenuController extends AjaxConroller {
 			}
 			start += 20;
 		}
-		this.wxImageResourceService.clearTable();
-		this.wxImageResourceService.synTable();
+		this.wxImageResourceService.doClearTable();
+		this.wxImageResourceService.doSynTable();
 		
 		//更新所有的图文列表
 		String newsGetOneUrl = PropertiesUtils.getConfigByKey("material_get_url");
@@ -333,6 +337,14 @@ public class MenuController extends AjaxConroller {
 		} catch (Exception e){
 			e.printStackTrace();
 			logger.error("微信Http上传素材请求失败"+e.getMessage());
+		}finally{
+			try{
+				if(null!=is)
+					is.close();
+			}
+			catch(IOException e){
+				e.printStackTrace();
+			}
 		}
 		return mediaId;
 	}

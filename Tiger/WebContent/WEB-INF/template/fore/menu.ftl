@@ -55,7 +55,7 @@
 												<span class="red"></span><label for="MusicUrl">图片地址：</label>
 											</th>
 											<td>
-												<input type="file" readonly placeholder="请上传文件" name="picture" id="linkUrl" class="px">
+												<input type="file" readonly placeholder="请上传文件" name="picture" id="linkUrl" class="px" accept="image/*">
 											</td>
 										</tr>
 										<tr>
@@ -87,18 +87,18 @@ function checkForm(){
 	$("form").submit();
 }
 function synMenu(){
-	layer.confirm('您是如何看待前端开发？', {
+	layer.confirm('您确定要进行菜单的同步吗？', {
     	btn: ['确定','取消']
 	}, function(index){
 		layer.close(index);
-		layerIndex = layer.msg('正在执行请稍后...', {icon: 16}, shade: [0.8, '#393D49'], time:0);
+		layerIndex = layer.msg('正在执行请稍后...', {icon: 16, shade: [0.8, '#393D49'], time:0});
 		$.ajax({
 		   type: "POST",
 		   url: "${basepath}/admin/makemenu.htm",
-		   async: false,
+		   async: true,
 		   cache: false,
 		   success: function(data){
-		   		layer.msg('菜单同步成功！', {icon: 1});
+		   		layer.msg('菜单同步成功！', {icon: 1,shade: [0.8, '#393D49']});
 		   },
 		   error :function(){
 		   		layer.msg('菜单同步异常！', {shift: 6});

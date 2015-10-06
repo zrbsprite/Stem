@@ -65,17 +65,17 @@ public class WxImageResourceServiceImpl implements WxImageResourceService {
 	}
 
 	@Override
-	public void clearTempTable(){
+	public void doClearTempTable(){
 		this.wxImageResourceMapper.clearTempTable();
 	}
 
 	@Override
-	public void clearTable(){
+	public void doClearTable(){
 		this.wxImageResourceMapper.clearTable();
 	}
 
 	@Override
-	public void synTable(){
+	public void doSynTable(){
 		this.wxImageResourceMapper.synTable();
 	}
 

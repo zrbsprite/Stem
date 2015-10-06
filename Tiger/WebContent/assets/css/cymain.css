@@ -21,7 +21,8 @@ a.grade{background:url(/tpl/User/default/common/images/icons/photocat.gif) no-re
 
 input.error,textarea.error{ border:1px solid #f00; } label.error,option.error{ color:#f00; } 
 
-.ftip{background:#fefbe4 url(../images/lightbulb.gif) no-repeat 10px 16px;border:1px solid #F3ECB9;padding:6px 20px 6px 36px;height:36px;font-size:14px; margin:10px; color:#993300; line-height:36px;}
+/* .ftip{background:#fefbe4 url(../images/lightbulb.gif) no-repeat 10px 16px;border:1px solid #F3ECB9;padding:6px 20px 6px 36px;height:36px;font-size:14px; margin:10px; color:#993300; line-height:36px;} */
+.ftip{border:1px solid #F3ECB9;padding:6px 20px 6px 36px;height:36px;font-size:14px; margin:10px; color:#993300; line-height:36px;}
 .ftip a{font-size:12px; float:right}
 .ftip a.normal{font-size:14px; float:none}
 .meclass{width:200px;height:114px;float:left;}

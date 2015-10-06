@@ -407,7 +407,7 @@ hr.m0 {
 .px, .pt, .ps, select {
 	border: 1px solid;
 	border-color: #848484 #E0E0E0 #E0E0E0 #848484;
-	background: #FFF url(../images/px.png) repeat-x 0 0;
+	/* background: #FFF url(../images/px.png) repeat-x 0 0; */
 	color:;
 }
 
@@ -5203,17 +5203,17 @@ ul#menu li.selected a {
 }
 
 #sideBar .catalogList #menu a.nav-header {
-	background: url(../images/arrow_click.png) center right no-repeat;
+	/* background: url(../images/arrow_click.png) center right no-repeat; */
 	cursor: pointer
 }
 
 #sideBar .catalogList #menu a.nav-header:hover {
-	background: url(../images/arrow_click.png) #EDEDED center right
+/* 	background: url(../images/arrow_click.png) #EDEDED center right */
 		no-repeat;
 }
 
 #sideBar .catalogList #menu a.nav-header-current {
-	background: url(../images/arrow_unclick.png) center right no-repeat;
+	/* background: url(../images/arrow_unclick.png) center right no-repeat; */
 }
 
 .pg_register .mn .bm {

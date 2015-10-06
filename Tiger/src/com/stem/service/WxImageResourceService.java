@@ -11,9 +11,9 @@ public interface WxImageResourceService extends
 
 	void doBatchAdd(List<WxImageResource> wir);
 	
-	void clearTempTable();
+	void doClearTempTable();
 	
-	void clearTable();
+	void doClearTable();
 	
-	void synTable();
+	void doSynTable();
 }

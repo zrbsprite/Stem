@@ -1,0 +1,6 @@
+1、远程桌面命令：mstsc
+2、tomcat服务安装，配置TOMCAT_PATH，进入tomcat安装目录，执行cmd->service install tomcat
+3、windows server2012 打开服务：右键我的电脑，管理，在管理中右侧点击工具，打开管理
+4、去除项目名称：将<Context path="/test" debug="0" reloadable="false" docBase="E:\workspace\test\Web"/>修改<Context path="/" debug="0" reloadable="false" docBase="E:\workspace\test\Web"/>
+5、window server2012为服务创建快捷方式：打开C:\Windows\System32文件夹，找到services.msc文件，邮件发送到桌面快捷方式。
+6、生成菜单和同步菜单互相独立，请求地址分别为：admin/menu.htm	admin/makemenu.htm
