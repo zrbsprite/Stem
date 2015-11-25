@@ -2,7 +2,6 @@ package com.stem.wechat.inf;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -56,7 +55,7 @@ public class TigerMessageProcessingHandlerImpl implements MessageProcessingHandl
 	}
 	
 	@Override
-	public void textTypeMsg(InMessage msg) {
+	public void textTypeMsg(InMessage msg, String path) {
 	}
 
 	@Override
@@ -291,7 +290,7 @@ public class TigerMessageProcessingHandlerImpl implements MessageProcessingHandl
 			sb.append("\n");
 			String bindUrl = PropertiesUtils.getConfigByKey("auth_code_url");
 			String appid = PropertiesUtils.getConfigByKey("AppId");
-			String reUrl = serverPath + PropertiesUtils.getConfigByKey("wechat_bind_url");
+			String reUrl = serverPath + "/" + PropertiesUtils.getConfigByKey("wechat_bind_url");
 			bindUrl = String.format(bindUrl, appid, reUrl, 10);
 			sb.append("<a href='"+bindUrl+"'> 绑定微信 </a>");
 			out.setContent(sb.toString());
@@ -300,16 +299,47 @@ public class TigerMessageProcessingHandlerImpl implements MessageProcessingHandl
 		}
 		TigerNaming naming = namings.get(0);
 		StatementExample example = new StatementExample();
-		Date date = new Date();
-		SimpleDateFormat sf = new SimpleDateFormat("yyyy.M");
-		example.createCriteria().andMonthEqualTo(sf.format(date)).andIdEqualTo(naming.getUserid());
+		example.createCriteria().andIdcardEqualTo(naming.getUserid());
 		List<Statement> list = statementService.list(example);
 		if(list.size()>0){
+			SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
 			StringBuffer sb = new StringBuffer("您本月的相关资金信息如下：\n\n");
 			for(Statement statement : list){
-				sb.append("产品《"+statement.getFundname()+"》");
+				sb.append(" 产品《"+statement.getFundname()+"》");
 				sb.append("\n");
-				sb.append("开放日净值："+statement.getNetvalueofbuyday());
+				sb.append("对账日期："+ sf.format(statement.getCheckdate()));
+				sb.append("\n");
+				sb.append("净值："+statement.getNetvalue().toString());
+				sb.append("\n");
+				sb.append("购买金额：" + statement.getPurchaseamount().toString());
+				sb.append("\n");
+				sb.append("当日汇率：" + statement.getExchangerate().toString());
+				sb.append("\n");
+				sb.append("资产增值：" + statement.getAddvalueofassert().toString());
+				sb.append("\n");
+				sb.append("购买份额：" + statement.getPurchaseshares().toString());
+				sb.append("\n");
+				sb.append("本期余额：" + statement.getCurrentbalance().toString());
+				sb.append("\n");
+				sb.append("赎回份额：" + statement.getRedemptionshares().toString());
+				sb.append("\n");
+				sb.append("赎回金额：" + statement.getRedemptionamount().toString());
+				sb.append("\n");
+				sb.append("总份额：" + statement.getTotalshares().toString());
+				sb.append("\n");
+				sb.append("总金额：" + statement.getTotalamount().toString());
+				sb.append("\n");
+				sb.append("总余额：" + statement.getTotalbalance().toString());
+				sb.append("\n");
+				sb.append("总收益："+statement.getTotalreturn().toString());
+				sb.append("\n");
+				sb.append("总收益率：" + statement.getTotalrate().toString());
+				sb.append("\n");
+				sb.append("本期收益："+ statement.getCurrentreturn().toString());
+				sb.append("\n");
+				sb.append("本期收益率："+ statement.getCurrentrate().toString());
+				sb.append("\n");
+				sb.append("本期分红：" + statement.getCurrentdividend().toString());
 				sb.append("\n\n");
 			}
 			out.setContent(sb.toString());

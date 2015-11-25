@@ -1,26 +1,28 @@
 package com.stem.entity;
 
-public class StatementKey {
-    private String id;
+import java.util.Date;
 
-    private String month;
+public class StatementKey {
+    private String idcard;
+
+    private Date checkdate;
 
     private String fundname;
 
-    public String getId() {
-        return id;
+    public String getIdcard() {
+        return idcard;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setIdcard(String idcard) {
+        this.idcard = idcard;
     }
 
-    public String getMonth() {
-        return month;
+    public Date getCheckdate() {
+        return checkdate;
     }
 
-    public void setMonth(String month) {
-        this.month = month;
+    public void setCheckdate(Date checkdate) {
+        this.checkdate = checkdate;
     }
 
     public String getFundname() {

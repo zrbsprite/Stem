@@ -166,6 +166,9 @@ public class WeChat {
 			case "event":
 				messageProcessingHandler.eventTypeMsg(inMessage,serverPath);
 				break;
+			case "text":
+				messageProcessingHandler.textTypeMsg(inMessage, serverPath);
+				break;
 			default:
 				messageProcessingHandler.allType(inMessage);
 				break;

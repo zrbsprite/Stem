@@ -4,3 +4,4 @@
 4、去除项目名称：将<Context path="/test" debug="0" reloadable="false" docBase="E:\workspace\test\Web"/>修改<Context path="/" debug="0" reloadable="false" docBase="E:\workspace\test\Web"/>
 5、window server2012为服务创建快捷方式：打开C:\Windows\System32文件夹，找到services.msc文件，邮件发送到桌面快捷方式。
 6、生成菜单和同步菜单互相独立，请求地址分别为：admin/menu.htm	admin/makemenu.htm
+7、不要启动IIS

@@ -2,7 +2,9 @@ package com.stem.wechat.inf;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -11,13 +13,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
+import com.github.pagehelper.PageHelper;
 import com.stem.core.commons.PropertiesInitBean.PropertiesUtils;
 import com.stem.entity.Statement;
 import com.stem.entity.StatementExample;
 import com.stem.entity.TigerNaming;
 import com.stem.entity.TigerNamingExample;
+import com.stem.entity.WxMenu;
+import com.stem.entity.WxMenuExample;
 import com.stem.service.StatementService;
 import com.stem.service.TigerNamingService;
+import com.stem.service.WxMenuService;
 import com.stem.util.JsonUtil;
 import com.stem.wechat.bean.Articles;
 import com.stem.wechat.bean.Image;
@@ -39,6 +45,9 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 	@Resource
 	private StatementService statementService;
 	
+	@Resource
+	private WxMenuService wxMenuService;
+	
 	@Override
 	public void allType(InMessage msg){
 		TextOutMessage out = new TextOutMessage();
@@ -47,7 +56,110 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 	}
 	
 	@Override
-	public void textTypeMsg(InMessage msg) {
+	public void textTypeMsg(InMessage msg, String serverPath) {
+		String content = msg.getContent().trim();
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+		Date tar = null;
+		try{
+			tar = sf.parse(content);
+		} catch(Exception e){
+			sf = new SimpleDateFormat("yyyy/MM/dd");
+			try{
+				tar = sf.parse(content);
+			} catch(Exception e1){
+				sf = new SimpleDateFormat("yyyy年MM月dd日");
+				try{
+					tar = sf.parse(content);
+				} catch(Exception e2){
+					tar = null;
+				}
+			}
+		}
+		TextOutMessage out = new TextOutMessage();
+		//make data
+		String openid = msg.getFromUserName();
+		//获取用户id card no
+		TigerNamingExample namingExample = new TigerNamingExample();
+		namingExample.createCriteria().andOpenidEqualTo(openid);
+		List<TigerNaming> namings = tigerNamingService.list(namingExample);
+		//如果用户未绑定，给出提示的消息并提供绑定的连接
+		if(namings.size()==0){
+			StringBuffer sb = new StringBuffer();
+			sb.append("由于您未绑定微信号，我们暂时不能提供相关服务！您可以先绑定微信：");
+			String bindUrl = PropertiesUtils.getConfigByKey("auth_code_url");
+			String appid = PropertiesUtils.getConfigByKey("AppId");
+			String reUrl = serverPath + "/" +PropertiesUtils.getConfigByKey("wechat_bind_url");
+			bindUrl = String.format(bindUrl, appid, reUrl, 10);
+			sb.append("<a href='"+bindUrl+"'> 绑定微信 </a>");
+			out.setContent(sb.toString());
+			setOutMessage(out);
+			return;
+		}
+		SimpleDateFormat another = new SimpleDateFormat("yyyy-MM-dd");
+		if(null!=tar){
+			TigerNaming naming = namings.get(0);
+			StatementExample example = new StatementExample();
+			Calendar calendar = new GregorianCalendar();
+			calendar.setTime(tar);
+			calendar.add(Calendar.DATE,1);
+			example.createCriteria().andIdcardEqualTo(naming.getUserid()).andCheckdateGreaterThanOrEqualTo(tar).andCheckdateLessThan(calendar.getTime());
+			List<Statement> list = statementService.list(example);
+			if(list.size()>0){
+				StringBuffer sb = new StringBuffer("您的账单信息如下：\n\n");
+				int size = list.size();
+				for(int i=0;i<size; i++){
+					Statement statement = list.get(i);
+					sb.append("产品名称《"+statement.getFundname()+"》");
+					sb.append("\n");
+					sb.append("对账日期："+ sf.format(statement.getCheckdate()));
+					sb.append("\n");
+					sb.append("净值："+statement.getNetvalue().toString());
+					sb.append("\n");
+					sb.append("购买金额：" + statement.getPurchaseamount().toString());
+					//sb.append("\n");
+					//sb.append("当日汇率：" + statement.getExchangerate().toString());
+//					sb.append("\n");
+//					sb.append("资产增值：" + statement.getAddvalueofassert().toString());
+					sb.append("\n");
+					sb.append("购买份额：" + statement.getPurchaseshares().toString());
+					sb.append("\n");
+					sb.append("本期余额：" + statement.getCurrentbalance().toString());
+					sb.append("\n");
+					sb.append("赎回份额：" + statement.getRedemptionshares().toString());
+					sb.append("\n");
+					sb.append("赎回金额：" + statement.getRedemptionamount().toString());
+					sb.append("\n");
+					sb.append("总份额：" + statement.getTotalshares().toString());
+					sb.append("\n");
+					sb.append("总金额：" + statement.getTotalamount().toString());
+					sb.append("\n");
+					sb.append("总余额：" + statement.getTotalbalance().toString());
+					sb.append("\n");
+					sb.append("总收益："+statement.getTotalreturn().toString());
+					sb.append("\n");
+					sb.append("总收益率：" + statement.getTotalrate().toString());
+					sb.append("\n");
+					sb.append("本期收益："+ statement.getCurrentreturn().toString());
+					sb.append("\n");
+					sb.append("本期收益率："+ statement.getCurrentrate().toString());
+					//sb.append("\n");
+					//sb.append("本期分红：" + statement.getCurrentdividend().toString());
+					if(i<size-1){
+						sb.append("\n\n");
+					}
+				}
+				String result = sb.toString();
+				if(result.length()>600){
+					result = result.substring(0, 600);
+				}
+				out.setContent(result);
+			}else{
+				out.setContent("暂时没有您的账单信息！");
+			}
+		}else{
+			out.setContent("	输入日期格式如：" + another.format(new Date())+"\\n可以查询制定日期的账单信息！");
+		}
+		setOutMessage(out);
 	}
 
 	@Override
@@ -176,7 +288,13 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 		ImageOutMessage image = new ImageOutMessage();
 		Image img = new Image();
 //		img.setMediaId("9amgL4twFMc61L07pGHPa3pRRA94OXPohGg_EW1VvGClzm0Ix3nMpEy-tlOwOYDp");
-		img.setMediaId("Coj-6cHiiFlkfvtx8730FZwUtbHrs73GfjR3g521dec");
+//		img.setMediaId("Coj-6cHiiFlkfvtx8730FZwUtbHrs73GfjR3g521dec");
+		WxMenuExample example = new WxMenuExample();
+		example.createCriteria().andMenuKeyEqualTo("M2_PRO_BUY").andResponseTypeEqualTo("image");
+		List<WxMenu> list = this.wxMenuService.list(example);
+		if(list.size()>0){
+			img.setMediaId(list.get(0).getResourceId());
+		}
 		image.setImage(img);
 		setOutMessage(image);
 	}
@@ -215,7 +333,13 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 		ImageOutMessage image = new ImageOutMessage();
 		Image img = new Image();
 //		img.setMediaId("pVmOsRuKiVg0KwVnvJqn6WocUCoWzgsiTZ7fXUzvX5g9Jtkp2U83gtinQdcz2EZs");
-		img.setMediaId("Coj-6cHiiFlkfvtx8730FbKATk1eSwVsbNf3s4XREZg");
+		//获取图片
+		WxMenuExample example = new WxMenuExample();
+		example.createCriteria().andMenuKeyEqualTo("M1_TEAM_ZZ").andResponseTypeEqualTo("image");
+		List<WxMenu> list = this.wxMenuService.list(example);
+		if(list.size()>0){
+			img.setMediaId(list.get(0).getResourceId());
+		}
 		image.setImage(img);
 		setOutMessage(image);
 	}
@@ -225,11 +349,11 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 		StringBuffer sb = new StringBuffer();
 		sb.append("【大虎交易简介】");
 		sb.append("\n");
-		sb.append("大虎交易（TIGER trade）是北京金大虎资本管理有限公司旗下专注于二级市场的多元化自营型交易团队品牌。公司成立于2011年，由拥有多年金融行业实战经验的投资精英共同发起成立，");
+		sb.append("		大虎交易（TIGER trade）是北京金大虎资本管理有限公司旗下专注于二级市场的多元化自营型交易团队品牌。公司成立于2011年，由拥有多年金融行业实战经验的投资精英共同发起成立，");
 		sb.append("同事融合了一批学识广博、严谨务实的专业人才，致力于追求投资收益的稳定增长。公司通过建立专业化、科学化的投资收益评估体系，为市场发掘优秀的投资管理人才，为广大投资者和产业资金");
 		sb.append("提供个性化、专业化的优秀投资管理、投资咨询服务。");
 		sb.append("\n");
-		sb.append("团队已取得私募基金资质，是国内一支年轻的私募基金运作团队。");
+		sb.append("		团队已取得私募基金资质，是国内一支年轻的私募基金运作团队。");
 		out.setContent(sb.toString());
 		setOutMessage(out);
 	}
@@ -246,10 +370,9 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 		if(namings.size()==0){
 			StringBuffer sb = new StringBuffer();
 			sb.append("由于您未绑定微信号，我们暂时不能提供相关服务！您可以先绑定微信：");
-			sb.append("\n");
 			String bindUrl = PropertiesUtils.getConfigByKey("auth_code_url");
 			String appid = PropertiesUtils.getConfigByKey("AppId");
-			String reUrl = serverPath + PropertiesUtils.getConfigByKey("wechat_bind_url");
+			String reUrl = serverPath + "/" +PropertiesUtils.getConfigByKey("wechat_bind_url");
 			bindUrl = String.format(bindUrl, appid, reUrl, 10);
 			sb.append("<a href='"+bindUrl+"'> 绑定微信 </a>");
 			out.setContent(sb.toString());
@@ -258,21 +381,72 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 		}
 		TigerNaming naming = namings.get(0);
 		StatementExample example = new StatementExample();
-		Date date = new Date();
-		SimpleDateFormat sf = new SimpleDateFormat("yyyy.M");
-		example.createCriteria().andMonthEqualTo(sf.format(date)).andIdEqualTo(naming.getUserid());
+		/*Calendar calendar = new GregorianCalendar();
+		calendar.add(Calendar.MONTH, -1);
+		calendar.set(Calendar.DATE, 1);
+		calendar.set(Calendar.HOUR,0);
+		calendar.set(Calendar.MINUTE, 0);
+		calendar.set(Calendar.SECOND, 0);
+		calendar.set(Calendar.MILLISECOND, 0);
+		Criteria criteria = example.createCriteria().andIdcardEqualTo(naming.getUserid()).andCheckdateGreaterThanOrEqualTo(calendar.getTime());
+		calendar.add(Calendar.MONTH,1);
+		criteria.andCheckdateLessThan(calendar.getTime());*/
+		example.createCriteria().andIdcardEqualTo(naming.getUserid());
+		example.setOrderByClause(" CheckDate desc ");
+		PageHelper.startPage(1, 1);
 		List<Statement> list = statementService.list(example);
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
 		if(list.size()>0){
-			StringBuffer sb = new StringBuffer("您本月的相关资金信息如下：\n\n");
-			for(Statement statement : list){
-				sb.append("产品《"+statement.getFundname()+"》");
+			StringBuffer sb = new StringBuffer("您最近的账单信息如下：\n\n");
+			int size = list.size();
+			for(int i=0;i<size; i++){
+				Statement statement = list.get(i);
+				sb.append("产品名称《"+statement.getFundname()+"》");
 				sb.append("\n");
-				sb.append("开放日净值："+statement.getNetvalueofbuyday());
-				sb.append("\n\n");
+				sb.append("对账日期："+ sf.format(statement.getCheckdate()));
+				sb.append("\n");
+				sb.append("净值："+statement.getNetvalue().toString());
+				sb.append("\n");
+				sb.append("购买金额：" + statement.getPurchaseamount().toString());
+				//sb.append("\n");
+				//sb.append("当日汇率：" + statement.getExchangerate().toString());
+//				sb.append("\n");
+//				sb.append("资产增值：" + statement.getAddvalueofassert().toString());
+				sb.append("\n");
+				sb.append("购买份额：" + statement.getPurchaseshares().toString());
+				sb.append("\n");
+				sb.append("本期余额：" + statement.getCurrentbalance().toString());
+				sb.append("\n");
+				sb.append("赎回份额：" + statement.getRedemptionshares().toString());
+				sb.append("\n");
+				sb.append("赎回金额：" + statement.getRedemptionamount().toString());
+				sb.append("\n");
+				sb.append("总份额：" + statement.getTotalshares().toString());
+				sb.append("\n");
+				sb.append("总金额：" + statement.getTotalamount().toString());
+				sb.append("\n");
+				sb.append("总余额：" + statement.getTotalbalance().toString());
+				sb.append("\n");
+				sb.append("总收益："+statement.getTotalreturn().toString());
+				sb.append("\n");
+				sb.append("总收益率：" + statement.getTotalrate().toString());
+				sb.append("\n");
+				sb.append("本期收益："+ statement.getCurrentreturn().toString());
+				sb.append("\n");
+				sb.append("本期收益率："+ statement.getCurrentrate().toString());
+				//sb.append("\n");
+				//sb.append("本期分红：" + statement.getCurrentdividend().toString());
+				if(i<size-1){
+					sb.append("\n\n");
+				}
 			}
-			out.setContent(sb.toString());
+			String result = sb.toString();
+			if(result.length()>600){
+				result = result.substring(0, 600);
+			}
+			out.setContent(result);
 		}else{
-			out.setContent("未能找到你本月的投资信息!");
+			out.setContent("暂时没有您的账单信息！");
 		}
 		setOutMessage(out);
 	}

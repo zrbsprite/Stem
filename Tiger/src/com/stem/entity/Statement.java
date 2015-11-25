@@ -1,36 +1,54 @@
 package com.stem.entity;
 
+import java.math.BigDecimal;
+
 public class Statement extends StatementKey {
-    private String name;
+    private String customername;
 
     private String phone;
 
-    private String netvalueofbuyday;
+    private String customerid;
 
-    private String purchaseamount;
+    private String fundtype;
 
-    private String purchaseshares;
+    private BigDecimal netvalue;
 
-    private String currentbalance;
+    private BigDecimal exchangerate;
 
-    private String redemptionshares;
+    private BigDecimal addvalueofassert;
 
-    private String redemptionamount;
+    private BigDecimal purchaseamount;
 
-    private String totalshares;
+    private Integer purchaseshares;
 
-    private String totalamount;
+    private BigDecimal currentbalance;
 
-    private String totalbalance;
+    private Integer redemptionshares;
 
-    private String profit;
+    private BigDecimal redemptionamount;
 
-    public String getName() {
-        return name;
+    private Integer totalshares;
+
+    private BigDecimal totalamount;
+
+    private BigDecimal totalbalance;
+
+    private BigDecimal totalreturn;
+
+    private BigDecimal totalrate;
+
+    private BigDecimal currentreturn;
+
+    private BigDecimal currentrate;
+
+    private BigDecimal currentdividend;
+
+    public String getCustomername() {
+        return customername;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCustomername(String customername) {
+        this.customername = customername;
     }
 
     public String getPhone() {
@@ -41,83 +59,147 @@ public class Statement extends StatementKey {
         this.phone = phone;
     }
 
-    public String getNetvalueofbuyday() {
-        return netvalueofbuyday;
+    public String getCustomerid() {
+        return customerid;
     }
 
-    public void setNetvalueofbuyday(String netvalueofbuyday) {
-        this.netvalueofbuyday = netvalueofbuyday;
+    public void setCustomerid(String customerid) {
+        this.customerid = customerid;
     }
 
-    public String getPurchaseamount() {
+    public String getFundtype() {
+        return fundtype;
+    }
+
+    public void setFundtype(String fundtype) {
+        this.fundtype = fundtype;
+    }
+
+    public BigDecimal getNetvalue() {
+        return netvalue;
+    }
+
+    public void setNetvalue(BigDecimal netvalue) {
+        this.netvalue = netvalue;
+    }
+
+    public BigDecimal getExchangerate() {
+        return exchangerate;
+    }
+
+    public void setExchangerate(BigDecimal exchangerate) {
+        this.exchangerate = exchangerate;
+    }
+
+    public BigDecimal getAddvalueofassert() {
+        return addvalueofassert;
+    }
+
+    public void setAddvalueofassert(BigDecimal addvalueofassert) {
+        this.addvalueofassert = addvalueofassert;
+    }
+
+    public BigDecimal getPurchaseamount() {
         return purchaseamount;
     }
 
-    public void setPurchaseamount(String purchaseamount) {
+    public void setPurchaseamount(BigDecimal purchaseamount) {
         this.purchaseamount = purchaseamount;
     }
 
-    public String getPurchaseshares() {
+    public Integer getPurchaseshares() {
         return purchaseshares;
     }
 
-    public void setPurchaseshares(String purchaseshares) {
+    public void setPurchaseshares(Integer purchaseshares) {
         this.purchaseshares = purchaseshares;
     }
 
-    public String getCurrentbalance() {
+    public BigDecimal getCurrentbalance() {
         return currentbalance;
     }
 
-    public void setCurrentbalance(String currentbalance) {
+    public void setCurrentbalance(BigDecimal currentbalance) {
         this.currentbalance = currentbalance;
     }
 
-    public String getRedemptionshares() {
+    public Integer getRedemptionshares() {
         return redemptionshares;
     }
 
-    public void setRedemptionshares(String redemptionshares) {
+    public void setRedemptionshares(Integer redemptionshares) {
         this.redemptionshares = redemptionshares;
     }
 
-    public String getRedemptionamount() {
+    public BigDecimal getRedemptionamount() {
         return redemptionamount;
     }
 
-    public void setRedemptionamount(String redemptionamount) {
+    public void setRedemptionamount(BigDecimal redemptionamount) {
         this.redemptionamount = redemptionamount;
     }
 
-    public String getTotalshares() {
+    public Integer getTotalshares() {
         return totalshares;
     }
 
-    public void setTotalshares(String totalshares) {
+    public void setTotalshares(Integer totalshares) {
         this.totalshares = totalshares;
     }
 
-    public String getTotalamount() {
+    public BigDecimal getTotalamount() {
         return totalamount;
     }
 
-    public void setTotalamount(String totalamount) {
+    public void setTotalamount(BigDecimal totalamount) {
         this.totalamount = totalamount;
     }
 
-    public String getTotalbalance() {
+    public BigDecimal getTotalbalance() {
         return totalbalance;
     }
 
-    public void setTotalbalance(String totalbalance) {
+    public void setTotalbalance(BigDecimal totalbalance) {
         this.totalbalance = totalbalance;
     }
 
-    public String getProfit() {
-        return profit;
+    public BigDecimal getTotalreturn() {
+        return totalreturn;
     }
 
-    public void setProfit(String profit) {
-        this.profit = profit;
+    public void setTotalreturn(BigDecimal totalreturn) {
+        this.totalreturn = totalreturn;
+    }
+
+    public BigDecimal getTotalrate() {
+        return totalrate;
+    }
+
+    public void setTotalrate(BigDecimal totalrate) {
+        this.totalrate = totalrate;
+    }
+
+    public BigDecimal getCurrentreturn() {
+        return currentreturn;
+    }
+
+    public void setCurrentreturn(BigDecimal currentreturn) {
+        this.currentreturn = currentreturn;
+    }
+
+    public BigDecimal getCurrentrate() {
+        return currentrate;
+    }
+
+    public void setCurrentrate(BigDecimal currentrate) {
+        this.currentrate = currentrate;
+    }
+
+    public BigDecimal getCurrentdividend() {
+        return currentdividend;
+    }
+
+    public void setCurrentdividend(BigDecimal currentdividend) {
+        this.currentdividend = currentdividend;
     }
 }

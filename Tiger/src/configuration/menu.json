@@ -54,7 +54,7 @@
 				},
 				{
 					"type": "click",
-					"name": "我的资产",
+					"name": "账单查询",
 					"key": "M2_PRO_MINE"
 				}
 			]

@@ -116,20 +116,80 @@ public class LoginController extends AjaxConroller{
 					}
 				}*/
 				TigerNamingExample namingExample = new TigerNamingExample();
-				namingExample.createCriteria().andOpenidEqualTo(openid).andUseridEqualTo(entity.getIdcard());
-				int isExsist = this.tigerNamingService.getTotal(namingExample);
-				if(isExsist<=0){
-					TigerNaming naming = new TigerNaming();
-					naming.setOpenid(openid);
-					naming.setOptTime(new Date());
-					naming.setUserid(entity.getIdcard());
-					this.tigerNamingService.add(naming);
-					model.addAttribute("msg","用户认证成功！");
+				namingExample.createCriteria().andOpenidEqualTo(openid);
+				int count = this.tigerNamingService.getTotal(namingExample);
+				if(count>=1){
+					model.addAttribute("msg","微信只能绑定一个账户！");
+					viewName = "fore/error";
 				}else{
-					model.addAttribute("msg","用户已经认证！");
+					namingExample = new TigerNamingExample();
+					namingExample.createCriteria().andOpenidEqualTo(openid).andUseridEqualTo(entity.getIdcard());
+					int isExsist = this.tigerNamingService.getTotal(namingExample);
+					if(isExsist<=0){
+						TigerNaming naming = new TigerNaming();
+						naming.setOpenid(openid);
+						naming.setOptTime(new Date());
+						naming.setUserid(entity.getIdcard());
+						this.tigerNamingService.add(naming);
+						model.addAttribute("msg","用户认证成功！");
+					}else{
+						model.addAttribute("msg","用户已经认证！");
+					}
 				}
 			}else{
 				model.addAttribute("msg","用户认证失败，请联系管理员！");
+				viewName = "fore/error";
+			}
+		}else{
+			//没有用户信息
+			model.addAttribute("msg","没用此用户");
+			viewName = "fore/error";
+		}
+		return viewName;
+	}
+	
+	@SuppressWarnings("unchecked")
+	@RequestMapping("unbind")
+	public String unbind(@ModelAttribute TigerUserinfo entity, String vc, Model model){
+		model.addAttribute("wxurl", getServerLocalePath());
+		String viewName = "fore/success";
+		
+		TigerUserinfoExample example = new TigerUserinfoExample();
+		example.createCriteria().andIdcardEqualTo(entity.getIdcard()).andPhoneEqualTo(entity.getPhone()).andRealNameEqualTo(entity.getRealName());
+		List<TigerUserinfo> list= this.tigerUserinfoService.list(example);
+		if(list.size()>0){
+			String accessTokenUrl = PropertiesUtils.getConfigByKey("mp_web_access_token_url");
+			String appid = PropertiesUtils.getConfigByKey("AppId");
+			String secret = PropertiesUtils.getConfigByKey("AppSecret");
+			accessTokenUrl = String.format(accessTokenUrl, appid, secret, vc);
+			String result;
+			try{
+				result = HttpUtils.postHttpByJsonData(accessTokenUrl,"");
+			} catch (IOException e){
+				e.printStackTrace();
+				result = "";
+			}
+			JSONObject object = JSON.parseObject(result);
+			Map<String, ?> map = JSON.toJavaObject(object, Map.class);
+			Object obj = map.get("openid");
+			String openid = ""; 
+			if(obj!=null){
+				openid = (String)obj;
+			}
+			
+			//获取微信用户的基本信息
+			if(!StringUtils.isEmpty(openid)){
+				TigerNamingExample namingExample = new TigerNamingExample();
+				namingExample.createCriteria().andOpenidEqualTo(openid).andUseridEqualTo(entity.getIdcard());
+				int isExsist = this.tigerNamingService.getTotal(namingExample);
+				if(isExsist<=0){
+					model.addAttribute("msg","用户还未认证！");
+				}else{
+					this.tigerNamingService.delete(namingExample);
+					model.addAttribute("msg","用户解绑成功！");
+				}
+			}else{
+				model.addAttribute("msg","用户解绑失败，请联系管理员！");
 				viewName = "fore/error";
 			}
 		}else{

@@ -30,8 +30,9 @@ public class Menu {
      * @throws KeyManagementException 
      */
 	public boolean createMenu(String accessToken,String params) throws InterruptedException, ExecutionException, IOException {
+		logger.warn("创建菜单发送报文："+params);
         String jsonStr = HttpKit.post("https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + accessToken, params);
-        logger.info("调用创建菜单接口响应内容如下："+jsonStr);
+        logger.warn("调用创建菜单接口响应内容如下："+jsonStr);
         Map<String, Object> map = JSON.parseObject(jsonStr,Map.class);
         return "0".equals(map.get("errcode").toString());
     }

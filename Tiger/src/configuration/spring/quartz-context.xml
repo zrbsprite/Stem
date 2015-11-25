@@ -30,7 +30,7 @@
 		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
 		<property name="triggers">
 			<list>
-				<ref bean="fansTime" />
+				<!-- <ref bean="fansTime" /> -->
 			</list>
 		</property>
 	</bean>

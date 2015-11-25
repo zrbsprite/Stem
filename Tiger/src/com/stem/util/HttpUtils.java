@@ -210,7 +210,7 @@ public class HttpUtils {
 		PostMethod post = new PostMethod(url);
 		StringRequestEntity strRequest = new StringRequestEntity(json, "application/json", "utf-8");
 		post.setRequestEntity(strRequest);
-		logger.info("Http请求["+url+"]发出请求...");
+//		logger.info("Http请求["+url+"]发出请求...");
 		int code = client.executeMethod(post);
 		if(code==HttpStatus.SC_OK){
 			String charset = post.getResponseCharSet().toLowerCase();
@@ -234,7 +234,7 @@ public class HttpUtils {
 		PostMethod post = new PostMethod(url);
 		StringRequestEntity strRequest = new StringRequestEntity(body, "text/xml", "utf-8");
 		post.setRequestEntity(strRequest);
-		logger.info("Http请求["+url+"]发出请求...");
+//		logger.info("Http请求["+url+"]发出请求...");
 		int code = client.executeMethod(post);
 		if(code==HttpStatus.SC_OK){
 			String charset = post.getResponseCharSet().toLowerCase();

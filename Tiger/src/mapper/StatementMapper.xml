@@ -2,21 +2,29 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.stem.dao.StatementMapper" >
   <resultMap id="BaseResultMap" type="com.stem.entity.Statement" >
-    <id column="ID" property="id" jdbcType="VARCHAR" />
-    <id column="Month" property="month" jdbcType="VARCHAR" />
+    <id column="IDCard" property="idcard" jdbcType="VARCHAR" />
+    <id column="CheckDate" property="checkdate" jdbcType="DATE" />
     <id column="FundName" property="fundname" jdbcType="VARCHAR" />
-    <result column="Name" property="name" jdbcType="VARCHAR" />
+    <result column="CustomerName" property="customername" jdbcType="VARCHAR" />
     <result column="Phone" property="phone" jdbcType="VARCHAR" />
-    <result column="NetValueOfBuyDay" property="netvalueofbuyday" jdbcType="VARCHAR" />
-    <result column="PurchaseAmount" property="purchaseamount" jdbcType="VARCHAR" />
-    <result column="PurchaseShares" property="purchaseshares" jdbcType="VARCHAR" />
-    <result column="CurrentBalance" property="currentbalance" jdbcType="VARCHAR" />
-    <result column="RedemptionShares" property="redemptionshares" jdbcType="VARCHAR" />
-    <result column="RedemptionAmount" property="redemptionamount" jdbcType="VARCHAR" />
-    <result column="TotalShares" property="totalshares" jdbcType="VARCHAR" />
-    <result column="TotalAmount" property="totalamount" jdbcType="VARCHAR" />
-    <result column="TotalBalance" property="totalbalance" jdbcType="VARCHAR" />
-    <result column="Profit" property="profit" jdbcType="VARCHAR" />
+    <result column="CustomerID" property="customerid" jdbcType="VARCHAR" />
+    <result column="FundType" property="fundtype" jdbcType="VARCHAR" />
+    <result column="NetValue" property="netvalue" jdbcType="DECIMAL" />
+    <result column="ExchangeRate" property="exchangerate" jdbcType="DECIMAL" />
+    <result column="AddValueOfAssert" property="addvalueofassert" jdbcType="DECIMAL" />
+    <result column="PurchaseAmount" property="purchaseamount" jdbcType="DECIMAL" />
+    <result column="PurchaseShares" property="purchaseshares" jdbcType="INTEGER" />
+    <result column="CurrentBalance" property="currentbalance" jdbcType="DECIMAL" />
+    <result column="RedemptionShares" property="redemptionshares" jdbcType="INTEGER" />
+    <result column="RedemptionAmount" property="redemptionamount" jdbcType="DECIMAL" />
+    <result column="TotalShares" property="totalshares" jdbcType="INTEGER" />
+    <result column="TotalAmount" property="totalamount" jdbcType="DECIMAL" />
+    <result column="TotalBalance" property="totalbalance" jdbcType="DECIMAL" />
+    <result column="TotalReturn" property="totalreturn" jdbcType="DECIMAL" />
+    <result column="TotalRate" property="totalrate" jdbcType="DECIMAL" />
+    <result column="CurrentReturn" property="currentreturn" jdbcType="DECIMAL" />
+    <result column="CurrentRate" property="currentrate" jdbcType="DECIMAL" />
+    <result column="CurrentDividend" property="currentdividend" jdbcType="DECIMAL" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -77,9 +85,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    ID, Month, FundName, Name, Phone, NetValueOfBuyDay, PurchaseAmount, PurchaseShares, 
-    CurrentBalance, RedemptionShares, RedemptionAmount, TotalShares, TotalAmount, TotalBalance, 
-    Profit
+    IDCard, CheckDate, FundName, CustomerName, Phone, CustomerID, FundType, NetValue, 
+    ExchangeRate, AddValueOfAssert, PurchaseAmount, PurchaseShares, CurrentBalance, RedemptionShares, 
+    RedemptionAmount, TotalShares, TotalAmount, TotalBalance, TotalReturn, TotalRate, 
+    CurrentReturn, CurrentRate, CurrentDividend
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.stem.entity.StatementExample" >
     select
@@ -99,14 +108,14 @@
     select 
     <include refid="Base_Column_List" />
     from statement
-    where ID = #{id,jdbcType=VARCHAR}
-      and Month = #{month,jdbcType=VARCHAR}
+    where IDCard = #{idcard,jdbcType=VARCHAR}
+      and CheckDate = #{checkdate,jdbcType=DATE}
       and FundName = #{fundname,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="com.stem.entity.StatementKey" >
     delete from statement
-    where ID = #{id,jdbcType=VARCHAR}
-      and Month = #{month,jdbcType=VARCHAR}
+    where IDCard = #{idcard,jdbcType=VARCHAR}
+      and CheckDate = #{checkdate,jdbcType=DATE}
       and FundName = #{fundname,jdbcType=VARCHAR}
   </delete>
   <delete id="deleteByExample" parameterType="com.stem.entity.StatementExample" >
@@ -116,39 +125,55 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.stem.entity.Statement" >
-    insert into statement (ID, Month, FundName, 
-      Name, Phone, NetValueOfBuyDay, 
-      PurchaseAmount, PurchaseShares, CurrentBalance, 
-      RedemptionShares, RedemptionAmount, TotalShares, 
-      TotalAmount, TotalBalance, Profit
-      )
-    values (#{id,jdbcType=VARCHAR}, #{month,jdbcType=VARCHAR}, #{fundname,jdbcType=VARCHAR}, 
-      #{name,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{netvalueofbuyday,jdbcType=VARCHAR}, 
-      #{purchaseamount,jdbcType=VARCHAR}, #{purchaseshares,jdbcType=VARCHAR}, #{currentbalance,jdbcType=VARCHAR}, 
-      #{redemptionshares,jdbcType=VARCHAR}, #{redemptionamount,jdbcType=VARCHAR}, #{totalshares,jdbcType=VARCHAR}, 
-      #{totalamount,jdbcType=VARCHAR}, #{totalbalance,jdbcType=VARCHAR}, #{profit,jdbcType=VARCHAR}
-      )
+    insert into statement (IDCard, CheckDate, FundName, 
+      CustomerName, Phone, CustomerID, 
+      FundType, NetValue, ExchangeRate, 
+      AddValueOfAssert, PurchaseAmount, PurchaseShares, 
+      CurrentBalance, RedemptionShares, RedemptionAmount, 
+      TotalShares, TotalAmount, TotalBalance, 
+      TotalReturn, TotalRate, CurrentReturn, 
+      CurrentRate, CurrentDividend)
+    values (#{idcard,jdbcType=VARCHAR}, #{checkdate,jdbcType=DATE}, #{fundname,jdbcType=VARCHAR}, 
+      #{customername,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{customerid,jdbcType=VARCHAR}, 
+      #{fundtype,jdbcType=VARCHAR}, #{netvalue,jdbcType=DECIMAL}, #{exchangerate,jdbcType=DECIMAL}, 
+      #{addvalueofassert,jdbcType=DECIMAL}, #{purchaseamount,jdbcType=DECIMAL}, #{purchaseshares,jdbcType=INTEGER}, 
+      #{currentbalance,jdbcType=DECIMAL}, #{redemptionshares,jdbcType=INTEGER}, #{redemptionamount,jdbcType=DECIMAL}, 
+      #{totalshares,jdbcType=INTEGER}, #{totalamount,jdbcType=DECIMAL}, #{totalbalance,jdbcType=DECIMAL}, 
+      #{totalreturn,jdbcType=DECIMAL}, #{totalrate,jdbcType=DECIMAL}, #{currentreturn,jdbcType=DECIMAL}, 
+      #{currentrate,jdbcType=DECIMAL}, #{currentdividend,jdbcType=DECIMAL})
   </insert>
   <insert id="insertSelective" parameterType="com.stem.entity.Statement" >
     insert into statement
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        ID,
+      <if test="idcard != null" >
+        IDCard,
       </if>
-      <if test="month != null" >
-        Month,
+      <if test="checkdate != null" >
+        CheckDate,
       </if>
       <if test="fundname != null" >
         FundName,
       </if>
-      <if test="name != null" >
-        Name,
+      <if test="customername != null" >
+        CustomerName,
       </if>
       <if test="phone != null" >
         Phone,
       </if>
-      <if test="netvalueofbuyday != null" >
-        NetValueOfBuyDay,
+      <if test="customerid != null" >
+        CustomerID,
+      </if>
+      <if test="fundtype != null" >
+        FundType,
+      </if>
+      <if test="netvalue != null" >
+        NetValue,
+      </if>
+      <if test="exchangerate != null" >
+        ExchangeRate,
+      </if>
+      <if test="addvalueofassert != null" >
+        AddValueOfAssert,
       </if>
       <if test="purchaseamount != null" >
         PurchaseAmount,
@@ -174,55 +199,91 @@
       <if test="totalbalance != null" >
         TotalBalance,
       </if>
-      <if test="profit != null" >
-        Profit,
+      <if test="totalreturn != null" >
+        TotalReturn,
+      </if>
+      <if test="totalrate != null" >
+        TotalRate,
+      </if>
+      <if test="currentreturn != null" >
+        CurrentReturn,
+      </if>
+      <if test="currentrate != null" >
+        CurrentRate,
+      </if>
+      <if test="currentdividend != null" >
+        CurrentDividend,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=VARCHAR},
+      <if test="idcard != null" >
+        #{idcard,jdbcType=VARCHAR},
       </if>
-      <if test="month != null" >
-        #{month,jdbcType=VARCHAR},
+      <if test="checkdate != null" >
+        #{checkdate,jdbcType=DATE},
       </if>
       <if test="fundname != null" >
         #{fundname,jdbcType=VARCHAR},
       </if>
-      <if test="name != null" >
-        #{name,jdbcType=VARCHAR},
+      <if test="customername != null" >
+        #{customername,jdbcType=VARCHAR},
       </if>
       <if test="phone != null" >
         #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="netvalueofbuyday != null" >
-        #{netvalueofbuyday,jdbcType=VARCHAR},
+      <if test="customerid != null" >
+        #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="fundtype != null" >
+        #{fundtype,jdbcType=VARCHAR},
+      </if>
+      <if test="netvalue != null" >
+        #{netvalue,jdbcType=DECIMAL},
+      </if>
+      <if test="exchangerate != null" >
+        #{exchangerate,jdbcType=DECIMAL},
+      </if>
+      <if test="addvalueofassert != null" >
+        #{addvalueofassert,jdbcType=DECIMAL},
       </if>
       <if test="purchaseamount != null" >
-        #{purchaseamount,jdbcType=VARCHAR},
+        #{purchaseamount,jdbcType=DECIMAL},
       </if>
       <if test="purchaseshares != null" >
-        #{purchaseshares,jdbcType=VARCHAR},
+        #{purchaseshares,jdbcType=INTEGER},
       </if>
       <if test="currentbalance != null" >
-        #{currentbalance,jdbcType=VARCHAR},
+        #{currentbalance,jdbcType=DECIMAL},
       </if>
       <if test="redemptionshares != null" >
-        #{redemptionshares,jdbcType=VARCHAR},
+        #{redemptionshares,jdbcType=INTEGER},
       </if>
       <if test="redemptionamount != null" >
-        #{redemptionamount,jdbcType=VARCHAR},
+        #{redemptionamount,jdbcType=DECIMAL},
       </if>
       <if test="totalshares != null" >
-        #{totalshares,jdbcType=VARCHAR},
+        #{totalshares,jdbcType=INTEGER},
       </if>
       <if test="totalamount != null" >
-        #{totalamount,jdbcType=VARCHAR},
+        #{totalamount,jdbcType=DECIMAL},
       </if>
       <if test="totalbalance != null" >
-        #{totalbalance,jdbcType=VARCHAR},
+        #{totalbalance,jdbcType=DECIMAL},
       </if>
-      <if test="profit != null" >
-        #{profit,jdbcType=VARCHAR},
+      <if test="totalreturn != null" >
+        #{totalreturn,jdbcType=DECIMAL},
+      </if>
+      <if test="totalrate != null" >
+        #{totalrate,jdbcType=DECIMAL},
+      </if>
+      <if test="currentreturn != null" >
+        #{currentreturn,jdbcType=DECIMAL},
+      </if>
+      <if test="currentrate != null" >
+        #{currentrate,jdbcType=DECIMAL},
+      </if>
+      <if test="currentdividend != null" >
+        #{currentdividend,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
@@ -235,50 +296,74 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update statement
     <set >
-      <if test="record.id != null" >
-        ID = #{record.id,jdbcType=VARCHAR},
+      <if test="record.idcard != null" >
+        IDCard = #{record.idcard,jdbcType=VARCHAR},
       </if>
-      <if test="record.month != null" >
-        Month = #{record.month,jdbcType=VARCHAR},
+      <if test="record.checkdate != null" >
+        CheckDate = #{record.checkdate,jdbcType=DATE},
       </if>
       <if test="record.fundname != null" >
         FundName = #{record.fundname,jdbcType=VARCHAR},
       </if>
-      <if test="record.name != null" >
-        Name = #{record.name,jdbcType=VARCHAR},
+      <if test="record.customername != null" >
+        CustomerName = #{record.customername,jdbcType=VARCHAR},
       </if>
       <if test="record.phone != null" >
         Phone = #{record.phone,jdbcType=VARCHAR},
       </if>
-      <if test="record.netvalueofbuyday != null" >
-        NetValueOfBuyDay = #{record.netvalueofbuyday,jdbcType=VARCHAR},
+      <if test="record.customerid != null" >
+        CustomerID = #{record.customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fundtype != null" >
+        FundType = #{record.fundtype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.netvalue != null" >
+        NetValue = #{record.netvalue,jdbcType=DECIMAL},
+      </if>
+      <if test="record.exchangerate != null" >
+        ExchangeRate = #{record.exchangerate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.addvalueofassert != null" >
+        AddValueOfAssert = #{record.addvalueofassert,jdbcType=DECIMAL},
       </if>
       <if test="record.purchaseamount != null" >
-        PurchaseAmount = #{record.purchaseamount,jdbcType=VARCHAR},
+        PurchaseAmount = #{record.purchaseamount,jdbcType=DECIMAL},
       </if>
       <if test="record.purchaseshares != null" >
-        PurchaseShares = #{record.purchaseshares,jdbcType=VARCHAR},
+        PurchaseShares = #{record.purchaseshares,jdbcType=INTEGER},
       </if>
       <if test="record.currentbalance != null" >
-        CurrentBalance = #{record.currentbalance,jdbcType=VARCHAR},
+        CurrentBalance = #{record.currentbalance,jdbcType=DECIMAL},
       </if>
       <if test="record.redemptionshares != null" >
-        RedemptionShares = #{record.redemptionshares,jdbcType=VARCHAR},
+        RedemptionShares = #{record.redemptionshares,jdbcType=INTEGER},
       </if>
       <if test="record.redemptionamount != null" >
-        RedemptionAmount = #{record.redemptionamount,jdbcType=VARCHAR},
+        RedemptionAmount = #{record.redemptionamount,jdbcType=DECIMAL},
       </if>
       <if test="record.totalshares != null" >
-        TotalShares = #{record.totalshares,jdbcType=VARCHAR},
+        TotalShares = #{record.totalshares,jdbcType=INTEGER},
       </if>
       <if test="record.totalamount != null" >
-        TotalAmount = #{record.totalamount,jdbcType=VARCHAR},
+        TotalAmount = #{record.totalamount,jdbcType=DECIMAL},
       </if>
       <if test="record.totalbalance != null" >
-        TotalBalance = #{record.totalbalance,jdbcType=VARCHAR},
+        TotalBalance = #{record.totalbalance,jdbcType=DECIMAL},
       </if>
-      <if test="record.profit != null" >
-        Profit = #{record.profit,jdbcType=VARCHAR},
+      <if test="record.totalreturn != null" >
+        TotalReturn = #{record.totalreturn,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalrate != null" >
+        TotalRate = #{record.totalrate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.currentreturn != null" >
+        CurrentReturn = #{record.currentreturn,jdbcType=DECIMAL},
+      </if>
+      <if test="record.currentrate != null" >
+        CurrentRate = #{record.currentrate,jdbcType=DECIMAL},
+      </if>
+      <if test="record.currentdividend != null" >
+        CurrentDividend = #{record.currentdividend,jdbcType=DECIMAL},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -287,21 +372,29 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update statement
-    set ID = #{record.id,jdbcType=VARCHAR},
-      Month = #{record.month,jdbcType=VARCHAR},
+    set IDCard = #{record.idcard,jdbcType=VARCHAR},
+      CheckDate = #{record.checkdate,jdbcType=DATE},
       FundName = #{record.fundname,jdbcType=VARCHAR},
-      Name = #{record.name,jdbcType=VARCHAR},
+      CustomerName = #{record.customername,jdbcType=VARCHAR},
       Phone = #{record.phone,jdbcType=VARCHAR},
-      NetValueOfBuyDay = #{record.netvalueofbuyday,jdbcType=VARCHAR},
-      PurchaseAmount = #{record.purchaseamount,jdbcType=VARCHAR},
-      PurchaseShares = #{record.purchaseshares,jdbcType=VARCHAR},
-      CurrentBalance = #{record.currentbalance,jdbcType=VARCHAR},
-      RedemptionShares = #{record.redemptionshares,jdbcType=VARCHAR},
-      RedemptionAmount = #{record.redemptionamount,jdbcType=VARCHAR},
-      TotalShares = #{record.totalshares,jdbcType=VARCHAR},
-      TotalAmount = #{record.totalamount,jdbcType=VARCHAR},
-      TotalBalance = #{record.totalbalance,jdbcType=VARCHAR},
-      Profit = #{record.profit,jdbcType=VARCHAR}
+      CustomerID = #{record.customerid,jdbcType=VARCHAR},
+      FundType = #{record.fundtype,jdbcType=VARCHAR},
+      NetValue = #{record.netvalue,jdbcType=DECIMAL},
+      ExchangeRate = #{record.exchangerate,jdbcType=DECIMAL},
+      AddValueOfAssert = #{record.addvalueofassert,jdbcType=DECIMAL},
+      PurchaseAmount = #{record.purchaseamount,jdbcType=DECIMAL},
+      PurchaseShares = #{record.purchaseshares,jdbcType=INTEGER},
+      CurrentBalance = #{record.currentbalance,jdbcType=DECIMAL},
+      RedemptionShares = #{record.redemptionshares,jdbcType=INTEGER},
+      RedemptionAmount = #{record.redemptionamount,jdbcType=DECIMAL},
+      TotalShares = #{record.totalshares,jdbcType=INTEGER},
+      TotalAmount = #{record.totalamount,jdbcType=DECIMAL},
+      TotalBalance = #{record.totalbalance,jdbcType=DECIMAL},
+      TotalReturn = #{record.totalreturn,jdbcType=DECIMAL},
+      TotalRate = #{record.totalrate,jdbcType=DECIMAL},
+      CurrentReturn = #{record.currentreturn,jdbcType=DECIMAL},
+      CurrentRate = #{record.currentrate,jdbcType=DECIMAL},
+      CurrentDividend = #{record.currentdividend,jdbcType=DECIMAL}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -309,63 +402,95 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.stem.entity.Statement" >
     update statement
     <set >
-      <if test="name != null" >
-        Name = #{name,jdbcType=VARCHAR},
+      <if test="customername != null" >
+        CustomerName = #{customername,jdbcType=VARCHAR},
       </if>
       <if test="phone != null" >
         Phone = #{phone,jdbcType=VARCHAR},
       </if>
-      <if test="netvalueofbuyday != null" >
-        NetValueOfBuyDay = #{netvalueofbuyday,jdbcType=VARCHAR},
+      <if test="customerid != null" >
+        CustomerID = #{customerid,jdbcType=VARCHAR},
+      </if>
+      <if test="fundtype != null" >
+        FundType = #{fundtype,jdbcType=VARCHAR},
+      </if>
+      <if test="netvalue != null" >
+        NetValue = #{netvalue,jdbcType=DECIMAL},
+      </if>
+      <if test="exchangerate != null" >
+        ExchangeRate = #{exchangerate,jdbcType=DECIMAL},
+      </if>
+      <if test="addvalueofassert != null" >
+        AddValueOfAssert = #{addvalueofassert,jdbcType=DECIMAL},
       </if>
       <if test="purchaseamount != null" >
-        PurchaseAmount = #{purchaseamount,jdbcType=VARCHAR},
+        PurchaseAmount = #{purchaseamount,jdbcType=DECIMAL},
       </if>
       <if test="purchaseshares != null" >
-        PurchaseShares = #{purchaseshares,jdbcType=VARCHAR},
+        PurchaseShares = #{purchaseshares,jdbcType=INTEGER},
       </if>
       <if test="currentbalance != null" >
-        CurrentBalance = #{currentbalance,jdbcType=VARCHAR},
+        CurrentBalance = #{currentbalance,jdbcType=DECIMAL},
       </if>
       <if test="redemptionshares != null" >
-        RedemptionShares = #{redemptionshares,jdbcType=VARCHAR},
+        RedemptionShares = #{redemptionshares,jdbcType=INTEGER},
       </if>
       <if test="redemptionamount != null" >
-        RedemptionAmount = #{redemptionamount,jdbcType=VARCHAR},
+        RedemptionAmount = #{redemptionamount,jdbcType=DECIMAL},
       </if>
       <if test="totalshares != null" >
-        TotalShares = #{totalshares,jdbcType=VARCHAR},
+        TotalShares = #{totalshares,jdbcType=INTEGER},
       </if>
       <if test="totalamount != null" >
-        TotalAmount = #{totalamount,jdbcType=VARCHAR},
+        TotalAmount = #{totalamount,jdbcType=DECIMAL},
       </if>
       <if test="totalbalance != null" >
-        TotalBalance = #{totalbalance,jdbcType=VARCHAR},
+        TotalBalance = #{totalbalance,jdbcType=DECIMAL},
       </if>
-      <if test="profit != null" >
-        Profit = #{profit,jdbcType=VARCHAR},
+      <if test="totalreturn != null" >
+        TotalReturn = #{totalreturn,jdbcType=DECIMAL},
+      </if>
+      <if test="totalrate != null" >
+        TotalRate = #{totalrate,jdbcType=DECIMAL},
+      </if>
+      <if test="currentreturn != null" >
+        CurrentReturn = #{currentreturn,jdbcType=DECIMAL},
+      </if>
+      <if test="currentrate != null" >
+        CurrentRate = #{currentrate,jdbcType=DECIMAL},
+      </if>
+      <if test="currentdividend != null" >
+        CurrentDividend = #{currentdividend,jdbcType=DECIMAL},
       </if>
     </set>
-    where ID = #{id,jdbcType=VARCHAR}
-      and Month = #{month,jdbcType=VARCHAR}
+    where IDCard = #{idcard,jdbcType=VARCHAR}
+      and CheckDate = #{checkdate,jdbcType=DATE}
       and FundName = #{fundname,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.stem.entity.Statement" >
     update statement
-    set Name = #{name,jdbcType=VARCHAR},
+    set CustomerName = #{customername,jdbcType=VARCHAR},
       Phone = #{phone,jdbcType=VARCHAR},
-      NetValueOfBuyDay = #{netvalueofbuyday,jdbcType=VARCHAR},
-      PurchaseAmount = #{purchaseamount,jdbcType=VARCHAR},
-      PurchaseShares = #{purchaseshares,jdbcType=VARCHAR},
-      CurrentBalance = #{currentbalance,jdbcType=VARCHAR},
-      RedemptionShares = #{redemptionshares,jdbcType=VARCHAR},
-      RedemptionAmount = #{redemptionamount,jdbcType=VARCHAR},
-      TotalShares = #{totalshares,jdbcType=VARCHAR},
-      TotalAmount = #{totalamount,jdbcType=VARCHAR},
-      TotalBalance = #{totalbalance,jdbcType=VARCHAR},
-      Profit = #{profit,jdbcType=VARCHAR}
-    where ID = #{id,jdbcType=VARCHAR}
-      and Month = #{month,jdbcType=VARCHAR}
+      CustomerID = #{customerid,jdbcType=VARCHAR},
+      FundType = #{fundtype,jdbcType=VARCHAR},
+      NetValue = #{netvalue,jdbcType=DECIMAL},
+      ExchangeRate = #{exchangerate,jdbcType=DECIMAL},
+      AddValueOfAssert = #{addvalueofassert,jdbcType=DECIMAL},
+      PurchaseAmount = #{purchaseamount,jdbcType=DECIMAL},
+      PurchaseShares = #{purchaseshares,jdbcType=INTEGER},
+      CurrentBalance = #{currentbalance,jdbcType=DECIMAL},
+      RedemptionShares = #{redemptionshares,jdbcType=INTEGER},
+      RedemptionAmount = #{redemptionamount,jdbcType=DECIMAL},
+      TotalShares = #{totalshares,jdbcType=INTEGER},
+      TotalAmount = #{totalamount,jdbcType=DECIMAL},
+      TotalBalance = #{totalbalance,jdbcType=DECIMAL},
+      TotalReturn = #{totalreturn,jdbcType=DECIMAL},
+      TotalRate = #{totalrate,jdbcType=DECIMAL},
+      CurrentReturn = #{currentreturn,jdbcType=DECIMAL},
+      CurrentRate = #{currentrate,jdbcType=DECIMAL},
+      CurrentDividend = #{currentdividend,jdbcType=DECIMAL}
+    where IDCard = #{idcard,jdbcType=VARCHAR}
+      and CheckDate = #{checkdate,jdbcType=DATE}
       and FundName = #{fundname,jdbcType=VARCHAR}
   </update>
 </mapper>

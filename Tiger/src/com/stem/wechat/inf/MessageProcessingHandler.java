@@ -21,7 +21,7 @@ public interface MessageProcessingHandler {
 	 * @param msg
 	 * @return
 	 */
-	public void textTypeMsg(InMessage msg);
+	public void textTypeMsg(InMessage msg, String path);
 	
 	/**
 	 * 地理位置类型的消息处理

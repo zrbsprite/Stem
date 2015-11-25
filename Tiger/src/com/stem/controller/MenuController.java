@@ -80,7 +80,7 @@ public class MenuController extends AjaxConroller {
 			String path = getClass().getClassLoader().getResource("/").getPath();
 			String realPath = path + "configuration/menu.json";
 			FileInputStream fis = new FileInputStream(realPath);
-			InputStreamReader isr = new InputStreamReader(fis);
+			InputStreamReader isr = new InputStreamReader(fis,"utf-8");
 			BufferedReader br = new BufferedReader(isr);
 			StringBuffer json = new StringBuffer();
 			String line;
