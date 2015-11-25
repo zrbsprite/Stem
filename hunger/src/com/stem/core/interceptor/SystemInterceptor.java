@@ -43,13 +43,10 @@ public class SystemInterceptor extends HandlerInterceptorAdapter {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
-		String uri = request.getRequestURI();
-		String contextPath = request.getContextPath();
-		if(uri.equals(contextPath) || uri.equals(contextPath+"/")){
+		String uri = request.getServletPath();
+		if(("").equals(uri)||"/".equals(uri)){
 			return true;
 		}
-		
-		uri = uri.substring((contextPath+"/").length());
 		for (String s : noFilters) {
 			try {
 				if (uri.equals(s)) {

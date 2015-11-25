@@ -16,10 +16,17 @@
      
     <!-- @ResultMapping标签的解析  声明是没有 defaultAnnotationHandlerMapping这个属性的 -->
 	<mvc:annotation-driven />
-	<bean  class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />  
+	<bean  class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" >
+		<!-- 全局属性编辑器 -->
+		<!--  
+		<property name="webBindingInitializer">
+			<bean class="com.stem.core.commons.DateWebBindingInitializer"></bean>
+		</property>
+		-->
+	</bean>  
   
     <mvc:view-controller path="/" view-name="login"/>
-    
+    <!-- <mvc:view-controller path="/" view-name="redirect:/login"/>  -->
     <!-- 定义一些不被拦截的静态资源 -->
     <mvc:resources mapping="/assets/**" location="/assets/" />
     <mvc:resources mapping="/upload/**" location="/upload/" />
