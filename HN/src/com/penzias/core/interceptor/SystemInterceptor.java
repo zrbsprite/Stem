@@ -33,7 +33,7 @@ public class SystemInterceptor extends HandlerInterceptorAdapter {
 	private String whiteListRule = "";
 	
 	{
-		String[] whiteList = new String[] { "login.htm", "index.htm", "logout.htm" };
+		String[] whiteList = new String[] { "/login.htm", "/index.htm", "/logout.htm" };
 		List<String> temp = Arrays.asList(whiteList);
 		this.noFilters.addAll(temp);
 	}

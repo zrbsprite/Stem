@@ -65,4 +65,9 @@ public class LoginController extends AjaxConroller{
 	public String content(Model model) {
 		return "redirect:pro/index.htm";
 	}
+	
+	@RequestMapping("anno/demo")
+	public String index(Model model) {
+		return "demo/index";
+	}
 }
