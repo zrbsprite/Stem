@@ -70,4 +70,8 @@ public class LoginController extends AjaxConroller{
 	public String index(Model model) {
 		return "demo/index";
 	}
+	@RequestMapping("anno/ie")
+	public String ie(Model model) {
+		return "demo/index_ie";
+	}
 }

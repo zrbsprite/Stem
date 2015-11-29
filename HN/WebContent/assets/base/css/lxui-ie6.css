@@ -241,6 +241,7 @@ a:hover {
   width: 940px;
   min-height: 1px;
   margin-left: 20px;
+  padding-left: 20px;
 }
 
 .span11 {
@@ -249,6 +250,7 @@ a:hover {
   width: 860px;
   min-height: 1px;
   margin-left: 20px;
+  padding-left: 20px;
 }
 
 .span10 {
@@ -257,14 +259,26 @@ a:hover {
   width: 780px;
   min-height: 1px;
   margin-left: 20px;
+  
+  padding-left: 20px;
 }
-
+.span-col10 {
+  display: inline;
+  float: left;
+  width: 80%;
+  min-height: 1px;
+  margin-left: 20px;
+  padding-left: 20px;
+  
+}
 .span9 {
   display: inline;
   float: left;
   width: 700px;
   min-height: 1px;
   margin-left: 20px;
+  padding-left: 20px;
+  
 }
 
 .span8 {
@@ -273,6 +287,8 @@ a:hover {
   width: 620px;
   min-height: 1px;
   margin-left: 20px;
+  
+  padding-left: 20px;
 }
 
 .span7 {
@@ -281,6 +297,8 @@ a:hover {
   width: 540px;
   min-height: 1px;
   margin-left: 20px;
+  
+  padding-left: 20px;
 }
 
 .span6 {
@@ -289,6 +307,8 @@ a:hover {
   width: 460px;
   min-height: 1px;
   margin-left: 20px;
+  
+  padding-left: 20px;
 }
 
 .span5 {
@@ -297,6 +317,8 @@ a:hover {
   width: 380px;
   min-height: 1px;
   margin-left: 20px;
+  
+  padding-left: 20px;
 }
 
 .span4 {
@@ -305,6 +327,8 @@ a:hover {
   width: 300px;
   min-height: 1px;
   margin-left: 20px;
+  
+  padding-left: 20px;
 }
 
 .span3 {
@@ -313,6 +337,8 @@ a:hover {
   width: 220px;
   min-height: 1px;
   margin-left: 20px;
+  
+  padding-left: 20px;
 }
 
 .span2 {
@@ -321,14 +347,26 @@ a:hover {
   width: 140px;
   min-height: 1px;
   margin-left: 20px;
+  
+  padding-left: 20px;
 }
-
+.span-col2 {
+  display: inline;
+  float: left;
+  width: 15%;
+  min-height: 1px;
+  margin-left: 20px;
+  
+  padding-left: 20px;
+}
 .span1 {
   display: inline;
   float: left;
   width: 60px;
   min-height: 1px;
   margin-left: 20px;
+  
+  padding-left: 20px;
 }
 
 .offset12 {
@@ -3742,6 +3780,7 @@ input[type="submit"].btn.btn-mini {
   *zoom: 1;
 }
 
+/*
 .nav * li a {
   display: inline;
 }
@@ -3749,7 +3788,7 @@ input[type="submit"].btn.btn-mini {
 .nav li * a {
   display: inline;
 }
-
+*/
 .nav li a:hover {
   text-decoration: none;
   background-color: #eeeeee;
