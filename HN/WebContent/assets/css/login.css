@@ -1,6 +1,6 @@
 #login-container {
     width: 425px;
-    margin: 150px auto 0;
+    margin: 300px auto 0;
 }
 #login-content{
 	padding: 20px;
@@ -20,4 +20,10 @@
 }
 .margin-right-2{
 	margin-right: 4%;
+}
+body{
+	background-image: url("../images/login_bg.png");
+	background-attachment: scroll;
+	background-position: 0 0;
+	background-repeat: repeat;
 }

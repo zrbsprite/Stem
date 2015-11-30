@@ -13,16 +13,17 @@
     <![endif]-->
   </head>
   <body>
+  <#--  
    <nav class="navbar navbar-default navbar-fixed-top navbar-color-primary" role="navigation">
   <div class="container">
   <div class="container-fluid">
-    <!-- logo和手机窗口的菜单 -->
     <div class="navbar-header">
       <a class="navbar-brand" >Logo</a>
     </div>
   </div>
   </div>
 </nav>
+-->
   <div id="login-container">
 	<div id="login-content">
 		<div class="clearfix">
@@ -47,8 +48,6 @@
 		</div>
 	</div>
   </div>
-  
-<#include "frame/footer-bottom.ftl">
 <#include "frame/js-ie.ftl">
 <script type="text/javascript" src="${basepath}/assets/layer/layer.js"></script>
 <script type="text/javascript" src="${basepath}/assets/js/include_login.js"></script>

@@ -121,7 +121,7 @@
 	}
 	
 	//todo
-	dialog.prototype. =function(content,callback){
+	dialog.prototype.sysMsg=function(content,callback){
 		layer.open({
 		    type: 1,
 		    title: false,

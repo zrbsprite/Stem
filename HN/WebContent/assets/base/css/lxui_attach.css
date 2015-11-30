@@ -165,6 +165,7 @@ button { outline: none; }
 
 .lxui-docs-container {
 	margin-top: 60px;
+	min-height: 750px;
 }
 
 /* All levels of nav */
