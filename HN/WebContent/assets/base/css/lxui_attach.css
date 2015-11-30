@@ -1488,9 +1488,10 @@ li ul{
   border-right: 1px solid #2AC966;
   color: #333;
 }
-.bs-sidenav{
-	box-shadow: 0 6px 12px rgba(0,0,0,.175);
+.bs-sidenav {
+	box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
+
 .hn-center{
 	padding: 20px 0;
     text-align: center;
@@ -1502,5 +1503,20 @@ li ul{
 	position:absolute;
 	width:100%;
 	background-color: #3071A9;
+	/* background-color: #f3f3f3; */
 	color:#fff;
+}
+.bs-sidenav .nav > li > a:hover,
+.bs-sidenav .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #e1ddd9;
+  border-right: 1px solid #2AC966;
+  color: #333;
+}
+.nav{
+	margin-bottom:5px;
+}
+.navbar-collapse .navbar-nav li a:hover{
+	color:#fff;
+	background-color: #3071A9;
 }

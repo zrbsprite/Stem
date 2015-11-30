@@ -9,7 +9,7 @@
     http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd">
 
 	 <!-- 使用annotation 自动注册bean,并检查@Required,@Autowired的属性已被注入 -->
-	<context:component-scan base-package="com.penzias"/>
+	<context:component-scan base-package="com.penzias.controller"/>
     
     <!-- spring读取配置文件 -->
      <util:properties id="propertiesReader" location="classpath:configuration/common/config.properties" />
@@ -25,11 +25,11 @@
 		-->
 	</bean>  
   
-    <mvc:view-controller path="/" view-name="login"/>
+    <mvc:view-controller path="/" view-name="door/login"/>
     <!-- <mvc:view-controller path="/" view-name="redirect:/login"/>  -->
     <!-- 定义一些不被拦截的静态资源 -->
     <mvc:resources mapping="/assets/**" location="/assets/" />
-    <mvc:resources mapping="/upload/**" location="/upload/" />
+    
     <!-- 拦截器 -->
     <mvc:interceptors>  
         <bean class="com.penzias.core.interceptor.SystemInterceptor">

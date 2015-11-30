@@ -105,27 +105,27 @@
   
   <error-page>
 		<exception-type>java.lang.Throwable</exception-type>
-		<location>/assets/html/system/500.html</location>
+		<location>/anno/500.htm</location>
 	</error-page>
 	<error-page>
 		<error-code>500</error-code>
-		<location>/assets/html/system/500.html</location>
+		<location>/anno/500.htm</location>
 	</error-page>
 	<error-page>
 		<error-code>404</error-code>
-		<location>/assets/html/system/404.html</location>
+		<location>/anno/404.htm</location>
 	</error-page>
 	<error-page>
 		<error-code>403</error-code>
-		<location>/assets/html/system/404.html</location>
+		<location>/anno/404.htm</location>
 	</error-page>
 	<error-page>
     <error-code>401</error-code>
-    	<location>/assets/html/system/404.html</location>
+    	<location>/anno/404.htm</location>
 	</error-page>
 	<error-page>
     	<exception-type>java.lang.Exception</exception-type>
-    	<location>/assets/html/system/500.html</location>
+    	<location>/anno/500.htm</location>
 	</error-page>
   <welcome-file-list>
     <welcome-file>login</welcome-file>

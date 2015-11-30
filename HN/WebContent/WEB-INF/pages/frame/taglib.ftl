@@ -1,5 +1,5 @@
 <#assign basepath="${request.getContextPath()}"/>
-<base href="${basepath}/" />
+<base href="${basepath}/" >
 <script type="text/javascript" >
-    var basepath = '${basepath}';
+var basepath = '${basepath}';
 </script>

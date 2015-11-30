@@ -1,0 +1,23 @@
+#login-container {
+    width: 425px;
+    margin: 150px auto 0;
+}
+#login-content{
+	padding: 20px;
+    background: #FFF;
+    border: 1px solid #3071A9;
+    border-radius: 5px;
+    box-shadow: 0 0 6px rgba(0,0,0,.10);
+}
+.input-ie{
+	height: 14px;
+	line-height: 14px;
+}
+.input-ie input[type=checkbox], 
+.input-ie input[type=radio]{
+	margin: 0;
+	vertical-align: middle;
+}
+.margin-right-2{
+	margin-right: 4%;
+}

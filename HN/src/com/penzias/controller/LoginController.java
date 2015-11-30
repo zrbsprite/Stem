@@ -26,12 +26,12 @@ public class LoginController extends AjaxConroller{
 	@Value("#{propertiesReader[cookie_username_key]}")
 	private String cookieUserNameKey;
 
-	@RequestMapping("/index")
+	@RequestMapping("/login")
 	public String index() {
-		return "fore/home";
+		return "door/login";
 	}
 
-	@RequestMapping("/login")
+	@RequestMapping("/sign")
 	public void doLogin(@ModelAttribute UserLoginVO user, Model model, PrintWriter pw) {
 		if(null==user){
 			user = new UserLoginVO();

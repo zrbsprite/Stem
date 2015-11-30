@@ -22,7 +22,7 @@
       <a class="navbar-brand" >Logo</a>
     </div>
     <!-- 包括链接、表单和下拉菜单 -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse" id="hn-navbar">
 		<ul class="nav navbar-nav">
 	        <li class="active"><a >我被选中</a></li>
 	        <li><a >链接</a></li>    
@@ -41,46 +41,15 @@
  	<div class="row show-grid">
  		<#-- 菜单 -->
  		<div class="span-col2">
- 			<div class="">
- 			<#-- <div class="bs-sidebar hidden-print"> -->
-				<ul class="nav bs-sidenav">
-					<li class="active li-parent">
-						<a class="parent-selected">文字段落</a>
-						<ul class="nav">
-							<li class="selected"><a >标题</a></li>
-							<li><a >页面主体</a></li>
-							<li><a >文字样式</a></li>
-							<li><a >名片地址</a></li>
-							<li><a >引用文本</a></li>
-							<li><a >列表</a></li>
-						</ul>
-					</li>
-					<li class="li-parent">
-						<a >背景</a>
-						<ul class="nav">
-							<li><a >背景样式</a></li>
-							<li><a >背景不重复</a></li>
-							<li><a >背景固定</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
+ 			<#include "frame/left-nav.ftl">
  		</div>
  		<#-- 主体内容 -->
  		<div class="span-col10 border-left-1 show-grid">
- 			<div class="row">
- 				<div class="container-fluid">
- 					<ol class="breadcrumb">
-					  <li><a href="#">主页</a></li>/
-					  <li><a href="#">资源库</a></li>/
-					  <li class="active">数据源</li>
-					</ol>
- 				</div>
- 			</div>
+ 			<#include "frame/route.ftl">
  			<div class="row">
 	 			<div class="container-fluid">
 	 			<div class="panel panel-default">
-				  <div class="panel-heading">Panel heading</div>
+				  <div class="panel-heading">机构信息</div>
 				  <div class="panel-body">
 				  <form role="form">
 				  	<div class="row">
@@ -96,10 +65,10 @@
 							  <input type="text" class="form-control" placeholder="用户名">
 							</div>
 				  		</div>
-				  		<div class="span2">
+				  		<div class="span1">
 					  		<div class="input-group clearfix input-ie">
 							 <span class="input-group-btn">
-						        <button class="btn btn-default btn-theme2" type="button">按钮</button>
+						        <button class="btn btn-default btn-theme2" type="button">查询</button>
 						      </span>
 							</div>
 				  		</div>
@@ -180,7 +149,8 @@
 				</table>
 				<div class="pull-right">
 					<ul class="pagination">
-					  <#-- <li class="disabled"><span>&laquo;</span></li> -->
+					  <li><span>共 18 条记录&nbsp;&nbsp;1/2 页</span></li>
+					  <li><span>&laquo;</span></li>
 					  <li class="active"><span>1 <span class="sr-only">(current)</span></span></li>
 					  <li><a href="#">2</a></li>
 					  <li><a href="#">3</a></li>
@@ -189,22 +159,14 @@
 					  <li><a href="#">&raquo;</a></li>
 					</ul>
 				</div>
-				</div>
+			  </div>
  			</div>
 		</div>
 	</div>
 </div>
 </div>
-<#-- 底部信息  -->
- <footer class="lxui-docs-footer">
-	 <div class="container clearfix">
-	 	<div class="hn-center lxui-docs-footInfo">版权所有 ©  All Rights <b>Bob.Zhang</b> Reserved. </div>
-	 	<#-- 
-	 	<div class="pull-left lxui-docs-footInfo">左侧 <b>强调</b> 普通文字</div>
-		<div class="pull-right lxui-docs-footInfo"><a >右侧</a></div>
-	 	 -->
-	 </div>
-</footer>
+
+<#include "frame/footer.ftl">
 <#include "frame/js-ie.ftl">
 </body>
 </html>

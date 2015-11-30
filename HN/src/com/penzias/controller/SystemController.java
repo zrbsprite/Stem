@@ -36,4 +36,14 @@ public class SystemController {
 			e.printStackTrace();
 		}
 	}
+	
+	@RequestMapping("/404")
+	public String error404(){
+		return "system/404";
+	}
+	
+	@RequestMapping("/500")
+	public String error500(){
+		return "system/500";
+	}
 }

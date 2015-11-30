@@ -232,7 +232,7 @@ a:hover {
 .navbar-static-top .container,
 .navbar-fixed-top .container,
 .navbar-fixed-bottom .container {
-  width: 940px;
+  width: 1170px;
 }
 
 .span12 {
@@ -4657,7 +4657,7 @@ input[type="submit"].btn.btn-mini {
 .navbar-static-top .container,
 .navbar-fixed-top .container,
 .navbar-fixed-bottom .container {
-  width: 940px;
+  width: 1170px;
 }
 
 .navbar-fixed-top {
@@ -4750,9 +4750,9 @@ input[type="submit"].btn.btn-mini {
 .navbar .nav .active a,
 .navbar .nav .active a:hover,
 .navbar .nav .active a:focus {
-  color: #555555;
+  color: #fff;
   text-decoration: none;
-  background-color: #e7e7e7;
+  background-color: #3071A9;
 }
 
 .navbar .nav * .active a,

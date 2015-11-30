@@ -1,5 +1,6 @@
 $(function(){
-	$("ul li").on("click",function(){
+	//左侧菜单
+	$(".bs-sidenav li").on("click",function(){
 		var $this = $(this);
 		if($this.hasClass("li-parent")){
 			$(".parent-selected").removeClass("parent-selected");
