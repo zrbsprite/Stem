@@ -13,11 +13,13 @@ public class Statement extends StatementKey {
 
     private BigDecimal netvalue;
 
+    private BigDecimal purchaseamount;
+
+    private BigDecimal totalpurchaseamount;
+
     private BigDecimal exchangerate;
 
     private BigDecimal addvalueofassert;
-
-    private BigDecimal purchaseamount;
 
     private Integer purchaseshares;
 
@@ -26,6 +28,8 @@ public class Statement extends StatementKey {
     private Integer redemptionshares;
 
     private BigDecimal redemptionamount;
+
+    private BigDecimal totalredemptionamount;
 
     private Integer totalshares;
 
@@ -83,6 +87,22 @@ public class Statement extends StatementKey {
         this.netvalue = netvalue;
     }
 
+    public BigDecimal getPurchaseamount() {
+        return purchaseamount;
+    }
+
+    public void setPurchaseamount(BigDecimal purchaseamount) {
+        this.purchaseamount = purchaseamount;
+    }
+
+    public BigDecimal getTotalpurchaseamount() {
+        return totalpurchaseamount;
+    }
+
+    public void setTotalpurchaseamount(BigDecimal totalpurchaseamount) {
+        this.totalpurchaseamount = totalpurchaseamount;
+    }
+
     public BigDecimal getExchangerate() {
         return exchangerate;
     }
@@ -97,14 +117,6 @@ public class Statement extends StatementKey {
 
     public void setAddvalueofassert(BigDecimal addvalueofassert) {
         this.addvalueofassert = addvalueofassert;
-    }
-
-    public BigDecimal getPurchaseamount() {
-        return purchaseamount;
-    }
-
-    public void setPurchaseamount(BigDecimal purchaseamount) {
-        this.purchaseamount = purchaseamount;
     }
 
     public Integer getPurchaseshares() {
@@ -137,6 +149,14 @@ public class Statement extends StatementKey {
 
     public void setRedemptionamount(BigDecimal redemptionamount) {
         this.redemptionamount = redemptionamount;
+    }
+
+    public BigDecimal getTotalredemptionamount() {
+        return totalredemptionamount;
+    }
+
+    public void setTotalredemptionamount(BigDecimal totalredemptionamount) {
+        this.totalredemptionamount = totalredemptionamount;
     }
 
     public Integer getTotalshares() {

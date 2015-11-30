@@ -113,21 +113,11 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 					sb.append("\n");
 					sb.append("对账日期："+ sf.format(statement.getCheckdate()));
 					sb.append("\n");
-					sb.append("净值："+statement.getNetvalue().toString());
+					sb.append("当前净值："+statement.getNetvalue().toString());
 					sb.append("\n");
-					sb.append("购买金额：" + statement.getPurchaseamount().toString());
-					//sb.append("\n");
-					//sb.append("当日汇率：" + statement.getExchangerate().toString());
-//					sb.append("\n");
-//					sb.append("资产增值：" + statement.getAddvalueofassert().toString());
+					sb.append("总购买金额：" + statement.getTotalpurchaseamount().toString());
 					sb.append("\n");
-					sb.append("购买份额：" + statement.getPurchaseshares().toString());
-					sb.append("\n");
-					sb.append("本期余额：" + statement.getCurrentbalance().toString());
-					sb.append("\n");
-					sb.append("赎回份额：" + statement.getRedemptionshares().toString());
-					sb.append("\n");
-					sb.append("赎回金额：" + statement.getRedemptionamount().toString());
+					sb.append("总赎回金额：" + statement.getTotalredemptionamount().toString());
 					sb.append("\n");
 					sb.append("总份额：" + statement.getTotalshares().toString());
 					sb.append("\n");
@@ -138,12 +128,6 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 					sb.append("总收益："+statement.getTotalreturn().toString());
 					sb.append("\n");
 					sb.append("总收益率：" + statement.getTotalrate().toString());
-					sb.append("\n");
-					sb.append("本期收益："+ statement.getCurrentreturn().toString());
-					sb.append("\n");
-					sb.append("本期收益率："+ statement.getCurrentrate().toString());
-					//sb.append("\n");
-					//sb.append("本期分红：" + statement.getCurrentdividend().toString());
 					if(i<size-1){
 						sb.append("\n\n");
 					}
@@ -405,21 +389,11 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 				sb.append("\n");
 				sb.append("对账日期："+ sf.format(statement.getCheckdate()));
 				sb.append("\n");
-				sb.append("净值："+statement.getNetvalue().toString());
+				sb.append("当前净值："+statement.getNetvalue().toString());
 				sb.append("\n");
-				sb.append("购买金额：" + statement.getPurchaseamount().toString());
-				//sb.append("\n");
-				//sb.append("当日汇率：" + statement.getExchangerate().toString());
-//				sb.append("\n");
-//				sb.append("资产增值：" + statement.getAddvalueofassert().toString());
+				sb.append("总购买金额：" + statement.getTotalpurchaseamount().toString());
 				sb.append("\n");
-				sb.append("购买份额：" + statement.getPurchaseshares().toString());
-				sb.append("\n");
-				sb.append("本期余额：" + statement.getCurrentbalance().toString());
-				sb.append("\n");
-				sb.append("赎回份额：" + statement.getRedemptionshares().toString());
-				sb.append("\n");
-				sb.append("赎回金额：" + statement.getRedemptionamount().toString());
+				sb.append("总赎回金额：" + statement.getTotalredemptionamount().toString());
 				sb.append("\n");
 				sb.append("总份额：" + statement.getTotalshares().toString());
 				sb.append("\n");
@@ -430,12 +404,6 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 				sb.append("总收益："+statement.getTotalreturn().toString());
 				sb.append("\n");
 				sb.append("总收益率：" + statement.getTotalrate().toString());
-				sb.append("\n");
-				sb.append("本期收益："+ statement.getCurrentreturn().toString());
-				sb.append("\n");
-				sb.append("本期收益率："+ statement.getCurrentrate().toString());
-				//sb.append("\n");
-				//sb.append("本期分红：" + statement.getCurrentdividend().toString());
 				if(i<size-1){
 					sb.append("\n\n");
 				}

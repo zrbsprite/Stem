@@ -673,6 +673,126 @@ public class StatementExample {
             return (Criteria) this;
         }
 
+        public Criteria andPurchaseamountIsNull() {
+            addCriterion("PurchaseAmount is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurchaseamountIsNotNull() {
+            addCriterion("PurchaseAmount is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurchaseamountEqualTo(BigDecimal value) {
+            addCriterion("PurchaseAmount =", value, "purchaseamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurchaseamountNotEqualTo(BigDecimal value) {
+            addCriterion("PurchaseAmount <>", value, "purchaseamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurchaseamountGreaterThan(BigDecimal value) {
+            addCriterion("PurchaseAmount >", value, "purchaseamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurchaseamountGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("PurchaseAmount >=", value, "purchaseamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurchaseamountLessThan(BigDecimal value) {
+            addCriterion("PurchaseAmount <", value, "purchaseamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurchaseamountLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("PurchaseAmount <=", value, "purchaseamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurchaseamountIn(List<BigDecimal> values) {
+            addCriterion("PurchaseAmount in", values, "purchaseamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurchaseamountNotIn(List<BigDecimal> values) {
+            addCriterion("PurchaseAmount not in", values, "purchaseamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurchaseamountBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("PurchaseAmount between", value1, value2, "purchaseamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andPurchaseamountNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("PurchaseAmount not between", value1, value2, "purchaseamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalpurchaseamountIsNull() {
+            addCriterion("TotalPurchaseAmount is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalpurchaseamountIsNotNull() {
+            addCriterion("TotalPurchaseAmount is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalpurchaseamountEqualTo(BigDecimal value) {
+            addCriterion("TotalPurchaseAmount =", value, "totalpurchaseamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalpurchaseamountNotEqualTo(BigDecimal value) {
+            addCriterion("TotalPurchaseAmount <>", value, "totalpurchaseamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalpurchaseamountGreaterThan(BigDecimal value) {
+            addCriterion("TotalPurchaseAmount >", value, "totalpurchaseamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalpurchaseamountGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("TotalPurchaseAmount >=", value, "totalpurchaseamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalpurchaseamountLessThan(BigDecimal value) {
+            addCriterion("TotalPurchaseAmount <", value, "totalpurchaseamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalpurchaseamountLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("TotalPurchaseAmount <=", value, "totalpurchaseamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalpurchaseamountIn(List<BigDecimal> values) {
+            addCriterion("TotalPurchaseAmount in", values, "totalpurchaseamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalpurchaseamountNotIn(List<BigDecimal> values) {
+            addCriterion("TotalPurchaseAmount not in", values, "totalpurchaseamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalpurchaseamountBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("TotalPurchaseAmount between", value1, value2, "totalpurchaseamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalpurchaseamountNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("TotalPurchaseAmount not between", value1, value2, "totalpurchaseamount");
+            return (Criteria) this;
+        }
+
         public Criteria andExchangerateIsNull() {
             addCriterion("ExchangeRate is null");
             return (Criteria) this;
@@ -790,66 +910,6 @@ public class StatementExample {
 
         public Criteria andAddvalueofassertNotBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("AddValueOfAssert not between", value1, value2, "addvalueofassert");
-            return (Criteria) this;
-        }
-
-        public Criteria andPurchaseamountIsNull() {
-            addCriterion("PurchaseAmount is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPurchaseamountIsNotNull() {
-            addCriterion("PurchaseAmount is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andPurchaseamountEqualTo(BigDecimal value) {
-            addCriterion("PurchaseAmount =", value, "purchaseamount");
-            return (Criteria) this;
-        }
-
-        public Criteria andPurchaseamountNotEqualTo(BigDecimal value) {
-            addCriterion("PurchaseAmount <>", value, "purchaseamount");
-            return (Criteria) this;
-        }
-
-        public Criteria andPurchaseamountGreaterThan(BigDecimal value) {
-            addCriterion("PurchaseAmount >", value, "purchaseamount");
-            return (Criteria) this;
-        }
-
-        public Criteria andPurchaseamountGreaterThanOrEqualTo(BigDecimal value) {
-            addCriterion("PurchaseAmount >=", value, "purchaseamount");
-            return (Criteria) this;
-        }
-
-        public Criteria andPurchaseamountLessThan(BigDecimal value) {
-            addCriterion("PurchaseAmount <", value, "purchaseamount");
-            return (Criteria) this;
-        }
-
-        public Criteria andPurchaseamountLessThanOrEqualTo(BigDecimal value) {
-            addCriterion("PurchaseAmount <=", value, "purchaseamount");
-            return (Criteria) this;
-        }
-
-        public Criteria andPurchaseamountIn(List<BigDecimal> values) {
-            addCriterion("PurchaseAmount in", values, "purchaseamount");
-            return (Criteria) this;
-        }
-
-        public Criteria andPurchaseamountNotIn(List<BigDecimal> values) {
-            addCriterion("PurchaseAmount not in", values, "purchaseamount");
-            return (Criteria) this;
-        }
-
-        public Criteria andPurchaseamountBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("PurchaseAmount between", value1, value2, "purchaseamount");
-            return (Criteria) this;
-        }
-
-        public Criteria andPurchaseamountNotBetween(BigDecimal value1, BigDecimal value2) {
-            addCriterion("PurchaseAmount not between", value1, value2, "purchaseamount");
             return (Criteria) this;
         }
 
@@ -1090,6 +1150,66 @@ public class StatementExample {
 
         public Criteria andRedemptionamountNotBetween(BigDecimal value1, BigDecimal value2) {
             addCriterion("RedemptionAmount not between", value1, value2, "redemptionamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalredemptionamountIsNull() {
+            addCriterion("TotalRedemptionAmount is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalredemptionamountIsNotNull() {
+            addCriterion("TotalRedemptionAmount is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalredemptionamountEqualTo(BigDecimal value) {
+            addCriterion("TotalRedemptionAmount =", value, "totalredemptionamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalredemptionamountNotEqualTo(BigDecimal value) {
+            addCriterion("TotalRedemptionAmount <>", value, "totalredemptionamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalredemptionamountGreaterThan(BigDecimal value) {
+            addCriterion("TotalRedemptionAmount >", value, "totalredemptionamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalredemptionamountGreaterThanOrEqualTo(BigDecimal value) {
+            addCriterion("TotalRedemptionAmount >=", value, "totalredemptionamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalredemptionamountLessThan(BigDecimal value) {
+            addCriterion("TotalRedemptionAmount <", value, "totalredemptionamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalredemptionamountLessThanOrEqualTo(BigDecimal value) {
+            addCriterion("TotalRedemptionAmount <=", value, "totalredemptionamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalredemptionamountIn(List<BigDecimal> values) {
+            addCriterion("TotalRedemptionAmount in", values, "totalredemptionamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalredemptionamountNotIn(List<BigDecimal> values) {
+            addCriterion("TotalRedemptionAmount not in", values, "totalredemptionamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalredemptionamountBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("TotalRedemptionAmount between", value1, value2, "totalredemptionamount");
+            return (Criteria) this;
+        }
+
+        public Criteria andTotalredemptionamountNotBetween(BigDecimal value1, BigDecimal value2) {
+            addCriterion("TotalRedemptionAmount not between", value1, value2, "totalredemptionamount");
             return (Criteria) this;
         }
 

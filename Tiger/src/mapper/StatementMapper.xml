@@ -10,13 +10,15 @@
     <result column="CustomerID" property="customerid" jdbcType="VARCHAR" />
     <result column="FundType" property="fundtype" jdbcType="VARCHAR" />
     <result column="NetValue" property="netvalue" jdbcType="DECIMAL" />
+    <result column="PurchaseAmount" property="purchaseamount" jdbcType="DECIMAL" />
+    <result column="TotalPurchaseAmount" property="totalpurchaseamount" jdbcType="DECIMAL" />
     <result column="ExchangeRate" property="exchangerate" jdbcType="DECIMAL" />
     <result column="AddValueOfAssert" property="addvalueofassert" jdbcType="DECIMAL" />
-    <result column="PurchaseAmount" property="purchaseamount" jdbcType="DECIMAL" />
     <result column="PurchaseShares" property="purchaseshares" jdbcType="INTEGER" />
     <result column="CurrentBalance" property="currentbalance" jdbcType="DECIMAL" />
     <result column="RedemptionShares" property="redemptionshares" jdbcType="INTEGER" />
     <result column="RedemptionAmount" property="redemptionamount" jdbcType="DECIMAL" />
+    <result column="TotalRedemptionAmount" property="totalredemptionamount" jdbcType="DECIMAL" />
     <result column="TotalShares" property="totalshares" jdbcType="INTEGER" />
     <result column="TotalAmount" property="totalamount" jdbcType="DECIMAL" />
     <result column="TotalBalance" property="totalbalance" jdbcType="DECIMAL" />
@@ -86,9 +88,9 @@
   </sql>
   <sql id="Base_Column_List" >
     IDCard, CheckDate, FundName, CustomerName, Phone, CustomerID, FundType, NetValue, 
-    ExchangeRate, AddValueOfAssert, PurchaseAmount, PurchaseShares, CurrentBalance, RedemptionShares, 
-    RedemptionAmount, TotalShares, TotalAmount, TotalBalance, TotalReturn, TotalRate, 
-    CurrentReturn, CurrentRate, CurrentDividend
+    PurchaseAmount, TotalPurchaseAmount, ExchangeRate, AddValueOfAssert, PurchaseShares, 
+    CurrentBalance, RedemptionShares, RedemptionAmount, TotalRedemptionAmount, TotalShares, 
+    TotalAmount, TotalBalance, TotalReturn, TotalRate, CurrentReturn, CurrentRate, CurrentDividend
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.stem.entity.StatementExample" >
     select
@@ -127,17 +129,19 @@
   <insert id="insert" parameterType="com.stem.entity.Statement" >
     insert into statement (IDCard, CheckDate, FundName, 
       CustomerName, Phone, CustomerID, 
-      FundType, NetValue, ExchangeRate, 
-      AddValueOfAssert, PurchaseAmount, PurchaseShares, 
-      CurrentBalance, RedemptionShares, RedemptionAmount, 
+      FundType, NetValue, PurchaseAmount, 
+      TotalPurchaseAmount, ExchangeRate, AddValueOfAssert, 
+      PurchaseShares, CurrentBalance, RedemptionShares, 
+      RedemptionAmount, TotalRedemptionAmount, 
       TotalShares, TotalAmount, TotalBalance, 
       TotalReturn, TotalRate, CurrentReturn, 
       CurrentRate, CurrentDividend)
     values (#{idcard,jdbcType=VARCHAR}, #{checkdate,jdbcType=DATE}, #{fundname,jdbcType=VARCHAR}, 
       #{customername,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, #{customerid,jdbcType=VARCHAR}, 
-      #{fundtype,jdbcType=VARCHAR}, #{netvalue,jdbcType=DECIMAL}, #{exchangerate,jdbcType=DECIMAL}, 
-      #{addvalueofassert,jdbcType=DECIMAL}, #{purchaseamount,jdbcType=DECIMAL}, #{purchaseshares,jdbcType=INTEGER}, 
-      #{currentbalance,jdbcType=DECIMAL}, #{redemptionshares,jdbcType=INTEGER}, #{redemptionamount,jdbcType=DECIMAL}, 
+      #{fundtype,jdbcType=VARCHAR}, #{netvalue,jdbcType=DECIMAL}, #{purchaseamount,jdbcType=DECIMAL}, 
+      #{totalpurchaseamount,jdbcType=DECIMAL}, #{exchangerate,jdbcType=DECIMAL}, #{addvalueofassert,jdbcType=DECIMAL}, 
+      #{purchaseshares,jdbcType=INTEGER}, #{currentbalance,jdbcType=DECIMAL}, #{redemptionshares,jdbcType=INTEGER}, 
+      #{redemptionamount,jdbcType=DECIMAL}, #{totalredemptionamount,jdbcType=DECIMAL}, 
       #{totalshares,jdbcType=INTEGER}, #{totalamount,jdbcType=DECIMAL}, #{totalbalance,jdbcType=DECIMAL}, 
       #{totalreturn,jdbcType=DECIMAL}, #{totalrate,jdbcType=DECIMAL}, #{currentreturn,jdbcType=DECIMAL}, 
       #{currentrate,jdbcType=DECIMAL}, #{currentdividend,jdbcType=DECIMAL})
@@ -169,14 +173,17 @@
       <if test="netvalue != null" >
         NetValue,
       </if>
+      <if test="purchaseamount != null" >
+        PurchaseAmount,
+      </if>
+      <if test="totalpurchaseamount != null" >
+        TotalPurchaseAmount,
+      </if>
       <if test="exchangerate != null" >
         ExchangeRate,
       </if>
       <if test="addvalueofassert != null" >
         AddValueOfAssert,
-      </if>
-      <if test="purchaseamount != null" >
-        PurchaseAmount,
       </if>
       <if test="purchaseshares != null" >
         PurchaseShares,
@@ -189,6 +196,9 @@
       </if>
       <if test="redemptionamount != null" >
         RedemptionAmount,
+      </if>
+      <if test="totalredemptionamount != null" >
+        TotalRedemptionAmount,
       </if>
       <if test="totalshares != null" >
         TotalShares,
@@ -240,14 +250,17 @@
       <if test="netvalue != null" >
         #{netvalue,jdbcType=DECIMAL},
       </if>
+      <if test="purchaseamount != null" >
+        #{purchaseamount,jdbcType=DECIMAL},
+      </if>
+      <if test="totalpurchaseamount != null" >
+        #{totalpurchaseamount,jdbcType=DECIMAL},
+      </if>
       <if test="exchangerate != null" >
         #{exchangerate,jdbcType=DECIMAL},
       </if>
       <if test="addvalueofassert != null" >
         #{addvalueofassert,jdbcType=DECIMAL},
-      </if>
-      <if test="purchaseamount != null" >
-        #{purchaseamount,jdbcType=DECIMAL},
       </if>
       <if test="purchaseshares != null" >
         #{purchaseshares,jdbcType=INTEGER},
@@ -260,6 +273,9 @@
       </if>
       <if test="redemptionamount != null" >
         #{redemptionamount,jdbcType=DECIMAL},
+      </if>
+      <if test="totalredemptionamount != null" >
+        #{totalredemptionamount,jdbcType=DECIMAL},
       </if>
       <if test="totalshares != null" >
         #{totalshares,jdbcType=INTEGER},
@@ -320,14 +336,17 @@
       <if test="record.netvalue != null" >
         NetValue = #{record.netvalue,jdbcType=DECIMAL},
       </if>
+      <if test="record.purchaseamount != null" >
+        PurchaseAmount = #{record.purchaseamount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalpurchaseamount != null" >
+        TotalPurchaseAmount = #{record.totalpurchaseamount,jdbcType=DECIMAL},
+      </if>
       <if test="record.exchangerate != null" >
         ExchangeRate = #{record.exchangerate,jdbcType=DECIMAL},
       </if>
       <if test="record.addvalueofassert != null" >
         AddValueOfAssert = #{record.addvalueofassert,jdbcType=DECIMAL},
-      </if>
-      <if test="record.purchaseamount != null" >
-        PurchaseAmount = #{record.purchaseamount,jdbcType=DECIMAL},
       </if>
       <if test="record.purchaseshares != null" >
         PurchaseShares = #{record.purchaseshares,jdbcType=INTEGER},
@@ -340,6 +359,9 @@
       </if>
       <if test="record.redemptionamount != null" >
         RedemptionAmount = #{record.redemptionamount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalredemptionamount != null" >
+        TotalRedemptionAmount = #{record.totalredemptionamount,jdbcType=DECIMAL},
       </if>
       <if test="record.totalshares != null" >
         TotalShares = #{record.totalshares,jdbcType=INTEGER},
@@ -380,13 +402,15 @@
       CustomerID = #{record.customerid,jdbcType=VARCHAR},
       FundType = #{record.fundtype,jdbcType=VARCHAR},
       NetValue = #{record.netvalue,jdbcType=DECIMAL},
+      PurchaseAmount = #{record.purchaseamount,jdbcType=DECIMAL},
+      TotalPurchaseAmount = #{record.totalpurchaseamount,jdbcType=DECIMAL},
       ExchangeRate = #{record.exchangerate,jdbcType=DECIMAL},
       AddValueOfAssert = #{record.addvalueofassert,jdbcType=DECIMAL},
-      PurchaseAmount = #{record.purchaseamount,jdbcType=DECIMAL},
       PurchaseShares = #{record.purchaseshares,jdbcType=INTEGER},
       CurrentBalance = #{record.currentbalance,jdbcType=DECIMAL},
       RedemptionShares = #{record.redemptionshares,jdbcType=INTEGER},
       RedemptionAmount = #{record.redemptionamount,jdbcType=DECIMAL},
+      TotalRedemptionAmount = #{record.totalredemptionamount,jdbcType=DECIMAL},
       TotalShares = #{record.totalshares,jdbcType=INTEGER},
       TotalAmount = #{record.totalamount,jdbcType=DECIMAL},
       TotalBalance = #{record.totalbalance,jdbcType=DECIMAL},
@@ -417,14 +441,17 @@
       <if test="netvalue != null" >
         NetValue = #{netvalue,jdbcType=DECIMAL},
       </if>
+      <if test="purchaseamount != null" >
+        PurchaseAmount = #{purchaseamount,jdbcType=DECIMAL},
+      </if>
+      <if test="totalpurchaseamount != null" >
+        TotalPurchaseAmount = #{totalpurchaseamount,jdbcType=DECIMAL},
+      </if>
       <if test="exchangerate != null" >
         ExchangeRate = #{exchangerate,jdbcType=DECIMAL},
       </if>
       <if test="addvalueofassert != null" >
         AddValueOfAssert = #{addvalueofassert,jdbcType=DECIMAL},
-      </if>
-      <if test="purchaseamount != null" >
-        PurchaseAmount = #{purchaseamount,jdbcType=DECIMAL},
       </if>
       <if test="purchaseshares != null" >
         PurchaseShares = #{purchaseshares,jdbcType=INTEGER},
@@ -437,6 +464,9 @@
       </if>
       <if test="redemptionamount != null" >
         RedemptionAmount = #{redemptionamount,jdbcType=DECIMAL},
+      </if>
+      <if test="totalredemptionamount != null" >
+        TotalRedemptionAmount = #{totalredemptionamount,jdbcType=DECIMAL},
       </if>
       <if test="totalshares != null" >
         TotalShares = #{totalshares,jdbcType=INTEGER},
@@ -474,13 +504,15 @@
       CustomerID = #{customerid,jdbcType=VARCHAR},
       FundType = #{fundtype,jdbcType=VARCHAR},
       NetValue = #{netvalue,jdbcType=DECIMAL},
+      PurchaseAmount = #{purchaseamount,jdbcType=DECIMAL},
+      TotalPurchaseAmount = #{totalpurchaseamount,jdbcType=DECIMAL},
       ExchangeRate = #{exchangerate,jdbcType=DECIMAL},
       AddValueOfAssert = #{addvalueofassert,jdbcType=DECIMAL},
-      PurchaseAmount = #{purchaseamount,jdbcType=DECIMAL},
       PurchaseShares = #{purchaseshares,jdbcType=INTEGER},
       CurrentBalance = #{currentbalance,jdbcType=DECIMAL},
       RedemptionShares = #{redemptionshares,jdbcType=INTEGER},
       RedemptionAmount = #{redemptionamount,jdbcType=DECIMAL},
+      TotalRedemptionAmount = #{totalredemptionamount,jdbcType=DECIMAL},
       TotalShares = #{totalshares,jdbcType=INTEGER},
       TotalAmount = #{totalamount,jdbcType=DECIMAL},
       TotalBalance = #{totalbalance,jdbcType=DECIMAL},
