@@ -1,29 +1,54 @@
-#login-container {
-    width: 425px;
-    margin: 300px auto 0;
-}
-#login-content{
-	padding: 20px;
-    background: #FFF;
-    border: 1px solid #3071A9;
-    border-radius: 5px;
-    box-shadow: 0 0 6px rgba(0,0,0,.10);
-}
-.input-ie{
-	height: 14px;
-	line-height: 14px;
-}
-.input-ie input[type=checkbox], 
-.input-ie input[type=radio]{
-	margin: 0;
-	vertical-align: middle;
-}
-.margin-right-2{
-	margin-right: 4%;
-}
 body{
 	background-image: url("../images/login_bg.png");
 	background-attachment: scroll;
 	background-position: 0 0;
 	background-repeat: repeat;
+}
+
+#login-container{
+  width: 880px;
+  margin: 300px auto 0;
+  background-image: url("../images/login.png");
+  background-attachment:scroll;
+  background-color:none;
+  background-position:0 0;
+  background-repeat:no-repeat;
+  height: 425px;
+}
+#login-container input{
+	width: 185px;
+}
+#div_username,
+#div_password,
+#div_btn{
+	width: 100%;
+	display: block;
+	text-align: center;
+}
+#div_username{
+	margin: 0 auto;
+	position: relative;
+	top: 163px;
+    left: 25px;
+}
+#div_password{
+	margin: 0 auto;
+	position: relative;
+	top: 172px;
+    left: 25px;
+}
+@-moz-document url-prefix() { 
+	#div_password { top: 175px; } 
+}
+#div_btn{
+	margin: 0 auto;
+	position: relative;
+	top: 200px;
+    left: 12px;
+}
+#div_btn input{
+	width: 75px;
+	height: 32px;
+	background-color: transparent;
+	border: none;
 }
