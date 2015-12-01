@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.penzias.dao.DiabetesHistoryMapper" >
+  <resultMap id="BaseResultMap" type="com.penzias.entity.DiabetesHistory" >
+    <id column="DiabetesHistoryID" property="diabeteshistoryid" jdbcType="INTEGER" />
+    <result column="CrowdID" property="crowdid" jdbcType="INTEGER" />
+    <result column="Frequency" property="frequency" jdbcType="VARCHAR" />
+    <result column="IsDiabetes" property="isdiabetes" jdbcType="VARCHAR" />
+    <result column="DiagnosisTime" property="diagnosistime" jdbcType="DATE" />
+    <result column="IsHypoglycemic" property="ishypoglycemic" jdbcType="VARCHAR" />
+    <result column="IsInsulin" property="isinsulin" jdbcType="VARCHAR" />
+    <result column="PharmacySituation" property="pharmacysituation" jdbcType="VARCHAR" />
+    <result column="Control" property="control" jdbcType="VARCHAR" />
+    <result column="ControlYeat" property="controlyeat" jdbcType="VARCHAR" />
+    <result column="Flag" property="flag" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    DiabetesHistoryID, CrowdID, Frequency, IsDiabetes, DiagnosisTime, IsHypoglycemic, 
+    IsInsulin, PharmacySituation, Control, ControlYeat, Flag
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.penzias.entity.DiabetesHistoryExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from diabetes_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from diabetes_history
+    where DiabetesHistoryID = #{diabeteshistoryid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from diabetes_history
+    where DiabetesHistoryID = #{diabeteshistoryid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.penzias.entity.DiabetesHistoryExample" >
+    delete from diabetes_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.penzias.entity.DiabetesHistory" >
+    insert into diabetes_history (DiabetesHistoryID, CrowdID, Frequency, 
+      IsDiabetes, DiagnosisTime, IsHypoglycemic, 
+      IsInsulin, PharmacySituation, Control, 
+      ControlYeat, Flag)
+    values (#{diabeteshistoryid,jdbcType=INTEGER}, #{crowdid,jdbcType=INTEGER}, #{frequency,jdbcType=VARCHAR}, 
+      #{isdiabetes,jdbcType=VARCHAR}, #{diagnosistime,jdbcType=DATE}, #{ishypoglycemic,jdbcType=VARCHAR}, 
+      #{isinsulin,jdbcType=VARCHAR}, #{pharmacysituation,jdbcType=VARCHAR}, #{control,jdbcType=VARCHAR}, 
+      #{controlyeat,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.penzias.entity.DiabetesHistory" >
+    insert into diabetes_history
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="diabeteshistoryid != null" >
+        DiabetesHistoryID,
+      </if>
+      <if test="crowdid != null" >
+        CrowdID,
+      </if>
+      <if test="frequency != null" >
+        Frequency,
+      </if>
+      <if test="isdiabetes != null" >
+        IsDiabetes,
+      </if>
+      <if test="diagnosistime != null" >
+        DiagnosisTime,
+      </if>
+      <if test="ishypoglycemic != null" >
+        IsHypoglycemic,
+      </if>
+      <if test="isinsulin != null" >
+        IsInsulin,
+      </if>
+      <if test="pharmacysituation != null" >
+        PharmacySituation,
+      </if>
+      <if test="control != null" >
+        Control,
+      </if>
+      <if test="controlyeat != null" >
+        ControlYeat,
+      </if>
+      <if test="flag != null" >
+        Flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="diabeteshistoryid != null" >
+        #{diabeteshistoryid,jdbcType=INTEGER},
+      </if>
+      <if test="crowdid != null" >
+        #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="frequency != null" >
+        #{frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="isdiabetes != null" >
+        #{isdiabetes,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosistime != null" >
+        #{diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="ishypoglycemic != null" >
+        #{ishypoglycemic,jdbcType=VARCHAR},
+      </if>
+      <if test="isinsulin != null" >
+        #{isinsulin,jdbcType=VARCHAR},
+      </if>
+      <if test="pharmacysituation != null" >
+        #{pharmacysituation,jdbcType=VARCHAR},
+      </if>
+      <if test="control != null" >
+        #{control,jdbcType=VARCHAR},
+      </if>
+      <if test="controlyeat != null" >
+        #{controlyeat,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.penzias.entity.DiabetesHistoryExample" resultType="java.lang.Integer" >
+    select count(*) from diabetes_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update diabetes_history
+    <set >
+      <if test="record.diabeteshistoryid != null" >
+        DiabetesHistoryID = #{record.diabeteshistoryid,jdbcType=INTEGER},
+      </if>
+      <if test="record.crowdid != null" >
+        CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="record.frequency != null" >
+        Frequency = #{record.frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isdiabetes != null" >
+        IsDiabetes = #{record.isdiabetes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.diagnosistime != null" >
+        DiagnosisTime = #{record.diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="record.ishypoglycemic != null" >
+        IsHypoglycemic = #{record.ishypoglycemic,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isinsulin != null" >
+        IsInsulin = #{record.isinsulin,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pharmacysituation != null" >
+        PharmacySituation = #{record.pharmacysituation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.control != null" >
+        Control = #{record.control,jdbcType=VARCHAR},
+      </if>
+      <if test="record.controlyeat != null" >
+        ControlYeat = #{record.controlyeat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flag != null" >
+        Flag = #{record.flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update diabetes_history
+    set DiabetesHistoryID = #{record.diabeteshistoryid,jdbcType=INTEGER},
+      CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      Frequency = #{record.frequency,jdbcType=VARCHAR},
+      IsDiabetes = #{record.isdiabetes,jdbcType=VARCHAR},
+      DiagnosisTime = #{record.diagnosistime,jdbcType=DATE},
+      IsHypoglycemic = #{record.ishypoglycemic,jdbcType=VARCHAR},
+      IsInsulin = #{record.isinsulin,jdbcType=VARCHAR},
+      PharmacySituation = #{record.pharmacysituation,jdbcType=VARCHAR},
+      Control = #{record.control,jdbcType=VARCHAR},
+      ControlYeat = #{record.controlyeat,jdbcType=VARCHAR},
+      Flag = #{record.flag,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.penzias.entity.DiabetesHistory" >
+    update diabetes_history
+    <set >
+      <if test="crowdid != null" >
+        CrowdID = #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="frequency != null" >
+        Frequency = #{frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="isdiabetes != null" >
+        IsDiabetes = #{isdiabetes,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosistime != null" >
+        DiagnosisTime = #{diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="ishypoglycemic != null" >
+        IsHypoglycemic = #{ishypoglycemic,jdbcType=VARCHAR},
+      </if>
+      <if test="isinsulin != null" >
+        IsInsulin = #{isinsulin,jdbcType=VARCHAR},
+      </if>
+      <if test="pharmacysituation != null" >
+        PharmacySituation = #{pharmacysituation,jdbcType=VARCHAR},
+      </if>
+      <if test="control != null" >
+        Control = #{control,jdbcType=VARCHAR},
+      </if>
+      <if test="controlyeat != null" >
+        ControlYeat = #{controlyeat,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        Flag = #{flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DiabetesHistoryID = #{diabeteshistoryid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.penzias.entity.DiabetesHistory" >
+    update diabetes_history
+    set CrowdID = #{crowdid,jdbcType=INTEGER},
+      Frequency = #{frequency,jdbcType=VARCHAR},
+      IsDiabetes = #{isdiabetes,jdbcType=VARCHAR},
+      DiagnosisTime = #{diagnosistime,jdbcType=DATE},
+      IsHypoglycemic = #{ishypoglycemic,jdbcType=VARCHAR},
+      IsInsulin = #{isinsulin,jdbcType=VARCHAR},
+      PharmacySituation = #{pharmacysituation,jdbcType=VARCHAR},
+      Control = #{control,jdbcType=VARCHAR},
+      ControlYeat = #{controlyeat,jdbcType=VARCHAR},
+      Flag = #{flag,jdbcType=VARCHAR}
+    where DiabetesHistoryID = #{diabeteshistoryid,jdbcType=INTEGER}
+  </update>
+</mapper>

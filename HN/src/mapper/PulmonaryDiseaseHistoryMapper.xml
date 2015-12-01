@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.penzias.dao.PulmonaryDiseaseHistoryMapper" >
+  <resultMap id="BaseResultMap" type="com.penzias.entity.PulmonaryDiseaseHistory" >
+    <id column="PulmonaryDiseaseHistoryID" property="pulmonarydiseasehistoryid" jdbcType="INTEGER" />
+    <result column="CrowdID" property="crowdid" jdbcType="INTEGER" />
+    <result column="IsPulmonaryDisease" property="ispulmonarydisease" jdbcType="VARCHAR" />
+    <result column="DiagnosisTime" property="diagnosistime" jdbcType="DATE" />
+    <result column="Slow" property="slow" jdbcType="VARCHAR" />
+    <result column="TurtleLung" property="turtlelung" jdbcType="VARCHAR" />
+    <result column="Tuberculosis" property="tuberculosis" jdbcType="VARCHAR" />
+    <result column="LungTumor" property="lungtumor" jdbcType="VARCHAR" />
+    <result column="PulmonaryEmbolism" property="pulmonaryembolism" jdbcType="VARCHAR" />
+    <result column="FLAG" property="flag" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    PulmonaryDiseaseHistoryID, CrowdID, IsPulmonaryDisease, DiagnosisTime, Slow, TurtleLung, 
+    Tuberculosis, LungTumor, PulmonaryEmbolism, FLAG
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.penzias.entity.PulmonaryDiseaseHistoryExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from pulmonary_disease_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from pulmonary_disease_history
+    where PulmonaryDiseaseHistoryID = #{pulmonarydiseasehistoryid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pulmonary_disease_history
+    where PulmonaryDiseaseHistoryID = #{pulmonarydiseasehistoryid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.penzias.entity.PulmonaryDiseaseHistoryExample" >
+    delete from pulmonary_disease_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.penzias.entity.PulmonaryDiseaseHistory" >
+    insert into pulmonary_disease_history (PulmonaryDiseaseHistoryID, CrowdID, 
+      IsPulmonaryDisease, DiagnosisTime, Slow, 
+      TurtleLung, Tuberculosis, LungTumor, 
+      PulmonaryEmbolism, FLAG)
+    values (#{pulmonarydiseasehistoryid,jdbcType=INTEGER}, #{crowdid,jdbcType=INTEGER}, 
+      #{ispulmonarydisease,jdbcType=VARCHAR}, #{diagnosistime,jdbcType=DATE}, #{slow,jdbcType=VARCHAR}, 
+      #{turtlelung,jdbcType=VARCHAR}, #{tuberculosis,jdbcType=VARCHAR}, #{lungtumor,jdbcType=VARCHAR}, 
+      #{pulmonaryembolism,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.penzias.entity.PulmonaryDiseaseHistory" >
+    insert into pulmonary_disease_history
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="pulmonarydiseasehistoryid != null" >
+        PulmonaryDiseaseHistoryID,
+      </if>
+      <if test="crowdid != null" >
+        CrowdID,
+      </if>
+      <if test="ispulmonarydisease != null" >
+        IsPulmonaryDisease,
+      </if>
+      <if test="diagnosistime != null" >
+        DiagnosisTime,
+      </if>
+      <if test="slow != null" >
+        Slow,
+      </if>
+      <if test="turtlelung != null" >
+        TurtleLung,
+      </if>
+      <if test="tuberculosis != null" >
+        Tuberculosis,
+      </if>
+      <if test="lungtumor != null" >
+        LungTumor,
+      </if>
+      <if test="pulmonaryembolism != null" >
+        PulmonaryEmbolism,
+      </if>
+      <if test="flag != null" >
+        FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="pulmonarydiseasehistoryid != null" >
+        #{pulmonarydiseasehistoryid,jdbcType=INTEGER},
+      </if>
+      <if test="crowdid != null" >
+        #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="ispulmonarydisease != null" >
+        #{ispulmonarydisease,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosistime != null" >
+        #{diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="slow != null" >
+        #{slow,jdbcType=VARCHAR},
+      </if>
+      <if test="turtlelung != null" >
+        #{turtlelung,jdbcType=VARCHAR},
+      </if>
+      <if test="tuberculosis != null" >
+        #{tuberculosis,jdbcType=VARCHAR},
+      </if>
+      <if test="lungtumor != null" >
+        #{lungtumor,jdbcType=VARCHAR},
+      </if>
+      <if test="pulmonaryembolism != null" >
+        #{pulmonaryembolism,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.penzias.entity.PulmonaryDiseaseHistoryExample" resultType="java.lang.Integer" >
+    select count(*) from pulmonary_disease_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update pulmonary_disease_history
+    <set >
+      <if test="record.pulmonarydiseasehistoryid != null" >
+        PulmonaryDiseaseHistoryID = #{record.pulmonarydiseasehistoryid,jdbcType=INTEGER},
+      </if>
+      <if test="record.crowdid != null" >
+        CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="record.ispulmonarydisease != null" >
+        IsPulmonaryDisease = #{record.ispulmonarydisease,jdbcType=VARCHAR},
+      </if>
+      <if test="record.diagnosistime != null" >
+        DiagnosisTime = #{record.diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="record.slow != null" >
+        Slow = #{record.slow,jdbcType=VARCHAR},
+      </if>
+      <if test="record.turtlelung != null" >
+        TurtleLung = #{record.turtlelung,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tuberculosis != null" >
+        Tuberculosis = #{record.tuberculosis,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lungtumor != null" >
+        LungTumor = #{record.lungtumor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pulmonaryembolism != null" >
+        PulmonaryEmbolism = #{record.pulmonaryembolism,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flag != null" >
+        FLAG = #{record.flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update pulmonary_disease_history
+    set PulmonaryDiseaseHistoryID = #{record.pulmonarydiseasehistoryid,jdbcType=INTEGER},
+      CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      IsPulmonaryDisease = #{record.ispulmonarydisease,jdbcType=VARCHAR},
+      DiagnosisTime = #{record.diagnosistime,jdbcType=DATE},
+      Slow = #{record.slow,jdbcType=VARCHAR},
+      TurtleLung = #{record.turtlelung,jdbcType=VARCHAR},
+      Tuberculosis = #{record.tuberculosis,jdbcType=VARCHAR},
+      LungTumor = #{record.lungtumor,jdbcType=VARCHAR},
+      PulmonaryEmbolism = #{record.pulmonaryembolism,jdbcType=VARCHAR},
+      FLAG = #{record.flag,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.penzias.entity.PulmonaryDiseaseHistory" >
+    update pulmonary_disease_history
+    <set >
+      <if test="crowdid != null" >
+        CrowdID = #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="ispulmonarydisease != null" >
+        IsPulmonaryDisease = #{ispulmonarydisease,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosistime != null" >
+        DiagnosisTime = #{diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="slow != null" >
+        Slow = #{slow,jdbcType=VARCHAR},
+      </if>
+      <if test="turtlelung != null" >
+        TurtleLung = #{turtlelung,jdbcType=VARCHAR},
+      </if>
+      <if test="tuberculosis != null" >
+        Tuberculosis = #{tuberculosis,jdbcType=VARCHAR},
+      </if>
+      <if test="lungtumor != null" >
+        LungTumor = #{lungtumor,jdbcType=VARCHAR},
+      </if>
+      <if test="pulmonaryembolism != null" >
+        PulmonaryEmbolism = #{pulmonaryembolism,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        FLAG = #{flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PulmonaryDiseaseHistoryID = #{pulmonarydiseasehistoryid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.penzias.entity.PulmonaryDiseaseHistory" >
+    update pulmonary_disease_history
+    set CrowdID = #{crowdid,jdbcType=INTEGER},
+      IsPulmonaryDisease = #{ispulmonarydisease,jdbcType=VARCHAR},
+      DiagnosisTime = #{diagnosistime,jdbcType=DATE},
+      Slow = #{slow,jdbcType=VARCHAR},
+      TurtleLung = #{turtlelung,jdbcType=VARCHAR},
+      Tuberculosis = #{tuberculosis,jdbcType=VARCHAR},
+      LungTumor = #{lungtumor,jdbcType=VARCHAR},
+      PulmonaryEmbolism = #{pulmonaryembolism,jdbcType=VARCHAR},
+      FLAG = #{flag,jdbcType=VARCHAR}
+    where PulmonaryDiseaseHistoryID = #{pulmonarydiseasehistoryid,jdbcType=INTEGER}
+  </update>
+</mapper>

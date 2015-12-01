@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.penzias.dao.KidneyDiseaseHostoryMapper" >
+  <resultMap id="BaseResultMap" type="com.penzias.entity.KidneyDiseaseHostory" >
+    <id column="KidneyDiseaseHistoryID" property="kidneydiseasehistoryid" jdbcType="INTEGER" />
+    <result column="CrowdID" property="crowdid" jdbcType="INTEGER" />
+    <result column="IsKidneyDisease" property="iskidneydisease" jdbcType="VARCHAR" />
+    <result column="DiagnosisTime" property="diagnosistime" jdbcType="DATE" />
+    <result column="Diabetes" property="diabetes" jdbcType="VARCHAR" />
+    <result column="Hypertension" property="hypertension" jdbcType="VARCHAR" />
+    <result column="RenalFailure" property="renalfailure" jdbcType="VARCHAR" />
+    <result column="AcuteNephritis" property="acutenephritis" jdbcType="VARCHAR" />
+    <result column="ChronicNephritis" property="chronicnephritis" jdbcType="VARCHAR" />
+    <result column="Flag" property="flag" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    KidneyDiseaseHistoryID, CrowdID, IsKidneyDisease, DiagnosisTime, Diabetes, Hypertension, 
+    RenalFailure, AcuteNephritis, ChronicNephritis, Flag
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.penzias.entity.KidneyDiseaseHostoryExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from kidney_disease_hostory
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from kidney_disease_hostory
+    where KidneyDiseaseHistoryID = #{kidneydiseasehistoryid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from kidney_disease_hostory
+    where KidneyDiseaseHistoryID = #{kidneydiseasehistoryid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.penzias.entity.KidneyDiseaseHostoryExample" >
+    delete from kidney_disease_hostory
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.penzias.entity.KidneyDiseaseHostory" >
+    insert into kidney_disease_hostory (KidneyDiseaseHistoryID, CrowdID, 
+      IsKidneyDisease, DiagnosisTime, Diabetes, 
+      Hypertension, RenalFailure, AcuteNephritis, 
+      ChronicNephritis, Flag)
+    values (#{kidneydiseasehistoryid,jdbcType=INTEGER}, #{crowdid,jdbcType=INTEGER}, 
+      #{iskidneydisease,jdbcType=VARCHAR}, #{diagnosistime,jdbcType=DATE}, #{diabetes,jdbcType=VARCHAR}, 
+      #{hypertension,jdbcType=VARCHAR}, #{renalfailure,jdbcType=VARCHAR}, #{acutenephritis,jdbcType=VARCHAR}, 
+      #{chronicnephritis,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.penzias.entity.KidneyDiseaseHostory" >
+    insert into kidney_disease_hostory
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="kidneydiseasehistoryid != null" >
+        KidneyDiseaseHistoryID,
+      </if>
+      <if test="crowdid != null" >
+        CrowdID,
+      </if>
+      <if test="iskidneydisease != null" >
+        IsKidneyDisease,
+      </if>
+      <if test="diagnosistime != null" >
+        DiagnosisTime,
+      </if>
+      <if test="diabetes != null" >
+        Diabetes,
+      </if>
+      <if test="hypertension != null" >
+        Hypertension,
+      </if>
+      <if test="renalfailure != null" >
+        RenalFailure,
+      </if>
+      <if test="acutenephritis != null" >
+        AcuteNephritis,
+      </if>
+      <if test="chronicnephritis != null" >
+        ChronicNephritis,
+      </if>
+      <if test="flag != null" >
+        Flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="kidneydiseasehistoryid != null" >
+        #{kidneydiseasehistoryid,jdbcType=INTEGER},
+      </if>
+      <if test="crowdid != null" >
+        #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="iskidneydisease != null" >
+        #{iskidneydisease,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosistime != null" >
+        #{diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="diabetes != null" >
+        #{diabetes,jdbcType=VARCHAR},
+      </if>
+      <if test="hypertension != null" >
+        #{hypertension,jdbcType=VARCHAR},
+      </if>
+      <if test="renalfailure != null" >
+        #{renalfailure,jdbcType=VARCHAR},
+      </if>
+      <if test="acutenephritis != null" >
+        #{acutenephritis,jdbcType=VARCHAR},
+      </if>
+      <if test="chronicnephritis != null" >
+        #{chronicnephritis,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.penzias.entity.KidneyDiseaseHostoryExample" resultType="java.lang.Integer" >
+    select count(*) from kidney_disease_hostory
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update kidney_disease_hostory
+    <set >
+      <if test="record.kidneydiseasehistoryid != null" >
+        KidneyDiseaseHistoryID = #{record.kidneydiseasehistoryid,jdbcType=INTEGER},
+      </if>
+      <if test="record.crowdid != null" >
+        CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="record.iskidneydisease != null" >
+        IsKidneyDisease = #{record.iskidneydisease,jdbcType=VARCHAR},
+      </if>
+      <if test="record.diagnosistime != null" >
+        DiagnosisTime = #{record.diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="record.diabetes != null" >
+        Diabetes = #{record.diabetes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hypertension != null" >
+        Hypertension = #{record.hypertension,jdbcType=VARCHAR},
+      </if>
+      <if test="record.renalfailure != null" >
+        RenalFailure = #{record.renalfailure,jdbcType=VARCHAR},
+      </if>
+      <if test="record.acutenephritis != null" >
+        AcuteNephritis = #{record.acutenephritis,jdbcType=VARCHAR},
+      </if>
+      <if test="record.chronicnephritis != null" >
+        ChronicNephritis = #{record.chronicnephritis,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flag != null" >
+        Flag = #{record.flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update kidney_disease_hostory
+    set KidneyDiseaseHistoryID = #{record.kidneydiseasehistoryid,jdbcType=INTEGER},
+      CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      IsKidneyDisease = #{record.iskidneydisease,jdbcType=VARCHAR},
+      DiagnosisTime = #{record.diagnosistime,jdbcType=DATE},
+      Diabetes = #{record.diabetes,jdbcType=VARCHAR},
+      Hypertension = #{record.hypertension,jdbcType=VARCHAR},
+      RenalFailure = #{record.renalfailure,jdbcType=VARCHAR},
+      AcuteNephritis = #{record.acutenephritis,jdbcType=VARCHAR},
+      ChronicNephritis = #{record.chronicnephritis,jdbcType=VARCHAR},
+      Flag = #{record.flag,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.penzias.entity.KidneyDiseaseHostory" >
+    update kidney_disease_hostory
+    <set >
+      <if test="crowdid != null" >
+        CrowdID = #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="iskidneydisease != null" >
+        IsKidneyDisease = #{iskidneydisease,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosistime != null" >
+        DiagnosisTime = #{diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="diabetes != null" >
+        Diabetes = #{diabetes,jdbcType=VARCHAR},
+      </if>
+      <if test="hypertension != null" >
+        Hypertension = #{hypertension,jdbcType=VARCHAR},
+      </if>
+      <if test="renalfailure != null" >
+        RenalFailure = #{renalfailure,jdbcType=VARCHAR},
+      </if>
+      <if test="acutenephritis != null" >
+        AcuteNephritis = #{acutenephritis,jdbcType=VARCHAR},
+      </if>
+      <if test="chronicnephritis != null" >
+        ChronicNephritis = #{chronicnephritis,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        Flag = #{flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where KidneyDiseaseHistoryID = #{kidneydiseasehistoryid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.penzias.entity.KidneyDiseaseHostory" >
+    update kidney_disease_hostory
+    set CrowdID = #{crowdid,jdbcType=INTEGER},
+      IsKidneyDisease = #{iskidneydisease,jdbcType=VARCHAR},
+      DiagnosisTime = #{diagnosistime,jdbcType=DATE},
+      Diabetes = #{diabetes,jdbcType=VARCHAR},
+      Hypertension = #{hypertension,jdbcType=VARCHAR},
+      RenalFailure = #{renalfailure,jdbcType=VARCHAR},
+      AcuteNephritis = #{acutenephritis,jdbcType=VARCHAR},
+      ChronicNephritis = #{chronicnephritis,jdbcType=VARCHAR},
+      Flag = #{flag,jdbcType=VARCHAR}
+    where KidneyDiseaseHistoryID = #{kidneydiseasehistoryid,jdbcType=INTEGER}
+  </update>
+</mapper>

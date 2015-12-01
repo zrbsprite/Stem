@@ -89,11 +89,11 @@ task mybatisGenerate << {
     destDir.mkdirs()
     ant.properties['targetProject'] = destDir.path
     ant.taskdef (
-        name: 'mybatisGenerate',
+        name: 'mbgenerator',
         classname: 'org.mybatis.generator.ant.GeneratorAntTask',
         classpath: configurations.mybatisGenerator.asPath
     )
-    ant.mbgenerator (overwrite: true,configfile: 'src/configuration/generatorConfig.xml',verbose: true){
+    ant.mbgenerator (overwrite: true,configfile: 'exclude/generatorConfig.xml',verbose: true){
         propertyset {
             propertyref(name: 'targetProject')
         }

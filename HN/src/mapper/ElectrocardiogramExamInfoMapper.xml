@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.penzias.dao.ElectrocardiogramExamInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.penzias.entity.ElectrocardiogramExamInfo" >
+    <id column="ElectrocardiogramExanID" property="electrocardiogramexanid" jdbcType="INTEGER" />
+    <result column="CrowdID" property="crowdid" jdbcType="INTEGER" />
+    <result column="ExamTime" property="examtime" jdbcType="DATE" />
+    <result column="ExamMan" property="examman" jdbcType="VARCHAR" />
+    <result column="ExamResult" property="examresult" jdbcType="VARCHAR" />
+    <result column="ExceptionType" property="exceptiontype" jdbcType="VARCHAR" />
+    <result column="Flag" property="flag" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ElectrocardiogramExanID, CrowdID, ExamTime, ExamMan, ExamResult, ExceptionType, Flag
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.penzias.entity.ElectrocardiogramExamInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from electrocardiogram_exam_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from electrocardiogram_exam_info
+    where ElectrocardiogramExanID = #{electrocardiogramexanid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from electrocardiogram_exam_info
+    where ElectrocardiogramExanID = #{electrocardiogramexanid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.penzias.entity.ElectrocardiogramExamInfoExample" >
+    delete from electrocardiogram_exam_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.penzias.entity.ElectrocardiogramExamInfo" >
+    insert into electrocardiogram_exam_info (ElectrocardiogramExanID, CrowdID, 
+      ExamTime, ExamMan, ExamResult, 
+      ExceptionType, Flag)
+    values (#{electrocardiogramexanid,jdbcType=INTEGER}, #{crowdid,jdbcType=INTEGER}, 
+      #{examtime,jdbcType=DATE}, #{examman,jdbcType=VARCHAR}, #{examresult,jdbcType=VARCHAR}, 
+      #{exceptiontype,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.penzias.entity.ElectrocardiogramExamInfo" >
+    insert into electrocardiogram_exam_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="electrocardiogramexanid != null" >
+        ElectrocardiogramExanID,
+      </if>
+      <if test="crowdid != null" >
+        CrowdID,
+      </if>
+      <if test="examtime != null" >
+        ExamTime,
+      </if>
+      <if test="examman != null" >
+        ExamMan,
+      </if>
+      <if test="examresult != null" >
+        ExamResult,
+      </if>
+      <if test="exceptiontype != null" >
+        ExceptionType,
+      </if>
+      <if test="flag != null" >
+        Flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="electrocardiogramexanid != null" >
+        #{electrocardiogramexanid,jdbcType=INTEGER},
+      </if>
+      <if test="crowdid != null" >
+        #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="examtime != null" >
+        #{examtime,jdbcType=DATE},
+      </if>
+      <if test="examman != null" >
+        #{examman,jdbcType=VARCHAR},
+      </if>
+      <if test="examresult != null" >
+        #{examresult,jdbcType=VARCHAR},
+      </if>
+      <if test="exceptiontype != null" >
+        #{exceptiontype,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.penzias.entity.ElectrocardiogramExamInfoExample" resultType="java.lang.Integer" >
+    select count(*) from electrocardiogram_exam_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update electrocardiogram_exam_info
+    <set >
+      <if test="record.electrocardiogramexanid != null" >
+        ElectrocardiogramExanID = #{record.electrocardiogramexanid,jdbcType=INTEGER},
+      </if>
+      <if test="record.crowdid != null" >
+        CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="record.examtime != null" >
+        ExamTime = #{record.examtime,jdbcType=DATE},
+      </if>
+      <if test="record.examman != null" >
+        ExamMan = #{record.examman,jdbcType=VARCHAR},
+      </if>
+      <if test="record.examresult != null" >
+        ExamResult = #{record.examresult,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exceptiontype != null" >
+        ExceptionType = #{record.exceptiontype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flag != null" >
+        Flag = #{record.flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update electrocardiogram_exam_info
+    set ElectrocardiogramExanID = #{record.electrocardiogramexanid,jdbcType=INTEGER},
+      CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      ExamTime = #{record.examtime,jdbcType=DATE},
+      ExamMan = #{record.examman,jdbcType=VARCHAR},
+      ExamResult = #{record.examresult,jdbcType=VARCHAR},
+      ExceptionType = #{record.exceptiontype,jdbcType=VARCHAR},
+      Flag = #{record.flag,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.penzias.entity.ElectrocardiogramExamInfo" >
+    update electrocardiogram_exam_info
+    <set >
+      <if test="crowdid != null" >
+        CrowdID = #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="examtime != null" >
+        ExamTime = #{examtime,jdbcType=DATE},
+      </if>
+      <if test="examman != null" >
+        ExamMan = #{examman,jdbcType=VARCHAR},
+      </if>
+      <if test="examresult != null" >
+        ExamResult = #{examresult,jdbcType=VARCHAR},
+      </if>
+      <if test="exceptiontype != null" >
+        ExceptionType = #{exceptiontype,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        Flag = #{flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ElectrocardiogramExanID = #{electrocardiogramexanid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.penzias.entity.ElectrocardiogramExamInfo" >
+    update electrocardiogram_exam_info
+    set CrowdID = #{crowdid,jdbcType=INTEGER},
+      ExamTime = #{examtime,jdbcType=DATE},
+      ExamMan = #{examman,jdbcType=VARCHAR},
+      ExamResult = #{examresult,jdbcType=VARCHAR},
+      ExceptionType = #{exceptiontype,jdbcType=VARCHAR},
+      Flag = #{flag,jdbcType=VARCHAR}
+    where ElectrocardiogramExanID = #{electrocardiogramexanid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.penzias.dao.SmCodeitemMapper" >
+  <resultMap id="BaseResultMap" type="com.penzias.entity.SmCodeitem" >
+    <id column="CodeID" property="codeid" jdbcType="CHAR" />
+    <id column="Code" property="code" jdbcType="VARCHAR" />
+    <result column="Description" property="description" jdbcType="VARCHAR" />
+    <result column="Pptr" property="pptr" jdbcType="VARCHAR" />
+    <result column="Cptr" property="cptr" jdbcType="TINYINT" />
+    <result column="Spell" property="spell" jdbcType="VARCHAR" />
+    <result column="Remarks" property="remarks" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    CodeID, Code, Description, Pptr, Cptr, Spell, Remarks
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.penzias.entity.SmCodeitemExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sm_codeitem
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.penzias.entity.SmCodeitemKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from sm_codeitem
+    where CodeID = #{codeid,jdbcType=CHAR}
+      and Code = #{code,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.penzias.entity.SmCodeitemKey" >
+    delete from sm_codeitem
+    where CodeID = #{codeid,jdbcType=CHAR}
+      and Code = #{code,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.penzias.entity.SmCodeitemExample" >
+    delete from sm_codeitem
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.penzias.entity.SmCodeitem" >
+    insert into sm_codeitem (CodeID, Code, Description, 
+      Pptr, Cptr, Spell, 
+      Remarks)
+    values (#{codeid,jdbcType=CHAR}, #{code,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{pptr,jdbcType=VARCHAR}, #{cptr,jdbcType=TINYINT}, #{spell,jdbcType=VARCHAR}, 
+      #{remarks,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.penzias.entity.SmCodeitem" >
+    insert into sm_codeitem
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="codeid != null" >
+        CodeID,
+      </if>
+      <if test="code != null" >
+        Code,
+      </if>
+      <if test="description != null" >
+        Description,
+      </if>
+      <if test="pptr != null" >
+        Pptr,
+      </if>
+      <if test="cptr != null" >
+        Cptr,
+      </if>
+      <if test="spell != null" >
+        Spell,
+      </if>
+      <if test="remarks != null" >
+        Remarks,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="codeid != null" >
+        #{codeid,jdbcType=CHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="pptr != null" >
+        #{pptr,jdbcType=VARCHAR},
+      </if>
+      <if test="cptr != null" >
+        #{cptr,jdbcType=TINYINT},
+      </if>
+      <if test="spell != null" >
+        #{spell,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.penzias.entity.SmCodeitemExample" resultType="java.lang.Integer" >
+    select count(*) from sm_codeitem
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sm_codeitem
+    <set >
+      <if test="record.codeid != null" >
+        CodeID = #{record.codeid,jdbcType=CHAR},
+      </if>
+      <if test="record.code != null" >
+        Code = #{record.code,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null" >
+        Description = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pptr != null" >
+        Pptr = #{record.pptr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cptr != null" >
+        Cptr = #{record.cptr,jdbcType=TINYINT},
+      </if>
+      <if test="record.spell != null" >
+        Spell = #{record.spell,jdbcType=VARCHAR},
+      </if>
+      <if test="record.remarks != null" >
+        Remarks = #{record.remarks,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sm_codeitem
+    set CodeID = #{record.codeid,jdbcType=CHAR},
+      Code = #{record.code,jdbcType=VARCHAR},
+      Description = #{record.description,jdbcType=VARCHAR},
+      Pptr = #{record.pptr,jdbcType=VARCHAR},
+      Cptr = #{record.cptr,jdbcType=TINYINT},
+      Spell = #{record.spell,jdbcType=VARCHAR},
+      Remarks = #{record.remarks,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.penzias.entity.SmCodeitem" >
+    update sm_codeitem
+    <set >
+      <if test="description != null" >
+        Description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="pptr != null" >
+        Pptr = #{pptr,jdbcType=VARCHAR},
+      </if>
+      <if test="cptr != null" >
+        Cptr = #{cptr,jdbcType=TINYINT},
+      </if>
+      <if test="spell != null" >
+        Spell = #{spell,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        Remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CodeID = #{codeid,jdbcType=CHAR}
+      and Code = #{code,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.penzias.entity.SmCodeitem" >
+    update sm_codeitem
+    set Description = #{description,jdbcType=VARCHAR},
+      Pptr = #{pptr,jdbcType=VARCHAR},
+      Cptr = #{cptr,jdbcType=TINYINT},
+      Spell = #{spell,jdbcType=VARCHAR},
+      Remarks = #{remarks,jdbcType=VARCHAR}
+    where CodeID = #{codeid,jdbcType=CHAR}
+      and Code = #{code,jdbcType=VARCHAR}
+  </update>
+</mapper>

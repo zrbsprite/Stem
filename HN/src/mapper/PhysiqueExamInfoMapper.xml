@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.penzias.dao.PhysiqueExamInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.penzias.entity.PhysiqueExamInfo" >
+    <id column="PhysiqueExamID" property="physiqueexamid" jdbcType="INTEGER" />
+    <result column="CrowdID" property="crowdid" jdbcType="INTEGER" />
+    <result column="ExamTime" property="examtime" jdbcType="DATE" />
+    <result column="Height" property="height" jdbcType="DECIMAL" />
+    <result column="Weight" property="weight" jdbcType="DECIMAL" />
+    <result column="BMI" property="bmi" jdbcType="DECIMAL" />
+    <result column="Waist" property="waist" jdbcType="DECIMAL" />
+    <result column="OneSBP" property="onesbp" jdbcType="DECIMAL" />
+    <result column="OneDBP" property="onedbp" jdbcType="DECIMAL" />
+    <result column="OnePulse" property="onepulse" jdbcType="INTEGER" />
+    <result column="TwoSBP" property="twosbp" jdbcType="DECIMAL" />
+    <result column="TwoDBP" property="twodbp" jdbcType="DECIMAL" />
+    <result column="TwoPulse" property="twopulse" jdbcType="INTEGER" />
+    <result column="CardiacSouffle" property="cardiacsouffle" jdbcType="VARCHAR" />
+    <result column="Rhythm" property="rhythm" jdbcType="VARCHAR" />
+    <result column="Flag" property="flag" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    PhysiqueExamID, CrowdID, ExamTime, Height, Weight, BMI, Waist, OneSBP, OneDBP, OnePulse, 
+    TwoSBP, TwoDBP, TwoPulse, CardiacSouffle, Rhythm, Flag
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.penzias.entity.PhysiqueExamInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from physique_exam_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from physique_exam_info
+    where PhysiqueExamID = #{physiqueexamid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from physique_exam_info
+    where PhysiqueExamID = #{physiqueexamid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.penzias.entity.PhysiqueExamInfoExample" >
+    delete from physique_exam_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.penzias.entity.PhysiqueExamInfo" >
+    insert into physique_exam_info (PhysiqueExamID, CrowdID, ExamTime, 
+      Height, Weight, BMI, 
+      Waist, OneSBP, OneDBP, 
+      OnePulse, TwoSBP, TwoDBP, 
+      TwoPulse, CardiacSouffle, Rhythm, 
+      Flag)
+    values (#{physiqueexamid,jdbcType=INTEGER}, #{crowdid,jdbcType=INTEGER}, #{examtime,jdbcType=DATE}, 
+      #{height,jdbcType=DECIMAL}, #{weight,jdbcType=DECIMAL}, #{bmi,jdbcType=DECIMAL}, 
+      #{waist,jdbcType=DECIMAL}, #{onesbp,jdbcType=DECIMAL}, #{onedbp,jdbcType=DECIMAL}, 
+      #{onepulse,jdbcType=INTEGER}, #{twosbp,jdbcType=DECIMAL}, #{twodbp,jdbcType=DECIMAL}, 
+      #{twopulse,jdbcType=INTEGER}, #{cardiacsouffle,jdbcType=VARCHAR}, #{rhythm,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.penzias.entity.PhysiqueExamInfo" >
+    insert into physique_exam_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="physiqueexamid != null" >
+        PhysiqueExamID,
+      </if>
+      <if test="crowdid != null" >
+        CrowdID,
+      </if>
+      <if test="examtime != null" >
+        ExamTime,
+      </if>
+      <if test="height != null" >
+        Height,
+      </if>
+      <if test="weight != null" >
+        Weight,
+      </if>
+      <if test="bmi != null" >
+        BMI,
+      </if>
+      <if test="waist != null" >
+        Waist,
+      </if>
+      <if test="onesbp != null" >
+        OneSBP,
+      </if>
+      <if test="onedbp != null" >
+        OneDBP,
+      </if>
+      <if test="onepulse != null" >
+        OnePulse,
+      </if>
+      <if test="twosbp != null" >
+        TwoSBP,
+      </if>
+      <if test="twodbp != null" >
+        TwoDBP,
+      </if>
+      <if test="twopulse != null" >
+        TwoPulse,
+      </if>
+      <if test="cardiacsouffle != null" >
+        CardiacSouffle,
+      </if>
+      <if test="rhythm != null" >
+        Rhythm,
+      </if>
+      <if test="flag != null" >
+        Flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="physiqueexamid != null" >
+        #{physiqueexamid,jdbcType=INTEGER},
+      </if>
+      <if test="crowdid != null" >
+        #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="examtime != null" >
+        #{examtime,jdbcType=DATE},
+      </if>
+      <if test="height != null" >
+        #{height,jdbcType=DECIMAL},
+      </if>
+      <if test="weight != null" >
+        #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="bmi != null" >
+        #{bmi,jdbcType=DECIMAL},
+      </if>
+      <if test="waist != null" >
+        #{waist,jdbcType=DECIMAL},
+      </if>
+      <if test="onesbp != null" >
+        #{onesbp,jdbcType=DECIMAL},
+      </if>
+      <if test="onedbp != null" >
+        #{onedbp,jdbcType=DECIMAL},
+      </if>
+      <if test="onepulse != null" >
+        #{onepulse,jdbcType=INTEGER},
+      </if>
+      <if test="twosbp != null" >
+        #{twosbp,jdbcType=DECIMAL},
+      </if>
+      <if test="twodbp != null" >
+        #{twodbp,jdbcType=DECIMAL},
+      </if>
+      <if test="twopulse != null" >
+        #{twopulse,jdbcType=INTEGER},
+      </if>
+      <if test="cardiacsouffle != null" >
+        #{cardiacsouffle,jdbcType=VARCHAR},
+      </if>
+      <if test="rhythm != null" >
+        #{rhythm,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.penzias.entity.PhysiqueExamInfoExample" resultType="java.lang.Integer" >
+    select count(*) from physique_exam_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update physique_exam_info
+    <set >
+      <if test="record.physiqueexamid != null" >
+        PhysiqueExamID = #{record.physiqueexamid,jdbcType=INTEGER},
+      </if>
+      <if test="record.crowdid != null" >
+        CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="record.examtime != null" >
+        ExamTime = #{record.examtime,jdbcType=DATE},
+      </if>
+      <if test="record.height != null" >
+        Height = #{record.height,jdbcType=DECIMAL},
+      </if>
+      <if test="record.weight != null" >
+        Weight = #{record.weight,jdbcType=DECIMAL},
+      </if>
+      <if test="record.bmi != null" >
+        BMI = #{record.bmi,jdbcType=DECIMAL},
+      </if>
+      <if test="record.waist != null" >
+        Waist = #{record.waist,jdbcType=DECIMAL},
+      </if>
+      <if test="record.onesbp != null" >
+        OneSBP = #{record.onesbp,jdbcType=DECIMAL},
+      </if>
+      <if test="record.onedbp != null" >
+        OneDBP = #{record.onedbp,jdbcType=DECIMAL},
+      </if>
+      <if test="record.onepulse != null" >
+        OnePulse = #{record.onepulse,jdbcType=INTEGER},
+      </if>
+      <if test="record.twosbp != null" >
+        TwoSBP = #{record.twosbp,jdbcType=DECIMAL},
+      </if>
+      <if test="record.twodbp != null" >
+        TwoDBP = #{record.twodbp,jdbcType=DECIMAL},
+      </if>
+      <if test="record.twopulse != null" >
+        TwoPulse = #{record.twopulse,jdbcType=INTEGER},
+      </if>
+      <if test="record.cardiacsouffle != null" >
+        CardiacSouffle = #{record.cardiacsouffle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rhythm != null" >
+        Rhythm = #{record.rhythm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flag != null" >
+        Flag = #{record.flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update physique_exam_info
+    set PhysiqueExamID = #{record.physiqueexamid,jdbcType=INTEGER},
+      CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      ExamTime = #{record.examtime,jdbcType=DATE},
+      Height = #{record.height,jdbcType=DECIMAL},
+      Weight = #{record.weight,jdbcType=DECIMAL},
+      BMI = #{record.bmi,jdbcType=DECIMAL},
+      Waist = #{record.waist,jdbcType=DECIMAL},
+      OneSBP = #{record.onesbp,jdbcType=DECIMAL},
+      OneDBP = #{record.onedbp,jdbcType=DECIMAL},
+      OnePulse = #{record.onepulse,jdbcType=INTEGER},
+      TwoSBP = #{record.twosbp,jdbcType=DECIMAL},
+      TwoDBP = #{record.twodbp,jdbcType=DECIMAL},
+      TwoPulse = #{record.twopulse,jdbcType=INTEGER},
+      CardiacSouffle = #{record.cardiacsouffle,jdbcType=VARCHAR},
+      Rhythm = #{record.rhythm,jdbcType=VARCHAR},
+      Flag = #{record.flag,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.penzias.entity.PhysiqueExamInfo" >
+    update physique_exam_info
+    <set >
+      <if test="crowdid != null" >
+        CrowdID = #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="examtime != null" >
+        ExamTime = #{examtime,jdbcType=DATE},
+      </if>
+      <if test="height != null" >
+        Height = #{height,jdbcType=DECIMAL},
+      </if>
+      <if test="weight != null" >
+        Weight = #{weight,jdbcType=DECIMAL},
+      </if>
+      <if test="bmi != null" >
+        BMI = #{bmi,jdbcType=DECIMAL},
+      </if>
+      <if test="waist != null" >
+        Waist = #{waist,jdbcType=DECIMAL},
+      </if>
+      <if test="onesbp != null" >
+        OneSBP = #{onesbp,jdbcType=DECIMAL},
+      </if>
+      <if test="onedbp != null" >
+        OneDBP = #{onedbp,jdbcType=DECIMAL},
+      </if>
+      <if test="onepulse != null" >
+        OnePulse = #{onepulse,jdbcType=INTEGER},
+      </if>
+      <if test="twosbp != null" >
+        TwoSBP = #{twosbp,jdbcType=DECIMAL},
+      </if>
+      <if test="twodbp != null" >
+        TwoDBP = #{twodbp,jdbcType=DECIMAL},
+      </if>
+      <if test="twopulse != null" >
+        TwoPulse = #{twopulse,jdbcType=INTEGER},
+      </if>
+      <if test="cardiacsouffle != null" >
+        CardiacSouffle = #{cardiacsouffle,jdbcType=VARCHAR},
+      </if>
+      <if test="rhythm != null" >
+        Rhythm = #{rhythm,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        Flag = #{flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where PhysiqueExamID = #{physiqueexamid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.penzias.entity.PhysiqueExamInfo" >
+    update physique_exam_info
+    set CrowdID = #{crowdid,jdbcType=INTEGER},
+      ExamTime = #{examtime,jdbcType=DATE},
+      Height = #{height,jdbcType=DECIMAL},
+      Weight = #{weight,jdbcType=DECIMAL},
+      BMI = #{bmi,jdbcType=DECIMAL},
+      Waist = #{waist,jdbcType=DECIMAL},
+      OneSBP = #{onesbp,jdbcType=DECIMAL},
+      OneDBP = #{onedbp,jdbcType=DECIMAL},
+      OnePulse = #{onepulse,jdbcType=INTEGER},
+      TwoSBP = #{twosbp,jdbcType=DECIMAL},
+      TwoDBP = #{twodbp,jdbcType=DECIMAL},
+      TwoPulse = #{twopulse,jdbcType=INTEGER},
+      CardiacSouffle = #{cardiacsouffle,jdbcType=VARCHAR},
+      Rhythm = #{rhythm,jdbcType=VARCHAR},
+      Flag = #{flag,jdbcType=VARCHAR}
+    where PhysiqueExamID = #{physiqueexamid,jdbcType=INTEGER}
+  </update>
+</mapper>

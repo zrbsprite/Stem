@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.penzias.dao.HypertensionHistoryMapper" >
+  <resultMap id="BaseResultMap" type="com.penzias.entity.HypertensionHistory" >
+    <id column="HypertensionHistoryID" property="hypertensionhistoryid" jdbcType="INTEGER" />
+    <result column="CrowdID" property="crowdid" jdbcType="INTEGER" />
+    <result column="Frequency" property="frequency" jdbcType="VARCHAR" />
+    <result column="IsHypertension" property="ishypertension" jdbcType="VARCHAR" />
+    <result column="DiagnosisTime" property="diagnosistime" jdbcType="DATE" />
+    <result column="IsHypotensor" property="ishypotensor" jdbcType="VARCHAR" />
+    <result column="IsCysteine" property="iscysteine" jdbcType="VARCHAR" />
+    <result column="Control" property="control" jdbcType="VARCHAR" />
+    <result column="ControlYear" property="controlyear" jdbcType="VARCHAR" />
+    <result column="Flag" property="flag" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    HypertensionHistoryID, CrowdID, Frequency, IsHypertension, DiagnosisTime, IsHypotensor, 
+    IsCysteine, Control, ControlYear, Flag
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.penzias.entity.HypertensionHistoryExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from hypertension_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from hypertension_history
+    where HypertensionHistoryID = #{hypertensionhistoryid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from hypertension_history
+    where HypertensionHistoryID = #{hypertensionhistoryid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.penzias.entity.HypertensionHistoryExample" >
+    delete from hypertension_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.penzias.entity.HypertensionHistory" >
+    insert into hypertension_history (HypertensionHistoryID, CrowdID, Frequency, 
+      IsHypertension, DiagnosisTime, IsHypotensor, 
+      IsCysteine, Control, ControlYear, 
+      Flag)
+    values (#{hypertensionhistoryid,jdbcType=INTEGER}, #{crowdid,jdbcType=INTEGER}, #{frequency,jdbcType=VARCHAR}, 
+      #{ishypertension,jdbcType=VARCHAR}, #{diagnosistime,jdbcType=DATE}, #{ishypotensor,jdbcType=VARCHAR}, 
+      #{iscysteine,jdbcType=VARCHAR}, #{control,jdbcType=VARCHAR}, #{controlyear,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.penzias.entity.HypertensionHistory" >
+    insert into hypertension_history
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="hypertensionhistoryid != null" >
+        HypertensionHistoryID,
+      </if>
+      <if test="crowdid != null" >
+        CrowdID,
+      </if>
+      <if test="frequency != null" >
+        Frequency,
+      </if>
+      <if test="ishypertension != null" >
+        IsHypertension,
+      </if>
+      <if test="diagnosistime != null" >
+        DiagnosisTime,
+      </if>
+      <if test="ishypotensor != null" >
+        IsHypotensor,
+      </if>
+      <if test="iscysteine != null" >
+        IsCysteine,
+      </if>
+      <if test="control != null" >
+        Control,
+      </if>
+      <if test="controlyear != null" >
+        ControlYear,
+      </if>
+      <if test="flag != null" >
+        Flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="hypertensionhistoryid != null" >
+        #{hypertensionhistoryid,jdbcType=INTEGER},
+      </if>
+      <if test="crowdid != null" >
+        #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="frequency != null" >
+        #{frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="ishypertension != null" >
+        #{ishypertension,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosistime != null" >
+        #{diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="ishypotensor != null" >
+        #{ishypotensor,jdbcType=VARCHAR},
+      </if>
+      <if test="iscysteine != null" >
+        #{iscysteine,jdbcType=VARCHAR},
+      </if>
+      <if test="control != null" >
+        #{control,jdbcType=VARCHAR},
+      </if>
+      <if test="controlyear != null" >
+        #{controlyear,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.penzias.entity.HypertensionHistoryExample" resultType="java.lang.Integer" >
+    select count(*) from hypertension_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update hypertension_history
+    <set >
+      <if test="record.hypertensionhistoryid != null" >
+        HypertensionHistoryID = #{record.hypertensionhistoryid,jdbcType=INTEGER},
+      </if>
+      <if test="record.crowdid != null" >
+        CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="record.frequency != null" >
+        Frequency = #{record.frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ishypertension != null" >
+        IsHypertension = #{record.ishypertension,jdbcType=VARCHAR},
+      </if>
+      <if test="record.diagnosistime != null" >
+        DiagnosisTime = #{record.diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="record.ishypotensor != null" >
+        IsHypotensor = #{record.ishypotensor,jdbcType=VARCHAR},
+      </if>
+      <if test="record.iscysteine != null" >
+        IsCysteine = #{record.iscysteine,jdbcType=VARCHAR},
+      </if>
+      <if test="record.control != null" >
+        Control = #{record.control,jdbcType=VARCHAR},
+      </if>
+      <if test="record.controlyear != null" >
+        ControlYear = #{record.controlyear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flag != null" >
+        Flag = #{record.flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update hypertension_history
+    set HypertensionHistoryID = #{record.hypertensionhistoryid,jdbcType=INTEGER},
+      CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      Frequency = #{record.frequency,jdbcType=VARCHAR},
+      IsHypertension = #{record.ishypertension,jdbcType=VARCHAR},
+      DiagnosisTime = #{record.diagnosistime,jdbcType=DATE},
+      IsHypotensor = #{record.ishypotensor,jdbcType=VARCHAR},
+      IsCysteine = #{record.iscysteine,jdbcType=VARCHAR},
+      Control = #{record.control,jdbcType=VARCHAR},
+      ControlYear = #{record.controlyear,jdbcType=VARCHAR},
+      Flag = #{record.flag,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.penzias.entity.HypertensionHistory" >
+    update hypertension_history
+    <set >
+      <if test="crowdid != null" >
+        CrowdID = #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="frequency != null" >
+        Frequency = #{frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="ishypertension != null" >
+        IsHypertension = #{ishypertension,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosistime != null" >
+        DiagnosisTime = #{diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="ishypotensor != null" >
+        IsHypotensor = #{ishypotensor,jdbcType=VARCHAR},
+      </if>
+      <if test="iscysteine != null" >
+        IsCysteine = #{iscysteine,jdbcType=VARCHAR},
+      </if>
+      <if test="control != null" >
+        Control = #{control,jdbcType=VARCHAR},
+      </if>
+      <if test="controlyear != null" >
+        ControlYear = #{controlyear,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        Flag = #{flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where HypertensionHistoryID = #{hypertensionhistoryid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.penzias.entity.HypertensionHistory" >
+    update hypertension_history
+    set CrowdID = #{crowdid,jdbcType=INTEGER},
+      Frequency = #{frequency,jdbcType=VARCHAR},
+      IsHypertension = #{ishypertension,jdbcType=VARCHAR},
+      DiagnosisTime = #{diagnosistime,jdbcType=DATE},
+      IsHypotensor = #{ishypotensor,jdbcType=VARCHAR},
+      IsCysteine = #{iscysteine,jdbcType=VARCHAR},
+      Control = #{control,jdbcType=VARCHAR},
+      ControlYear = #{controlyear,jdbcType=VARCHAR},
+      Flag = #{flag,jdbcType=VARCHAR}
+    where HypertensionHistoryID = #{hypertensionhistoryid,jdbcType=INTEGER}
+  </update>
+</mapper>

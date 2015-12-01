@@ -1,29 +1,26 @@
 package com.penzias.util;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.StringWriter;
 import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 
+import freemarker.cache.FileTemplateLoader;
 import freemarker.cache.StringTemplateLoader;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
-public abstract class TemplateUtil {
+public class TemplateUtil {
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	
-	@Value("#{propertiesReader[fetch_access_token_url]}")
-	private String accessTokenUrl;
-	
-	@Value("#{propertiesReader[fetch_user_info_list_url]}")
-	private String userInfoListUrl;
-
-	protected String getReplacedStr(String src, Map<String, String> params){
+	public String getReplacedStr(String src, Map<String, String> params){
 		Configuration configuration = new Configuration(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);
 		StringTemplateLoader loader = new StringTemplateLoader();
 		loader.putTemplate("urlTemplate", src);
@@ -45,5 +42,22 @@ public abstract class TemplateUtil {
 			}
 		}
 		return null;
+	}
+	
+	public void renderFile(String templatePath, String templateName,String fileName, Map<String, String> map) throws IOException{
+		Configuration configuration = new Configuration(Configuration.DEFAULT_INCOMPATIBLE_IMPROVEMENTS);
+		FileTemplateLoader loader = new FileTemplateLoader(new File(templatePath));
+		configuration.setTemplateLoader(loader);
+		Template template = configuration.getTemplate(templateName);
+		FileOutputStream out = new FileOutputStream(fileName);
+		OutputStreamWriter osw = new OutputStreamWriter(out);
+		try{
+			template.process(map, osw);
+		} catch (TemplateException e){
+			e.printStackTrace();
+		}finally{
+			osw.close();
+			out.close();
+		}
 	}
 }

@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.penzias.dao.ApoplexyConclusionInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.penzias.entity.ApoplexyConclusionInfo" >
+    <id column="ApoplexyConclusionID" property="apoplexyconclusionid" jdbcType="INTEGER" />
+    <result column="CrowdID" property="crowdid" jdbcType="INTEGER" />
+    <result column="Hypertension" property="hypertension" jdbcType="VARCHAR" />
+    <result column="Dyslipidemia" property="dyslipidemia" jdbcType="VARCHAR" />
+    <result column="Diabetes" property="diabetes" jdbcType="VARCHAR" />
+    <result column="AtrialFibrillation" property="atrialfibrillation" jdbcType="VARCHAR" />
+    <result column="SmokingHistory" property="smokinghistory" jdbcType="VARCHAR" />
+    <result column="Overweight" property="overweight" jdbcType="VARCHAR" />
+    <result column="SportsLack" property="sportslack" jdbcType="VARCHAR" />
+    <result column="FamilyHistory" property="familyhistory" jdbcType="VARCHAR" />
+    <result column="PastStroke" property="paststroke" jdbcType="VARCHAR" />
+    <result column="PastTIA" property="pasttia" jdbcType="VARCHAR" />
+    <result column="Grade" property="grade" jdbcType="VARCHAR" />
+    <result column="Mark" property="mark" jdbcType="VARCHAR" />
+    <result column="ManageLevel" property="managelevel" jdbcType="VARCHAR" />
+    <result column="Flag" property="flag" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ApoplexyConclusionID, CrowdID, Hypertension, Dyslipidemia, Diabetes, AtrialFibrillation, 
+    SmokingHistory, Overweight, SportsLack, FamilyHistory, PastStroke, PastTIA, Grade, 
+    Mark, ManageLevel, Flag
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.penzias.entity.ApoplexyConclusionInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from apoplexy_conclusion_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from apoplexy_conclusion_info
+    where ApoplexyConclusionID = #{apoplexyconclusionid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from apoplexy_conclusion_info
+    where ApoplexyConclusionID = #{apoplexyconclusionid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.penzias.entity.ApoplexyConclusionInfoExample" >
+    delete from apoplexy_conclusion_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.penzias.entity.ApoplexyConclusionInfo" >
+    insert into apoplexy_conclusion_info (ApoplexyConclusionID, CrowdID, Hypertension, 
+      Dyslipidemia, Diabetes, AtrialFibrillation, 
+      SmokingHistory, Overweight, SportsLack, 
+      FamilyHistory, PastStroke, PastTIA, 
+      Grade, Mark, ManageLevel, 
+      Flag)
+    values (#{apoplexyconclusionid,jdbcType=INTEGER}, #{crowdid,jdbcType=INTEGER}, #{hypertension,jdbcType=VARCHAR}, 
+      #{dyslipidemia,jdbcType=VARCHAR}, #{diabetes,jdbcType=VARCHAR}, #{atrialfibrillation,jdbcType=VARCHAR}, 
+      #{smokinghistory,jdbcType=VARCHAR}, #{overweight,jdbcType=VARCHAR}, #{sportslack,jdbcType=VARCHAR}, 
+      #{familyhistory,jdbcType=VARCHAR}, #{paststroke,jdbcType=VARCHAR}, #{pasttia,jdbcType=VARCHAR}, 
+      #{grade,jdbcType=VARCHAR}, #{mark,jdbcType=VARCHAR}, #{managelevel,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.penzias.entity.ApoplexyConclusionInfo" >
+    insert into apoplexy_conclusion_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="apoplexyconclusionid != null" >
+        ApoplexyConclusionID,
+      </if>
+      <if test="crowdid != null" >
+        CrowdID,
+      </if>
+      <if test="hypertension != null" >
+        Hypertension,
+      </if>
+      <if test="dyslipidemia != null" >
+        Dyslipidemia,
+      </if>
+      <if test="diabetes != null" >
+        Diabetes,
+      </if>
+      <if test="atrialfibrillation != null" >
+        AtrialFibrillation,
+      </if>
+      <if test="smokinghistory != null" >
+        SmokingHistory,
+      </if>
+      <if test="overweight != null" >
+        Overweight,
+      </if>
+      <if test="sportslack != null" >
+        SportsLack,
+      </if>
+      <if test="familyhistory != null" >
+        FamilyHistory,
+      </if>
+      <if test="paststroke != null" >
+        PastStroke,
+      </if>
+      <if test="pasttia != null" >
+        PastTIA,
+      </if>
+      <if test="grade != null" >
+        Grade,
+      </if>
+      <if test="mark != null" >
+        Mark,
+      </if>
+      <if test="managelevel != null" >
+        ManageLevel,
+      </if>
+      <if test="flag != null" >
+        Flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="apoplexyconclusionid != null" >
+        #{apoplexyconclusionid,jdbcType=INTEGER},
+      </if>
+      <if test="crowdid != null" >
+        #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="hypertension != null" >
+        #{hypertension,jdbcType=VARCHAR},
+      </if>
+      <if test="dyslipidemia != null" >
+        #{dyslipidemia,jdbcType=VARCHAR},
+      </if>
+      <if test="diabetes != null" >
+        #{diabetes,jdbcType=VARCHAR},
+      </if>
+      <if test="atrialfibrillation != null" >
+        #{atrialfibrillation,jdbcType=VARCHAR},
+      </if>
+      <if test="smokinghistory != null" >
+        #{smokinghistory,jdbcType=VARCHAR},
+      </if>
+      <if test="overweight != null" >
+        #{overweight,jdbcType=VARCHAR},
+      </if>
+      <if test="sportslack != null" >
+        #{sportslack,jdbcType=VARCHAR},
+      </if>
+      <if test="familyhistory != null" >
+        #{familyhistory,jdbcType=VARCHAR},
+      </if>
+      <if test="paststroke != null" >
+        #{paststroke,jdbcType=VARCHAR},
+      </if>
+      <if test="pasttia != null" >
+        #{pasttia,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null" >
+        #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="managelevel != null" >
+        #{managelevel,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.penzias.entity.ApoplexyConclusionInfoExample" resultType="java.lang.Integer" >
+    select count(*) from apoplexy_conclusion_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update apoplexy_conclusion_info
+    <set >
+      <if test="record.apoplexyconclusionid != null" >
+        ApoplexyConclusionID = #{record.apoplexyconclusionid,jdbcType=INTEGER},
+      </if>
+      <if test="record.crowdid != null" >
+        CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="record.hypertension != null" >
+        Hypertension = #{record.hypertension,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dyslipidemia != null" >
+        Dyslipidemia = #{record.dyslipidemia,jdbcType=VARCHAR},
+      </if>
+      <if test="record.diabetes != null" >
+        Diabetes = #{record.diabetes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.atrialfibrillation != null" >
+        AtrialFibrillation = #{record.atrialfibrillation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.smokinghistory != null" >
+        SmokingHistory = #{record.smokinghistory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.overweight != null" >
+        Overweight = #{record.overweight,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sportslack != null" >
+        SportsLack = #{record.sportslack,jdbcType=VARCHAR},
+      </if>
+      <if test="record.familyhistory != null" >
+        FamilyHistory = #{record.familyhistory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.paststroke != null" >
+        PastStroke = #{record.paststroke,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pasttia != null" >
+        PastTIA = #{record.pasttia,jdbcType=VARCHAR},
+      </if>
+      <if test="record.grade != null" >
+        Grade = #{record.grade,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mark != null" >
+        Mark = #{record.mark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.managelevel != null" >
+        ManageLevel = #{record.managelevel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flag != null" >
+        Flag = #{record.flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update apoplexy_conclusion_info
+    set ApoplexyConclusionID = #{record.apoplexyconclusionid,jdbcType=INTEGER},
+      CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      Hypertension = #{record.hypertension,jdbcType=VARCHAR},
+      Dyslipidemia = #{record.dyslipidemia,jdbcType=VARCHAR},
+      Diabetes = #{record.diabetes,jdbcType=VARCHAR},
+      AtrialFibrillation = #{record.atrialfibrillation,jdbcType=VARCHAR},
+      SmokingHistory = #{record.smokinghistory,jdbcType=VARCHAR},
+      Overweight = #{record.overweight,jdbcType=VARCHAR},
+      SportsLack = #{record.sportslack,jdbcType=VARCHAR},
+      FamilyHistory = #{record.familyhistory,jdbcType=VARCHAR},
+      PastStroke = #{record.paststroke,jdbcType=VARCHAR},
+      PastTIA = #{record.pasttia,jdbcType=VARCHAR},
+      Grade = #{record.grade,jdbcType=VARCHAR},
+      Mark = #{record.mark,jdbcType=VARCHAR},
+      ManageLevel = #{record.managelevel,jdbcType=VARCHAR},
+      Flag = #{record.flag,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.penzias.entity.ApoplexyConclusionInfo" >
+    update apoplexy_conclusion_info
+    <set >
+      <if test="crowdid != null" >
+        CrowdID = #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="hypertension != null" >
+        Hypertension = #{hypertension,jdbcType=VARCHAR},
+      </if>
+      <if test="dyslipidemia != null" >
+        Dyslipidemia = #{dyslipidemia,jdbcType=VARCHAR},
+      </if>
+      <if test="diabetes != null" >
+        Diabetes = #{diabetes,jdbcType=VARCHAR},
+      </if>
+      <if test="atrialfibrillation != null" >
+        AtrialFibrillation = #{atrialfibrillation,jdbcType=VARCHAR},
+      </if>
+      <if test="smokinghistory != null" >
+        SmokingHistory = #{smokinghistory,jdbcType=VARCHAR},
+      </if>
+      <if test="overweight != null" >
+        Overweight = #{overweight,jdbcType=VARCHAR},
+      </if>
+      <if test="sportslack != null" >
+        SportsLack = #{sportslack,jdbcType=VARCHAR},
+      </if>
+      <if test="familyhistory != null" >
+        FamilyHistory = #{familyhistory,jdbcType=VARCHAR},
+      </if>
+      <if test="paststroke != null" >
+        PastStroke = #{paststroke,jdbcType=VARCHAR},
+      </if>
+      <if test="pasttia != null" >
+        PastTIA = #{pasttia,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        Grade = #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="mark != null" >
+        Mark = #{mark,jdbcType=VARCHAR},
+      </if>
+      <if test="managelevel != null" >
+        ManageLevel = #{managelevel,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        Flag = #{flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ApoplexyConclusionID = #{apoplexyconclusionid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.penzias.entity.ApoplexyConclusionInfo" >
+    update apoplexy_conclusion_info
+    set CrowdID = #{crowdid,jdbcType=INTEGER},
+      Hypertension = #{hypertension,jdbcType=VARCHAR},
+      Dyslipidemia = #{dyslipidemia,jdbcType=VARCHAR},
+      Diabetes = #{diabetes,jdbcType=VARCHAR},
+      AtrialFibrillation = #{atrialfibrillation,jdbcType=VARCHAR},
+      SmokingHistory = #{smokinghistory,jdbcType=VARCHAR},
+      Overweight = #{overweight,jdbcType=VARCHAR},
+      SportsLack = #{sportslack,jdbcType=VARCHAR},
+      FamilyHistory = #{familyhistory,jdbcType=VARCHAR},
+      PastStroke = #{paststroke,jdbcType=VARCHAR},
+      PastTIA = #{pasttia,jdbcType=VARCHAR},
+      Grade = #{grade,jdbcType=VARCHAR},
+      Mark = #{mark,jdbcType=VARCHAR},
+      ManageLevel = #{managelevel,jdbcType=VARCHAR},
+      Flag = #{flag,jdbcType=VARCHAR}
+    where ApoplexyConclusionID = #{apoplexyconclusionid,jdbcType=INTEGER}
+  </update>
+</mapper>

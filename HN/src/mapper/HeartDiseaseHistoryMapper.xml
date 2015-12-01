@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.penzias.dao.HeartDiseaseHistoryMapper" >
+  <resultMap id="BaseResultMap" type="com.penzias.entity.HeartDiseaseHistory" >
+    <id column="HeartDiseaseHistoryID" property="heartdiseasehistoryid" jdbcType="INTEGER" />
+    <result column="CrowdID" property="crowdid" jdbcType="INTEGER" />
+    <result column="IsHeartDisease" property="isheartdisease" jdbcType="VARCHAR" />
+    <result column="CoronaryDisease" property="coronarydisease" jdbcType="VARCHAR" />
+    <result column="AtrialFibrillation" property="atrialfibrillation" jdbcType="VARCHAR" />
+    <result column="VHD" property="vhd" jdbcType="VARCHAR" />
+    <result column="Other" property="other" jdbcType="VARCHAR" />
+    <result column="Number" property="number" jdbcType="VARCHAR" />
+    <result column="LastTime" property="lasttime" jdbcType="DATE" />
+    <result column="Diagnosis" property="diagnosis" jdbcType="VARCHAR" />
+    <result column="BasisMyocardialEnzymes" property="basismyocardialenzymes" jdbcType="VARCHAR" />
+    <result column="BasisECG" property="basisecg" jdbcType="VARCHAR" />
+    <result column="BasisCoronaryAngiography" property="basiscoronaryangiography" jdbcType="VARCHAR" />
+    <result column="Clinical" property="clinical" jdbcType="VARCHAR" />
+    <result column="FirstTime" property="firsttime" jdbcType="DATE" />
+    <result column="IsPlatelet" property="isplatelet" jdbcType="VARCHAR" />
+    <result column="IsAnticoagulant" property="isanticoagulant" jdbcType="VARCHAR" />
+    <result column="Flag" property="flag" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    HeartDiseaseHistoryID, CrowdID, IsHeartDisease, CoronaryDisease, AtrialFibrillation, 
+    VHD, Other, Number, LastTime, Diagnosis, BasisMyocardialEnzymes, BasisECG, BasisCoronaryAngiography, 
+    Clinical, FirstTime, IsPlatelet, IsAnticoagulant, Flag
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.penzias.entity.HeartDiseaseHistoryExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from heart_disease_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from heart_disease_history
+    where HeartDiseaseHistoryID = #{heartdiseasehistoryid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from heart_disease_history
+    where HeartDiseaseHistoryID = #{heartdiseasehistoryid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.penzias.entity.HeartDiseaseHistoryExample" >
+    delete from heart_disease_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.penzias.entity.HeartDiseaseHistory" >
+    insert into heart_disease_history (HeartDiseaseHistoryID, CrowdID, IsHeartDisease, 
+      CoronaryDisease, AtrialFibrillation, VHD, 
+      Other, Number, LastTime, 
+      Diagnosis, BasisMyocardialEnzymes, BasisECG, 
+      BasisCoronaryAngiography, Clinical, FirstTime, 
+      IsPlatelet, IsAnticoagulant, Flag
+      )
+    values (#{heartdiseasehistoryid,jdbcType=INTEGER}, #{crowdid,jdbcType=INTEGER}, #{isheartdisease,jdbcType=VARCHAR}, 
+      #{coronarydisease,jdbcType=VARCHAR}, #{atrialfibrillation,jdbcType=VARCHAR}, #{vhd,jdbcType=VARCHAR}, 
+      #{other,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR}, #{lasttime,jdbcType=DATE}, 
+      #{diagnosis,jdbcType=VARCHAR}, #{basismyocardialenzymes,jdbcType=VARCHAR}, #{basisecg,jdbcType=VARCHAR}, 
+      #{basiscoronaryangiography,jdbcType=VARCHAR}, #{clinical,jdbcType=VARCHAR}, #{firsttime,jdbcType=DATE}, 
+      #{isplatelet,jdbcType=VARCHAR}, #{isanticoagulant,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.penzias.entity.HeartDiseaseHistory" >
+    insert into heart_disease_history
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="heartdiseasehistoryid != null" >
+        HeartDiseaseHistoryID,
+      </if>
+      <if test="crowdid != null" >
+        CrowdID,
+      </if>
+      <if test="isheartdisease != null" >
+        IsHeartDisease,
+      </if>
+      <if test="coronarydisease != null" >
+        CoronaryDisease,
+      </if>
+      <if test="atrialfibrillation != null" >
+        AtrialFibrillation,
+      </if>
+      <if test="vhd != null" >
+        VHD,
+      </if>
+      <if test="other != null" >
+        Other,
+      </if>
+      <if test="number != null" >
+        Number,
+      </if>
+      <if test="lasttime != null" >
+        LastTime,
+      </if>
+      <if test="diagnosis != null" >
+        Diagnosis,
+      </if>
+      <if test="basismyocardialenzymes != null" >
+        BasisMyocardialEnzymes,
+      </if>
+      <if test="basisecg != null" >
+        BasisECG,
+      </if>
+      <if test="basiscoronaryangiography != null" >
+        BasisCoronaryAngiography,
+      </if>
+      <if test="clinical != null" >
+        Clinical,
+      </if>
+      <if test="firsttime != null" >
+        FirstTime,
+      </if>
+      <if test="isplatelet != null" >
+        IsPlatelet,
+      </if>
+      <if test="isanticoagulant != null" >
+        IsAnticoagulant,
+      </if>
+      <if test="flag != null" >
+        Flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="heartdiseasehistoryid != null" >
+        #{heartdiseasehistoryid,jdbcType=INTEGER},
+      </if>
+      <if test="crowdid != null" >
+        #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="isheartdisease != null" >
+        #{isheartdisease,jdbcType=VARCHAR},
+      </if>
+      <if test="coronarydisease != null" >
+        #{coronarydisease,jdbcType=VARCHAR},
+      </if>
+      <if test="atrialfibrillation != null" >
+        #{atrialfibrillation,jdbcType=VARCHAR},
+      </if>
+      <if test="vhd != null" >
+        #{vhd,jdbcType=VARCHAR},
+      </if>
+      <if test="other != null" >
+        #{other,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null" >
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="lasttime != null" >
+        #{lasttime,jdbcType=DATE},
+      </if>
+      <if test="diagnosis != null" >
+        #{diagnosis,jdbcType=VARCHAR},
+      </if>
+      <if test="basismyocardialenzymes != null" >
+        #{basismyocardialenzymes,jdbcType=VARCHAR},
+      </if>
+      <if test="basisecg != null" >
+        #{basisecg,jdbcType=VARCHAR},
+      </if>
+      <if test="basiscoronaryangiography != null" >
+        #{basiscoronaryangiography,jdbcType=VARCHAR},
+      </if>
+      <if test="clinical != null" >
+        #{clinical,jdbcType=VARCHAR},
+      </if>
+      <if test="firsttime != null" >
+        #{firsttime,jdbcType=DATE},
+      </if>
+      <if test="isplatelet != null" >
+        #{isplatelet,jdbcType=VARCHAR},
+      </if>
+      <if test="isanticoagulant != null" >
+        #{isanticoagulant,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.penzias.entity.HeartDiseaseHistoryExample" resultType="java.lang.Integer" >
+    select count(*) from heart_disease_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update heart_disease_history
+    <set >
+      <if test="record.heartdiseasehistoryid != null" >
+        HeartDiseaseHistoryID = #{record.heartdiseasehistoryid,jdbcType=INTEGER},
+      </if>
+      <if test="record.crowdid != null" >
+        CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="record.isheartdisease != null" >
+        IsHeartDisease = #{record.isheartdisease,jdbcType=VARCHAR},
+      </if>
+      <if test="record.coronarydisease != null" >
+        CoronaryDisease = #{record.coronarydisease,jdbcType=VARCHAR},
+      </if>
+      <if test="record.atrialfibrillation != null" >
+        AtrialFibrillation = #{record.atrialfibrillation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vhd != null" >
+        VHD = #{record.vhd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.other != null" >
+        Other = #{record.other,jdbcType=VARCHAR},
+      </if>
+      <if test="record.number != null" >
+        Number = #{record.number,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lasttime != null" >
+        LastTime = #{record.lasttime,jdbcType=DATE},
+      </if>
+      <if test="record.diagnosis != null" >
+        Diagnosis = #{record.diagnosis,jdbcType=VARCHAR},
+      </if>
+      <if test="record.basismyocardialenzymes != null" >
+        BasisMyocardialEnzymes = #{record.basismyocardialenzymes,jdbcType=VARCHAR},
+      </if>
+      <if test="record.basisecg != null" >
+        BasisECG = #{record.basisecg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.basiscoronaryangiography != null" >
+        BasisCoronaryAngiography = #{record.basiscoronaryangiography,jdbcType=VARCHAR},
+      </if>
+      <if test="record.clinical != null" >
+        Clinical = #{record.clinical,jdbcType=VARCHAR},
+      </if>
+      <if test="record.firsttime != null" >
+        FirstTime = #{record.firsttime,jdbcType=DATE},
+      </if>
+      <if test="record.isplatelet != null" >
+        IsPlatelet = #{record.isplatelet,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isanticoagulant != null" >
+        IsAnticoagulant = #{record.isanticoagulant,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flag != null" >
+        Flag = #{record.flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update heart_disease_history
+    set HeartDiseaseHistoryID = #{record.heartdiseasehistoryid,jdbcType=INTEGER},
+      CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      IsHeartDisease = #{record.isheartdisease,jdbcType=VARCHAR},
+      CoronaryDisease = #{record.coronarydisease,jdbcType=VARCHAR},
+      AtrialFibrillation = #{record.atrialfibrillation,jdbcType=VARCHAR},
+      VHD = #{record.vhd,jdbcType=VARCHAR},
+      Other = #{record.other,jdbcType=VARCHAR},
+      Number = #{record.number,jdbcType=VARCHAR},
+      LastTime = #{record.lasttime,jdbcType=DATE},
+      Diagnosis = #{record.diagnosis,jdbcType=VARCHAR},
+      BasisMyocardialEnzymes = #{record.basismyocardialenzymes,jdbcType=VARCHAR},
+      BasisECG = #{record.basisecg,jdbcType=VARCHAR},
+      BasisCoronaryAngiography = #{record.basiscoronaryangiography,jdbcType=VARCHAR},
+      Clinical = #{record.clinical,jdbcType=VARCHAR},
+      FirstTime = #{record.firsttime,jdbcType=DATE},
+      IsPlatelet = #{record.isplatelet,jdbcType=VARCHAR},
+      IsAnticoagulant = #{record.isanticoagulant,jdbcType=VARCHAR},
+      Flag = #{record.flag,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.penzias.entity.HeartDiseaseHistory" >
+    update heart_disease_history
+    <set >
+      <if test="crowdid != null" >
+        CrowdID = #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="isheartdisease != null" >
+        IsHeartDisease = #{isheartdisease,jdbcType=VARCHAR},
+      </if>
+      <if test="coronarydisease != null" >
+        CoronaryDisease = #{coronarydisease,jdbcType=VARCHAR},
+      </if>
+      <if test="atrialfibrillation != null" >
+        AtrialFibrillation = #{atrialfibrillation,jdbcType=VARCHAR},
+      </if>
+      <if test="vhd != null" >
+        VHD = #{vhd,jdbcType=VARCHAR},
+      </if>
+      <if test="other != null" >
+        Other = #{other,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null" >
+        Number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="lasttime != null" >
+        LastTime = #{lasttime,jdbcType=DATE},
+      </if>
+      <if test="diagnosis != null" >
+        Diagnosis = #{diagnosis,jdbcType=VARCHAR},
+      </if>
+      <if test="basismyocardialenzymes != null" >
+        BasisMyocardialEnzymes = #{basismyocardialenzymes,jdbcType=VARCHAR},
+      </if>
+      <if test="basisecg != null" >
+        BasisECG = #{basisecg,jdbcType=VARCHAR},
+      </if>
+      <if test="basiscoronaryangiography != null" >
+        BasisCoronaryAngiography = #{basiscoronaryangiography,jdbcType=VARCHAR},
+      </if>
+      <if test="clinical != null" >
+        Clinical = #{clinical,jdbcType=VARCHAR},
+      </if>
+      <if test="firsttime != null" >
+        FirstTime = #{firsttime,jdbcType=DATE},
+      </if>
+      <if test="isplatelet != null" >
+        IsPlatelet = #{isplatelet,jdbcType=VARCHAR},
+      </if>
+      <if test="isanticoagulant != null" >
+        IsAnticoagulant = #{isanticoagulant,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        Flag = #{flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where HeartDiseaseHistoryID = #{heartdiseasehistoryid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.penzias.entity.HeartDiseaseHistory" >
+    update heart_disease_history
+    set CrowdID = #{crowdid,jdbcType=INTEGER},
+      IsHeartDisease = #{isheartdisease,jdbcType=VARCHAR},
+      CoronaryDisease = #{coronarydisease,jdbcType=VARCHAR},
+      AtrialFibrillation = #{atrialfibrillation,jdbcType=VARCHAR},
+      VHD = #{vhd,jdbcType=VARCHAR},
+      Other = #{other,jdbcType=VARCHAR},
+      Number = #{number,jdbcType=VARCHAR},
+      LastTime = #{lasttime,jdbcType=DATE},
+      Diagnosis = #{diagnosis,jdbcType=VARCHAR},
+      BasisMyocardialEnzymes = #{basismyocardialenzymes,jdbcType=VARCHAR},
+      BasisECG = #{basisecg,jdbcType=VARCHAR},
+      BasisCoronaryAngiography = #{basiscoronaryangiography,jdbcType=VARCHAR},
+      Clinical = #{clinical,jdbcType=VARCHAR},
+      FirstTime = #{firsttime,jdbcType=DATE},
+      IsPlatelet = #{isplatelet,jdbcType=VARCHAR},
+      IsAnticoagulant = #{isanticoagulant,jdbcType=VARCHAR},
+      Flag = #{flag,jdbcType=VARCHAR}
+    where HeartDiseaseHistoryID = #{heartdiseasehistoryid,jdbcType=INTEGER}
+  </update>
+</mapper>

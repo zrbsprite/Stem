@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.penzias.dao.OtherHistoryMapper" >
+  <resultMap id="BaseResultMap" type="com.penzias.entity.OtherHistory" >
+    <id column="OtherID" property="otherid" jdbcType="INTEGER" />
+    <result column="CrowdID" property="crowdid" jdbcType="INTEGER" />
+    <result column="OtherType" property="othertype" jdbcType="VARCHAR" />
+    <result column="IsOther" property="isother" jdbcType="VARCHAR" />
+    <result column="DiagnosisTime" property="diagnosistime" jdbcType="DATE" />
+    <result column="Flag" property="flag" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    OtherID, CrowdID, OtherType, IsOther, DiagnosisTime, Flag
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.penzias.entity.OtherHistoryExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from other_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from other_history
+    where OtherID = #{otherid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from other_history
+    where OtherID = #{otherid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.penzias.entity.OtherHistoryExample" >
+    delete from other_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.penzias.entity.OtherHistory" >
+    insert into other_history (OtherID, CrowdID, OtherType, 
+      IsOther, DiagnosisTime, Flag
+      )
+    values (#{otherid,jdbcType=INTEGER}, #{crowdid,jdbcType=INTEGER}, #{othertype,jdbcType=VARCHAR}, 
+      #{isother,jdbcType=VARCHAR}, #{diagnosistime,jdbcType=DATE}, #{flag,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.penzias.entity.OtherHistory" >
+    insert into other_history
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="otherid != null" >
+        OtherID,
+      </if>
+      <if test="crowdid != null" >
+        CrowdID,
+      </if>
+      <if test="othertype != null" >
+        OtherType,
+      </if>
+      <if test="isother != null" >
+        IsOther,
+      </if>
+      <if test="diagnosistime != null" >
+        DiagnosisTime,
+      </if>
+      <if test="flag != null" >
+        Flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="otherid != null" >
+        #{otherid,jdbcType=INTEGER},
+      </if>
+      <if test="crowdid != null" >
+        #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="othertype != null" >
+        #{othertype,jdbcType=VARCHAR},
+      </if>
+      <if test="isother != null" >
+        #{isother,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosistime != null" >
+        #{diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.penzias.entity.OtherHistoryExample" resultType="java.lang.Integer" >
+    select count(*) from other_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update other_history
+    <set >
+      <if test="record.otherid != null" >
+        OtherID = #{record.otherid,jdbcType=INTEGER},
+      </if>
+      <if test="record.crowdid != null" >
+        CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="record.othertype != null" >
+        OtherType = #{record.othertype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isother != null" >
+        IsOther = #{record.isother,jdbcType=VARCHAR},
+      </if>
+      <if test="record.diagnosistime != null" >
+        DiagnosisTime = #{record.diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="record.flag != null" >
+        Flag = #{record.flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update other_history
+    set OtherID = #{record.otherid,jdbcType=INTEGER},
+      CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      OtherType = #{record.othertype,jdbcType=VARCHAR},
+      IsOther = #{record.isother,jdbcType=VARCHAR},
+      DiagnosisTime = #{record.diagnosistime,jdbcType=DATE},
+      Flag = #{record.flag,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.penzias.entity.OtherHistory" >
+    update other_history
+    <set >
+      <if test="crowdid != null" >
+        CrowdID = #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="othertype != null" >
+        OtherType = #{othertype,jdbcType=VARCHAR},
+      </if>
+      <if test="isother != null" >
+        IsOther = #{isother,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosistime != null" >
+        DiagnosisTime = #{diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="flag != null" >
+        Flag = #{flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where OtherID = #{otherid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.penzias.entity.OtherHistory" >
+    update other_history
+    set CrowdID = #{crowdid,jdbcType=INTEGER},
+      OtherType = #{othertype,jdbcType=VARCHAR},
+      IsOther = #{isother,jdbcType=VARCHAR},
+      DiagnosisTime = #{diagnosistime,jdbcType=DATE},
+      Flag = #{flag,jdbcType=VARCHAR}
+    where OtherID = #{otherid,jdbcType=INTEGER}
+  </update>
+</mapper>

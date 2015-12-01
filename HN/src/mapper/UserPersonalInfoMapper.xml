@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.penzias.dao.UserPersonalInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.penzias.entity.UserPersonalInfo" >
+    <id column="UserPersonalInfoID" property="userpersonalinfoid" jdbcType="INTEGER" />
+    <result column="UserName" property="username" jdbcType="VARCHAR" />
+    <result column="Name" property="name" jdbcType="VARCHAR" />
+    <result column="Sex" property="sex" jdbcType="VARCHAR" />
+    <result column="BirthDate" property="birthdate" jdbcType="TIMESTAMP" />
+    <result column="Nationality" property="nationality" jdbcType="VARCHAR" />
+    <result column="PoliticsStatus" property="politicsstatus" jdbcType="VARCHAR" />
+    <result column="IdNumber" property="idnumber" jdbcType="VARCHAR" />
+    <result column="Nation" property="nation" jdbcType="VARCHAR" />
+    <result column="Post" property="post" jdbcType="VARCHAR" />
+    <result column="GraduateInstitutions" property="graduateinstitutions" jdbcType="VARCHAR" />
+    <result column="GraduateDate" property="graduatedate" jdbcType="TIMESTAMP" />
+    <result column="Education" property="education" jdbcType="VARCHAR" />
+    <result column="Degree" property="degree" jdbcType="VARCHAR" />
+    <result column="Specialty" property="specialty" jdbcType="VARCHAR" />
+    <result column="Grade" property="grade" jdbcType="VARCHAR" />
+    <result column="Category" property="category" jdbcType="VARCHAR" />
+    <result column="Tel" property="tel" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    UserPersonalInfoID, UserName, Name, Sex, BirthDate, Nationality, PoliticsStatus, 
+    IdNumber, Nation, Post, GraduateInstitutions, GraduateDate, Education, Degree, Specialty, 
+    Grade, Category, Tel
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.penzias.entity.UserPersonalInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user_personal_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_personal_info
+    where UserPersonalInfoID = #{userpersonalinfoid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user_personal_info
+    where UserPersonalInfoID = #{userpersonalinfoid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.penzias.entity.UserPersonalInfoExample" >
+    delete from user_personal_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.penzias.entity.UserPersonalInfo" >
+    insert into user_personal_info (UserPersonalInfoID, UserName, Name, 
+      Sex, BirthDate, Nationality, 
+      PoliticsStatus, IdNumber, Nation, 
+      Post, GraduateInstitutions, GraduateDate, 
+      Education, Degree, Specialty, 
+      Grade, Category, Tel
+      )
+    values (#{userpersonalinfoid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{birthdate,jdbcType=TIMESTAMP}, #{nationality,jdbcType=VARCHAR}, 
+      #{politicsstatus,jdbcType=VARCHAR}, #{idnumber,jdbcType=VARCHAR}, #{nation,jdbcType=VARCHAR}, 
+      #{post,jdbcType=VARCHAR}, #{graduateinstitutions,jdbcType=VARCHAR}, #{graduatedate,jdbcType=TIMESTAMP}, 
+      #{education,jdbcType=VARCHAR}, #{degree,jdbcType=VARCHAR}, #{specialty,jdbcType=VARCHAR}, 
+      #{grade,jdbcType=VARCHAR}, #{category,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.penzias.entity.UserPersonalInfo" >
+    insert into user_personal_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userpersonalinfoid != null" >
+        UserPersonalInfoID,
+      </if>
+      <if test="username != null" >
+        UserName,
+      </if>
+      <if test="name != null" >
+        Name,
+      </if>
+      <if test="sex != null" >
+        Sex,
+      </if>
+      <if test="birthdate != null" >
+        BirthDate,
+      </if>
+      <if test="nationality != null" >
+        Nationality,
+      </if>
+      <if test="politicsstatus != null" >
+        PoliticsStatus,
+      </if>
+      <if test="idnumber != null" >
+        IdNumber,
+      </if>
+      <if test="nation != null" >
+        Nation,
+      </if>
+      <if test="post != null" >
+        Post,
+      </if>
+      <if test="graduateinstitutions != null" >
+        GraduateInstitutions,
+      </if>
+      <if test="graduatedate != null" >
+        GraduateDate,
+      </if>
+      <if test="education != null" >
+        Education,
+      </if>
+      <if test="degree != null" >
+        Degree,
+      </if>
+      <if test="specialty != null" >
+        Specialty,
+      </if>
+      <if test="grade != null" >
+        Grade,
+      </if>
+      <if test="category != null" >
+        Category,
+      </if>
+      <if test="tel != null" >
+        Tel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userpersonalinfoid != null" >
+        #{userpersonalinfoid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdate != null" >
+        #{birthdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nationality != null" >
+        #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="politicsstatus != null" >
+        #{politicsstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="idnumber != null" >
+        #{idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="post != null" >
+        #{post,jdbcType=VARCHAR},
+      </if>
+      <if test="graduateinstitutions != null" >
+        #{graduateinstitutions,jdbcType=VARCHAR},
+      </if>
+      <if test="graduatedate != null" >
+        #{graduatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="education != null" >
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null" >
+        #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="specialty != null" >
+        #{specialty,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null" >
+        #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.penzias.entity.UserPersonalInfoExample" resultType="java.lang.Integer" >
+    select count(*) from user_personal_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update user_personal_info
+    <set >
+      <if test="record.userpersonalinfoid != null" >
+        UserPersonalInfoID = #{record.userpersonalinfoid,jdbcType=INTEGER},
+      </if>
+      <if test="record.username != null" >
+        UserName = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        Name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null" >
+        Sex = #{record.sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthdate != null" >
+        BirthDate = #{record.birthdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.nationality != null" >
+        Nationality = #{record.nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="record.politicsstatus != null" >
+        PoliticsStatus = #{record.politicsstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idnumber != null" >
+        IdNumber = #{record.idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nation != null" >
+        Nation = #{record.nation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.post != null" >
+        Post = #{record.post,jdbcType=VARCHAR},
+      </if>
+      <if test="record.graduateinstitutions != null" >
+        GraduateInstitutions = #{record.graduateinstitutions,jdbcType=VARCHAR},
+      </if>
+      <if test="record.graduatedate != null" >
+        GraduateDate = #{record.graduatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.education != null" >
+        Education = #{record.education,jdbcType=VARCHAR},
+      </if>
+      <if test="record.degree != null" >
+        Degree = #{record.degree,jdbcType=VARCHAR},
+      </if>
+      <if test="record.specialty != null" >
+        Specialty = #{record.specialty,jdbcType=VARCHAR},
+      </if>
+      <if test="record.grade != null" >
+        Grade = #{record.grade,jdbcType=VARCHAR},
+      </if>
+      <if test="record.category != null" >
+        Category = #{record.category,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tel != null" >
+        Tel = #{record.tel,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update user_personal_info
+    set UserPersonalInfoID = #{record.userpersonalinfoid,jdbcType=INTEGER},
+      UserName = #{record.username,jdbcType=VARCHAR},
+      Name = #{record.name,jdbcType=VARCHAR},
+      Sex = #{record.sex,jdbcType=VARCHAR},
+      BirthDate = #{record.birthdate,jdbcType=TIMESTAMP},
+      Nationality = #{record.nationality,jdbcType=VARCHAR},
+      PoliticsStatus = #{record.politicsstatus,jdbcType=VARCHAR},
+      IdNumber = #{record.idnumber,jdbcType=VARCHAR},
+      Nation = #{record.nation,jdbcType=VARCHAR},
+      Post = #{record.post,jdbcType=VARCHAR},
+      GraduateInstitutions = #{record.graduateinstitutions,jdbcType=VARCHAR},
+      GraduateDate = #{record.graduatedate,jdbcType=TIMESTAMP},
+      Education = #{record.education,jdbcType=VARCHAR},
+      Degree = #{record.degree,jdbcType=VARCHAR},
+      Specialty = #{record.specialty,jdbcType=VARCHAR},
+      Grade = #{record.grade,jdbcType=VARCHAR},
+      Category = #{record.category,jdbcType=VARCHAR},
+      Tel = #{record.tel,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.penzias.entity.UserPersonalInfo" >
+    update user_personal_info
+    <set >
+      <if test="username != null" >
+        UserName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        Name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        Sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdate != null" >
+        BirthDate = #{birthdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="nationality != null" >
+        Nationality = #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="politicsstatus != null" >
+        PoliticsStatus = #{politicsstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="idnumber != null" >
+        IdNumber = #{idnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        Nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="post != null" >
+        Post = #{post,jdbcType=VARCHAR},
+      </if>
+      <if test="graduateinstitutions != null" >
+        GraduateInstitutions = #{graduateinstitutions,jdbcType=VARCHAR},
+      </if>
+      <if test="graduatedate != null" >
+        GraduateDate = #{graduatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="education != null" >
+        Education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="degree != null" >
+        Degree = #{degree,jdbcType=VARCHAR},
+      </if>
+      <if test="specialty != null" >
+        Specialty = #{specialty,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        Grade = #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="category != null" >
+        Category = #{category,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        Tel = #{tel,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where UserPersonalInfoID = #{userpersonalinfoid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.penzias.entity.UserPersonalInfo" >
+    update user_personal_info
+    set UserName = #{username,jdbcType=VARCHAR},
+      Name = #{name,jdbcType=VARCHAR},
+      Sex = #{sex,jdbcType=VARCHAR},
+      BirthDate = #{birthdate,jdbcType=TIMESTAMP},
+      Nationality = #{nationality,jdbcType=VARCHAR},
+      PoliticsStatus = #{politicsstatus,jdbcType=VARCHAR},
+      IdNumber = #{idnumber,jdbcType=VARCHAR},
+      Nation = #{nation,jdbcType=VARCHAR},
+      Post = #{post,jdbcType=VARCHAR},
+      GraduateInstitutions = #{graduateinstitutions,jdbcType=VARCHAR},
+      GraduateDate = #{graduatedate,jdbcType=TIMESTAMP},
+      Education = #{education,jdbcType=VARCHAR},
+      Degree = #{degree,jdbcType=VARCHAR},
+      Specialty = #{specialty,jdbcType=VARCHAR},
+      Grade = #{grade,jdbcType=VARCHAR},
+      Category = #{category,jdbcType=VARCHAR},
+      Tel = #{tel,jdbcType=VARCHAR}
+    where UserPersonalInfoID = #{userpersonalinfoid,jdbcType=INTEGER}
+  </update>
+</mapper>

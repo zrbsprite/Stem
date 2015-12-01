@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.penzias.dao.SmDepartmentMapper" >
+  <resultMap id="BaseResultMap" type="com.penzias.entity.SmDepartment" >
+    <id column="depBM" property="depbm" jdbcType="VARCHAR" />
+    <result column="depName" property="depname" jdbcType="VARCHAR" />
+    <result column="Description" property="description" jdbcType="VARCHAR" />
+    <result column="InstitutionType" property="institutiontype" jdbcType="VARCHAR" />
+    <result column="depFlag" property="depflag" jdbcType="VARCHAR" />
+    <result column="PPtr" property="pptr" jdbcType="VARCHAR" />
+    <result column="CPtr" property="cptr" jdbcType="VARCHAR" />
+    <result column="Status" property="status" jdbcType="VARCHAR" />
+    <result column="Logo" property="logo" jdbcType="VARCHAR" />
+    <result column="LinkMan" property="linkman" jdbcType="VARCHAR" />
+    <result column="LinkManTel" property="linkmantel" jdbcType="VARCHAR" />
+    <result column="InstitutionTel" property="institutiontel" jdbcType="VARCHAR" />
+    <result column="Address" property="address" jdbcType="VARCHAR" />
+    <result column="CreateDate" property="createdate" jdbcType="TIMESTAMP" />
+    <result column="UserName" property="username" jdbcType="VARCHAR" />
+    <result column="Area" property="area" jdbcType="VARCHAR" />
+    <result column="zorder" property="zorder" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    depBM, depName, Description, InstitutionType, depFlag, PPtr, CPtr, Status, Logo, 
+    LinkMan, LinkManTel, InstitutionTel, Address, CreateDate, UserName, Area, zorder
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.penzias.entity.SmDepartmentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from sm_department
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from sm_department
+    where depBM = #{depbm,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from sm_department
+    where depBM = #{depbm,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.penzias.entity.SmDepartmentExample" >
+    delete from sm_department
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.penzias.entity.SmDepartment" >
+    insert into sm_department (depBM, depName, Description, 
+      InstitutionType, depFlag, PPtr, 
+      CPtr, Status, Logo, 
+      LinkMan, LinkManTel, InstitutionTel, 
+      Address, CreateDate, UserName, 
+      Area, zorder)
+    values (#{depbm,jdbcType=VARCHAR}, #{depname,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{institutiontype,jdbcType=VARCHAR}, #{depflag,jdbcType=VARCHAR}, #{pptr,jdbcType=VARCHAR}, 
+      #{cptr,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{logo,jdbcType=VARCHAR}, 
+      #{linkman,jdbcType=VARCHAR}, #{linkmantel,jdbcType=VARCHAR}, #{institutiontel,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{createdate,jdbcType=TIMESTAMP}, #{username,jdbcType=VARCHAR}, 
+      #{area,jdbcType=VARCHAR}, #{zorder,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.penzias.entity.SmDepartment" >
+    insert into sm_department
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="depbm != null" >
+        depBM,
+      </if>
+      <if test="depname != null" >
+        depName,
+      </if>
+      <if test="description != null" >
+        Description,
+      </if>
+      <if test="institutiontype != null" >
+        InstitutionType,
+      </if>
+      <if test="depflag != null" >
+        depFlag,
+      </if>
+      <if test="pptr != null" >
+        PPtr,
+      </if>
+      <if test="cptr != null" >
+        CPtr,
+      </if>
+      <if test="status != null" >
+        Status,
+      </if>
+      <if test="logo != null" >
+        Logo,
+      </if>
+      <if test="linkman != null" >
+        LinkMan,
+      </if>
+      <if test="linkmantel != null" >
+        LinkManTel,
+      </if>
+      <if test="institutiontel != null" >
+        InstitutionTel,
+      </if>
+      <if test="address != null" >
+        Address,
+      </if>
+      <if test="createdate != null" >
+        CreateDate,
+      </if>
+      <if test="username != null" >
+        UserName,
+      </if>
+      <if test="area != null" >
+        Area,
+      </if>
+      <if test="zorder != null" >
+        zorder,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="depbm != null" >
+        #{depbm,jdbcType=VARCHAR},
+      </if>
+      <if test="depname != null" >
+        #{depname,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="institutiontype != null" >
+        #{institutiontype,jdbcType=VARCHAR},
+      </if>
+      <if test="depflag != null" >
+        #{depflag,jdbcType=VARCHAR},
+      </if>
+      <if test="pptr != null" >
+        #{pptr,jdbcType=VARCHAR},
+      </if>
+      <if test="cptr != null" >
+        #{cptr,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null" >
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="linkman != null" >
+        #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmantel != null" >
+        #{linkmantel,jdbcType=VARCHAR},
+      </if>
+      <if test="institutiontel != null" >
+        #{institutiontel,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="zorder != null" >
+        #{zorder,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.penzias.entity.SmDepartmentExample" resultType="java.lang.Integer" >
+    select count(*) from sm_department
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update sm_department
+    <set >
+      <if test="record.depbm != null" >
+        depBM = #{record.depbm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.depname != null" >
+        depName = #{record.depname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null" >
+        Description = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.institutiontype != null" >
+        InstitutionType = #{record.institutiontype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.depflag != null" >
+        depFlag = #{record.depflag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pptr != null" >
+        PPtr = #{record.pptr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cptr != null" >
+        CPtr = #{record.cptr,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        Status = #{record.status,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logo != null" >
+        Logo = #{record.logo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linkman != null" >
+        LinkMan = #{record.linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linkmantel != null" >
+        LinkManTel = #{record.linkmantel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.institutiontel != null" >
+        InstitutionTel = #{record.institutiontel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null" >
+        Address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdate != null" >
+        CreateDate = #{record.createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.username != null" >
+        UserName = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.area != null" >
+        Area = #{record.area,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zorder != null" >
+        zorder = #{record.zorder,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update sm_department
+    set depBM = #{record.depbm,jdbcType=VARCHAR},
+      depName = #{record.depname,jdbcType=VARCHAR},
+      Description = #{record.description,jdbcType=VARCHAR},
+      InstitutionType = #{record.institutiontype,jdbcType=VARCHAR},
+      depFlag = #{record.depflag,jdbcType=VARCHAR},
+      PPtr = #{record.pptr,jdbcType=VARCHAR},
+      CPtr = #{record.cptr,jdbcType=VARCHAR},
+      Status = #{record.status,jdbcType=VARCHAR},
+      Logo = #{record.logo,jdbcType=VARCHAR},
+      LinkMan = #{record.linkman,jdbcType=VARCHAR},
+      LinkManTel = #{record.linkmantel,jdbcType=VARCHAR},
+      InstitutionTel = #{record.institutiontel,jdbcType=VARCHAR},
+      Address = #{record.address,jdbcType=VARCHAR},
+      CreateDate = #{record.createdate,jdbcType=TIMESTAMP},
+      UserName = #{record.username,jdbcType=VARCHAR},
+      Area = #{record.area,jdbcType=VARCHAR},
+      zorder = #{record.zorder,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.penzias.entity.SmDepartment" >
+    update sm_department
+    <set >
+      <if test="depname != null" >
+        depName = #{depname,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        Description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="institutiontype != null" >
+        InstitutionType = #{institutiontype,jdbcType=VARCHAR},
+      </if>
+      <if test="depflag != null" >
+        depFlag = #{depflag,jdbcType=VARCHAR},
+      </if>
+      <if test="pptr != null" >
+        PPtr = #{pptr,jdbcType=VARCHAR},
+      </if>
+      <if test="cptr != null" >
+        CPtr = #{cptr,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        Status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null" >
+        Logo = #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="linkman != null" >
+        LinkMan = #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmantel != null" >
+        LinkManTel = #{linkmantel,jdbcType=VARCHAR},
+      </if>
+      <if test="institutiontel != null" >
+        InstitutionTel = #{institutiontel,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        Address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        CreateDate = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="username != null" >
+        UserName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        Area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="zorder != null" >
+        zorder = #{zorder,jdbcType=INTEGER},
+      </if>
+    </set>
+    where depBM = #{depbm,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.penzias.entity.SmDepartment" >
+    update sm_department
+    set depName = #{depname,jdbcType=VARCHAR},
+      Description = #{description,jdbcType=VARCHAR},
+      InstitutionType = #{institutiontype,jdbcType=VARCHAR},
+      depFlag = #{depflag,jdbcType=VARCHAR},
+      PPtr = #{pptr,jdbcType=VARCHAR},
+      CPtr = #{cptr,jdbcType=VARCHAR},
+      Status = #{status,jdbcType=VARCHAR},
+      Logo = #{logo,jdbcType=VARCHAR},
+      LinkMan = #{linkman,jdbcType=VARCHAR},
+      LinkManTel = #{linkmantel,jdbcType=VARCHAR},
+      InstitutionTel = #{institutiontel,jdbcType=VARCHAR},
+      Address = #{address,jdbcType=VARCHAR},
+      CreateDate = #{createdate,jdbcType=TIMESTAMP},
+      UserName = #{username,jdbcType=VARCHAR},
+      Area = #{area,jdbcType=VARCHAR},
+      zorder = #{zorder,jdbcType=INTEGER}
+    where depBM = #{depbm,jdbcType=VARCHAR}
+  </update>
+</mapper>

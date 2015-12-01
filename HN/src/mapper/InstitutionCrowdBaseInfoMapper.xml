@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.penzias.dao.InstitutionCrowdBaseInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.penzias.entity.InstitutionCrowdBaseInfo" >
+    <id column="CrowdID" property="crowdid" jdbcType="INTEGER" />
+    <result column="CertificatesType" property="certificatestype" jdbcType="VARCHAR" />
+    <result column="CertificatesID" property="certificatesid" jdbcType="VARCHAR" />
+    <result column="FullName" property="fullname" jdbcType="VARCHAR" />
+    <result column="Mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="Sex" property="sex" jdbcType="VARCHAR" />
+    <result column="BirthDate" property="birthdate" jdbcType="DATE" />
+    <result column="depBM" property="depbm" jdbcType="VARCHAR" />
+    <result column="CreateDate" property="createdate" jdbcType="TIMESTAMP" />
+    <result column="UserName" property="username" jdbcType="VARCHAR" />
+    <result column="States" property="states" jdbcType="VARCHAR" />
+    <result column="Grade" property="grade" jdbcType="VARCHAR" />
+    <result column="Source" property="source" jdbcType="VARCHAR" />
+    <result column="SourceBZ" property="sourcebz" jdbcType="VARCHAR" />
+    <result column="CaseNo" property="caseno" jdbcType="VARCHAR" />
+    <result column="Nation" property="nation" jdbcType="VARCHAR" />
+    <result column="Education" property="education" jdbcType="VARCHAR" />
+    <result column="Occupation" property="occupation" jdbcType="VARCHAR" />
+    <result column="Income" property="income" jdbcType="VARCHAR" />
+    <result column="Pay" property="pay" jdbcType="VARCHAR" />
+    <result column="CensusRegisterAddress" property="censusregisteraddress" jdbcType="VARCHAR" />
+    <result column="CensusRegisterCode" property="censusregistercode" jdbcType="VARCHAR" />
+    <result column="LiveAddress" property="liveaddress" jdbcType="VARCHAR" />
+    <result column="LiveCode" property="livecode" jdbcType="VARCHAR" />
+    <result column="Tel" property="tel" jdbcType="VARCHAR" />
+    <result column="Email" property="email" jdbcType="VARCHAR" />
+    <result column="LinkMan" property="linkman" jdbcType="VARCHAR" />
+    <result column="LinkManMob" property="linkmanmob" jdbcType="VARCHAR" />
+    <result column="Relationship" property="relationship" jdbcType="VARCHAR" />
+    <result column="Flag" property="flag" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    CrowdID, CertificatesType, CertificatesID, FullName, Mobile, Sex, BirthDate, depBM, 
+    CreateDate, UserName, States, Grade, Source, SourceBZ, CaseNo, Nation, Education, 
+    Occupation, Income, Pay, CensusRegisterAddress, CensusRegisterCode, LiveAddress, 
+    LiveCode, Tel, Email, LinkMan, LinkManMob, Relationship, Flag
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.penzias.entity.InstitutionCrowdBaseInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from institution_crowd_base_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from institution_crowd_base_info
+    where CrowdID = #{crowdid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from institution_crowd_base_info
+    where CrowdID = #{crowdid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.penzias.entity.InstitutionCrowdBaseInfoExample" >
+    delete from institution_crowd_base_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.penzias.entity.InstitutionCrowdBaseInfo" >
+    insert into institution_crowd_base_info (CrowdID, CertificatesType, CertificatesID, 
+      FullName, Mobile, Sex, 
+      BirthDate, depBM, CreateDate, 
+      UserName, States, Grade, 
+      Source, SourceBZ, CaseNo, 
+      Nation, Education, Occupation, 
+      Income, Pay, CensusRegisterAddress, 
+      CensusRegisterCode, LiveAddress, LiveCode, 
+      Tel, Email, LinkMan, 
+      LinkManMob, Relationship, Flag
+      )
+    values (#{crowdid,jdbcType=INTEGER}, #{certificatestype,jdbcType=VARCHAR}, #{certificatesid,jdbcType=VARCHAR}, 
+      #{fullname,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, 
+      #{birthdate,jdbcType=DATE}, #{depbm,jdbcType=VARCHAR}, #{createdate,jdbcType=TIMESTAMP}, 
+      #{username,jdbcType=VARCHAR}, #{states,jdbcType=VARCHAR}, #{grade,jdbcType=VARCHAR}, 
+      #{source,jdbcType=VARCHAR}, #{sourcebz,jdbcType=VARCHAR}, #{caseno,jdbcType=VARCHAR}, 
+      #{nation,jdbcType=VARCHAR}, #{education,jdbcType=VARCHAR}, #{occupation,jdbcType=VARCHAR}, 
+      #{income,jdbcType=VARCHAR}, #{pay,jdbcType=VARCHAR}, #{censusregisteraddress,jdbcType=VARCHAR}, 
+      #{censusregistercode,jdbcType=VARCHAR}, #{liveaddress,jdbcType=VARCHAR}, #{livecode,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{linkman,jdbcType=VARCHAR}, 
+      #{linkmanmob,jdbcType=VARCHAR}, #{relationship,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.penzias.entity.InstitutionCrowdBaseInfo" >
+    insert into institution_crowd_base_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="crowdid != null" >
+        CrowdID,
+      </if>
+      <if test="certificatestype != null" >
+        CertificatesType,
+      </if>
+      <if test="certificatesid != null" >
+        CertificatesID,
+      </if>
+      <if test="fullname != null" >
+        FullName,
+      </if>
+      <if test="mobile != null" >
+        Mobile,
+      </if>
+      <if test="sex != null" >
+        Sex,
+      </if>
+      <if test="birthdate != null" >
+        BirthDate,
+      </if>
+      <if test="depbm != null" >
+        depBM,
+      </if>
+      <if test="createdate != null" >
+        CreateDate,
+      </if>
+      <if test="username != null" >
+        UserName,
+      </if>
+      <if test="states != null" >
+        States,
+      </if>
+      <if test="grade != null" >
+        Grade,
+      </if>
+      <if test="source != null" >
+        Source,
+      </if>
+      <if test="sourcebz != null" >
+        SourceBZ,
+      </if>
+      <if test="caseno != null" >
+        CaseNo,
+      </if>
+      <if test="nation != null" >
+        Nation,
+      </if>
+      <if test="education != null" >
+        Education,
+      </if>
+      <if test="occupation != null" >
+        Occupation,
+      </if>
+      <if test="income != null" >
+        Income,
+      </if>
+      <if test="pay != null" >
+        Pay,
+      </if>
+      <if test="censusregisteraddress != null" >
+        CensusRegisterAddress,
+      </if>
+      <if test="censusregistercode != null" >
+        CensusRegisterCode,
+      </if>
+      <if test="liveaddress != null" >
+        LiveAddress,
+      </if>
+      <if test="livecode != null" >
+        LiveCode,
+      </if>
+      <if test="tel != null" >
+        Tel,
+      </if>
+      <if test="email != null" >
+        Email,
+      </if>
+      <if test="linkman != null" >
+        LinkMan,
+      </if>
+      <if test="linkmanmob != null" >
+        LinkManMob,
+      </if>
+      <if test="relationship != null" >
+        Relationship,
+      </if>
+      <if test="flag != null" >
+        Flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="crowdid != null" >
+        #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="certificatestype != null" >
+        #{certificatestype,jdbcType=VARCHAR},
+      </if>
+      <if test="certificatesid != null" >
+        #{certificatesid,jdbcType=VARCHAR},
+      </if>
+      <if test="fullname != null" >
+        #{fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdate != null" >
+        #{birthdate,jdbcType=DATE},
+      </if>
+      <if test="depbm != null" >
+        #{depbm,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="states != null" >
+        #{states,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcebz != null" >
+        #{sourcebz,jdbcType=VARCHAR},
+      </if>
+      <if test="caseno != null" >
+        #{caseno,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null" >
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null" >
+        #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="income != null" >
+        #{income,jdbcType=VARCHAR},
+      </if>
+      <if test="pay != null" >
+        #{pay,jdbcType=VARCHAR},
+      </if>
+      <if test="censusregisteraddress != null" >
+        #{censusregisteraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="censusregistercode != null" >
+        #{censusregistercode,jdbcType=VARCHAR},
+      </if>
+      <if test="liveaddress != null" >
+        #{liveaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="livecode != null" >
+        #{livecode,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="linkman != null" >
+        #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanmob != null" >
+        #{linkmanmob,jdbcType=VARCHAR},
+      </if>
+      <if test="relationship != null" >
+        #{relationship,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.penzias.entity.InstitutionCrowdBaseInfoExample" resultType="java.lang.Integer" >
+    select count(*) from institution_crowd_base_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update institution_crowd_base_info
+    <set >
+      <if test="record.crowdid != null" >
+        CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="record.certificatestype != null" >
+        CertificatesType = #{record.certificatestype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.certificatesid != null" >
+        CertificatesID = #{record.certificatesid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.fullname != null" >
+        FullName = #{record.fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobile != null" >
+        Mobile = #{record.mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sex != null" >
+        Sex = #{record.sex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.birthdate != null" >
+        BirthDate = #{record.birthdate,jdbcType=DATE},
+      </if>
+      <if test="record.depbm != null" >
+        depBM = #{record.depbm,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createdate != null" >
+        CreateDate = #{record.createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.username != null" >
+        UserName = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.states != null" >
+        States = #{record.states,jdbcType=VARCHAR},
+      </if>
+      <if test="record.grade != null" >
+        Grade = #{record.grade,jdbcType=VARCHAR},
+      </if>
+      <if test="record.source != null" >
+        Source = #{record.source,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sourcebz != null" >
+        SourceBZ = #{record.sourcebz,jdbcType=VARCHAR},
+      </if>
+      <if test="record.caseno != null" >
+        CaseNo = #{record.caseno,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nation != null" >
+        Nation = #{record.nation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.education != null" >
+        Education = #{record.education,jdbcType=VARCHAR},
+      </if>
+      <if test="record.occupation != null" >
+        Occupation = #{record.occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="record.income != null" >
+        Income = #{record.income,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pay != null" >
+        Pay = #{record.pay,jdbcType=VARCHAR},
+      </if>
+      <if test="record.censusregisteraddress != null" >
+        CensusRegisterAddress = #{record.censusregisteraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.censusregistercode != null" >
+        CensusRegisterCode = #{record.censusregistercode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.liveaddress != null" >
+        LiveAddress = #{record.liveaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.livecode != null" >
+        LiveCode = #{record.livecode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tel != null" >
+        Tel = #{record.tel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null" >
+        Email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linkman != null" >
+        LinkMan = #{record.linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="record.linkmanmob != null" >
+        LinkManMob = #{record.linkmanmob,jdbcType=VARCHAR},
+      </if>
+      <if test="record.relationship != null" >
+        Relationship = #{record.relationship,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flag != null" >
+        Flag = #{record.flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update institution_crowd_base_info
+    set CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      CertificatesType = #{record.certificatestype,jdbcType=VARCHAR},
+      CertificatesID = #{record.certificatesid,jdbcType=VARCHAR},
+      FullName = #{record.fullname,jdbcType=VARCHAR},
+      Mobile = #{record.mobile,jdbcType=VARCHAR},
+      Sex = #{record.sex,jdbcType=VARCHAR},
+      BirthDate = #{record.birthdate,jdbcType=DATE},
+      depBM = #{record.depbm,jdbcType=VARCHAR},
+      CreateDate = #{record.createdate,jdbcType=TIMESTAMP},
+      UserName = #{record.username,jdbcType=VARCHAR},
+      States = #{record.states,jdbcType=VARCHAR},
+      Grade = #{record.grade,jdbcType=VARCHAR},
+      Source = #{record.source,jdbcType=VARCHAR},
+      SourceBZ = #{record.sourcebz,jdbcType=VARCHAR},
+      CaseNo = #{record.caseno,jdbcType=VARCHAR},
+      Nation = #{record.nation,jdbcType=VARCHAR},
+      Education = #{record.education,jdbcType=VARCHAR},
+      Occupation = #{record.occupation,jdbcType=VARCHAR},
+      Income = #{record.income,jdbcType=VARCHAR},
+      Pay = #{record.pay,jdbcType=VARCHAR},
+      CensusRegisterAddress = #{record.censusregisteraddress,jdbcType=VARCHAR},
+      CensusRegisterCode = #{record.censusregistercode,jdbcType=VARCHAR},
+      LiveAddress = #{record.liveaddress,jdbcType=VARCHAR},
+      LiveCode = #{record.livecode,jdbcType=VARCHAR},
+      Tel = #{record.tel,jdbcType=VARCHAR},
+      Email = #{record.email,jdbcType=VARCHAR},
+      LinkMan = #{record.linkman,jdbcType=VARCHAR},
+      LinkManMob = #{record.linkmanmob,jdbcType=VARCHAR},
+      Relationship = #{record.relationship,jdbcType=VARCHAR},
+      Flag = #{record.flag,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.penzias.entity.InstitutionCrowdBaseInfo" >
+    update institution_crowd_base_info
+    <set >
+      <if test="certificatestype != null" >
+        CertificatesType = #{certificatestype,jdbcType=VARCHAR},
+      </if>
+      <if test="certificatesid != null" >
+        CertificatesID = #{certificatesid,jdbcType=VARCHAR},
+      </if>
+      <if test="fullname != null" >
+        FullName = #{fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        Mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        Sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="birthdate != null" >
+        BirthDate = #{birthdate,jdbcType=DATE},
+      </if>
+      <if test="depbm != null" >
+        depBM = #{depbm,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null" >
+        CreateDate = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="username != null" >
+        UserName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="states != null" >
+        States = #{states,jdbcType=VARCHAR},
+      </if>
+      <if test="grade != null" >
+        Grade = #{grade,jdbcType=VARCHAR},
+      </if>
+      <if test="source != null" >
+        Source = #{source,jdbcType=VARCHAR},
+      </if>
+      <if test="sourcebz != null" >
+        SourceBZ = #{sourcebz,jdbcType=VARCHAR},
+      </if>
+      <if test="caseno != null" >
+        CaseNo = #{caseno,jdbcType=VARCHAR},
+      </if>
+      <if test="nation != null" >
+        Nation = #{nation,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null" >
+        Education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null" >
+        Occupation = #{occupation,jdbcType=VARCHAR},
+      </if>
+      <if test="income != null" >
+        Income = #{income,jdbcType=VARCHAR},
+      </if>
+      <if test="pay != null" >
+        Pay = #{pay,jdbcType=VARCHAR},
+      </if>
+      <if test="censusregisteraddress != null" >
+        CensusRegisterAddress = #{censusregisteraddress,jdbcType=VARCHAR},
+      </if>
+      <if test="censusregistercode != null" >
+        CensusRegisterCode = #{censusregistercode,jdbcType=VARCHAR},
+      </if>
+      <if test="liveaddress != null" >
+        LiveAddress = #{liveaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="livecode != null" >
+        LiveCode = #{livecode,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        Tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null" >
+        Email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="linkman != null" >
+        LinkMan = #{linkman,jdbcType=VARCHAR},
+      </if>
+      <if test="linkmanmob != null" >
+        LinkManMob = #{linkmanmob,jdbcType=VARCHAR},
+      </if>
+      <if test="relationship != null" >
+        Relationship = #{relationship,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        Flag = #{flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where CrowdID = #{crowdid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.penzias.entity.InstitutionCrowdBaseInfo" >
+    update institution_crowd_base_info
+    set CertificatesType = #{certificatestype,jdbcType=VARCHAR},
+      CertificatesID = #{certificatesid,jdbcType=VARCHAR},
+      FullName = #{fullname,jdbcType=VARCHAR},
+      Mobile = #{mobile,jdbcType=VARCHAR},
+      Sex = #{sex,jdbcType=VARCHAR},
+      BirthDate = #{birthdate,jdbcType=DATE},
+      depBM = #{depbm,jdbcType=VARCHAR},
+      CreateDate = #{createdate,jdbcType=TIMESTAMP},
+      UserName = #{username,jdbcType=VARCHAR},
+      States = #{states,jdbcType=VARCHAR},
+      Grade = #{grade,jdbcType=VARCHAR},
+      Source = #{source,jdbcType=VARCHAR},
+      SourceBZ = #{sourcebz,jdbcType=VARCHAR},
+      CaseNo = #{caseno,jdbcType=VARCHAR},
+      Nation = #{nation,jdbcType=VARCHAR},
+      Education = #{education,jdbcType=VARCHAR},
+      Occupation = #{occupation,jdbcType=VARCHAR},
+      Income = #{income,jdbcType=VARCHAR},
+      Pay = #{pay,jdbcType=VARCHAR},
+      CensusRegisterAddress = #{censusregisteraddress,jdbcType=VARCHAR},
+      CensusRegisterCode = #{censusregistercode,jdbcType=VARCHAR},
+      LiveAddress = #{liveaddress,jdbcType=VARCHAR},
+      LiveCode = #{livecode,jdbcType=VARCHAR},
+      Tel = #{tel,jdbcType=VARCHAR},
+      Email = #{email,jdbcType=VARCHAR},
+      LinkMan = #{linkman,jdbcType=VARCHAR},
+      LinkManMob = #{linkmanmob,jdbcType=VARCHAR},
+      Relationship = #{relationship,jdbcType=VARCHAR},
+      Flag = #{flag,jdbcType=VARCHAR}
+    where CrowdID = #{crowdid,jdbcType=INTEGER}
+  </update>
+</mapper>

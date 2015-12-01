@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.penzias.dao.BrainBloodHistoryMapper" >
+  <resultMap id="BaseResultMap" type="com.penzias.entity.BrainBloodHistory" >
+    <id column="BrainBloodHistoryID" property="brainbloodhistoryid" jdbcType="INTEGER" />
+    <result column="CrowdID" property="crowdid" jdbcType="INTEGER" />
+    <result column="IsBrainBlood" property="isbrainblood" jdbcType="VARCHAR" />
+    <result column="Number" property="number" jdbcType="VARCHAR" />
+    <result column="LastTime" property="lasttime" jdbcType="DATE" />
+    <result column="Diagnosis" property="diagnosis" jdbcType="VARCHAR" />
+    <result column="BasisBrainCT" property="basisbrainct" jdbcType="VARCHAR" />
+    <result column="BasisBrainMRI" property="basisbrainmri" jdbcType="VARCHAR" />
+    <result column="Clinical" property="clinical" jdbcType="VARCHAR" />
+    <result column="MRSTime" property="mrstime" jdbcType="DATE" />
+    <result column="MRSOption" property="mrsoption" jdbcType="VARCHAR" />
+    <result column="MRSValue" property="mrsvalue" jdbcType="VARCHAR" />
+    <result column="Flag" property="flag" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    BrainBloodHistoryID, CrowdID, IsBrainBlood, Number, LastTime, Diagnosis, BasisBrainCT, 
+    BasisBrainMRI, Clinical, MRSTime, MRSOption, MRSValue, Flag
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.penzias.entity.BrainBloodHistoryExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from brain_blood_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from brain_blood_history
+    where BrainBloodHistoryID = #{brainbloodhistoryid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from brain_blood_history
+    where BrainBloodHistoryID = #{brainbloodhistoryid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.penzias.entity.BrainBloodHistoryExample" >
+    delete from brain_blood_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.penzias.entity.BrainBloodHistory" >
+    insert into brain_blood_history (BrainBloodHistoryID, CrowdID, IsBrainBlood, 
+      Number, LastTime, Diagnosis, 
+      BasisBrainCT, BasisBrainMRI, Clinical, 
+      MRSTime, MRSOption, MRSValue, 
+      Flag)
+    values (#{brainbloodhistoryid,jdbcType=INTEGER}, #{crowdid,jdbcType=INTEGER}, #{isbrainblood,jdbcType=VARCHAR}, 
+      #{number,jdbcType=VARCHAR}, #{lasttime,jdbcType=DATE}, #{diagnosis,jdbcType=VARCHAR}, 
+      #{basisbrainct,jdbcType=VARCHAR}, #{basisbrainmri,jdbcType=VARCHAR}, #{clinical,jdbcType=VARCHAR}, 
+      #{mrstime,jdbcType=DATE}, #{mrsoption,jdbcType=VARCHAR}, #{mrsvalue,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.penzias.entity.BrainBloodHistory" >
+    insert into brain_blood_history
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="brainbloodhistoryid != null" >
+        BrainBloodHistoryID,
+      </if>
+      <if test="crowdid != null" >
+        CrowdID,
+      </if>
+      <if test="isbrainblood != null" >
+        IsBrainBlood,
+      </if>
+      <if test="number != null" >
+        Number,
+      </if>
+      <if test="lasttime != null" >
+        LastTime,
+      </if>
+      <if test="diagnosis != null" >
+        Diagnosis,
+      </if>
+      <if test="basisbrainct != null" >
+        BasisBrainCT,
+      </if>
+      <if test="basisbrainmri != null" >
+        BasisBrainMRI,
+      </if>
+      <if test="clinical != null" >
+        Clinical,
+      </if>
+      <if test="mrstime != null" >
+        MRSTime,
+      </if>
+      <if test="mrsoption != null" >
+        MRSOption,
+      </if>
+      <if test="mrsvalue != null" >
+        MRSValue,
+      </if>
+      <if test="flag != null" >
+        Flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="brainbloodhistoryid != null" >
+        #{brainbloodhistoryid,jdbcType=INTEGER},
+      </if>
+      <if test="crowdid != null" >
+        #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="isbrainblood != null" >
+        #{isbrainblood,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null" >
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="lasttime != null" >
+        #{lasttime,jdbcType=DATE},
+      </if>
+      <if test="diagnosis != null" >
+        #{diagnosis,jdbcType=VARCHAR},
+      </if>
+      <if test="basisbrainct != null" >
+        #{basisbrainct,jdbcType=VARCHAR},
+      </if>
+      <if test="basisbrainmri != null" >
+        #{basisbrainmri,jdbcType=VARCHAR},
+      </if>
+      <if test="clinical != null" >
+        #{clinical,jdbcType=VARCHAR},
+      </if>
+      <if test="mrstime != null" >
+        #{mrstime,jdbcType=DATE},
+      </if>
+      <if test="mrsoption != null" >
+        #{mrsoption,jdbcType=VARCHAR},
+      </if>
+      <if test="mrsvalue != null" >
+        #{mrsvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.penzias.entity.BrainBloodHistoryExample" resultType="java.lang.Integer" >
+    select count(*) from brain_blood_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update brain_blood_history
+    <set >
+      <if test="record.brainbloodhistoryid != null" >
+        BrainBloodHistoryID = #{record.brainbloodhistoryid,jdbcType=INTEGER},
+      </if>
+      <if test="record.crowdid != null" >
+        CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="record.isbrainblood != null" >
+        IsBrainBlood = #{record.isbrainblood,jdbcType=VARCHAR},
+      </if>
+      <if test="record.number != null" >
+        Number = #{record.number,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lasttime != null" >
+        LastTime = #{record.lasttime,jdbcType=DATE},
+      </if>
+      <if test="record.diagnosis != null" >
+        Diagnosis = #{record.diagnosis,jdbcType=VARCHAR},
+      </if>
+      <if test="record.basisbrainct != null" >
+        BasisBrainCT = #{record.basisbrainct,jdbcType=VARCHAR},
+      </if>
+      <if test="record.basisbrainmri != null" >
+        BasisBrainMRI = #{record.basisbrainmri,jdbcType=VARCHAR},
+      </if>
+      <if test="record.clinical != null" >
+        Clinical = #{record.clinical,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mrstime != null" >
+        MRSTime = #{record.mrstime,jdbcType=DATE},
+      </if>
+      <if test="record.mrsoption != null" >
+        MRSOption = #{record.mrsoption,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mrsvalue != null" >
+        MRSValue = #{record.mrsvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flag != null" >
+        Flag = #{record.flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update brain_blood_history
+    set BrainBloodHistoryID = #{record.brainbloodhistoryid,jdbcType=INTEGER},
+      CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      IsBrainBlood = #{record.isbrainblood,jdbcType=VARCHAR},
+      Number = #{record.number,jdbcType=VARCHAR},
+      LastTime = #{record.lasttime,jdbcType=DATE},
+      Diagnosis = #{record.diagnosis,jdbcType=VARCHAR},
+      BasisBrainCT = #{record.basisbrainct,jdbcType=VARCHAR},
+      BasisBrainMRI = #{record.basisbrainmri,jdbcType=VARCHAR},
+      Clinical = #{record.clinical,jdbcType=VARCHAR},
+      MRSTime = #{record.mrstime,jdbcType=DATE},
+      MRSOption = #{record.mrsoption,jdbcType=VARCHAR},
+      MRSValue = #{record.mrsvalue,jdbcType=VARCHAR},
+      Flag = #{record.flag,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.penzias.entity.BrainBloodHistory" >
+    update brain_blood_history
+    <set >
+      <if test="crowdid != null" >
+        CrowdID = #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="isbrainblood != null" >
+        IsBrainBlood = #{isbrainblood,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null" >
+        Number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="lasttime != null" >
+        LastTime = #{lasttime,jdbcType=DATE},
+      </if>
+      <if test="diagnosis != null" >
+        Diagnosis = #{diagnosis,jdbcType=VARCHAR},
+      </if>
+      <if test="basisbrainct != null" >
+        BasisBrainCT = #{basisbrainct,jdbcType=VARCHAR},
+      </if>
+      <if test="basisbrainmri != null" >
+        BasisBrainMRI = #{basisbrainmri,jdbcType=VARCHAR},
+      </if>
+      <if test="clinical != null" >
+        Clinical = #{clinical,jdbcType=VARCHAR},
+      </if>
+      <if test="mrstime != null" >
+        MRSTime = #{mrstime,jdbcType=DATE},
+      </if>
+      <if test="mrsoption != null" >
+        MRSOption = #{mrsoption,jdbcType=VARCHAR},
+      </if>
+      <if test="mrsvalue != null" >
+        MRSValue = #{mrsvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        Flag = #{flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where BrainBloodHistoryID = #{brainbloodhistoryid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.penzias.entity.BrainBloodHistory" >
+    update brain_blood_history
+    set CrowdID = #{crowdid,jdbcType=INTEGER},
+      IsBrainBlood = #{isbrainblood,jdbcType=VARCHAR},
+      Number = #{number,jdbcType=VARCHAR},
+      LastTime = #{lasttime,jdbcType=DATE},
+      Diagnosis = #{diagnosis,jdbcType=VARCHAR},
+      BasisBrainCT = #{basisbrainct,jdbcType=VARCHAR},
+      BasisBrainMRI = #{basisbrainmri,jdbcType=VARCHAR},
+      Clinical = #{clinical,jdbcType=VARCHAR},
+      MRSTime = #{mrstime,jdbcType=DATE},
+      MRSOption = #{mrsoption,jdbcType=VARCHAR},
+      MRSValue = #{mrsvalue,jdbcType=VARCHAR},
+      Flag = #{flag,jdbcType=VARCHAR}
+    where BrainBloodHistoryID = #{brainbloodhistoryid,jdbcType=INTEGER}
+  </update>
+</mapper>

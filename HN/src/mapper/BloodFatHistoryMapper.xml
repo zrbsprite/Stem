@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.penzias.dao.BloodFatHistoryMapper" >
+  <resultMap id="BaseResultMap" type="com.penzias.entity.BloodFatHistory" >
+    <id column="BloodFatHistoryID" property="bloodfathistoryid" jdbcType="INTEGER" />
+    <result column="CrowdID" property="crowdid" jdbcType="INTEGER" />
+    <result column="Frequency" property="frequency" jdbcType="VARCHAR" />
+    <result column="IsBloodFat" property="isbloodfat" jdbcType="VARCHAR" />
+    <result column="DiagnosisTime" property="diagnosistime" jdbcType="DATE" />
+    <result column="HighCholesterol" property="highcholesterol" jdbcType="VARCHAR" />
+    <result column="HighTriglyceride" property="hightriglyceride" jdbcType="VARCHAR" />
+    <result column="HighLDL-C" property="highldlC" jdbcType="VARCHAR" />
+    <result column="LowHDL-C" property="lowhdlC" jdbcType="VARCHAR" />
+    <result column="Other" property="other" jdbcType="VARCHAR" />
+    <result column="IsLipid-lowering" property="islipidLowering" jdbcType="VARCHAR" />
+    <result column="CholesterolControl" property="cholesterolcontrol" jdbcType="VARCHAR" />
+    <result column="CholesterolYear" property="cholesterolyear" jdbcType="VARCHAR" />
+    <result column="TriglycerideControl" property="triglyceridecontrol" jdbcType="VARCHAR" />
+    <result column="TriglycerideYear" property="triglycerideyear" jdbcType="VARCHAR" />
+    <result column="LDL-CControl" property="ldlCcontrol" jdbcType="VARCHAR" />
+    <result column="LDL-CYear" property="ldlCyear" jdbcType="VARCHAR" />
+    <result column="HDL-CControl" property="hdlCcontrol" jdbcType="VARCHAR" />
+    <result column="HDL-CYear" property="hdlCyear" jdbcType="VARCHAR" />
+    <result column="Flag" property="flag" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    BloodFatHistoryID, CrowdID, Frequency, IsBloodFat, DiagnosisTime, HighCholesterol, 
+    HighTriglyceride, HighLDL-C, LowHDL-C, Other, IsLipid-lowering, CholesterolControl, 
+    CholesterolYear, TriglycerideControl, TriglycerideYear, LDL-CControl, LDL-CYear, 
+    HDL-CControl, HDL-CYear, Flag
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.penzias.entity.BloodFatHistoryExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from blood_fat_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from blood_fat_history
+    where BloodFatHistoryID = #{bloodfathistoryid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from blood_fat_history
+    where BloodFatHistoryID = #{bloodfathistoryid,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.penzias.entity.BloodFatHistoryExample" >
+    delete from blood_fat_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.penzias.entity.BloodFatHistory" >
+    insert into blood_fat_history (BloodFatHistoryID, CrowdID, Frequency, 
+      IsBloodFat, DiagnosisTime, HighCholesterol, 
+      HighTriglyceride, HighLDL-C, LowHDL-C, 
+      Other, IsLipid-lowering, CholesterolControl, 
+      CholesterolYear, TriglycerideControl, TriglycerideYear, 
+      LDL-CControl, LDL-CYear, HDL-CControl, 
+      HDL-CYear, Flag)
+    values (#{bloodfathistoryid,jdbcType=INTEGER}, #{crowdid,jdbcType=INTEGER}, #{frequency,jdbcType=VARCHAR}, 
+      #{isbloodfat,jdbcType=VARCHAR}, #{diagnosistime,jdbcType=DATE}, #{highcholesterol,jdbcType=VARCHAR}, 
+      #{hightriglyceride,jdbcType=VARCHAR}, #{highldlC,jdbcType=VARCHAR}, #{lowhdlC,jdbcType=VARCHAR}, 
+      #{other,jdbcType=VARCHAR}, #{islipidLowering,jdbcType=VARCHAR}, #{cholesterolcontrol,jdbcType=VARCHAR}, 
+      #{cholesterolyear,jdbcType=VARCHAR}, #{triglyceridecontrol,jdbcType=VARCHAR}, #{triglycerideyear,jdbcType=VARCHAR}, 
+      #{ldlCcontrol,jdbcType=VARCHAR}, #{ldlCyear,jdbcType=VARCHAR}, #{hdlCcontrol,jdbcType=VARCHAR}, 
+      #{hdlCyear,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.penzias.entity.BloodFatHistory" >
+    insert into blood_fat_history
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bloodfathistoryid != null" >
+        BloodFatHistoryID,
+      </if>
+      <if test="crowdid != null" >
+        CrowdID,
+      </if>
+      <if test="frequency != null" >
+        Frequency,
+      </if>
+      <if test="isbloodfat != null" >
+        IsBloodFat,
+      </if>
+      <if test="diagnosistime != null" >
+        DiagnosisTime,
+      </if>
+      <if test="highcholesterol != null" >
+        HighCholesterol,
+      </if>
+      <if test="hightriglyceride != null" >
+        HighTriglyceride,
+      </if>
+      <if test="highldlC != null" >
+        HighLDL-C,
+      </if>
+      <if test="lowhdlC != null" >
+        LowHDL-C,
+      </if>
+      <if test="other != null" >
+        Other,
+      </if>
+      <if test="islipidLowering != null" >
+        IsLipid-lowering,
+      </if>
+      <if test="cholesterolcontrol != null" >
+        CholesterolControl,
+      </if>
+      <if test="cholesterolyear != null" >
+        CholesterolYear,
+      </if>
+      <if test="triglyceridecontrol != null" >
+        TriglycerideControl,
+      </if>
+      <if test="triglycerideyear != null" >
+        TriglycerideYear,
+      </if>
+      <if test="ldlCcontrol != null" >
+        LDL-CControl,
+      </if>
+      <if test="ldlCyear != null" >
+        LDL-CYear,
+      </if>
+      <if test="hdlCcontrol != null" >
+        HDL-CControl,
+      </if>
+      <if test="hdlCyear != null" >
+        HDL-CYear,
+      </if>
+      <if test="flag != null" >
+        Flag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bloodfathistoryid != null" >
+        #{bloodfathistoryid,jdbcType=INTEGER},
+      </if>
+      <if test="crowdid != null" >
+        #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="frequency != null" >
+        #{frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="isbloodfat != null" >
+        #{isbloodfat,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosistime != null" >
+        #{diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="highcholesterol != null" >
+        #{highcholesterol,jdbcType=VARCHAR},
+      </if>
+      <if test="hightriglyceride != null" >
+        #{hightriglyceride,jdbcType=VARCHAR},
+      </if>
+      <if test="highldlC != null" >
+        #{highldlC,jdbcType=VARCHAR},
+      </if>
+      <if test="lowhdlC != null" >
+        #{lowhdlC,jdbcType=VARCHAR},
+      </if>
+      <if test="other != null" >
+        #{other,jdbcType=VARCHAR},
+      </if>
+      <if test="islipidLowering != null" >
+        #{islipidLowering,jdbcType=VARCHAR},
+      </if>
+      <if test="cholesterolcontrol != null" >
+        #{cholesterolcontrol,jdbcType=VARCHAR},
+      </if>
+      <if test="cholesterolyear != null" >
+        #{cholesterolyear,jdbcType=VARCHAR},
+      </if>
+      <if test="triglyceridecontrol != null" >
+        #{triglyceridecontrol,jdbcType=VARCHAR},
+      </if>
+      <if test="triglycerideyear != null" >
+        #{triglycerideyear,jdbcType=VARCHAR},
+      </if>
+      <if test="ldlCcontrol != null" >
+        #{ldlCcontrol,jdbcType=VARCHAR},
+      </if>
+      <if test="ldlCyear != null" >
+        #{ldlCyear,jdbcType=VARCHAR},
+      </if>
+      <if test="hdlCcontrol != null" >
+        #{hdlCcontrol,jdbcType=VARCHAR},
+      </if>
+      <if test="hdlCyear != null" >
+        #{hdlCyear,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        #{flag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.penzias.entity.BloodFatHistoryExample" resultType="java.lang.Integer" >
+    select count(*) from blood_fat_history
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update blood_fat_history
+    <set >
+      <if test="record.bloodfathistoryid != null" >
+        BloodFatHistoryID = #{record.bloodfathistoryid,jdbcType=INTEGER},
+      </if>
+      <if test="record.crowdid != null" >
+        CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="record.frequency != null" >
+        Frequency = #{record.frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isbloodfat != null" >
+        IsBloodFat = #{record.isbloodfat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.diagnosistime != null" >
+        DiagnosisTime = #{record.diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="record.highcholesterol != null" >
+        HighCholesterol = #{record.highcholesterol,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hightriglyceride != null" >
+        HighTriglyceride = #{record.hightriglyceride,jdbcType=VARCHAR},
+      </if>
+      <if test="record.highldlC != null" >
+        HighLDL-C = #{record.highldlC,jdbcType=VARCHAR},
+      </if>
+      <if test="record.lowhdlC != null" >
+        LowHDL-C = #{record.lowhdlC,jdbcType=VARCHAR},
+      </if>
+      <if test="record.other != null" >
+        Other = #{record.other,jdbcType=VARCHAR},
+      </if>
+      <if test="record.islipidLowering != null" >
+        IsLipid-lowering = #{record.islipidLowering,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cholesterolcontrol != null" >
+        CholesterolControl = #{record.cholesterolcontrol,jdbcType=VARCHAR},
+      </if>
+      <if test="record.cholesterolyear != null" >
+        CholesterolYear = #{record.cholesterolyear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.triglyceridecontrol != null" >
+        TriglycerideControl = #{record.triglyceridecontrol,jdbcType=VARCHAR},
+      </if>
+      <if test="record.triglycerideyear != null" >
+        TriglycerideYear = #{record.triglycerideyear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ldlCcontrol != null" >
+        LDL-CControl = #{record.ldlCcontrol,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ldlCyear != null" >
+        LDL-CYear = #{record.ldlCyear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hdlCcontrol != null" >
+        HDL-CControl = #{record.hdlCcontrol,jdbcType=VARCHAR},
+      </if>
+      <if test="record.hdlCyear != null" >
+        HDL-CYear = #{record.hdlCyear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.flag != null" >
+        Flag = #{record.flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update blood_fat_history
+    set BloodFatHistoryID = #{record.bloodfathistoryid,jdbcType=INTEGER},
+      CrowdID = #{record.crowdid,jdbcType=INTEGER},
+      Frequency = #{record.frequency,jdbcType=VARCHAR},
+      IsBloodFat = #{record.isbloodfat,jdbcType=VARCHAR},
+      DiagnosisTime = #{record.diagnosistime,jdbcType=DATE},
+      HighCholesterol = #{record.highcholesterol,jdbcType=VARCHAR},
+      HighTriglyceride = #{record.hightriglyceride,jdbcType=VARCHAR},
+      HighLDL-C = #{record.highldlC,jdbcType=VARCHAR},
+      LowHDL-C = #{record.lowhdlC,jdbcType=VARCHAR},
+      Other = #{record.other,jdbcType=VARCHAR},
+      IsLipid-lowering = #{record.islipidLowering,jdbcType=VARCHAR},
+      CholesterolControl = #{record.cholesterolcontrol,jdbcType=VARCHAR},
+      CholesterolYear = #{record.cholesterolyear,jdbcType=VARCHAR},
+      TriglycerideControl = #{record.triglyceridecontrol,jdbcType=VARCHAR},
+      TriglycerideYear = #{record.triglycerideyear,jdbcType=VARCHAR},
+      LDL-CControl = #{record.ldlCcontrol,jdbcType=VARCHAR},
+      LDL-CYear = #{record.ldlCyear,jdbcType=VARCHAR},
+      HDL-CControl = #{record.hdlCcontrol,jdbcType=VARCHAR},
+      HDL-CYear = #{record.hdlCyear,jdbcType=VARCHAR},
+      Flag = #{record.flag,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.penzias.entity.BloodFatHistory" >
+    update blood_fat_history
+    <set >
+      <if test="crowdid != null" >
+        CrowdID = #{crowdid,jdbcType=INTEGER},
+      </if>
+      <if test="frequency != null" >
+        Frequency = #{frequency,jdbcType=VARCHAR},
+      </if>
+      <if test="isbloodfat != null" >
+        IsBloodFat = #{isbloodfat,jdbcType=VARCHAR},
+      </if>
+      <if test="diagnosistime != null" >
+        DiagnosisTime = #{diagnosistime,jdbcType=DATE},
+      </if>
+      <if test="highcholesterol != null" >
+        HighCholesterol = #{highcholesterol,jdbcType=VARCHAR},
+      </if>
+      <if test="hightriglyceride != null" >
+        HighTriglyceride = #{hightriglyceride,jdbcType=VARCHAR},
+      </if>
+      <if test="highldlC != null" >
+        HighLDL-C = #{highldlC,jdbcType=VARCHAR},
+      </if>
+      <if test="lowhdlC != null" >
+        LowHDL-C = #{lowhdlC,jdbcType=VARCHAR},
+      </if>
+      <if test="other != null" >
+        Other = #{other,jdbcType=VARCHAR},
+      </if>
+      <if test="islipidLowering != null" >
+        IsLipid-lowering = #{islipidLowering,jdbcType=VARCHAR},
+      </if>
+      <if test="cholesterolcontrol != null" >
+        CholesterolControl = #{cholesterolcontrol,jdbcType=VARCHAR},
+      </if>
+      <if test="cholesterolyear != null" >
+        CholesterolYear = #{cholesterolyear,jdbcType=VARCHAR},
+      </if>
+      <if test="triglyceridecontrol != null" >
+        TriglycerideControl = #{triglyceridecontrol,jdbcType=VARCHAR},
+      </if>
+      <if test="triglycerideyear != null" >
+        TriglycerideYear = #{triglycerideyear,jdbcType=VARCHAR},
+      </if>
+      <if test="ldlCcontrol != null" >
+        LDL-CControl = #{ldlCcontrol,jdbcType=VARCHAR},
+      </if>
+      <if test="ldlCyear != null" >
+        LDL-CYear = #{ldlCyear,jdbcType=VARCHAR},
+      </if>
+      <if test="hdlCcontrol != null" >
+        HDL-CControl = #{hdlCcontrol,jdbcType=VARCHAR},
+      </if>
+      <if test="hdlCyear != null" >
+        HDL-CYear = #{hdlCyear,jdbcType=VARCHAR},
+      </if>
+      <if test="flag != null" >
+        Flag = #{flag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where BloodFatHistoryID = #{bloodfathistoryid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.penzias.entity.BloodFatHistory" >
+    update blood_fat_history
+    set CrowdID = #{crowdid,jdbcType=INTEGER},
+      Frequency = #{frequency,jdbcType=VARCHAR},
+      IsBloodFat = #{isbloodfat,jdbcType=VARCHAR},
+      DiagnosisTime = #{diagnosistime,jdbcType=DATE},
+      HighCholesterol = #{highcholesterol,jdbcType=VARCHAR},
+      HighTriglyceride = #{hightriglyceride,jdbcType=VARCHAR},
+      HighLDL-C = #{highldlC,jdbcType=VARCHAR},
+      LowHDL-C = #{lowhdlC,jdbcType=VARCHAR},
+      Other = #{other,jdbcType=VARCHAR},
+      IsLipid-lowering = #{islipidLowering,jdbcType=VARCHAR},
+      CholesterolControl = #{cholesterolcontrol,jdbcType=VARCHAR},
+      CholesterolYear = #{cholesterolyear,jdbcType=VARCHAR},
+      TriglycerideControl = #{triglyceridecontrol,jdbcType=VARCHAR},
+      TriglycerideYear = #{triglycerideyear,jdbcType=VARCHAR},
+      LDL-CControl = #{ldlCcontrol,jdbcType=VARCHAR},
+      LDL-CYear = #{ldlCyear,jdbcType=VARCHAR},
+      HDL-CControl = #{hdlCcontrol,jdbcType=VARCHAR},
+      HDL-CYear = #{hdlCyear,jdbcType=VARCHAR},
+      Flag = #{flag,jdbcType=VARCHAR}
+    where BloodFatHistoryID = #{bloodfathistoryid,jdbcType=INTEGER}
+  </update>
+</mapper>
