@@ -7,7 +7,7 @@ body{
 
 #login-container{
   width: 880px;
-  margin: 300px auto 0;
+  margin: 120px auto 0;
   background-image: url("../images/login.png");
   background-attachment:scroll;
   background-color:none;

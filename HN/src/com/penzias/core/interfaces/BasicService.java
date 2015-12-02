@@ -8,7 +8,7 @@ public interface BasicService<E, M> {
 
 	public List<M> list(E example);
 	
-	public M getById(Integer id);
+	public M getById(Object id);
 	
 	public int getTotal(E example);
 	
@@ -16,7 +16,7 @@ public interface BasicService<E, M> {
 
 	public int updateById(@Param("model") M model);
 	
-	public int deleteById(Integer id);
+	public int deleteById(Object id);
 
 	public int delete(E example);
 	

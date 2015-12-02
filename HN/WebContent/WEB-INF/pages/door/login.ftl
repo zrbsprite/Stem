@@ -14,7 +14,7 @@
   </head>
   <body>
   <div id="login-container">
-  	<form id="mainForm" method="post" action="">
+  	<form id="mainForm" method="post" action="${basepath}/welcome.htm">
   	<div id="div_username">
   		<input type="text" name="username" placeholder="请输入用户名" />
   	</div>
@@ -22,12 +22,13 @@
   		<input type="password" name="password" placeholder="请输入密码" />
   	</div>
   	<div id="div_btn">
-  		<input type="button" value="" />
+  		<input type="button" value="" id="btn_login" data-url="${basepath}/sign.htm" />
   	</div>
   	</form>
   </div>
 <#include "frame/js-ie.ftl">
 <script type="text/javascript" src="${basepath}/assets/layer/layer.js"></script>
+<script type="text/javascript" src="${basepath}/assets/layer/alert.js"></script>
 <script type="text/javascript" src="${basepath}/assets/js/include_login.js"></script>
 </body>
 </html>

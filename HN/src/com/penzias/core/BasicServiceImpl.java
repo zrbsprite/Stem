@@ -16,7 +16,7 @@ public abstract class BasicServiceImpl<E, M> implements BasicService<E, M> {
 	}
 
 	@Override
-	public M getById(Integer id){
+	public M getById(Object id){
 		return getMapper().selectByPrimaryKey(id);
 	}
 
@@ -36,7 +36,7 @@ public abstract class BasicServiceImpl<E, M> implements BasicService<E, M> {
 	}
 
 	@Override
-	public int deleteById(Integer id){
+	public int deleteById(Object id){
 		return getMapper().deleteByPrimaryKey(id);
 	}
 

@@ -18,6 +18,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.penzias.core.commons.UserNotLoginException;
 import com.penzias.util.CookieUtil;
+import com.penzias.util.DesEncrypt;
 
 @Repository
 public class SystemInterceptor extends HandlerInterceptorAdapter {
@@ -28,6 +29,8 @@ public class SystemInterceptor extends HandlerInterceptorAdapter {
 	private String cookieUserKey;
 	
 	private List<String> noFilters = new ArrayList<String>();
+	
+	private DesEncrypt encrypt = new DesEncrypt();
 	
 	//正则表达式匹配
 	private String whiteListRule = "";
@@ -78,6 +81,8 @@ public class SystemInterceptor extends HandlerInterceptorAdapter {
 			request.getRequestDispatcher("/anno/nologin.htm").forward(request, response);
 			return false;
 		}
+		String srcUsername = encrypt.getDesString(cookieUserName.getValue());
+		request.setAttribute("username", srcUsername);
 		return true;
 	}
 

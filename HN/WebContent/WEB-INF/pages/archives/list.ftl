@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>demo</title>
+    <title>档案筛查</title>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,20 +26,20 @@
  			<div class="row">
 	 			<div class="container-fluid">
 	 			<div class="panel panel-default">
-				  <div class="panel-heading">机构信息</div>
+				  <div class="panel-heading">档案筛查</div>
 				  <div class="panel-body">
-				  <form role="form">
 				  	<div class="row">
+					  <form role="form">
 				  		<div class="span3">
 					  		<div class="input-group clearfix input-ie">
-							  <span class="input-group-addon">用户名:</span>
-							  <input type="text" class="form-control" placeholder="用户名">
+							  <span class="input-group-addon">姓名:</span>
+							  <input type="text" class="form-control" placeholder="用户名" name="name">
 							</div>
 				  		</div>
 				  		<div class="span3">
 					  		<div class="input-group clearfix input-ie">
-							  <span class="input-group-addon">用户名:</span>
-							  <input type="text" class="form-control" placeholder="用户名">
+							  <span class="input-group-addon">手机号码:</span>
+							  <input type="text" class="form-control" placeholder="用户名" name="phone">
 							</div>
 				  		</div>
 				  		<div class="span1">
@@ -49,16 +49,26 @@
 						      </span>
 							</div>
 				  		</div>
+					  </form>
 				  	</div>
-					</form>
+				  	<div class="row">
+				  		<div class="span3">
+					  		<div class="input-group clearfix input-ie pull-lefet">
+							  <input type="button" class="form-control" placeholder="新增">
+							</div>
+				  		</div>
+				  	</div>
 				  </div>
 	 			  <table class="table table-hover">
  					<thead>
  					<tr>
-                      <th>#id</th>
                       <th>姓名</th>
                       <th>性别</th>
-                      <th>属性</th>
+                      <th>年龄</th>
+                      <th>身份证号码</th>
+                      <th>手机号码</th>
+                      <th>病历状态</th>
+                      <th>操作</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -67,11 +77,8 @@
  						<td>b</td>
  						<td>c</td>
  						<td>d</td>
- 					</tr>
- 					<tr>
- 						<td>a</td>
- 						<td>b</td>
- 						<td>c</td>
+ 						<td>d</td>
+ 						<td>d</td>
  						<td>d</td>
  					</tr>
  					<tr>
@@ -79,11 +86,8 @@
  						<td>b</td>
  						<td>c</td>
  						<td>d</td>
- 					</tr>
- 					<tr>
- 						<td>a</td>
- 						<td>b</td>
- 						<td>c</td>
+ 						<td>d</td>
+ 						<td>d</td>
  						<td>d</td>
  					</tr>
  					<tr>
@@ -91,37 +95,14 @@
  						<td>b</td>
  						<td>c</td>
  						<td>d</td>
- 					</tr>
- 					<tr>
- 						<td>a</td>
- 						<td>b</td>
- 						<td>c</td>
+ 						<td>d</td>
+ 						<td>d</td>
  						<td>d</td>
  					</tr>
- 					<tr>
- 						<td>a</td>
- 						<td>b</td>
- 						<td>c</td>
- 						<td>d</td>
- 					</tr>
- 					<tr>
- 						<td>a</td>
- 						<td>b</td>
- 						<td>c</td>
- 						<td>d</td>
- 					</tr>
- 					<tr>
- 						<td>a</td>
- 						<td>b</td>
- 						<td>c</td>
- 						<td>d</td>
- 					</tr>
- 					<tr>
- 						<td>a</td>
- 						<td>b</td>
- 						<td>c</td>
- 						<td>d</td>
- 					</tr>
+ 					<#if page?exists>
+ 					<#list >
+ 					</#list>
+ 					</#if>
  					</tbody>
 				</table>
 				<div class="pull-right">

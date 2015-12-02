@@ -10,7 +10,7 @@ public interface BasicMapper<E, M> {
 
     int deleteByExample(E example);
 
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(Object id);
 
     int insert(M record);
 
@@ -18,7 +18,7 @@ public interface BasicMapper<E, M> {
 
     List<M> selectByExample(E example);
 
-    M selectByPrimaryKey(Integer id);
+    M selectByPrimaryKey(Object id);
 
     int updateByExampleSelective(@Param("record") M record, @Param("example") E example);
 

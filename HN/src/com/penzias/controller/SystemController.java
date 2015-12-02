@@ -22,7 +22,7 @@ public class SystemController {
 	
 	@RequestMapping("/nologin")
 	public String noLogin(){
-		return "fore/home";
+		return "door/login";
 	}
 	
 	@RequestMapping("/img")
