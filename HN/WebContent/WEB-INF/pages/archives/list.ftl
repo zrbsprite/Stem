@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>档案筛查</title>
+  	<#assign pageTitle='档案筛查'>
+    <title>${pageTitle}</title>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,10 +27,10 @@
  			<div class="row">
 	 			<div class="container-fluid">
 	 			<div class="panel panel-default">
-				  <div class="panel-heading">档案筛查</div>
+				  <div class="panel-heading">${pageTitle}<span class="pull-right glyphicon-image glyphicon-img-diagonalsin" id="span_close"></span></div>
 				  <div class="panel-body">
 				  	<div class="row">
-					  <form role="form">
+					  <form role="form" id="mainForm" action="${basepath}/archives.htm">
 				  		<div class="span3">
 					  		<div class="input-group clearfix input-ie">
 							  <span class="input-group-addon">姓名:</span>
@@ -51,16 +52,12 @@
 				  		</div>
 					  </form>
 				  	</div>
-				  	<div class="row">
-				  		<div class="span3">
-					  		<div class="input-group clearfix input-ie pull-lefet">
-							  <input type="button" class="form-control" placeholder="新增">
-							</div>
-				  		</div>
-				  	</div>
 				  </div>
 	 			  <table class="table table-hover">
  					<thead>
+ 					<tr>
+                      <th colspan="7"><button class="btn btn-theme2 btn-primary pull-right" type="button">新增</button></th>
+                    </tr>
  					<tr>
                       <th>姓名</th>
                       <th>性别</th>
@@ -99,24 +96,22 @@
  						<td>d</td>
  						<td>d</td>
  					</tr>
- 					<#if page?exists>
- 					<#list >
+ 					<#if page?exists && page?size lt 0>
+ 					<#list page as bean>
+ 					<tr>
+ 						<td>${bean.fullname}</td>
+ 						<td><#if bean.sex=='1'>男<#elseif bean.sex=='0'>女<#else>未知</#if></td>
+ 						<td>${bean.age}</td>
+ 						<td>${bean.certificatesid}</td>
+ 						<td>${bean.mobile}</td>
+ 						<td>${bean.status}</td>
+ 						<td><input type="button" value="default"/></td>
+ 					</tr>
  					</#list>
  					</#if>
  					</tbody>
 				</table>
-				<div class="pull-right">
-					<ul class="pagination">
-					  <li><span>共 18 条记录&nbsp;&nbsp;1/2 页</span></li>
-					  <li><span>&laquo;</span></li>
-					  <li class="active"><span>1 <span class="sr-only">(current)</span></span></li>
-					  <li><a href="#">2</a></li>
-					  <li><a href="#">3</a></li>
-					  <li><a href="#">4</a></li>
-					  <li><a href="#">5</a></li>
-					  <li><a href="#">&raquo;</a></li>
-					</ul>
-				</div>
+				<#include "frame/pagination.ftl">
 			  </div>
  			</div>
 		</div>

@@ -77,7 +77,6 @@ public class DesEncrypt {
 			byteMi = base64De.decodeBuffer(strMi);
 			byteMing = this.getDesCode(byteMi);
 			strMing = new String(byteMing, "UTF-8");
-			System.out.println(strMing);
 		} catch (Exception e) {
 			throw new RuntimeException(
 					"Error initializing SqlMap class. Cause: " + e);

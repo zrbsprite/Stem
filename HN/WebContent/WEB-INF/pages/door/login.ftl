@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>demo</title>
+    <title>欢迎使用河南省高危人群管理平台</title>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +16,7 @@
   <div id="login-container">
   	<form id="mainForm" method="post" action="${basepath}/welcome.htm">
   	<div id="div_username">
-  		<input type="text" name="username" placeholder="请输入用户名" />
+  		<input type="text" name="userName" placeholder="请输入用户名" />
   	</div>
   	<div id="div_password">
   		<input type="password" name="password" placeholder="请输入密码" />

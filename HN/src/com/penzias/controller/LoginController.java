@@ -16,13 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.alibaba.fastjson.JSONObject;
 import com.penzias.core.commons.AjaxConroller;
-import com.penzias.core.constant.CookieConstant;
+import com.penzias.core.commons.PropertiesInitBean.PropertiesUtils;
 import com.penzias.core.constant.ErrorConstant;
 import com.penzias.entity.SmUser;
 import com.penzias.entity.SmUserExample;
 import com.penzias.service.SmUserService;
 import com.penzias.util.CookieUtil;
-import com.penzias.util.DesEncrypt;
 import com.penzias.vo.UserLoginVO;
 
 @Controller
@@ -70,9 +69,7 @@ public class LoginController extends AjaxConroller{
 			List<SmUser> list = this.smUserService.list(example);
 			if(list.size()>0){
 				//校验成功
-				DesEncrypt encrypt = new DesEncrypt();
-				String encrypedUsername =  encrypt.getEncString(user.getUserName());
-				CookieUtil.addCookie(response, CookieConstant.COOKIE_USERNAME_KEY, encrypedUsername);
+				CookieUtil.addCookie(response, PropertiesUtils.getConfigByKey("cookie_username_key"), user.getUserName());
 				logger.debug("用户【"+user.getUserName()+"】登录成功...");
 				json.put("status", ErrorConstant.OPERATION_SUCCESS);
 				json.put("msg", getMessage("user.login.success"));
@@ -98,7 +95,7 @@ public class LoginController extends AjaxConroller{
 	 */
 	@RequestMapping("/logout")
 	public String logout(){
-		CookieUtil.removeCookie(response, CookieConstant.COOKIE_USERNAME_KEY);
+		CookieUtil.removeCookie(response, PropertiesUtils.getConfigByKey("cookie_username_key"));
 		return "door/login";
 	}
 	
@@ -111,7 +108,7 @@ public class LoginController extends AjaxConroller{
 	 */
 	@RequestMapping("/welcome")
 	public String content(Model model) {
-		return "redirect:pro/index.htm";
+		return "redirect:/archives.htm";
 	}
 	
 	/**

@@ -3,7 +3,7 @@ package com.penzias.util;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Page<T> {
+public class Pagination<T> {
 	private int total;
 	private int currentPage;
 	private int pages;
@@ -16,7 +16,7 @@ public class Page<T> {
 	private List<? extends Object> recordList;
 	public static int ROWS = 20;
 
-	public Page() {
+	public Pagination() {
 		super();
 	}
 	@SuppressWarnings("unchecked")
@@ -27,11 +27,11 @@ public class Page<T> {
 	public void setRecordList(List<T> recordList) {
 		this.recordList = recordList;
 	}
-	public Page(int total, int currentPage) {
+	public Pagination(int total, int currentPage) {
 		this(total, currentPage, ROWS);
 	}
 
-	public Page(int total, int currentPage, int pernum) {
+	public Pagination(int total, int currentPage, int pernum) {
 		super();
 		this.total = total;
 		this.currentPage = currentPage == 0 ? 1 : currentPage;

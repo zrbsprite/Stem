@@ -10,11 +10,11 @@ import org.springframework.beans.factory.InitializingBean;
 
 import com.penzias.entity.SmCodeitem;
 import com.penzias.entity.SmCodeitemExample;
-import com.penzias.interfaces.IDictionaryType;
+import com.penzias.interfaces.IDictionaryItem;
 import com.penzias.service.SmCodeitemService;
 
 
-public class LocalCacheDictionaryItem implements IDictionaryType, InitializingBean{
+public class LocalCacheDictionaryItem implements IDictionaryItem, InitializingBean{
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	

@@ -1,8 +1,8 @@
 <#assign currentPage=page.pageNum>
 <#assign total=page.total>
 <#assign pages=page.pages>
-<#assign previouspage=currentPage-1>
-<#assign nextpage=currentPage+1>
+<#assign previouspage=page.prePage>
+<#assign nextpage=page.nextPage>
 <div class="pull-right">
 	<ul class="pagination">
 	<li><span>共 ${total?default(0)} 条记录&nbsp;&nbsp;<#if pages gt 0>${currentPage?default(0)}<#else>0</#if>/${pages?default(0)} 页</span></li>

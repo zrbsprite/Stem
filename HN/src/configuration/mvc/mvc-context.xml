@@ -36,6 +36,7 @@
         	<property name="noFilters">
         		<list>
         			<value>/verifycode.htm</value>
+        			<value>/sign.htm</value>
         		</list>
         	</property>
         	<property name="whiteListRule">
@@ -96,4 +97,6 @@
             </props>
         </property>
     </bean>
+    
+    <import resource="other-context.xml"/>
 </beans>

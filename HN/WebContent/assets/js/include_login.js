@@ -20,9 +20,9 @@ $(function(){
 		   url: url,
 		   cache: false,
 		   dataType: "json",
-		   data:  {username:username,password:password},
+		   data:  {userName:username,password:password},
 		   success: function(data){
-			   if(!!data）{
+			   if(!!data){
 				   if(data.status==200){
 					   $("#mainForm").submit();
 				   }else{

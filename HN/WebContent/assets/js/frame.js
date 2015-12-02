@@ -11,4 +11,22 @@ $(function(){
 			$this.addClass("selected");
 		}
 	});
+	
+	$("#span_close").click(function(){
+		var $this = $(this);
+		if($this.hasClass("glyphicon-img-diagonalsin")){
+			$this.removeClass("glyphicon-img-diagonalsin").addClass("glyphicon-img-diagonalsout");
+			$this.parent(".panel-heading").next().slideUp();
+		}else{
+			$this.removeClass("glyphicon-img-diagonalsout").addClass("glyphicon-img-diagonalsin");
+			$this.parent(".panel-heading").next().slideDown();
+		}
+	});
 });
+
+function page(pageNo){
+	var $form = $("#mainForm");
+	var $page = $("<input type='hidden' name='currentPage' value='"+pageNo+"' />");
+	$form.append($page);
+	$form.submit();
+}

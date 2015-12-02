@@ -1,41 +1,42 @@
-(function(){
-	var dialog={};
-	dialog.prototype.warn=function(msg){
+(function($,window){
+	var Dialog=function(){};
+	Dialog.prototype={};
+	Dialog.prototype.warn=function(msg){
 		layer.alert(msg,{icon: 0,title:'提示信息'},function(index){
 		    layer.close(index);
 		})
 	};
-	dialog.prototype.ok=function(msg){
+	Dialog.prototype.ok=function(msg){
 		layer.alert(msg,{icon: 1,title:'提示信息'},function(index){
 		    layer.close(index);
 		})
 	};
-	dialog.prototype.error=function(msg){
+	Dialog.prototype.error=function(msg){
 		layer.alert(msg,{icon: 2,title:'错误信息'},function(index){
 			layer.close(index);
 		})
 	};
-	dialog.prototype.question=function(msg){
+	Dialog.prototype.question=function(msg){
 		layer.alert(msg,{icon: 3,title:'错误信息'},function(index){
 			layer.close(index);
 		})
 	};
-	dialog.prototype.lock=function(msg){
+	Dialog.prototype.lock=function(msg){
 		layer.alert(msg,{icon: 4,title:'错误信息'},function(index){
 			layer.close(index);
 		})
 	};
-	dialog.prototype.cry=function(msg){
+	Dialog.prototype.cry=function(msg){
 		layer.alert(msg,{icon: 5,title:'错误信息'},function(index){
 			layer.close(index);
 		})
 	};
-	dialog.prototype.smile=function(msg){
+	Dialog.prototype.smile=function(msg){
 		layer.alert(msg,{icon: 6,title:'错误信息'},function(index){
 			layer.close(index);
 		})
 	};
-	dialog.prototype.confirm=function(msg,sure,cancel){
+	Dialog.prototype.confirm=function(msg,sure,cancel){
 		layer.confirm(msg, {
 		    btn: ['确定','取消']
 		}, function(index){
@@ -50,34 +51,34 @@
 			}
 		});
 	}
-	dialog.prototype.info=function(msg){
+	Dialog.prototype.info=function(msg){
 		layer.msg(msg,{shade: [0.8, '#393D49'],shift :6});
 	};
-	dialog.prototype.infoOk=function(msg){
+	Dialog.prototype.infoOk=function(msg){
 		layer.msg(msg,{shade: [0.8, '#393D49'],shift :6, icon:1});
 	};
-	dialog.prototype.infoWarn=function(msg){
+	Dialog.prototype.infoWarn=function(msg){
 		layer.msg(msg,{shade: [0.8, '#393D49'],shift :6, icon:0});
 	};
-	dialog.prototype.infoFail=function(msg){
+	Dialog.prototype.infoFail=function(msg){
 		layer.msg(msg,{shade: [0.8, '#393D49'],shift :6, icon:2});
 	};
-	dialog.prototype.infoQuestion=function(msg){
+	Dialog.prototype.infoQuestion=function(msg){
 		layer.msg(msg,{shade: [0.8, '#393D49'],shift :6, icon:3});
 	};
-	dialog.prototype.infoSmile=function(msg){
+	Dialog.prototype.infoSmile=function(msg){
 		layer.msg(msg,{shade: [0.8, '#393D49'],shift :6, icon:6});
 	};
-	dialog.prototype.infoCry=function(msg){
+	Dialog.prototype.infoCry=function(msg){
 		layer.msg(msg,{shade: [0.8, '#393D49'],shift :6, icon:5});
 	};
-	dialog.prototype.infoLock=function(msg){
+	Dialog.prototype.infoLock=function(msg){
 		layer.msg(msg,{shade: [0.8, '#393D49'],shift :6, icon:4});
 	};
-	dialog.prototype.tips=function(msg,id){
+	Dialog.prototype.tips=function(msg,id){
 		layer.tips(msg, '#'+id,{tips: [1, '#3595CC']});
 	}
-	dialog.prototype.prompt=function(title,callback){
+	Dialog.prototype.prompt=function(title,callback){
 		layer.prompt({
 		    title: title,
 		    formType: 0,
@@ -88,7 +89,7 @@
 			layer.close(index);
 		});
 	}
-	dialog.prototype.promptPassword=function(title,callback){
+	Dialog.prototype.promptPassword=function(title,callback){
 		layer.prompt({
 			title: title,
 			formType: 1,
@@ -99,7 +100,7 @@
 			layer.close(index);
 		});
 	}
-	dialog.prototype.promptText=function(title,callback){
+	Dialog.prototype.promptText=function(title,callback){
 		layer.prompt({
 			title: title,
 			formType: 3,
@@ -110,18 +111,18 @@
 			layer.close(index);
 		});
 	}
-	dialog.ptototype.loading=function(){
+	Dialog.prototype.loading=function(){
 		return layer.load(0,{shade: [0.5, '#393D49']}); 
 	}
-	dialog.ptototype.loading1=function(){
+	Dialog.prototype.loading1=function(){
 		return layer.load(1,{shade: [0.8, '#393D49']}); 
 	}
-	dialog.ptototype.loading2=function(){
+	Dialog.prototype.loading2=function(){
 		return layer.load(1,{shade: [0.8, '#393D49']}); 
 	}
 	
 	//todo
-	dialog.prototype.sysMsg=function(content,callback){
+	Dialog.prototype.sysMsg=function(content,callback){
 		layer.open({
 		    type: 1,
 		    title: false,
@@ -140,7 +141,7 @@
 		});
 	}
 	
-	dialog.prototype.openPage=function(title, url){
+	Dialog.prototype.openPage=function(title, url){
 		layer.open({
 		    type: 1,
 		    skin: 'layui-layer-lan',
@@ -148,7 +149,7 @@
 		    content: 'html内容'
 		});
 	}
-	dialog.prototype.openIframe=function(title, url){
+	Dialog.prototype.openIframe=function(title, url){
 		layer.open({
 		    type: 2,
 		    title: title,
@@ -158,7 +159,7 @@
 		    content: url
 		}); 
 	}
-	dialog.ptototype.openElement=function($ele){
+	Dialog.prototype.openElement=function($ele){
 		layer.open({
 		    type: 1,
 		    shade: [0.8, '#393D49'],
@@ -169,5 +170,5 @@
 		    }
 		});
 	}
-	window.dialog=dialog;
-}($,window));
+	window.dialog=new Dialog();
+})($,window);

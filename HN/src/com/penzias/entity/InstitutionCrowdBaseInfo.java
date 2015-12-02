@@ -62,6 +62,9 @@ public class InstitutionCrowdBaseInfo {
     private String relationship;
 
     private String flag;
+    
+    //不参与映射
+    private Integer age;
 
     public Integer getCrowdid() {
         return crowdid;
@@ -302,4 +305,16 @@ public class InstitutionCrowdBaseInfo {
     public void setFlag(String flag) {
         this.flag = flag;
     }
+
+	
+	public Integer getAge(){
+	
+		return age;
+	}
+
+	
+	public void setAge(Integer age){
+	
+		this.age = age;
+	}
 }

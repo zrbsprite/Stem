@@ -36,7 +36,4 @@
 	</bean>
 	
 	<bean id="store" class="com.penzias.core.DBVerifyCodeStore"></bean>
-	
-	<bean name="iDictionaryItem" id="iDictionaryItem" class="com.penzias.component.LocalCacheDictionaryItem"></bean>
-	<bean name="iDictionaryType" id="iDictionaryType" class="com.penzias.component.LocalCacheDictionaryType"></bean>
 </beans>

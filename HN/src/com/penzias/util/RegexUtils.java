@@ -6,8 +6,6 @@ import java.util.regex.Pattern;
 /**
  * 常用的正则表达式
  * 
- * @author <a href="http://www.xdemo.org/">http://www.xdemo.org/</a>
- *         252878950@qq.com
  */
 public class RegexUtils {
 
@@ -176,11 +174,6 @@ public class RegexUtils {
 			return false;
 		else
 			return true;
-	}
-
-	 
-	public static void main(String[] args) {
-		 //System.out.print(RegexUtils.isTender_details("23^10000^234442#LEDGER_MAIN^10000^18881$22^10000^234144#LEDGER_MAIN^10000^18883|LEDGER_MAIN^0.0^1888"));
 	}
 
 }

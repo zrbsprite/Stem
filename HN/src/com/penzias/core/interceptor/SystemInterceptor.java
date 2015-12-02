@@ -9,6 +9,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.codec.binary.Hex;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,6 +18,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import com.penzias.core.commons.UserNotLoginException;
+import com.penzias.core.constant.CookieConstant;
 import com.penzias.util.CookieUtil;
 import com.penzias.util.DesEncrypt;
 
@@ -81,7 +83,9 @@ public class SystemInterceptor extends HandlerInterceptorAdapter {
 			request.getRequestDispatcher("/anno/nologin.htm").forward(request, response);
 			return false;
 		}
-		String srcUsername = encrypt.getDesString(cookieUserName.getValue());
+		String srcUsername = cookieUserName.getValue();
+		srcUsername = new String(Hex.decodeHex(srcUsername.toCharArray()));
+		srcUsername = encrypt.getDesString(srcUsername).replace(CookieConstant.SPLITCHAR,"");
 		request.setAttribute("username", srcUsername);
 		return true;
 	}

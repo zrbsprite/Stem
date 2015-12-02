@@ -1,5 +1,6 @@
 package com.penzias.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -9,13 +10,12 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.penzias.core.commons.BaseController;
 import com.penzias.entity.InstitutionCrowdBaseInfo;
 import com.penzias.entity.InstitutionCrowdBaseInfoExample;
 import com.penzias.interfaces.IDictionaryItem;
-import com.penzias.interfaces.IDictionaryType;
 import com.penzias.service.InstitutionCrowdBaseInfoService;
 
 @Controller
@@ -25,9 +25,6 @@ public class ArchivesController extends BaseController{
 	//机构人群基本信息service
 	@Resource
 	private InstitutionCrowdBaseInfoService institutionCrowdBaseInfoService;
-	
-	@Resource
-	private IDictionaryType iDctionaryType;
 	
 	@Resource
 	private IDictionaryItem iDctionaryItem;
@@ -50,12 +47,20 @@ public class ArchivesController extends BaseController{
 		}
 		example.setOrderByClause(" FullName desc");
 		PageHelper.startPage(currentPage,pageSize);
-		Page<InstitutionCrowdBaseInfo> page = (Page<InstitutionCrowdBaseInfo>) this.institutionCrowdBaseInfoService.list(example);
-		List<InstitutionCrowdBaseInfo> list = page.getResult();
+		List<InstitutionCrowdBaseInfo> list = this.institutionCrowdBaseInfoService.list(example);
+		long nowNo = System.currentTimeMillis();
 		for(InstitutionCrowdBaseInfo info : list){
 			info.setStates((String) this.iDctionaryItem.queryOne("ZE_"+info.getStates()));
+			Date birth = info.getBirthdate();
+			if(null!=birth){
+				long birthNo =  birth.getTime();
+				long bt = nowNo - birthNo;
+				int age = (int) (bt / (1000*60*60*24*365));
+				info.setAge(age);
+			}
 		}
-		model.addAttribute("page", page);
+		PageInfo<InstitutionCrowdBaseInfo> pageinfo = new PageInfo<InstitutionCrowdBaseInfo>(list);
+		model.addAttribute("page", pageinfo);
 		return "archives/list";
 	}
 }
