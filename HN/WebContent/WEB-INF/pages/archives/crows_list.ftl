@@ -46,9 +46,9 @@
 				  		<div class="span3">
 					  		<div class="input-group clearfix input-ie">
 							  <span class="input-group-addon">管理分级:</span>
-							  <select class="form-control" name="">
+							  <select class="form-control" name="manage">
 								  <#list manageLevel as yf>
-								  	<option value="${yf.code}">${yf.description}</option>
+								  	<option value="${yf.code}" <#if yf.code==manage>selected</#if>>${yf.description}</option>
 								  </#list>
 								</select>
 							</div>
@@ -56,9 +56,9 @@
 				  		<div class="span3">
 					  		<div class="input-group clearfix input-ie">
 							  <span class="input-group-addon">风险等级:</span>
-							  <select class="form-control" name="">
+							  <select class="form-control" name="zf">
 								  <#list zfLevel as yf>
-								  	<option value="${yf.code}">${yf.description}</option>
+								  	<option value="${yf.code}"<#if yf.code==zf>selected</#if>>${yf.description}</option>
 								  </#list>
 								</select>
 							</div>
@@ -66,9 +66,9 @@
 				  		<div class="span3">
 					  		<div class="input-group clearfix input-ie">
 							  <span class="input-group-addon">病历状态:</span>
-							  <select class="form-control" name="">
+							  <select class="form-control" name="ze">
 								  <#list zeLevel as yf>
-								  	<option value="${yf.code}">${yf.description}</option>
+								  	<option value="${yf.code}" <#if yf.code==ze>selected</#if>>${yf.description}</option>
 								  </#list>
 								</select>
 							</div>

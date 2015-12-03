@@ -130,7 +130,7 @@ public class ArchivesController extends BaseController{
 	}
 	
 	@RequestMapping("crows")
-	public String crowsList(Integer currentPage,String name,String phone, Model model){
+	public String crowsList(Integer currentPage,String name,String phone, String manage, String zf,String ze, Model model){
 		if(null==currentPage){
 			currentPage = 1;
 		}
@@ -144,6 +144,28 @@ public class ArchivesController extends BaseController{
 		if(!StringUtils.isEmpty(phone)){
 			criteria.andMobileLike("%"+ phone +"%");
 			model.addAttribute("phone", phone);
+		}
+		if(!StringUtils.isEmpty(manage)){
+			if("01".equals(manage)){
+				criteria.andGradeEqualTo("01");
+			}else if("02".equals(manage)){
+				criteria.andGradeEqualTo("02");
+			}else{
+				List<String> gradeList = new ArrayList<String>();
+				gradeList.add("03");
+				gradeList.add("04");
+				gradeList.add("05");
+				criteria.andGradeIn(gradeList);
+			}
+			model.addAttribute("manage", manage);
+		}
+		if(!StringUtils.isEmpty(zf)){
+			criteria.andGradeEqualTo(zf);
+			model.addAttribute("zf", zf);
+		}
+		if(!StringUtils.isEmpty(ze)){
+			criteria.andStatesEqualTo(ze);
+			model.addAttribute("ze", ze);
 		}
 		example.setOrderByClause(" FullName desc");
 		PageHelper.startPage(currentPage,pageSize);
@@ -186,7 +208,7 @@ public class ArchivesController extends BaseController{
 		mapZF.forEach((key, item) ->{
 			zfLevel.add(item);
 		});
-		model.addAttribute("zfLevel", manageLevel);
+		model.addAttribute("zfLevel", zfLevel);
 		//病历状态
 		List<SmCodeitem> zeLevel = new ArrayList<SmCodeitem>();
 		mapZE.forEach((key, item) ->{
