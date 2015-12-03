@@ -9,4 +9,5 @@ import com.penzias.core.interfaces.IDBOperation;
  */
 public interface IDictionaryItem extends IDBOperation {
 
+	public Object queryGroup(Object params);
 }
