@@ -53,8 +53,6 @@
 								</select>
 							</div>
 				  		</div>
-					 </div>
-					 <div class="row">
 				  		<div class="span3">
 					  		<div class="input-group clearfix input-ie">
 							  <span class="input-group-addon">风险等级:</span>
@@ -76,9 +74,9 @@
 							</div>
 				  		</div>
 				  		<div class="span3">
-				  			<div class="input-group clearfix input-ie">
+							 <div class="input-group input-ie pull-right">
 							 <span class="input-group-btn">
-						        <button class="btn btn-default btn-theme2" type="button">查询</button>
+						        <button class="btn btn-default btn-theme2 pull-right" type="button">查询</button>
 						      </span>
 							</div>
 				  		</div>
