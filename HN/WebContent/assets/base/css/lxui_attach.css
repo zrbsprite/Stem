@@ -1,5 +1,7 @@
 /* web frame */
-
+a{
+	cursor: pointer;
+}
 a, a:hover {
 	text-decoration: none;
 	outline: none;
@@ -1533,4 +1535,23 @@ li ul{
 }
 .row{
 	margin-top: 8px;
+}
+#accordion .collapse{
+	display: none;
+}
+#accordion .opening{
+	display: block;
+}
+.backTop{
+	display: none;
+}
+.input-inline{
+	display:inline;
+	vertical-align: middle;
+	height: 34px;
+	line-height: 34px;	
+	
+}
+.input-inline input{
+	width: 120px;
 }

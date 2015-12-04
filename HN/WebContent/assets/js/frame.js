@@ -22,6 +22,33 @@ $(function(){
 			$this.parent(".panel-heading").next().slideDown();
 		}
 	});
+	
+	//标签页
+	$("#main_tab li").click(function(){
+		var $li = $(this);
+		if(!$li.hasClass("active")){
+			$("#main_tab li.active").removeClass("active");
+			$li.addClass("active");
+		}
+		var ref = $li.find("a").attr("data-ref");
+		$(".tab-content").first().find(".active")
+			.removeClass("active").closest(".tab-content").find("div#"+ref)
+			.addClass("active");
+	});
+	$(window).scroll(function(){
+		var top = $(this).scrollTop();
+		var $back = $('.backTop');
+		if(top==0){
+			$back.hide();
+		}else if(top>100){
+			if($back.is(":hidden")){
+				$back.show();
+			}
+		}
+	});
+	 $('.backTop').click(function(){
+	    $('html,body').animate({scrollTop: '0px'}, 800);
+	 });
 });
 
 function page(pageNo){

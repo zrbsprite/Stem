@@ -217,4 +217,17 @@ public class ArchivesController extends BaseController{
 		model.addAttribute("zeLevel", zeLevel);
 		return "archives/crows_list";
 	}
+	
+	/**
+	 * @author: Bob
+	 * 修改时间：2015年12月4日 - 上午11:27:57<br/>
+	 * 功能说明：跳转人群新增页面<br/>
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("add")
+	public String crowsAdd(Model model){
+		
+		return "archives/crows_add";
+	}
 }
