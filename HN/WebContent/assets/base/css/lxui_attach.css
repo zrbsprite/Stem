@@ -1555,3 +1555,17 @@ li ul{
 .input-inline input{
 	width: 120px;
 }
+.span100{
+	display: inline;
+    float: left;
+    width: 100%;
+    min-height: 1px;
+    margin-left: 20px;
+    padding-left: 20px;
+}
+.panel-heading{
+	cursor: pointer;
+}
+.input-short{
+	width: 50px;
+}

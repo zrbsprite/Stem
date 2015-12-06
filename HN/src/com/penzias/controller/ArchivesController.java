@@ -230,4 +230,120 @@ public class ArchivesController extends BaseController{
 		
 		return "archives/crows_add";
 	}
+	
+	/**
+	 * 方法名称: lifeStryle<br/>
+	 * 描述：生活方式<br/>
+	 * 作者: ruibo<br/>
+	 * 修改日期：2015年12月6日-下午5:07:17<br/>
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("lifestyle")
+	public String lifeStryle(Model model){
+		
+		return "archives/lifestyle";
+	}
+	
+	/**
+	 * 
+	 * 方法名称: familyInfo<br/>
+	 * 描述：家族史<br/>
+	 * 作者: ruibo<br/>
+	 * 修改日期：2015年12月6日-下午5:07:40<br/>
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("family")
+	public String familyInfo(Model model){
+		
+		return "archives/familyhistory";
+	}
+	
+	/**
+	 * 
+	 * 方法名称: controlInfo<br/>
+	 * 描述：既往病史及控制情况<br/>
+	 * 作者: ruibo<br/>
+	 * 修改日期：2015年12月6日-下午5:07:55<br/>
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("control")
+	public String controlInfo(Model model){
+		
+		return "archives/control";
+	}
+	
+	/**
+	 * 
+	 * 方法名称: bodyCheck<br/>
+	 * 描述：体格检查<br/>
+	 * 作者: ruibo<br/>
+	 * 修改日期：2015年12月6日-下午5:08:24<br/>
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("body")
+	public String bodyCheck(Model model){
+		
+		return "archives/body";
+	}
+	
+	/**
+	 * 方法名称: brainLevel<br/>
+	 * 描述：脑卒中风险评级<br/>
+	 * 作者: ruibo<br/>
+	 * 修改日期：2015年12月6日-下午5:08:41<br/>
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("brainlevel")
+	public String brainLevel(Model model){
+		
+		return "archives/brain_level";
+	}
+	
+	/**
+	 * 方法名称: heartInfo<br/>
+	 * 描述：心电图<br/>
+	 * 作者: ruibo<br/>
+	 * 修改日期：2015年12月6日-下午5:09:00<br/>
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("heartinfo")
+	public String heartInfo(Model model){
+		
+		return "archives/heart";
+	}
+	
+	/**
+	 * 
+	 * 方法名称: innerCheck<br/>
+	 * 描述：实验室检查<br/>
+	 * 作者: ruibo<br/>
+	 * 修改日期：2015年12月6日-下午5:09:13<br/>
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("innercheck")
+	public String innerCheck(Model model){
+		
+		return "archives/inner_check";
+	}
+	
+	/**
+	 * 方法名称: bSuperBlood<br/>
+	 * 描述：颈部血管超声<br/>
+	 * 作者: ruibo<br/>
+	 * 修改日期：2015年12月6日-下午5:09:29<br/>
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("bblood")
+	public String bSuperBlood(Model model){
+		
+		return "archives/blood";
+	}
 }

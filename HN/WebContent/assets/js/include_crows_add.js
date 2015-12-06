@@ -1,7 +1,7 @@
 $(function(){
-	$("#accordion a").click(function(){
-		var $a = $(this);
-		var dataRef = $a.attr("data-ref");
-		$a.closest(".panel-heading").next().slideToggle();
+	$("#accordion .panel-heading").click(function(){
+		var $div = $(this);
+		var dataRef = $div.find("a").eq(0).attr("data-ref");
+		$div.next().slideToggle();
 	});
 });

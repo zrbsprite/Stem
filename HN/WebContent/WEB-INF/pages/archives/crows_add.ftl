@@ -11,6 +11,12 @@
     <!--[if lt IE 9]>
         <script src="${basepath}/assets/base/js/html5shiv.min.js"></script>
     <![endif]-->
+    <style rel="stylesheet">
+    	td{
+    		vertical-align:middle!important;
+    		text-align:center!important;
+    	}
+    </style>
   </head>
   
 <body>
@@ -29,8 +35,7 @@
 	 			<div class="panel panel-default">
 				  <div class="panel-heading">${pageTitle} </div>
 				  <div class="panel-body">
-					  <form role="form" id="mainForm" action="${basepath}/archives/add.htm">
-					  
+					  <form role="form" id="mainForm" action="${basepath}/archives/saveall.htm">
 					  
 					  	<div class="panel-group" id="accordion">
 						  <div class="panel panel-default">
@@ -50,38 +55,125 @@
 						  <div class="panel panel-default">
 						    <div class="panel-heading">
 						      <h4 class="panel-title">
-						        <a data-ref="collapseTwo">
+						        <a data-ref="lifestyle">
 						         	二、生活方式
 						        </a>
 						      </h4>
 						    </div>
 						    <div id="collapseTwo" class="panel-collapse collapse">
 						      <div class="panel-body">
-						        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+						        <#include "archives/lifestyle.ftl">
 						      </div>
 						    </div>
 						  </div>
 						  <div class="panel panel-default">
 						    <div class="panel-heading">
 						      <h4 class="panel-title">
-						        <a data-ref="collapseThree">
+						        <a data-ref="family">
 						          	三、家族史
 						        </a>
 						      </h4>
 						    </div>
 						    <div id="collapseThree" class="panel-collapse collapse">
 						      <div class="panel-body">
-						        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+						        <#include "archives/familyhistory.ftl">
 						      </div>
 						    </div>
 						  </div>
+						  
+						   <div class="panel panel-default">
+						    <div class="panel-heading">
+						      <h4 class="panel-title">
+						        <a data-ref="control">
+						          	四、既往病史及控制情况
+						        </a>
+						      </h4>
+						    </div>
+						    <div id="collapseFour" class="panel-collapse collapse">
+						      <div class="panel-body">
+						        <#include "archives/control.ftl">
+						      </div>
+						    </div>
+						  </div>
+						   <div class="panel panel-default">
+						    <div class="panel-heading">
+						      <h4 class="panel-title">
+						        <a data-ref="body">
+						          	五、体格检查
+						        </a>
+						      </h4>
+						    </div>
+						    <div id="collapseFive" class="panel-collapse collapse">
+						      <div class="panel-body">
+						        <#include "archives/body.ftl">
+						      </div>
+						    </div>
+						  </div>
+						   <div class="panel panel-default">
+						    <div class="panel-heading">
+						      <h4 class="panel-title">
+						        <a data-ref="brainlevel">
+						          	六、（1）脑卒中风险评级
+						        </a>
+						      </h4>
+						    </div>
+						    <div id="collapseSix" class="panel-collapse collapse">
+						      <div class="panel-body">
+						        <#include "archives/brain_level.ftl">
+						      </div>
+						    </div>
+						  </div>
+						   <div class="panel panel-default">
+						    <div class="panel-heading">
+						      <h4 class="panel-title">
+						        <a data-ref="heartinfo">
+						          	七、心电图
+						        </a>
+						      </h4>
+						    </div>
+						    <div id="collapseSeven" class="panel-collapse collapse">
+						      <div class="panel-body">
+						        <#include "archives/heart.ftl">
+						      </div>
+						    </div>
+						  </div>
+						   <div class="panel panel-default">
+						    <div class="panel-heading">
+						      <h4 class="panel-title">
+						        <a data-ref="innercheck">
+						          	八、实验室检查
+						        </a>
+						      </h4>
+						    </div>
+						    <div id="collapseEight" class="panel-collapse collapse">
+						      <div class="panel-body">
+						        <#include "archives/inner_check.ftl">
+						      </div>
+						    </div>
+						  </div>
+						   <div class="panel panel-default">
+						    <div class="panel-heading">
+						      <h4 class="panel-title">
+						        <a data-ref="bblood">
+						          	九、颈部血管超声
+						        </a>
+						      </h4>
+						    </div>
+						    <div id="collapseNine" class="panel-collapse collapse">
+						      <div class="panel-body">
+						        <#include "archives/blood.ftl">
+						      </div>
+						    </div>
+						  </div>
+						  
 						</div>
-						
-						
 	 			  	  </form>
 				  </div>
 			  </div>
  			</div>
+		</div>
+		<div class="row">
+			<div class="span3 pull-right"><button type="button" class="btn btn-success">提交</button></div>
 		</div>
 	</div>
 </div>
