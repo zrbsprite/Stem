@@ -57,9 +57,28 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 	
 	@Override
 	public void textTypeMsg(InMessage msg, String serverPath) {
+		TextOutMessage out = new TextOutMessage();
 		String content = msg.getContent().trim();
-		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat another = new SimpleDateFormat("yyyy-MM-dd");
+		if(StringUtils.isEmpty(content)){
+			List<TigerNaming> namings = isNaming(msg,serverPath,out);
+			if(namings.size()<=0){
+				return;
+			}
+			out.setContent("	输入日期格式如：" + another.format(new Date())+"\\n可以查询制定日期的账单信息！");
+			setOutMessage(out);
+			return;
+		}
+		if("账单".equals(content)||"我的账单".equals(content)||"账单查询".equals(content)||"今日账单".equals(content)||"最近账单".equals(content)){
+			responseMenuMine(msg, serverPath);
+			return;
+		}
+		List<TigerNaming> namings = isNaming(msg,serverPath,out);
+		if(namings.size()<=0){
+			return;
+		}
 		Date tar = null;
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
 		try{
 			tar = sf.parse(content);
 		} catch(Exception e){
@@ -75,27 +94,6 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 				}
 			}
 		}
-		TextOutMessage out = new TextOutMessage();
-		//make data
-		String openid = msg.getFromUserName();
-		//获取用户id card no
-		TigerNamingExample namingExample = new TigerNamingExample();
-		namingExample.createCriteria().andOpenidEqualTo(openid);
-		List<TigerNaming> namings = tigerNamingService.list(namingExample);
-		//如果用户未绑定，给出提示的消息并提供绑定的连接
-		if(namings.size()==0){
-			StringBuffer sb = new StringBuffer();
-			sb.append("由于您未绑定微信号，我们暂时不能提供相关服务！您可以先绑定微信：");
-			String bindUrl = PropertiesUtils.getConfigByKey("auth_code_url");
-			String appid = PropertiesUtils.getConfigByKey("AppId");
-			String reUrl = serverPath + "/" +PropertiesUtils.getConfigByKey("wechat_bind_url");
-			bindUrl = String.format(bindUrl, appid, reUrl, 10);
-			sb.append("<a href='"+bindUrl+"'> 绑定微信 </a>");
-			out.setContent(sb.toString());
-			setOutMessage(out);
-			return;
-		}
-		SimpleDateFormat another = new SimpleDateFormat("yyyy-MM-dd");
 		if(null!=tar){
 			TigerNaming naming = namings.get(0);
 			StatementExample example = new StatementExample();
@@ -144,6 +142,29 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 			out.setContent("	输入日期格式如：" + another.format(new Date())+"\\n可以查询制定日期的账单信息！");
 		}
 		setOutMessage(out);
+	}
+
+	private List<TigerNaming> isNaming(InMessage msg,String serverPath,TextOutMessage out){
+
+		//make data
+		String openid = msg.getFromUserName();
+		//获取用户id card no
+		TigerNamingExample namingExample = new TigerNamingExample();
+		namingExample.createCriteria().andOpenidEqualTo(openid);
+		List<TigerNaming> namings = tigerNamingService.list(namingExample);
+		//如果用户未绑定，给出提示的消息并提供绑定的连接
+		if(namings.size()==0){
+			StringBuffer sb = new StringBuffer();
+			sb.append("由于您未绑定微信号，我们暂时不能提供相关服务！您可以先绑定微信：");
+			String bindUrl = PropertiesUtils.getConfigByKey("auth_code_url");
+			String appid = PropertiesUtils.getConfigByKey("AppId");
+			String reUrl = serverPath + "/" +PropertiesUtils.getConfigByKey("wechat_bind_url");
+			bindUrl = String.format(bindUrl, appid, reUrl, 10);
+			sb.append("<a href='"+bindUrl+"'> 绑定微信 </a>");
+			out.setContent(sb.toString());
+			setOutMessage(out);
+		}
+		return namings;
 	}
 
 	@Override
@@ -344,75 +365,59 @@ public class DefaultMessageProcessingHandlerImpl implements MessageProcessingHan
 
 	private void responseMenuMine(InMessage msg, String serverPath){
 		TextOutMessage out = new TextOutMessage();
-		//make data
-		String openid = msg.getFromUserName();
-		//获取用户id card no
-		TigerNamingExample namingExample = new TigerNamingExample();
-		namingExample.createCriteria().andOpenidEqualTo(openid);
-		List<TigerNaming> namings = tigerNamingService.list(namingExample);
-		//如果用户未绑定，给出提示的消息并提供绑定的连接
-		if(namings.size()==0){
-			StringBuffer sb = new StringBuffer();
-			sb.append("由于您未绑定微信号，我们暂时不能提供相关服务！您可以先绑定微信：");
-			String bindUrl = PropertiesUtils.getConfigByKey("auth_code_url");
-			String appid = PropertiesUtils.getConfigByKey("AppId");
-			String reUrl = serverPath + "/" +PropertiesUtils.getConfigByKey("wechat_bind_url");
-			bindUrl = String.format(bindUrl, appid, reUrl, 10);
-			sb.append("<a href='"+bindUrl+"'> 绑定微信 </a>");
-			out.setContent(sb.toString());
-			setOutMessage(out);
+		List<TigerNaming> namings = isNaming(msg,serverPath,out);
+		if(namings.size()<=0){
 			return;
 		}
 		TigerNaming naming = namings.get(0);
 		StatementExample example = new StatementExample();
-		/*Calendar calendar = new GregorianCalendar();
-		calendar.add(Calendar.MONTH, -1);
-		calendar.set(Calendar.DATE, 1);
-		calendar.set(Calendar.HOUR,0);
-		calendar.set(Calendar.MINUTE, 0);
-		calendar.set(Calendar.SECOND, 0);
-		calendar.set(Calendar.MILLISECOND, 0);
-		Criteria criteria = example.createCriteria().andIdcardEqualTo(naming.getUserid()).andCheckdateGreaterThanOrEqualTo(calendar.getTime());
-		calendar.add(Calendar.MONTH,1);
-		criteria.andCheckdateLessThan(calendar.getTime());*/
 		example.createCriteria().andIdcardEqualTo(naming.getUserid());
 		example.setOrderByClause(" CheckDate desc ");
 		PageHelper.startPage(1, 1);
 		List<Statement> list = statementService.list(example);
-		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
 		if(list.size()>0){
-			StringBuffer sb = new StringBuffer("您最近的账单信息如下：\n\n");
-			int size = list.size();
-			for(int i=0;i<size; i++){
-				Statement statement = list.get(i);
-				sb.append("产品名称《"+statement.getFundname()+"》");
-				sb.append("\n");
-				sb.append("对账日期："+ sf.format(statement.getCheckdate()));
-				sb.append("\n");
-				sb.append("当前净值："+statement.getNetvalue().toString());
-				sb.append("\n");
-				sb.append("总购买金额：" + statement.getTotalpurchaseamount().toString());
-				sb.append("\n");
-				sb.append("总赎回金额：" + statement.getTotalredemptionamount().toString());
-				sb.append("\n");
-				sb.append("总份额：" + statement.getTotalshares().toString());
-				sb.append("\n");
-				sb.append("总金额：" + statement.getTotalamount().toString());
-				sb.append("\n");
-				sb.append("总余额：" + statement.getTotalbalance().toString());
-				sb.append("\n");
-				sb.append("总收益："+statement.getTotalreturn().toString());
-				sb.append("\n");
-				sb.append("总收益率：" + statement.getTotalrate().toString());
-				if(i<size-1){
-					sb.append("\n\n");
+			Statement statementOne = list.get(0);
+			Date latestDay = statementOne.getCheckdate();
+			example.clear();
+			example.createCriteria().andIdcardEqualTo(naming.getUserid()).andCheckdateEqualTo(latestDay);
+			list = this.statementService.list(example);
+			SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd");
+			if(list.size()>0){
+				StringBuffer sb = new StringBuffer("您最近的账单信息如下：\n\n");
+				int size = list.size();
+				for(int i=0;i<size; i++){
+					Statement statement = list.get(i);
+					sb.append("产品名称《"+statement.getFundname()+"》");
+					sb.append("\n");
+					sb.append("对账日期："+ sf.format(statement.getCheckdate()));
+					sb.append("\n");
+					sb.append("当前净值："+statement.getNetvalue().toString());
+					sb.append("\n");
+					sb.append("总购买金额：" + statement.getTotalpurchaseamount().toString());
+					sb.append("\n");
+					sb.append("总赎回金额：" + statement.getTotalredemptionamount().toString());
+					sb.append("\n");
+					sb.append("总份额：" + statement.getTotalshares().toString());
+					sb.append("\n");
+					sb.append("总金额：" + statement.getTotalamount().toString());
+					sb.append("\n");
+					sb.append("总余额：" + statement.getTotalbalance().toString());
+					sb.append("\n");
+					sb.append("总收益："+statement.getTotalreturn().toString());
+					sb.append("\n");
+					sb.append("总收益率：" + statement.getTotalrate().toString());
+					if(i<size-1){
+						sb.append("\n\n");
+					}
 				}
+				String result = sb.toString();
+				if(result.length()>600){
+					result = result.substring(0, 600);
+				}
+				out.setContent(result);
+			}else{
+				out.setContent("暂时没有您的账单信息！");
 			}
-			String result = sb.toString();
-			if(result.length()>600){
-				result = result.substring(0, 600);
-			}
-			out.setContent(result);
 		}else{
 			out.setContent("暂时没有您的账单信息！");
 		}
