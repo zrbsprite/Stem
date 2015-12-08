@@ -11,6 +11,7 @@ button { outline: none; }
 
 .navbar {
 	margin-bottom: 0;
+	min-height: 100px;
 }
 
 .navbar-header .logo {
@@ -166,7 +167,7 @@ button { outline: none; }
 }
 
 .lxui-docs-container {
-	margin-top: 60px;
+	margin-top: 110px;
 	min-height: 750px;
 }
 
@@ -1568,4 +1569,29 @@ li ul{
 }
 .input-short{
 	width: 50px;
+}
+.nav-pills li a{
+	background-color: #f4f4f4
+}
+#top-nav-2015 .container-fluid{
+	margin-top: 25px;
+}
+#top-nav-2015 .navbar-brand{
+	margin-top: -25px;
+	margin-right:20px;
+	height: 100%!important;
+	padding: 0;
+}
+#top-nav-2015 .navbar-brand img{
+	width:500px;
+	height: 100px;
+}
+.put-center{
+	margin-top:-25px!important;
+	left:10%!important;
+}
+.sys-name h1{
+	color: #fff;
+	font-size: 50px;
+	font-weight: bolder;
 }
