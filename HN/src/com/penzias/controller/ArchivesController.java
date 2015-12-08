@@ -225,10 +225,24 @@ public class ArchivesController extends BaseController{
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("add")
+	//@RequestMapping("add")
+	@Deprecated
 	public String crowsAdd(Model model){
 		
 		return "archives/crows_add";
+	}
+	
+	/**
+	 * @author: Bob
+	 * 修改时间：2015年12月8日 - 上午10:09:27<br/>
+	 * 功能说明：基本信息页面<br/>
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("baseinfo")
+	public String stepOne(Model model){
+		
+		return "archives/baseinfo_ae";
 	}
 	
 	/**
@@ -242,7 +256,7 @@ public class ArchivesController extends BaseController{
 	@RequestMapping("lifestyle")
 	public String lifeStryle(Model model){
 		
-		return "archives/lifestyle";
+		return "archives/lifestyle_ae";
 	}
 	
 	/**
@@ -257,7 +271,7 @@ public class ArchivesController extends BaseController{
 	@RequestMapping("family")
 	public String familyInfo(Model model){
 		
-		return "archives/familyhistory";
+		return "archives/familyhistory_ae";
 	}
 	
 	/**
@@ -272,7 +286,7 @@ public class ArchivesController extends BaseController{
 	@RequestMapping("control")
 	public String controlInfo(Model model){
 		
-		return "archives/control";
+		return "archives/control_ae";
 	}
 	
 	/**
@@ -287,7 +301,7 @@ public class ArchivesController extends BaseController{
 	@RequestMapping("body")
 	public String bodyCheck(Model model){
 		
-		return "archives/body";
+		return "archives/body_ae";
 	}
 	
 	/**
@@ -301,7 +315,7 @@ public class ArchivesController extends BaseController{
 	@RequestMapping("brainlevel")
 	public String brainLevel(Model model){
 		
-		return "archives/brain_level";
+		return "archives/brain_level_ae";
 	}
 	
 	/**
@@ -315,7 +329,7 @@ public class ArchivesController extends BaseController{
 	@RequestMapping("heartinfo")
 	public String heartInfo(Model model){
 		
-		return "archives/heart";
+		return "archives/heart_ae";
 	}
 	
 	/**
@@ -330,7 +344,7 @@ public class ArchivesController extends BaseController{
 	@RequestMapping("innercheck")
 	public String innerCheck(Model model){
 		
-		return "archives/inner_check";
+		return "archives/inner_check_ae";
 	}
 	
 	/**
@@ -344,6 +358,6 @@ public class ArchivesController extends BaseController{
 	@RequestMapping("bblood")
 	public String bSuperBlood(Model model){
 		
-		return "archives/blood";
+		return "archives/blood_ae";
 	}
 }
