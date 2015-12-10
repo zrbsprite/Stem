@@ -2,42 +2,67 @@ package com.penzias.entity;
 
 import java.util.Date;
 
+/**
+ * 描述： 心脏病史<br/>
+ * 作者：Bob <br/>
+ * 修改日期：2015年12月10日 - 下午2:27:44<br/>
+ * E-mail: sireezhang@163.com<br/>
+ */
 public class HeartDiseaseHistory {
     private Integer heartdiseasehistoryid;
 
     private Integer crowdid;
 
+    //心脏病史(0:无；1：有)
     private String isheartdisease;
 
+    //冠心病（0：无；1：有）
     private String coronarydisease;
 
+    //房颤（0：无；1：有）
     private String atrialfibrillation;
 
+    //瓣膜性心脏病（0：无；1：有）
     private String vhd;
 
+    //其他（0：无；1：有）
     private String other;
 
+    //冠心病发病次数
     private String number;
 
+    //冠心病末次发病时间
     private Date lasttime;
 
+    //主要诊断(YA)
     private String diagnosis;
 
+    //诊断依据-心肌酶升高（0：否；1：是）
     private String basismyocardialenzymes;
 
+    //诊断依据-心电图异常（0：否；1：是）
     private String basisecg;
 
+    //诊断依据-冠脉造影（0：否；1：是）
     private String basiscoronaryangiography;
 
+    //诊断依据-临床表现(0:否；1：是）
     private String clinical;
 
+    //房颤首次确诊时间
     private Date firsttime;
 
+    //是否服用抗血小板药物(0:否；1：是)
     private String isplatelet;
 
+    //是否服用抗凝药物(0:否；1：是)
     private String isanticoagulant;
 
     private String flag;
+    
+    //一下不参与映射
+    //主要诊断具体选项
+    private String diagnosisItem; 
 
     public Integer getHeartdiseasehistoryid() {
         return heartdiseasehistoryid;
@@ -182,4 +207,15 @@ public class HeartDiseaseHistory {
     public void setFlag(String flag) {
         this.flag = flag;
     }
+
+	
+	public String getDiagnosisItem(){
+	
+		return diagnosisItem;
+	}
+
+	public void setDiagnosisItem(String diagnosisItem){
+	
+		this.diagnosisItem = diagnosisItem;
+	}
 }

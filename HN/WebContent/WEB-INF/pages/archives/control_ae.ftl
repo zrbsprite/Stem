@@ -44,6 +44,7 @@
 								  <li><a href="${basepath}/archives/innercheck.htm">实验室检查&gt;</a></li>
 								  <li><a href="${basepath}/archives/bblood.htm">颈部血管超声</a></li>
 								</ul>
+								<input type="hidden" name="crowdid" value="${crowdid}" >
 								<#include "archives/control.ftl">
 							</div>
 						</div>	
@@ -58,5 +59,6 @@
 	<#include "frame/footer.ftl">
 	<#include "frame/js-ie.ftl">
 	<script type="text/javascript" src="${basepath}/assets/js/include_control.js"></script>
+	<script language="javascript" type="text/javascript" src="${basepath}/assets/js/My97DatePicker/WdatePicker.js"></script>
   </body>
 </html>

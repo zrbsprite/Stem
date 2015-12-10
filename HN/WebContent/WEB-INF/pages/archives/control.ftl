@@ -12,14 +12,14 @@
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
-		             	<input type="radio" value="" name="sex">无
+		             	<input type="radio" value="0" name="brainBloodHistory.isbrainblood">无
 		            </label>
 				</div>
 			</div>
 			<div class="row">
 			  <div class="input-group input-sm">
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">有，发病次数：<input type="text" value="" name="nation"> 次
+	              	<input type="radio" value="1" name="brainBloodHistory.isbrainblood">有，发病次数：<input type="text" value="" name="brainBloodHistory.number"> 次
 	              </label>
 			  </div>
 			</div>
@@ -29,7 +29,7 @@
 	              	末次发病时间：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="text" value="" name="nation"> 年
+	              	<input type="text" value="" name="brainBloodHistory.lasttime"  onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"> 年
 	              </label>
 			  </div>
 			</div>
@@ -39,16 +39,16 @@
 	              	主要诊断：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 脑梗死
+	              	<input type="radio" value="01" name="brainBloodHistory.diagnosis"> 脑梗死
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 脑出血
+	              	<input type="radio" value="02" name="brainBloodHistory.diagnosis"> 脑出血
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 蛛网膜下腔出血
+	              	<input type="radio" value="03" name="brainBloodHistory.diagnosis"> 蛛网膜下腔出血
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 短暂性脑缺血发作（TIA）
+	              	<input type="radio" value="04" name="brainBloodHistory.diagnosis"> 短暂性脑缺血发作（TIA）
 	              </label>
 			  </div>
 			</div>
@@ -58,13 +58,13 @@
 	              	诊断依据：
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="nation"> 脑部CT
+	              	<input type="checkbox" value="1" name="brainBloodHistory.basisbrainct"> 脑部CT
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="nation"> 脑部MRI
+	              	<input type="checkbox" value="1" name="brainBloodHistory.basisbrainmri"> 脑部MRI
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="nation"> 临床表现 （症状、体征）
+	              	<input type="checkbox" value="1" name="brainBloodHistory.clinical"> 临床表现 （症状、体征）
 	              </label>
 			  </div>
 			</div>
@@ -84,26 +84,26 @@
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
-		             	<input type="radio" value="" name="sex">无
+		             	<input type="radio" value="0" name="heartDiseaseHistory.isheartdisease">无
 		            </label>
 				</div>
 			</div>
 			<div class="row">
 			  <div class="input-group input-sm">
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">有，心脏病类型：
+	              	<input type="radio" value="1" name="heartDiseaseHistory.isheartdisease">有，心脏病类型：
 	              </label>
 	               <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="nation"> 冠心病
+	              	<input type="checkbox" value="1" name="heartDiseaseHistory.coronarydisease"> 冠心病
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="nation"> 房颤
+	              	<input type="checkbox" value="1" name="heartDiseaseHistory.atrialfibrillation"> 房颤
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="nation"> 瓣膜性心脏病
+	              	<input type="checkbox" value="1" name="heartDiseaseHistory.vhd"> 瓣膜性心脏病
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="nation"> 其他
+	              	<input type="checkbox" value="1" name="heartDiseaseHistory.other"> 其他
 	              </label>
 			  </div>
 			</div>
@@ -113,7 +113,7 @@
 	              	如果有冠心病，冠心病发病次数：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="text" value="" name="nation"> 次
+	              	<input type="text" value="" name="heartDiseaseHistory.number" maxlength='4'> 次
 	              </label>
 			  </div>
 			</div>
@@ -123,7 +123,7 @@
 	              	 冠心病末次发病时间：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="text" value="" name="nation"> 年
+	              	<input type="text" value="" name="heartDiseaseHistory.lasttime"   onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"> 年
 	              </label>
 			  </div>
 			</div>
@@ -133,28 +133,28 @@
 	              	主要诊断：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 心肌梗死（
+	              	<input type="radio" value="01" name="heartDiseaseHistory.diagnosis"> 心肌梗死（
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> ST段抬高型心肌梗死 
+	              	<input type="radio" value="0101" name="heartDiseaseHistory.diagnosisItem"> ST段抬高型心肌梗死 
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 非ST段抬高型心肌梗死
+	              	<input type="radio" value="0102" name="heartDiseaseHistory.diagnosisItem"> 非ST段抬高型心肌梗死
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 不详）
+	              	<input type="radio" value="0103" name="heartDiseaseHistory.diagnosisItem"> 不详）
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 心绞痛（
+	              	<input type="radio" value="02" name="heartDiseaseHistory.diagnosis"> 心绞痛（
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 稳定型
+	              	<input type="radio" value="0201" name="heartDiseaseHistory.diagnosisItem"> 稳定型
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 不稳定型
+	              	<input type="radio" value="0202" name="heartDiseaseHistory.diagnosisItem"> 不稳定型
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 不详）
+	              	<input type="radio" value="0203" name="heartDiseaseHistory.diagnosisItem"> 不详）
 	              </label>
 			  </div>
 			</div>
@@ -164,16 +164,16 @@
 	              	诊断依据：
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="nation"> 心肌酶升高
+	              	<input type="checkbox" value="1" name="heartDiseaseHistory.basismyocardialenzymes"> 心肌酶升高
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="nation">心电图异常
+	              	<input type="checkbox" value="1" name="heartDiseaseHistory.basisecg">心电图异常
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="nation"> 冠脉造影
+	              	<input type="checkbox" value="1" name="heartDiseaseHistory.basiscoronaryangiography"> 冠脉造影
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="nation"> 临床表现
+	              	<input type="checkbox" value="1" name="heartDiseaseHistory.clinical"> 临床表现
 	              </label>
 			  </div>
 			</div>
@@ -183,7 +183,7 @@
 	              	如果有房颤，首次确诊时间：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="text" value="" name="nation"> 年
+	              	<input type="text" value="" placeholder="点击选择时间" name="heartDiseaseHistory.firsttime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"> 年
 	              </label>
 			  </div>
 			</div>
@@ -193,10 +193,10 @@
 	              	是否服用抗血小板药物：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 是
+	              	<input type="radio" value="1" name="heartDiseaseHistory.isplatelet"> 是
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 否
+	              	<input type="radio" value="0" name="heartDiseaseHistory.isplatelet"> 否
 	              </label>
 			  </div>
 			</div>
@@ -251,10 +251,10 @@
 	              	是否服用抗凝药物：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 是
+	              	<input type="radio" value="1" name="heartDiseaseHistory.isanticoagulant"> 是
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 否
+	              	<input type="radio" value="0" name="heartDiseaseHistory.isanticoagulant"> 否
 	              </label>
 			  </div>
 			</div>
@@ -313,13 +313,13 @@
               	<b>血压测量频率：</b>
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="" name="nation"> 从未测量
+              	<input type="radio" value="01" name="hypertensionHistory.frequency"> 从未测量
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="" name="nation"> 经常测量（每月至少1次）
+              	<input type="radio" value="02" name="hypertensionHistory.frequency"> 经常测量（每月至少1次）
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="" name="nation"> 偶尔测量
+              	<input type="radio" value="03" name="hypertensionHistory.frequency"> 偶尔测量
               </label>
 			</div>
 		</div>
@@ -336,14 +336,14 @@
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
-		             	<input type="radio" value="" name="sex">无
+		             	<input type="radio" value="0" name="hypertensionHistory.ishypertension">无
 		            </label>
 				</div>
 			</div>
 			<div class="row">
 			  <div class="input-group input-sm">
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">有，确诊时间：<input type="text" value="" name="nation"> 年
+	              	<input type="radio" value="1" name="hypertensionHistory.ishypertension">有，确诊时间：<input type="text" value="" name="hypertensionHistory.diagnosistime"  onfocus="WdatePicker({dateFmt:'yyyy'})"> 年
 	              </label>
 			  </div>
 			</div>
@@ -353,10 +353,10 @@
 	              	是否服用降压药：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">否 
+	              	<input type="radio" value="0" name="hypertensionHistory.ishypotensor">否 
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">是
+	              	<input type="radio" value="1" name="hypertensionHistory.ishypotensor">是
 	              </label>
 			  </div>
 			</div>
@@ -411,10 +411,10 @@
 	              	是否服用降同型半胱氨酸药：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">否 
+	              	<input type="radio" value="0" name="hypertensionHistory.iscysteine">否 
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">是
+	              	<input type="radio" value="1" name="hypertensionHistory.iscysteine">是
 	              </label>
 			  </div>
 			</div>
@@ -472,16 +472,16 @@
               	<b>血压控制情况：</b>
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="" name="nation"> 基本平稳 
+              	<input type="radio" value="01" name="hypertensionHistory.control"> 基本平稳 
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="" name="nation"> 波动较大
+              	<input type="radio" value="02" name="hypertensionHistory.control"> 波动较大
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="" name="nation"> 不清楚，
+              	<input type="radio" value="03" name="hypertensionHistory.control"> 不清楚，
               </label>
               <label class="radio-inline">
-              	此情况已维持年限：<input type="text" value="" name="nation">年
+              	此情况已维持年限：<input type="text" value="" name="hypertensionHistory.controlyear">年
               </label>
 			</div>
 		</div>
@@ -496,13 +496,13 @@
               	<b>血脂测量频率：</b>
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="" name="nation"> 从未检测
+              	<input type="radio" value="01" name="bloodFatHistory.frequency"> 从未检测
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="" name="nation"> 定期检测
+              	<input type="radio" value="02" name="bloodFatHistory.frequency"> 定期检测
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="" name="nation"> 偶尔检测（每年检测不足1次）
+              	<input type="radio" value="03" name="bloodFatHistory.frequency"> 偶尔检测（每年检测不足1次）
               </label>
 			</div>
 		</div>
@@ -519,14 +519,14 @@
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
-		             	<input type="radio" value="" name="sex">无
+		             	<input type="radio" value="0" name="bloodFatHistory.isbloodfat">无
 		            </label>
 				</div>
 			</div>
 			<div class="row">
 			  <div class="input-group input-sm">
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">有，确诊时间：<input type="text" value="" name="nation"> 年
+	              	<input type="radio" value="1" name="bloodFatHistory.isbloodfat">有，确诊时间：<input type="text" value="" name="bloodFatHistory.diagnosistime" onfocus="WdatePicker({dateFmt:'yyyy'})"> 年
 	              </label>
 			  </div>
 			</div>
@@ -536,19 +536,19 @@
 	              	 血脂异常类型：
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="nation"> 高胆固醇
+	              	<input type="checkbox" value="1" name="bloodFatHistory.highcholesterol"> 高胆固醇
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="nation"> 高甘油三酯
+	              	<input type="checkbox" value="1" name="bloodFatHistory.hightriglyceride"> 高甘油三酯
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="nation"> 高LDL-C
+	              	<input type="checkbox" value="1" name="bloodFatHistory.highldlC"> 高LDL-C
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="nation"> 低HDL-C
+	              	<input type="checkbox" value="1" name="bloodFatHistory.lowhdlC"> 低HDL-C
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="nation"> 不详
+	              	<input type="checkbox" value="1" name="bloodFatHistory.other"> 不详
 	              </label>
 			  </div>
 			</div>
@@ -558,10 +558,10 @@
 	              	是否服用调脂药：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">否 
+	              	<input type="radio" value="0" name="bloodFatHistory.islipidLowering">否 
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">是
+	              	<input type="radio" value="1" name="bloodFatHistory.islipidLowering">是
 	              </label>
 			  </div>
 			</div>
@@ -604,16 +604,16 @@
 	              	<b>胆固醇：</b>
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 基本达标 
+	              	<input type="radio" value="01" name="bloodFatHistory.cholesterolcontrol"> 基本达标 
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 未达标 
+	              	<input type="radio" value="02" name="bloodFatHistory.cholesterolcontrol"> 未达标 
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 不清楚
+	              	<input type="radio" value="03" name="bloodFatHistory.cholesterolcontrol"> 不清楚
 	              </label>
 	              <label class="radio-inline">
-	              	，此情况已维持年限：<input type="text" value="" name="nation">年
+	              	，此情况已维持年限：<input type="text" value="" name="bloodFatHistory.cholesterolyear" maxlength='3'>年
 	              </label>
 			  </div>
 			</div>
@@ -623,16 +623,16 @@
 	              	<b>甘油三酯：</b>
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 基本达标 
+	              	<input type="radio" value="01" name="bloodFatHistory.triglyceridecontrol"> 基本达标 
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 未达标 
+	              	<input type="radio" value="02" name="bloodFatHistory.triglyceridecontrol"> 未达标 
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 不清楚
+	              	<input type="radio" value="03" name="bloodFatHistory.triglyceridecontrol"> 不清楚
 	              </label>
 	              <label class="radio-inline">
-	              	，此情况已维持年限：<input type="text" value="" name="nation">年
+	              	，此情况已维持年限：<input type="text" value="" name="bloodFatHistory.triglycerideyear" maxlength='3'>年
 	              </label>
 			  </div>
 			</div>
@@ -642,16 +642,16 @@
 	              	<b>LDL-C：</b>
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 基本达标 
+	              	<input type="radio" value="01" name="bloodFatHistory.ldlCcontrol"> 基本达标 
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 未达标 
+	              	<input type="radio" value="02" name="bloodFatHistory.ldlCcontrol"> 未达标 
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 不清楚
+	              	<input type="radio" value="03" name="bloodFatHistory.ldlCcontrol"> 不清楚
 	              </label>
 	              <label class="radio-inline">
-	              	，此情况已维持年限：<input type="text" value="" name="nation">年
+	              	，此情况已维持年限：<input type="text" value="" name="bloodFatHistory.ldlCyear" maxlength='3'>年
 	              </label>
 			  </div>
 			</div>
@@ -661,16 +661,16 @@
 	              	<b>HDL-C：</b>
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 基本达标 
+	              	<input type="radio" value="" name="bloodFatHistory.hdlCcontrol"> 基本达标 
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 未达标 
+	              	<input type="radio" value="" name="bloodFatHistory.hdlCcontrol"> 未达标 
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 不清楚
+	              	<input type="radio" value="" name="bloodFatHistory.hdlCcontrol"> 不清楚
 	              </label>
 	              <label class="radio-inline">
-	              	，此情况已维持年限：<input type="text" value="" name="nation">年
+	              	，此情况已维持年限：<input type="text" value="" name="bloodFatHistory.hdlCyear" maxlength='3'>年
 	              </label>
 			  </div>
 			</div>
@@ -684,13 +684,13 @@
               	<b>血糖测量频率：</b>
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="" name="nation"> 从未检测
+              	<input type="radio" value="01" name="diabetesHistory.frequency"> 从未检测
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="" name="nation"> 定期检测
+              	<input type="radio" value="02" name="diabetesHistory.frequency"> 定期检测
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="" name="nation"> 偶尔检测（每年检测不足1次）
+              	<input type="radio" value="03" name="diabetesHistory.frequency"> 偶尔检测（每年检测不足1次）
               </label>
 			</div>
 		</div>
@@ -707,14 +707,14 @@
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
-		             	<input type="radio" value="" name="sex">无
+		             	<input type="radio" value="0" name="diabetesHistory.isdiabetes">无
 		            </label>
 				</div>
 			</div>
 			<div class="row">
 			  <div class="input-group input-sm">
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">有，确诊时间：<input type="text" value="" name="nation"> 年
+	              	<input type="radio" value="1" name="diabetesHistory.isdiabetes">有，确诊时间：<input type="text" value="" name="diabetesHistory.diagnosistime" onfocus="WdatePicker({dateFmt:'yyyy'})"> 年
 	              </label>
 			  </div>
 			</div>
@@ -724,10 +724,10 @@
 	              	是否服降糖药：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">否 
+	              	<input type="radio" value="0" name="diabetesHistory.ishypoglycemic">否 
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">是
+	              	<input type="radio" value="1" name="diabetesHistory.ishypoglycemic">是
 	              </label>
 			  </div>
 			</div>
@@ -770,19 +770,19 @@
 	              	是否使用胰岛素：
 	              </label>
 	               <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">否 
+	              	<input type="radio" value="0" name="diabetesHistory.isinsulin">否 
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">是
+	              	<input type="radio" value="1" name="diabetesHistory.isinsulin">是
 	              </label>
 	               <label class="radio-inline">
 	              	如果是,用药情况：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">规律
+	              	<input type="radio" value="0" name="diabetesHistory.pharmacysituation">规律
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">不规律
+	              	<input type="radio" value="1" name="diabetesHistory.pharmacysituation">不规律
 	              </label>
               </div>
             </div>
@@ -792,19 +792,19 @@
 	              	血糖控制情况：
 	              </label>
 	               <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">基本达标
+	              	<input type="radio" value="01" name="diabetesHistory.control">基本达标
 	              </label>
 	               <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">未达标
+	              	<input type="radio" value="02" name="diabetesHistory.control">未达标
 	              </label>
 	               <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">不清楚 
+	              	<input type="radio" value="03" name="diabetesHistory.control">不清楚 
 	              </label>
 	               <label class="radio-inline">
 	              	此情况已维持年限：
 	              </label>
 	               <label class="radio-inline">
-	              	<input type="text" name="" />年
+	              	<input type="number" name="diabetesHistory.controlyeat" maxlength='3' />年
 	              </label>
               </div>
             </div>
@@ -824,14 +824,14 @@
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
-		             	<input type="radio" value="" name="sex">无
+		             	<input type="radio" value="0" name="kidneyDiseaseHostory.iskidneydisease">无
 		            </label>
 				</div>
 			</div>
 			<div class="row">
 			  <div class="input-group input-sm">
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">有，确诊时间：<input type="text" value="" name="nation"> 年
+	              	<input type="radio" value="1" name="kidneyDiseaseHostory.iskidneydisease">有，确诊时间：<input type="text" value="" name="kidneyDiseaseHostory.diagnosistime" onfocus="WdatePicker({dateFmt:'yyyy'})"> 年
 	              </label>
 			  </div>
 			</div>
@@ -841,25 +841,26 @@
 	              	<b>肾脏疾病类型：</b>
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="sex"> 糖尿病肾病
+	              	<input type="checkbox" value="1" name="kidneyDiseaseHostory.diabetes"> 糖尿病肾病
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="sex"> 高血压肾病 
+	              	<input type="checkbox" value="1" name="kidneyDiseaseHostory.hypertension"> 高血压肾病 
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="sex"> 肾功能衰竭
+	              	<input type="checkbox" value="1" name="kidneyDiseaseHostory.renalfailure"> 肾功能衰竭
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="sex"> 急性肾炎
+	              	<input type="checkbox" value="1" name="kidneyDiseaseHostory.acutenephritis"> 急性肾炎
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="" name="sex"> 慢性肾炎
+	              	<input type="checkbox" value="1" name="kidneyDiseaseHostory.chronicnephritis"> 慢性肾炎
 	              </label>
 			  </div>
 			</div>
 		</div>
 	</div>
 	
+	<#-- 
 	<div class="row"><h4><b>4.7 下肢动脉病变 </b></h4></div>
 	<div class="row">
 		<div class="span4">
@@ -914,7 +915,7 @@
 			</div>
 		</div>
 	</div>
-	
+	 -->
 	<div class="row"><h4><b>4.9 肺源性疾病 </b></h4></div>
 	<div class="row">
 		<div class="span4">
@@ -928,19 +929,21 @@
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
-		             	<input type="radio" value="" name="sex">无
+		             	<input type="radio" value="" name="pulmonaryDiseaseHistory.ispulmonarydisease">无
 		            </label>
 				</div>
 			</div>
 			<div class="row">
 			  <div class="input-group input-sm">
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">有，确诊时间：<input type="text" value="" name="nation"> 年
+	              	<input type="radio" value="" name="pulmonaryDiseaseHistory.ispulmonarydisease">有，确诊时间：<input type="text" value="" name="pulmonaryDiseaseHistory.diagnosistime" onfocus="WdatePicker({dateFmt:'yyyy'})"> 年
 	              </label>
 			  </div>
 			</div>
 		</div>
 	</div>
+	
+	<#-- 
 	<div class="row"><h4><b>4.10 口腔炎症 </b></h4></div>
 	<div class="row">
 		<div class="input-group input-sm">
@@ -963,5 +966,6 @@
           </label>
 		</div>
 	</div>
+	 -->
 	
 </div>

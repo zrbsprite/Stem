@@ -2,23 +2,36 @@ package com.penzias.entity;
 
 import java.util.Date;
 
+/**
+ * 描述：人群肾脏病病史<br/>
+ * 作者：Bob <br/>
+ * 修改日期：2015年12月10日 - 下午4:21:20<br/>
+ * E-mail: sireezhang@163.com<br/>
+ */
 public class KidneyDiseaseHostory {
     private Integer kidneydiseasehistoryid;
 
     private Integer crowdid;
 
+    //既往有无被诊断为肾脏疾病(0:无；1：有)
     private String iskidneydisease;
 
+    //确诊时间
     private Date diagnosistime;
 
+    //肾脏疾病类型-糖尿病肾病(0:否；1：是)
     private String diabetes;
 
+    //肾脏疾病类型-高血压肾病(0:否；1：是)
     private String hypertension;
 
+    //肾脏疾病类型-肾功能衰竭(0:否；1：是)
     private String renalfailure;
 
+    //肾脏疾病类型-急性肾炎(0:否；1：是)
     private String acutenephritis;
 
+    //肾脏疾病类型-慢性肾炎(0:否；1：是)
     private String chronicnephritis;
 
     private String flag;

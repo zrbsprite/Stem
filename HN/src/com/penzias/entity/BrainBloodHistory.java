@@ -2,29 +2,45 @@ package com.penzias.entity;
 
 import java.util.Date;
 
+/**
+ * 描述：脑血管病史 <br/>
+ * 作者：Bob <br/>
+ * 修改日期：2015年12月10日 - 下午2:27:49<br/>
+ * E-mail: sireezhang@163.com<br/>
+ */
 public class BrainBloodHistory {
     private Integer brainbloodhistoryid;
 
     private Integer crowdid;
 
+    //脑血管病史(0:无；1：有)
     private String isbrainblood;
 
+    //发病次数
     private String number;
 
+    //末次发病时间
     private Date lasttime;
 
+    //主要诊断(ZY)
     private String diagnosis;
 
+    //诊断依据脑部CT(0:否；1：是）
     private String basisbrainct;
 
+    //诊断依据脑部MRI(0:否；1：是）
     private String basisbrainmri;
 
+    //诊断依据临床表现(0:否；1：是）
     private String clinical;
 
+    //MRS评估时间
     private Date mrstime;
 
+    //MRS选项（ZZ）
     private String mrsoption;
 
+    //MRS分值
     private String mrsvalue;
 
     private String flag;

@@ -284,8 +284,10 @@ public class ArchivesController extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("control")
-	public String controlInfo(Model model){
-		
+	public String controlInfo(Integer id, Model model){
+		if(null!=id){
+			model.addAttribute("crowdid",id);
+		}
 		return "archives/control_ae";
 	}
 	

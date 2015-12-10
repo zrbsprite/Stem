@@ -2,25 +2,39 @@ package com.penzias.entity;
 
 import java.util.Date;
 
+/**
+ * 描述：人群糖尿病病史<br/>
+ * 作者：Bob <br/>
+ * 修改日期：2015年12月10日 - 下午4:19:42<br/>
+ * E-mail: sireezhang@163.com<br/>
+ */
 public class DiabetesHistory {
     private Integer diabeteshistoryid;
 
     private Integer crowdid;
 
+    //血糖测量频率(ZW)
     private String frequency;
 
+    //既往有无被诊断为糖尿病(0:无；1：有）
     private String isdiabetes;
 
+    //确诊时间
     private Date diagnosistime;
 
+    //是否服降糖药(0:否；1：是）
     private String ishypoglycemic;
 
+    //是否使用胰岛素(0:否；1：是）
     private String isinsulin;
 
+    //胰岛素用药情况(0:规律；1:不规律)
     private String pharmacysituation;
 
+    //血糖控制情况(ZX)
     private String control;
 
+    //此情况已维持年限
     private String controlyeat;
 
     private String flag;

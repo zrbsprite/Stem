@@ -7,38 +7,54 @@ public class BloodFatHistory {
 
     private Integer crowdid;
 
+    //血脂测量频率(ZW)
     private String frequency;
 
+    //既往有无被诊断为血脂异常(0:无；1：有）
     private String isbloodfat;
 
     private Date diagnosistime;
 
+    //高胆固醇异常（0：无异常；1：异常）
     private String highcholesterol;
 
+    //高甘油三酯异常（0：无异常；1：异常）
     private String hightriglyceride;
 
+    //高LDL-C异常（0：无异常；1：异常）
     private String highldlC;
 
+    //低LDL-C异常（0：无异常；1：异常）
     private String lowhdlC;
 
+    //不详（0:不选中；1：选中）
     private String other;
 
+    //是否服用调脂药(0:否；1：是）
     private String islipidLowering;
 
+    //胆固醇控制情况（ZX)
     private String cholesterolcontrol;
 
+    //胆固醇控制年限
     private String cholesterolyear;
 
+    //甘油三酯控制情况（ZX)
     private String triglyceridecontrol;
 
+    //甘油三酯控制年限
     private String triglycerideyear;
 
+    //LDL-C控制情况（ZX)
     private String ldlCcontrol;
 
+    //LDL-C控制年限
     private String ldlCyear;
 
+    //HDL-C控制情况（ZX)
     private String hdlCcontrol;
 
+    //HDL-C控制年限
     private String hdlCyear;
 
     private String flag;

@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 阿里云
+Source Server         : Self
 Source Server Version : 50622
 Source Host           : 119.90.131.199:3306
 Source Database       : hn_ncz
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50622
 File Encoding         : 65001
 
-Date: 2015-12-02 21:02:54
+Date: 2015-12-10 16:47:19
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -725,8 +725,14 @@ INSERT INTO `sm_codeitem` VALUES ('AX', '0', '未知', 'AX', '0', 'WZ', null);
 INSERT INTO `sm_codeitem` VALUES ('AX', '1', '男', 'AX', '0', 'N', null);
 INSERT INTO `sm_codeitem` VALUES ('AX', '2', '女', 'AX', '0', 'N', null);
 INSERT INTO `sm_codeitem` VALUES ('AX', '9', '未说明', 'AX', '0', 'WSM', null);
-INSERT INTO `sm_codeitem` VALUES ('YA', '01', '心肌梗死（〇ST段抬高型心肌梗死 〇非ST段抬高型心肌梗死 〇不详）', 'YA', '0', null, null);
-INSERT INTO `sm_codeitem` VALUES ('YA', '02', '心绞痛（〇稳定型 〇不稳定型 〇不详）', 'YA', '0', null, null);
+INSERT INTO `sm_codeitem` VALUES ('YA', '01', '心肌梗死', 'YA', '0', NULL, NULL);
+INSERT INTO `sm_codeitem` VALUES ('YA', '0101', 'ST段抬高型心肌梗死', '01', '1', NULL, NULL);
+INSERT INTO `sm_codeitem` VALUES ('YA', '0102', '非ST段抬高型心肌梗死', '01', '1', NULL, NULL);
+INSERT INTO `sm_codeitem` VALUES ('YA', '0103', '不详', '01', '1', NULL, NULL);
+INSERT INTO `sm_codeitem` VALUES ('YA', '02', '心绞痛', 'YA', '0', NULL, NULL);
+INSERT INTO `sm_codeitem` VALUES ('YA', '0201', '稳定型', '02', '1', NULL, NULL);
+INSERT INTO `sm_codeitem` VALUES ('YA', '0202', '不稳定型', '02', '1', NULL, NULL);
+INSERT INTO `sm_codeitem` VALUES ('YA', '0203', '不详', '02', '1', NULL, NULL);
 INSERT INTO `sm_codeitem` VALUES ('YB', '01', '下肢动脉病变', 'YB', '0', null, null);
 INSERT INTO `sm_codeitem` VALUES ('YB', '02', '眼底血管病变', 'YB', '0', null, null);
 INSERT INTO `sm_codeitem` VALUES ('YB', '03', '口腔炎症', 'YB', '0', null, null);
@@ -742,16 +748,18 @@ INSERT INTO `sm_codeitem` VALUES ('YE', '03', '红色', 'YE', '0', null, null);
 INSERT INTO `sm_codeitem` VALUES ('YF', '01', '健康管理', 'YF', '0', null, null);
 INSERT INTO `sm_codeitem` VALUES ('YF', '02', '规范化管理', 'YF', '0', null, null);
 INSERT INTO `sm_codeitem` VALUES ('YF', '03', '强化管理', 'YF', '0', null, null);
-INSERT INTO `sm_codeitem` VALUES ('ZA', '01', '社区机构用户', 'ZA', '0', 'SQJGYH', null);
-INSERT INTO `sm_codeitem` VALUES ('ZA', '02', '医院机构用户', 'ZA', '0', 'YYJGYH', null);
-INSERT INTO `sm_codeitem` VALUES ('ZA', '03', 'APP注册用户', 'ZA', '0', 'APPZCYH', null);
-INSERT INTO `sm_codeitem` VALUES ('ZB', '01', '个人权限', 'ZB', '0', 'GRQX', null);
-INSERT INTO `sm_codeitem` VALUES ('ZB', '02', '机构权限', 'ZB', '0', 'JGQX', null);
-INSERT INTO `sm_codeitem` VALUES ('ZB', '03', '乡镇级权限', 'ZB', '0', 'XZJQX', null);
-INSERT INTO `sm_codeitem` VALUES ('ZB', '04', '县区级权限', 'ZB', '0', 'XQJQX', null);
-INSERT INTO `sm_codeitem` VALUES ('ZB', '05', '市级权限', 'ZB', '0', 'SJQX', null);
-INSERT INTO `sm_codeitem` VALUES ('ZB', '06', '省级权限', 'ZB', '0', 'SJQX', null);
-INSERT INTO `sm_codeitem` VALUES ('ZB', '07', '特殊权限', 'ZB', '0', 'TSQX', null);
+INSERT INTO `sm_codeitem` VALUES ('ZA', '01', '管理员权限用户', 'ZA', '0', 'GLYYH', null);
+INSERT INTO `sm_codeitem` VALUES ('ZA', '02', '社区机构用户', 'ZA', '0', 'SQJGYH', null);
+INSERT INTO `sm_codeitem` VALUES ('ZA', '03', '医院机构用户', 'ZA', '0', 'YYJGYH', null);
+INSERT INTO `sm_codeitem` VALUES ('ZA', '04', 'APP注册用户', 'ZA', '0', 'APPZCYH', null);
+INSERT INTO `sm_codeitem` VALUES ('ZB', '01', '管理员权限', 'ZB', '0', 'GLYQX', null);
+INSERT INTO `sm_codeitem` VALUES ('ZB', '02', '个人权限', 'ZB', '0', 'GRQX', null);
+INSERT INTO `sm_codeitem` VALUES ('ZB', '03', '机构权限', 'ZB', '0', 'JGQX', null);
+INSERT INTO `sm_codeitem` VALUES ('ZB', '04', '乡镇级权限', 'ZB', '0', 'XZJQX', null);
+INSERT INTO `sm_codeitem` VALUES ('ZB', '05', '县区级权限', 'ZB', '0', 'XQJQX', null);
+INSERT INTO `sm_codeitem` VALUES ('ZB', '06', '市级权限', 'ZB', '0', 'SJQX', null);
+INSERT INTO `sm_codeitem` VALUES ('ZB', '07', '省级权限', 'ZB', '0', 'SJQX', null);
+INSERT INTO `sm_codeitem` VALUES ('ZB', '08', '特殊权限', 'ZB', '0', 'TSQX', null);
 INSERT INTO `sm_codeitem` VALUES ('ZC', '01', '医疗卫生服务机构', 'ZC', '0', 'YLWSFWJG', null);
 INSERT INTO `sm_codeitem` VALUES ('ZC', '02', '专业卫生服务机构', 'ZC', '0', 'ZYWSFWJG', null);
 INSERT INTO `sm_codeitem` VALUES ('ZC', '03', '卫生行政管理机构', 'ZC', '0', 'WSXZGLJG', null);
@@ -895,9 +903,11 @@ INSERT INTO `sm_codeitem` VALUES ('ZQ', '05', '牛奶或酸奶', 'ZQ', '1', null
 INSERT INTO `sm_codeitem` VALUES ('ZQ', '0501', '≥200毫升/天且≥5天/周', '05', '0', null, null);
 INSERT INTO `sm_codeitem` VALUES ('ZQ', '0502', '偶尔或从不喝', '05', '0', null, null);
 INSERT INTO `sm_codeitem` VALUES ('ZQ', '0503', '不属于以上两种情况', '05', '0', null, null);
-INSERT INTO `sm_codeitem` VALUES ('ZR', '01', '无', 'ZR', '0', null, null);
-INSERT INTO `sm_codeitem` VALUES ('ZR', '02', '有', 'ZR', '0', null, null);
-INSERT INTO `sm_codeitem` VALUES ('ZR', '03', '不详', 'ZR', '0', null, null);
+INSERT INTO `sm_codeitem` VALUES ('ZR', '01', '脑卒中（中风）', 'ZR', '0', null, null);
+INSERT INTO `sm_codeitem` VALUES ('ZR', '02', '冠心病', 'ZR', '0', null, null);
+INSERT INTO `sm_codeitem` VALUES ('ZR', '03', '高血压', 'ZR', '0', null, null);
+INSERT INTO `sm_codeitem` VALUES ('ZR', '04', '糖尿病', 'ZR', '0', null, null);
+INSERT INTO `sm_codeitem` VALUES ('ZR', '05', '血脂异常', 'ZR', '0', null, null);
 INSERT INTO `sm_codeitem` VALUES ('ZS', '01', '从未测量', 'ZS', '0', null, null);
 INSERT INTO `sm_codeitem` VALUES ('ZS', '02', '经常测量（每月至少1次）', 'ZS', '0', null, null);
 INSERT INTO `sm_codeitem` VALUES ('ZS', '03', '偶尔测量', 'ZS', '0', null, null);
@@ -1132,11 +1142,14 @@ CREATE TABLE `sm_role` (
   `PowerLevel` varchar(20) DEFAULT NULL COMMENT '角色权限（数据来自于sm_codeitem的code字段，codeid值为ZB）',
   `PowerSQL` varchar(500) DEFAULT NULL COMMENT 'SQL',
   PRIMARY KEY (`RoleID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='角色表';
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='角色表';
 
 -- ----------------------------
 -- Records of sm_role
 -- ----------------------------
+INSERT INTO `sm_role` VALUES ('1', '管理员', '管理员权限', '01', null);
+INSERT INTO `sm_role` VALUES ('2', '个人用户', '个人数据权限', '02', null);
+INSERT INTO `sm_role` VALUES ('3', '机构用户', '机构数据权限', '03', '');
 
 -- ----------------------------
 -- Table structure for sm_role_modular
@@ -1169,13 +1182,15 @@ CREATE TABLE `sm_user` (
   `UserType` varchar(20) DEFAULT NULL COMMENT '用户类型(数据来源于codeitem的ZA)',
   `CreateDate` datetime DEFAULT NULL COMMENT '创建时间',
   `IDNumber` varchar(18) DEFAULT NULL COMMENT '身份证号码',
-  PRIMARY KEY (`UserName`),
-  UNIQUE KEY `IDNumber` (`IDNumber`)
+  PRIMARY KEY (`UserName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
 
 -- ----------------------------
 -- Records of sm_user
 -- ----------------------------
+INSERT INTO `sm_user` VALUES ('admin', '1234@abcd', null, '1', '瞿晓明', '13567876655', '0000001002002', '1', '01', '2015-12-03 14:23:51', '423456198708187215');
+INSERT INTO `sm_user` VALUES ('qxmyygr', '1234@abcd', null, '1', '瞿晓明', '13567876655', '0000001002002', '2', '03', '2015-12-03 14:41:29', '423456198708187215');
+INSERT INTO `sm_user` VALUES ('qxmyyjg', '1234@abcd', null, '1', '瞿晓明', '13567876655', '0000001002002', '3', '03', '2015-12-03 14:51:13', '423456198708187215');
 
 -- ----------------------------
 -- Table structure for user_personal_info
