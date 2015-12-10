@@ -1,16 +1,26 @@
 package com.penzias.entity;
 
+/**
+ * 描述：用药历史<br>
+ * 作者：ruibo <br>
+ * 修改日期：2015年12月10日-下午9:28:28 <br>
+ * E-mail:  sireezhang@163.com<br>
+ */
 public class HistoryPharmacy {
     private Integer pharmacyid;
 
     private Integer crowdid;
 
+    //用药类型（ZU--前2位）
     private String pharmacytype;
-
+    
+    //用药名称（ZU--4或6位）
     private String pharmacyname;
 
+    //用药年限
     private String pharmacyyear;
 
+    //用药情况(0:规律；1:不规律)
     private String pharmacysituation;
 
     private String flag;

@@ -268,19 +268,19 @@
 			<div class="row">
 			  <div class="input-group input-sm">
 	              <label class="radio-inline">
-	              	药品通用名：<input type="text" value="" name="nation">
+	              	药品通用名：<input type="text" value="" name="historyPharmacy.pharmacyname">
 	              </label>
 	              <label class="radio-inline">
-	              	，用药年限：<input type="text" value="" name="nation">年
+	              	，用药年限：<input type="text" value="" name="historyPharmacy.pharmacyyear">年
 	              </label>
 	              <label class="radio-inline">
 	              	，用药情况：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 规律
+	              	<input type="radio" value="0" name="historyPharmacy.pharmacysituation"> 规律
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 不规律
+	              	<input type="radio" value="1" name="historyPharmacy.pharmacysituation"> 不规律
 	              </label>
 			  </div>
 			</div>
@@ -860,7 +860,6 @@
 		</div>
 	</div>
 	
-	<#-- 
 	<div class="row"><h4><b>4.7 下肢动脉病变 </b></h4></div>
 	<div class="row">
 		<div class="span4">
@@ -868,20 +867,21 @@
               <label class="radio-inline">
               	<b>既往有无被诊断为下肢动脉病变：</b>
               </label>
+              <input type="hidden" name="otherHistory.othertype" value="01">
 			</div>
 		</div>
 	  <div class="span12">
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
-		             	<input type="radio" value="" name="sex">无
+		             	<input type="radio" value="0" name="otherHistory.isother">无
 		            </label>
 				</div>
 			</div>
 			<div class="row">
 			  <div class="input-group input-sm">
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">有，确诊时间：<input type="text" value="" name="nation"> 年
+	              	<input type="radio" value="1" name="otherHistory.isother">有，确诊时间：<input type="text" value="" name="otherHistory.diagnosistime" onfocus="WdatePicker({dateFmt:'yyyy'})"> 年
 	              </label>
 			  </div>
 			</div>
@@ -896,26 +896,28 @@
               <label class="radio-inline">
               	<b>既往有无被诊断为眼底血管病变：</b>
               </label>
+              <input type="hidden" name="otherHistory.othertype" value="02">
 			</div>
 		</div>
 	  <div class="span12">
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
-		             	<input type="radio" value="" name="sex">无
+		             	<input type="radio" value="0" name="otherHistory.isother">无
 		            </label>
 				</div>
 			</div>
 			<div class="row">
 			  <div class="input-group input-sm">
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="sex">有，确诊时间：<input type="text" value="" name="nation"> 年
+	              	<input type="radio" value="1" name="otherHistory.isother">有，确诊时间：<input type="text" value="" name="otherHistory.diagnosistime" onfocus="WdatePicker({dateFmt:'yyyy'})"> 年
 	              </label>
 			  </div>
 			</div>
 		</div>
 	</div>
-	 -->
+	 
+	 
 	<div class="row"><h4><b>4.9 肺源性疾病 </b></h4></div>
 	<div class="row">
 		<div class="span4">
@@ -943,29 +945,30 @@
 		</div>
 	</div>
 	
-	<#-- 
 	<div class="row"><h4><b>4.10 口腔炎症 </b></h4></div>
 	<div class="row">
 		<div class="input-group input-sm">
+			<input type="hidden" name="otherHistory.othertype" value="03">
             <label class="radio-inline">
-             	<input type="radio" value="" name="sex">无
+             	<input type="radio" value="0" name="otherHistory.isother">无
             </label>
             <label class="radio-inline">
-          		<input type="radio" value="" name="sex">有
+          		<input type="radio" value="1" name="otherHistory.isother">有
           </label>
 		</div>
 	</div>
 	<div class="row"><h4><b>4.11 精神心理疾病 </b></h4></div>
 	<div class="row">
 		<div class="input-group input-sm">
+			<input type="hidden" name="otherHistory.othertype" value="04">
             <label class="radio-inline">
-             	<input type="radio" value="" name="sex">无
+             	<input type="radio" value="0" name="otherHistory.isother">无
             </label>
             <label class="radio-inline">
-          		<input type="radio" value="" name="sex">有
+          		<input type="radio" value="1" name="otherHistory.isother">有
           </label>
 		</div>
 	</div>
-	 -->
+	
 	
 </div>
