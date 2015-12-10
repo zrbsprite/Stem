@@ -1,123 +1,423 @@
 package com.penzias.entity;
 
 public class InstitutionCrowdLifestyleInfo {
-    private Integer lifestyleid;
 
-    private Integer crowdid;
+	private Integer lifestyleid;
 
-    private String smoke;
+	private Integer crowdid;
 
-    private String smokeyear;
+	private String smoke;
 
-    private String smokeday;
+	private String smokeyear;
 
-    private String wine;
+	private String smokeday;
 
-    private String wineyear;
+	private String wine;
 
-    private String sports;
+	private String wineyear;
 
-    private String sportsyear;
+	private String sports;
 
-    private String diet;
+	private String sportsyear;
 
-    private String dietyear;
+	private String diet;
 
-    private String flag;
+	private String dietyear;
 
-    public Integer getLifestyleid() {
-        return lifestyleid;
-    }
+	private String flag;
 
-    public void setLifestyleid(Integer lifestyleid) {
-        this.lifestyleid = lifestyleid;
-    }
+	// 不参与映射的属性
+	// 是否吸烟
+	private String isSmokeFlag;
 
-    public Integer getCrowdid() {
-        return crowdid;
-    }
+	// 是否被动吸烟
+	private String isSecondSmokenFlag;
 
-    public void setCrowdid(Integer crowdid) {
-        this.crowdid = crowdid;
-    }
+	// 被动吸烟年限
+	private String secondSmokenYear;
 
-    public String getSmoke() {
-        return smoke;
-    }
+	// 吸烟年限
+	private String smokingYear;
 
-    public void setSmoke(String smoke) {
-        this.smoke = smoke;
-    }
+	// 是否戒烟
+	private String isDontSmokeFlag;
 
-    public String getSmokeyear() {
-        return smokeyear;
-    }
+	// 戒烟年限
+	private String dontSmokeYear;
 
-    public void setSmokeyear(String smokeyear) {
-        this.smokeyear = smokeyear;
-    }
+	// 曾经吸烟多少年
+	private String smokenYear;
 
-    public String getSmokeday() {
-        return smokeday;
-    }
+	// 少量饮酒量年限
+	private String littleDrinkMountYear;
 
-    public void setSmokeday(String smokeday) {
-        this.smokeday = smokeday;
-    }
+	// 大量饮酒量年限
+	private String lotDrinkMountYear;
 
-    public String getWine() {
-        return wine;
-    }
+	// 运动年限
+	private String hasSportYear;
 
-    public void setWine(String wine) {
-        this.wine = wine;
-    }
+	// 缺乏运动年限
+	private String hasNoSportYear;
 
-    public String getWineyear() {
-        return wineyear;
-    }
+	// 口味
+	private String eatStyle;
 
-    public void setWineyear(String wineyear) {
-        this.wineyear = wineyear;
-    }
+	// 其他口味年限
+	private String eatStyleOtherYear;
 
-    public String getSports() {
-        return sports;
-    }
+	// 口味
+	private String meatStyle;
 
-    public void setSports(String sports) {
-        this.sports = sports;
-    }
+	// 其他口味年限
+	private String meatStyleOtherYear;
 
-    public String getSportsyear() {
-        return sportsyear;
-    }
+	// 口味
+	private String vagStyle;
 
-    public void setSportsyear(String sportsyear) {
-        this.sportsyear = sportsyear;
-    }
+	// 其他口味年限
+	private String vagStyleOtherYear;
 
-    public String getDiet() {
-        return diet;
-    }
+	// 口味
+	private String fruitStyle;
 
-    public void setDiet(String diet) {
-        this.diet = diet;
-    }
+	// 其他口味年限
+	private String fruitStyleOtherYear;
 
-    public String getDietyear() {
-        return dietyear;
-    }
+	// 口味
+	private String milkStyle;
 
-    public void setDietyear(String dietyear) {
-        this.dietyear = dietyear;
-    }
+	// 其他口味年限
+	private String milkStyleOtherYear;
 
-    public String getFlag() {
-        return flag;
-    }
+	public Integer getLifestyleid(){
 
-    public void setFlag(String flag) {
-        this.flag = flag;
-    }
+		return lifestyleid;
+	}
+
+	public void setLifestyleid(Integer lifestyleid){
+
+		this.lifestyleid = lifestyleid;
+	}
+
+	public Integer getCrowdid(){
+
+		return crowdid;
+	}
+
+	public void setCrowdid(Integer crowdid){
+
+		this.crowdid = crowdid;
+	}
+
+	public String getSmoke(){
+
+		return smoke;
+	}
+
+	public void setSmoke(String smoke){
+
+		this.smoke = smoke;
+	}
+
+	public String getSmokeyear(){
+
+		return smokeyear;
+	}
+
+	public void setSmokeyear(String smokeyear){
+
+		this.smokeyear = smokeyear;
+	}
+
+	public String getSmokeday(){
+
+		return smokeday;
+	}
+
+	public void setSmokeday(String smokeday){
+
+		this.smokeday = smokeday;
+	}
+
+	public String getWine(){
+
+		return wine;
+	}
+
+	public void setWine(String wine){
+
+		this.wine = wine;
+	}
+
+	public String getWineyear(){
+
+		return wineyear;
+	}
+
+	public void setWineyear(String wineyear){
+
+		this.wineyear = wineyear;
+	}
+
+	public String getSports(){
+
+		return sports;
+	}
+
+	public void setSports(String sports){
+
+		this.sports = sports;
+	}
+
+	public String getSportsyear(){
+
+		return sportsyear;
+	}
+
+	public void setSportsyear(String sportsyear){
+
+		this.sportsyear = sportsyear;
+	}
+
+	public String getDiet(){
+
+		return diet;
+	}
+
+	public void setDiet(String diet){
+
+		this.diet = diet;
+	}
+
+	public String getDietyear(){
+
+		return dietyear;
+	}
+
+	public void setDietyear(String dietyear){
+
+		this.dietyear = dietyear;
+	}
+
+	public String getFlag(){
+
+		return flag;
+	}
+
+	public void setFlag(String flag){
+
+		this.flag = flag;
+	}
+
+	public String getIsSmokeFlag(){
+
+		return isSmokeFlag;
+	}
+
+	public void setIsSmokeFlag(String isSmokeFlag){
+
+		this.isSmokeFlag = isSmokeFlag;
+	}
+
+	public String getIsSecondSmokenFlag(){
+
+		return isSecondSmokenFlag;
+	}
+
+	public void setIsSecondSmokenFlag(String isSecondSmokenFlag){
+
+		this.isSecondSmokenFlag = isSecondSmokenFlag;
+	}
+
+	public String getSecondSmokenYear(){
+
+		return secondSmokenYear;
+	}
+
+	public void setSecondSmokenYear(String secondSmokenYear){
+
+		this.secondSmokenYear = secondSmokenYear;
+	}
+
+	public String getSmokingYear(){
+
+		return smokingYear;
+	}
+
+	public void setSmokingYear(String smokingYear){
+
+		this.smokingYear = smokingYear;
+	}
+
+	public String getIsDontSmokeFlag(){
+
+		return isDontSmokeFlag;
+	}
+
+	public void setIsDontSmokeFlag(String isDontSmokeFlag){
+
+		this.isDontSmokeFlag = isDontSmokeFlag;
+	}
+
+	public String getDontSmokeYear(){
+
+		return dontSmokeYear;
+	}
+
+	public void setDontSmokeYear(String dontSmokeYear){
+
+		this.dontSmokeYear = dontSmokeYear;
+	}
+
+	public String getSmokenYear(){
+
+		return smokenYear;
+	}
+
+	public void setSmokenYear(String smokenYear){
+
+		this.smokenYear = smokenYear;
+	}
+
+	public String getLittleDrinkMountYear(){
+
+		return littleDrinkMountYear;
+	}
+
+	public void setLittleDrinkMountYear(String littleDrinkMountYear){
+
+		this.littleDrinkMountYear = littleDrinkMountYear;
+	}
+
+	public String getLotDrinkMountYear(){
+
+		return lotDrinkMountYear;
+	}
+
+	public void setLotDrinkMountYear(String lotDrinkMountYear){
+
+		this.lotDrinkMountYear = lotDrinkMountYear;
+	}
+
+	public String getHasSportYear(){
+
+		return hasSportYear;
+	}
+
+	public void setHasSportYear(String hasSportYear){
+
+		this.hasSportYear = hasSportYear;
+	}
+
+	public String getHasNoSportYear(){
+
+		return hasNoSportYear;
+	}
+
+	public void setHasNoSportYear(String hasNoSportYear){
+
+		this.hasNoSportYear = hasNoSportYear;
+	}
+
+	public String getEatStyle(){
+
+		return eatStyle;
+	}
+
+	public void setEatStyle(String eatStyle){
+
+		this.eatStyle = eatStyle;
+	}
+
+	public String getEatStyleOtherYear(){
+
+		return eatStyleOtherYear;
+	}
+
+	public void setEatStyleOtherYear(String eatStyleOtherYear){
+
+		this.eatStyleOtherYear = eatStyleOtherYear;
+	}
+
+	public String getMeatStyle(){
+
+		return meatStyle;
+	}
+
+	public void setMeatStyle(String meatStyle){
+
+		this.meatStyle = meatStyle;
+	}
+
+	public String getMeatStyleOtherYear(){
+
+		return meatStyleOtherYear;
+	}
+
+	public void setMeatStyleOtherYear(String meatStyleOtherYear){
+
+		this.meatStyleOtherYear = meatStyleOtherYear;
+	}
+
+	public String getVagStyle(){
+
+		return vagStyle;
+	}
+
+	public void setVagStyle(String vagStyle){
+
+		this.vagStyle = vagStyle;
+	}
+
+	public String getVagStyleOtherYear(){
+
+		return vagStyleOtherYear;
+	}
+
+	public void setVagStyleOtherYear(String vagStyleOtherYear){
+
+		this.vagStyleOtherYear = vagStyleOtherYear;
+	}
+
+	public String getFruitStyle(){
+
+		return fruitStyle;
+	}
+
+	public void setFruitStyle(String fruitStyle){
+
+		this.fruitStyle = fruitStyle;
+	}
+
+	public String getFruitStyleOtherYear(){
+
+		return fruitStyleOtherYear;
+	}
+
+	public void setFruitStyleOtherYear(String fruitStyleOtherYear){
+
+		this.fruitStyleOtherYear = fruitStyleOtherYear;
+	}
+
+	public String getMilkStyle(){
+
+		return milkStyle;
+	}
+
+	public void setMilkStyle(String milkStyle){
+
+		this.milkStyle = milkStyle;
+	}
+
+	public String getMilkStyleOtherYear(){
+
+		return milkStyleOtherYear;
+	}
+
+	public void setMilkStyleOtherYear(String milkStyleOtherYear){
+
+		this.milkStyleOtherYear = milkStyleOtherYear;
+	}
+
 }

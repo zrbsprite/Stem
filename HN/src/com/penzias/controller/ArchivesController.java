@@ -240,7 +240,7 @@ public class ArchivesController extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("baseinfo")
-	public String stepOne(Model model){
+	public String baseInfo(Model model){
 		
 		return "archives/baseinfo_ae";
 	}

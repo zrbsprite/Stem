@@ -14,10 +14,9 @@
 	        <li><a >链接</a></li>    
 	        <li><a >链接</a></li>    
 	    </ul>
-	     -->
-	     <ul class="nav navbar-nav put-center sys-name">
-	     	<li><h1>河南高危人群管理平台</h1></li>    
-	     </ul>
+	    
+        <p class="navbar-text">河南高危人群管理平台</p>
+         -->
 	    <ul class="nav navbar-nav navbar-right">
 	      <li><a target="_blank">右侧</a></li>
 	      <li><a target="_blank">右侧导航</a></li>   
