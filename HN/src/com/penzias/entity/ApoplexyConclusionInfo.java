@@ -1,34 +1,52 @@
 package com.penzias.entity;
 
+/**
+ * 描述：人群评级结论表<br/>
+ * 作者：Bob <br/>
+ * 修改日期：2015年12月11日 - 上午11:53:04<br/>
+ */
 public class ApoplexyConclusionInfo {
     private Integer apoplexyconclusionid;
 
     private Integer crowdid;
 
+    //高血压（0：无；1：有）
     private String hypertension;
 
+    //血脂异常(0:否；1：是)
     private String dyslipidemia;
 
+    //糖尿病(0:无；1：有）
     private String diabetes;
 
+    //房颤或瓣膜性心脏病(0：无；1：有）
     private String atrialfibrillation;
 
+    //吸烟史(0：无；1：有）
     private String smokinghistory;
 
+    //明显超重或肥胖(0：否；1：是)
     private String overweight;
 
+    //运动缺乏或轻体力劳动者（0：否；1：是）
     private String sportslack;
 
+    //脑卒中家族史（0：无；1：有）
     private String familyhistory;
 
+    //既往脑卒中（0：无；1：有）
     private String paststroke;
 
+    //既往短暂性脑缺血发作（0：无；1：有）
     private String pasttia;
 
+    //风险等级（ZF）
     private String grade;
 
+    //危险标识（YE）
     private String mark;
 
+    //管理分级（Y）
     private String managelevel;
 
     private String flag;

@@ -1,9 +1,11 @@
 package com.penzias.controller;
 
-import java.io.PrintWriter;
+import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
@@ -58,9 +60,10 @@ public class LoginController extends AjaxConroller{
 	 * @param user
 	 * @param model
 	 * @param pw
+	 * @throws IOException 
 	 */
 	@RequestMapping("/sign")
-	public void doLogin(@ModelAttribute UserLoginVO user, Model model, PrintWriter pw) {
+	public void doLogin(@ModelAttribute UserLoginVO user, Model model, HttpServletRequest request, HttpServletResponse response) throws IOException {
 		JSONObject json = new JSONObject();
 		if(null!=user){
 			SmUserExample example = new SmUserExample();
@@ -72,18 +75,18 @@ public class LoginController extends AjaxConroller{
 				CookieUtil.addCookie(response, PropertiesUtils.getConfigByKey("cookie_username_key"), user.getUserName());
 				logger.debug("用户【"+user.getUserName()+"】登录成功...");
 				json.put("status", ErrorConstant.OPERATION_SUCCESS);
-				json.put("msg", getMessage("user.login.success"));
+				json.put("msg", getMessage(request, "user.login.success"));
 			}else{
 				//用户名或密码错误
 				json.put("status", ErrorConstant.USER_PWD_ERROR);
-				json.put("msg", getMessage("user.login.up.error"));
+				json.put("msg", getMessage(request, "user.login.up.error"));
 			}
-			writeJson(json.toJSONString());
+			writeJson(response, json.toJSONString());
 		}else{
 			//用户名或密码为空，非法用户
 			json.put("status",400);
-			json.put("msg", getMessage("user.notallow"));
-			writeJson(json.toJSONString());
+			json.put("msg", getMessage(request, "user.notallow"));
+			writeJson(response, json.toJSONString());
 		}
 	}
 
@@ -94,7 +97,7 @@ public class LoginController extends AjaxConroller{
 	 * @return
 	 */
 	@RequestMapping("/logout")
-	public String logout(){
+	public String logout(HttpServletResponse response){
 		CookieUtil.removeCookie(response, PropertiesUtils.getConfigByKey("cookie_username_key"));
 		return "door/login";
 	}

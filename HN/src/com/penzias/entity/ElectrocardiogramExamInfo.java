@@ -2,17 +2,28 @@ package com.penzias.entity;
 
 import java.util.Date;
 
+/**
+ * 描述：心电图检查<br/>
+ * 作者：Bob <br/>
+ * 修改日期：2015年12月11日 - 上午11:46:10<br/>
+ * E-mail: sireezhang@163.com<br/>
+ *
+ */
 public class ElectrocardiogramExamInfo {
     private Integer electrocardiogramexanid;
 
     private Integer crowdid;
 
+    //检查时间
     private Date examtime;
 
+    //检查人
     private String examman;
 
+    //检查结果（0：正常；1：异常）
     private String examresult;
 
+    //异常类型(YC)
     private String exceptiontype;
 
     private String flag;

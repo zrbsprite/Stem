@@ -3,25 +3,39 @@ package com.penzias.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * 描述：人群体格检查<br/>
+ * 作者：Bob <br/>
+ * 修改日期：2015年12月11日 - 上午11:35:34<br/>
+ * E-mail: sireezhang@163.com<br/>
+ */
 public class PhysiqueExamInfo {
     private Integer physiqueexamid;
 
     private Integer crowdid;
 
+    //检查时间
     private Date examtime;
 
+    //身高(cm)
     private BigDecimal height;
 
+    //体重(kg)
     private BigDecimal weight;
 
+    //根据高和体重自动生成（kg/m2）
     private BigDecimal bmi;
 
+    //腰围
     private BigDecimal waist;
 
+    //第一次，收缩压SBP(mmHg)
     private BigDecimal onesbp;
 
+    //第一次，舒张压SBP(mmHg)
     private BigDecimal onedbp;
 
+    //第一次脉搏(次/分)
     private Integer onepulse;
 
     private BigDecimal twosbp;
@@ -30,8 +44,10 @@ public class PhysiqueExamInfo {
 
     private Integer twopulse;
 
+    //心脏杂音(0:无；1：有)
     private String cardiacsouffle;
 
+    //心律(0:整齐；1：不齐）
     private String rhythm;
 
     private String flag;

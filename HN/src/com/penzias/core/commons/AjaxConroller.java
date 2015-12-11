@@ -3,31 +3,30 @@ package com.penzias.core.commons;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import javax.servlet.http.HttpServletResponse;
 
 public abstract class AjaxConroller extends BaseController{
 
-	private Logger logger = LoggerFactory.getLogger(getClass());
-	
-	protected final void writeJson(String json){
+	protected final void writeJson(HttpServletResponse response, String json) throws IOException{
 		response.setContentType("application/json;charset=UTF-8");
-		write(json);
+		write(response.getWriter(), json);
 	}
 	
-	protected final void writeHtml(String str){
+	protected final void writeHtml(HttpServletResponse response, String str) throws IOException{
 		response.setContentType("text/html;charset=UTF-8");
-		write(str);
+		write(response.getWriter(), str);
 	}
 	
-	private void write(String str){
-		PrintWriter pw;
-		try {
-			pw = response.getWriter();
-			pw.write(str);
-			pw.flush();
-		} catch (IOException e) {
-			logger.error("发生IO异常!");
-		}
+	private void write(PrintWriter pw, String str){
+		pw.write(str);
+		pw.flush();
+	}
+	
+	protected final void writeText(HttpServletResponse response, String str) throws IOException{
+		write(response.getWriter(), str);
+	}
+	
+	protected final void writeText(PrintWriter writer, String str){
+		write(writer,str);
 	}
 }
