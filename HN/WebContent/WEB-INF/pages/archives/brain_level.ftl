@@ -5,10 +5,10 @@
           	<b>高血压：</b>
           </label>
           <label class="radio-inline">
-          	<input type="radio" name="" />是
+          	<input type="radio" name="apoplexyConclusionInfo.hypertension" value="1" />是
           </label>
            <label class="radio-inline">
-          	<input type="radio" name="" />无
+          	<input type="radio" name="apoplexyConclusionInfo.hypertension" value="0" />无
           </label>
        </div>
    </div>
@@ -18,10 +18,10 @@
           	<b>血脂异常：</b>
           </label>
           <label class="radio-inline">
-          	<input type="radio" name="" />是
+          	<input type="radio" name="apoplexyConclusionInfo.dyslipidemia"  value="1"/>是
           </label>
            <label class="radio-inline">
-          	<input type="radio" name="" />无
+          	<input type="radio" name="apoplexyConclusionInfo.dyslipidemia"  value="0"/>无
           </label>
        </div>
    </div>
@@ -31,10 +31,10 @@
           	<b>糖尿病：</b>
           </label>
           <label class="radio-inline">
-          	<input type="radio" name="" />是
+          	<input type="radio" name="apoplexyConclusionInfo.diabetes"  value="1"/>是
           </label>
            <label class="radio-inline">
-          	<input type="radio" name="" />无
+          	<input type="radio" name="apoplexyConclusionInfo.diabetes" value="0" />无
           </label>
        </div>
    </div>
@@ -44,10 +44,10 @@
           	<b>房颤或瓣膜性心脏病：</b>
           </label>
           <label class="radio-inline">
-          	<input type="radio" name="" />是
+          	<input type="radio" name="apoplexyConclusionInfo.atrialfibrillation"  value="1"/>是
           </label>
            <label class="radio-inline">
-          	<input type="radio" name="" />无
+          	<input type="radio" name="apoplexyConclusionInfo.atrialfibrillation"  value="0"/>无
           </label>
        </div>
    </div>
@@ -57,10 +57,10 @@
           	<b>吸烟史：</b>
           </label>
           <label class="radio-inline">
-          	<input type="radio" name="" />是
+          	<input type="radio" name="apoplexyConclusionInfo.smokinghistory"  value="1"/>是
           </label>
            <label class="radio-inline">
-          	<input type="radio" name="" />无
+          	<input type="radio" name="apoplexyConclusionInfo.smokinghistory" value="0" />无
           </label>
        </div>
    </div>
@@ -70,10 +70,10 @@
           	<b>明显超重或肥胖：</b>
           </label>
           <label class="radio-inline">
-          	<input type="radio" name="" />是
+          	<input type="radio" name="apoplexyConclusionInfo.overweight" value="1" />是
           </label>
            <label class="radio-inline">
-          	<input type="radio" name="" />无
+          	<input type="radio" name="apoplexyConclusionInfo.overweight" value="0" />无
           </label>
        </div>
    </div>
@@ -83,10 +83,10 @@
           	<b>运动缺乏或轻体力劳动者：</b>
           </label>
           <label class="radio-inline">
-          	<input type="radio" name="" />是
+          	<input type="radio" name="apoplexyConclusionInfo.sportslack" value="1" />是
           </label>
            <label class="radio-inline">
-          	<input type="radio" name="" />无
+          	<input type="radio" name="apoplexyConclusionInfo.sportslack"  value="0"/>无
           </label>
        </div>
    </div>
@@ -96,10 +96,10 @@
           	<b>脑卒中家族史：</b>
           </label>
           <label class="radio-inline">
-          	<input type="radio" name="" />是
+          	<input type="radio" name="apoplexyConclusionInfo.familyhistory" value="1" />是
           </label>
            <label class="radio-inline">
-          	<input type="radio" name="" />无
+          	<input type="radio" name="apoplexyConclusionInfo.familyhistory" value="0" />无
           </label>
        </div>
    </div>
@@ -109,10 +109,10 @@
           	<b>既往脑卒中：</b>
           </label>
           <label class="radio-inline">
-          	<input type="radio" name="" />是
+          	<input type="radio" name="apoplexyConclusionInfo.paststroke" value="1" />是
           </label>
            <label class="radio-inline">
-          	<input type="radio" name="" />无
+          	<input type="radio" name="apoplexyConclusionInfo.paststroke" value="0" />无
           </label>
        </div>
    </div>
@@ -122,10 +122,10 @@
           	<b>既往短暂性脑缺血发作（TIA）：</b>
           </label>
           <label class="radio-inline">
-          	<input type="radio" name="" />是
+          	<input type="radio" name="apoplexyConclusionInfo.pasttia" value="1" />是
           </label>
            <label class="radio-inline">
-          	<input type="radio" name="" />无
+          	<input type="radio" name="apoplexyConclusionInfo.pasttia"  value="0"/>无
           </label>
        </div>
    </div>
@@ -141,21 +141,21 @@
 			<div class="span2">
 				<div class="input-group input-sm">
 					<label class="radio-inline">
-			      	  <input type="radio" name="" />脑卒中
+			      	  <input type="radio" name="apoplexyConclusionInfo.grade"  value="01" />脑卒中
 			        </label>
 				</div>
 			</div>
 			<div class="span2">
 				<div class="input-group input-sm">
 					<label class="radio-inline">
-			      	  <input type="radio" name="" />TIA
+			      	  <input type="radio" name="apoplexyConclusionInfo.grade" value="02" />TIA
 			        </label>
 				</div>
 			</div>
 			<div class="span2">
 				<div class="input-group input-sm">
 					<label class="radio-inline">
-			      	  <input type="radio" name="" />n≥3高危
+			      	  <input type="radio" name="apoplexyConclusionInfo.grade"  value="03"/>n≥3高危
 			        </label>
 				</div>
 			</div>
@@ -163,14 +163,14 @@
 		<div class="span2">
 				<div class="input-group input-sm">
 					<label class="radio-inline">
-			      	  <input type="radio" name="" />中危
+			      	  <input type="radio" name="apoplexyConclusionInfo.grade" value="04"/>中危
 			        </label>
 				</div>
 		</div>
 		<div class="span2">
 				<div class="input-group input-sm">
 					<label class="radio-inline">
-			      	  <input type="radio" name="" />低危
+			      	  <input type="radio" name="apoplexyConclusionInfo.grade" value="05"/>低危
 			        </label>
 				</div>
 		</div>
@@ -183,6 +183,7 @@
 	          </label>
 	       </div>
 		</div>
+		<input type="hidden" name="apoplexyConclusionInfo.mark" value=""/>
 		<div class="span8">
 			<div class="alert alert-success" role="alert"></div>
 		</div>
@@ -201,10 +202,11 @@
 	          </label>
 	       </div>
 		</div>
+		<input type="hidden" name="apoplexyConclusionInfo.managelevel" value=""/>
 		<div class="span8">
 			<div class="input-group input-sm">
 				<label class="radio-inline">
-				强化管理
+					强化管理
 				</label>
 			</div>
 		</div>
