@@ -17,10 +17,16 @@ import com.github.pagehelper.PageInfo;
 import com.penzias.core.commons.BaseController;
 import com.penzias.entity.InstitutionCrowdBaseInfo;
 import com.penzias.entity.InstitutionCrowdBaseInfoExample;
+import com.penzias.entity.InstitutionCrowdFamilyInfo;
+import com.penzias.entity.InstitutionCrowdFamilyInfoExample;
+import com.penzias.entity.InstitutionCrowdLifestyleInfo;
+import com.penzias.entity.InstitutionCrowdLifestyleInfoExample;
 import com.penzias.entity.SmCodeitem;
 import com.penzias.entity.SmCodeitemKey;
 import com.penzias.interfaces.IDictionaryItem;
 import com.penzias.service.InstitutionCrowdBaseInfoService;
+import com.penzias.service.InstitutionCrowdFamilyInfoService;
+import com.penzias.service.InstitutionCrowdLifestyleInfoService;
 
 @Controller
 @RequestMapping("archives")
@@ -29,6 +35,12 @@ public class ArchivesController extends BaseController{
 	//机构人群基本信息service
 	@Resource
 	private InstitutionCrowdBaseInfoService institutionCrowdBaseInfoService;
+	
+	@Resource
+	private InstitutionCrowdLifestyleInfoService InstitutionCrowdLifestyleInfoService;
+	
+	@Resource
+	private InstitutionCrowdFamilyInfoService InstitutionCrowdFamilyInfoService;
 	
 	@Resource
 	private IDictionaryItem iDctionaryItem;
@@ -241,8 +253,86 @@ public class ArchivesController extends BaseController{
 	 */
 	@RequestMapping("baseinfo")
 	public String baseInfo(Model model){
+		//民族词典
+		List<SmCodeitem> nationList = new ArrayList<SmCodeitem>();
+		Map<String, SmCodeitem> nationMap = (Map<String, SmCodeitem>) this.iDctionaryItem.queryGroup("ZH");
+		nationMap.forEach((key, item) ->{
+			nationList.add(item);
+		});
+		model.addAttribute("nationList", nationList);
+		//教育程度
+		List<SmCodeitem> educationList = new ArrayList<SmCodeitem>();
+		Map<String, SmCodeitem> educationMap = (Map<String, SmCodeitem>) this.iDctionaryItem.queryGroup("ZI");
+		educationMap.forEach((key, item) ->{
+			educationList.add(item);
+		});
+		model.addAttribute("educationList", educationList);
+		//职业
+		List<SmCodeitem> occupationList = new ArrayList<SmCodeitem>();
+		Map<String, SmCodeitem> occupationMap = (Map<String, SmCodeitem>) this.iDctionaryItem.queryGroup("ZJ");
+		occupationMap.forEach((key, item) ->{
+			occupationList.add(item);
+		});
+		model.addAttribute("occupationList", occupationList);
+		//收入
+		List<SmCodeitem> incomeList = new ArrayList<SmCodeitem>();
+		Map<String, SmCodeitem> incomeMap = (Map<String, SmCodeitem>)  this.iDctionaryItem.queryGroup("ZK");
+		incomeMap.forEach((key, item) ->{
+			incomeList.add(item);
+		});
+		model.addAttribute("incomeList", incomeList);
+		//主要医疗付费方式
+		List<SmCodeitem> payList = new ArrayList<SmCodeitem>();
+		Map<String, SmCodeitem> payMap = (Map<String, SmCodeitem>)this.iDctionaryItem.queryGroup("ZL");
+		payMap.forEach((key, item) ->{
+			payList.add(item);
+		});
+		model.addAttribute("payList", payList);
+		//与本人关系
+		List<SmCodeitem> shipList = new ArrayList<SmCodeitem>();
+		Map<String, SmCodeitem> shipMap = (Map<String, SmCodeitem>)  this.iDctionaryItem.queryGroup("ZM");
+		shipMap.forEach((key, item) ->{
+			shipList.add(item);
+		});
+		model.addAttribute("shipList", shipList);
 		
 		return "archives/baseinfo_ae";
+	}
+	
+	/**
+	 * 方法名称: saveBaseInfo<br/>
+	 * 描述：保存基本信息<br/>
+	 * 作者: ruibo<br/>
+	 * 修改日期：2015年12月12日-下午2:31:43<br/>
+	 * @param baseinfo
+	 * @param model
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("saveBaseinfo")
+	public String saveBaseInfo(InstitutionCrowdBaseInfo baseinfo, Model model){
+		//性别
+		if(StringUtils.isEmpty(baseinfo.getSex())){
+			baseinfo.setSex("2");
+		}
+		//处理其他关系
+		if(!"05".equals(baseinfo.getRelationship())){
+			baseinfo.setFlag(null);
+		}
+		//处理年龄
+		Integer age = baseinfo.getAge();
+		long nowTime = System.currentTimeMillis();
+		long ageTime = age.longValue() * 365 * 24 * 60 * 60 * 1000;
+		long birthTime = nowTime - ageTime;
+		Date brith = new Date(birthTime);
+		baseinfo.setBirthdate(brith);
+		
+		if(null!=baseinfo.getCrowdid()){
+			this.institutionCrowdBaseInfoService.updateById(baseinfo);
+		}else{
+			this.institutionCrowdBaseInfoService.add(baseinfo);
+		}
+		return "redirect:/archives/lifestyle.htm?cid="+baseinfo.getCrowdid().intValue();
 	}
 	
 	/**
@@ -254,9 +344,71 @@ public class ArchivesController extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("lifestyle")
-	public String lifeStryle(Model model){
-		
+	public String lifeStryle(Integer cid, Model model){
+		if(null!=cid){
+			InstitutionCrowdLifestyleInfoExample example = new InstitutionCrowdLifestyleInfoExample();
+			example.createCriteria().andCrowdidEqualTo(cid);
+			List<InstitutionCrowdLifestyleInfo> list = this.InstitutionCrowdLifestyleInfoService.list(example);
+			if(list.size()>0){
+				model.addAttribute("lifestyle",list.get(0));
+			}
+			model.addAttribute("cid",cid);
+		}
 		return "archives/lifestyle_ae";
+	}
+	
+	/**
+	 * 方法名称: saveLisfeStyle<br/>
+	 * 描述：保存生活方式<br/>
+	 * 作者: ruibo<br/>
+	 * 修改日期：2015年12月12日-下午3:47:41<br/>
+	 * @param lifestyle
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("savels")
+	public String saveLisfeStyle(InstitutionCrowdLifestyleInfo lifestyle, Model model){
+		//不抽烟
+		if("01".equals(lifestyle.getIsSmokeFlag())){
+			if("0102".equals(lifestyle.getIsSecondSmokenFlag())){
+				lifestyle.setIsSmokeFlag(lifestyle.getIsSecondSmokenFlag());
+				lifestyle.setSmokeyear(lifestyle.getSecondSmokenYear());
+			}
+		}else{
+			if(!StringUtils.isEmpty(lifestyle.getDontSmokeYear())){
+				lifestyle.setIsSmokeFlag("0202");
+				lifestyle.setSmokeyear(lifestyle.getSmokenYear());
+			}else{
+				lifestyle.setIsSmokeFlag("0201");
+				lifestyle.setSmokeyear(lifestyle.getSmokingYear());
+			}
+		}
+		
+		//饮酒
+		if("01".equals(lifestyle.getWine())){
+			lifestyle.setWineyear(null);
+		}else if("02".equals(lifestyle.getWine())){
+			lifestyle.setWineyear(lifestyle.getLittleDrinkMountYear());
+		}else if("03".equals(lifestyle.getWine())){
+			lifestyle.setWineyear(lifestyle.getLotDrinkMountYear());
+		}
+		
+		//sport
+		if("01".equals(lifestyle.getSports())){
+			lifestyle.setSportsyear(lifestyle.getHasSportYear());
+		}else if("02".equals(lifestyle.getSports())){
+			lifestyle.setSportsyear(lifestyle.getHasNoSportYear());
+		}
+		
+		//food
+		
+		
+		if(null!=lifestyle.getCrowdid()){
+			this.InstitutionCrowdLifestyleInfoService.updateById(lifestyle);
+		}else{
+			this.InstitutionCrowdLifestyleInfoService.add(lifestyle);
+		}
+		return "redirect:/archives/family.htm?cid="+lifestyle.getCrowdid();
 	}
 	
 	/**
@@ -269,9 +421,37 @@ public class ArchivesController extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("family")
-	public String familyInfo(Model model){
-		
+	public String familyInfo(Integer cid, Model model){
+		if(null!=cid){
+			InstitutionCrowdFamilyInfoExample example = new InstitutionCrowdFamilyInfoExample();
+			example.createCriteria().andCrowdidEqualTo(cid);
+			List<InstitutionCrowdFamilyInfo> list = this.InstitutionCrowdFamilyInfoService.list(example);
+			if(list.size()>0){
+				model.addAttribute("institutionCrowdFamilyInfos",list);
+			}
+			model.addAttribute("cid",cid);
+		}
 		return "archives/familyhistory_ae";
+	}
+	
+	/**
+	 * 方法名称: saveFamilyInfo<br/>
+	 * 描述：家族史<br/>
+	 * 作者: ruibo<br/>
+	 * 修改日期：2015年12月12日-下午9:01:18<br/>
+	 * @param institutionCrowdFamilyInfo
+	 * @param model
+	 * @return
+	 */
+	public String saveFamilyInfo(Integer cid, InstitutionCrowdFamilyInfo[] institutionCrowdFamilyInfos, Model model){
+		for(InstitutionCrowdFamilyInfo institutionCrowdFamilyInfo : institutionCrowdFamilyInfos){
+			if(null!=institutionCrowdFamilyInfo.getCrowdid()){
+				this.InstitutionCrowdFamilyInfoService.updateById(institutionCrowdFamilyInfo);
+			}else{
+				this.InstitutionCrowdFamilyInfoService.add(institutionCrowdFamilyInfo);
+			}
+		}
+		return "redirect:/archives/control.htm?cid="+cid;
 	}
 	
 	/**

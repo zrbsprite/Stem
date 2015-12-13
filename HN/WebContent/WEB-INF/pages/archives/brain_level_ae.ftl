@@ -39,10 +39,10 @@
 								  <li><a href="${basepath}/archives/family.htm">家族史&gt;</a></li>
 								  <li><a href="${basepath}/archives/control.htm">既往病史及控制情况&gt;</a></li>
 								  <li><a href="${basepath}/archives/body.htm">体格检查&gt;</a></li>
-								  <li class="active"><a>脑卒中风险评级&gt;</a></li>
 								  <li><a href="${basepath}/archives/heartinfo.htm">心电图&gt;</a></li>
 								  <li><a href="${basepath}/archives/innercheck.htm">实验室检查&gt;</a></li>
-								  <li><a href="${basepath}/archives/bblood.htm">颈部血管超声</a></li>
+								  <li><a href="${basepath}/archives/bblood.htm">颈部血管超声&gt;</a></li>
+								  <li class="active"><a>脑卒中风险评级</a></li>
 								</ul>
 								<#include "archives/brain_level.ftl">
 							</div>

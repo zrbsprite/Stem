@@ -6,20 +6,27 @@ public class InstitutionCrowdLifestyleInfo {
 
 	private Integer crowdid;
 
+	//吸烟情况（ZN）
 	private String smoke;
 
+	//年限
 	private String smokeyear;
 
+	//每天支数
 	private String smokeday;
 
+	//喝酒情况（ZO）
 	private String wine;
 
+	//年限
 	private String wineyear;
 
+	//运动情况（ZP）
 	private String sports;
 
 	private String sportsyear;
 
+	//膳食习惯（ZQ）
 	private String diet;
 
 	private String dietyear;

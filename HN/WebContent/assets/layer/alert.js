@@ -75,8 +75,8 @@
 	Dialog.prototype.infoLock=function(msg){
 		layer.msg(msg,{shade: [0.8, '#393D49'],shift :6, icon:4});
 	};
-	Dialog.prototype.tips=function(msg,id){
-		layer.tips(msg, '#'+id,{tips: [1, '#3595CC']});
+	Dialog.prototype.tips=function(msg,ele){
+		layer.tips(msg, ele,{tips: [1, '#3595CC']});
 	}
 	Dialog.prototype.prompt=function(title,callback){
 		layer.prompt({

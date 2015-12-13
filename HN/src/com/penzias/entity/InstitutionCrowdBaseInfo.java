@@ -6,60 +6,88 @@ public class InstitutionCrowdBaseInfo {
 
 	private Integer crowdid;
 
+	//证件类型（数据来源于CODEITEM的ZD)
 	private String certificatestype;
 
+	//证件号码
 	private String certificatesid;
 
+	//姓名
 	private String fullname;
 
+	//手机号
 	private String mobile;
 
+	//性别（0：女；1：男；2：不定）
 	private String sex;
 
+	//出生日期
 	private Date birthdate;
 
+	//创建机构（不显示，过滤人群的条件），注意不是科室代码
 	private String depbm;
 
+	//创建时间
 	private Date createdate;
 
+	//创建人
 	private String username;
 
+	//病例状态（数据来源于ZE)
 	private String states;
 
+	//风险等级（ZF)
 	private String grade;
 
+	//数据来源(ZG)
 	private String source;
 
+	//来源机构（备注说明）
 	private String sourcebz;
 
+	//病例编号
 	private String caseno;
 
+	//民族（ZH）
 	private String nation;
 
+	//受教育程度（ZI）
 	private String education;
 
+	//职业（ZJ）
 	private String occupation;
 
+	//本人年均收入（ZK）
 	private String income;
 
+	//主要医疗付费方式（ZL）
 	private String pay;
 
+	//户籍地址
 	private String censusregisteraddress;
 
+	//户籍邮编
 	private String censusregistercode;
 
+	//现居住地址
 	private String liveaddress;
 
+	//现居住地址邮编
 	private String livecode;
 
+	//联系电话
 	private String tel;
 
+	//电子邮箱
 	private String email;
 
+	//主要联系人姓名
 	private String linkman;
 
+	//主要联系人手机
 	private String linkmanmob;
 
+	//与本人关系（ZM)
 	private String relationship;
 
 	private String flag;

@@ -127,7 +127,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.penzias.entity.InstitutionCrowdBaseInfo" >
+  <insert id="insert" parameterType="com.penzias.entity.InstitutionCrowdBaseInfo" useGeneratedKeys="true" keyColumn="crowdid">
     insert into institution_crowd_base_info (CrowdID, CertificatesType, CertificatesID, 
       FullName, Mobile, Sex, 
       BirthDate, depBM, CreateDate, 
@@ -151,7 +151,7 @@
       #{linkmanmob,jdbcType=VARCHAR}, #{relationship,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.penzias.entity.InstitutionCrowdBaseInfo" >
+  <insert id="insertSelective" parameterType="com.penzias.entity.InstitutionCrowdBaseInfo"  useGeneratedKeys="true" keyColumn="crowdid">
     insert into institution_crowd_base_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="crowdid != null" >

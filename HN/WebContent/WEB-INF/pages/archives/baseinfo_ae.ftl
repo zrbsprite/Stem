@@ -29,6 +29,7 @@
 	 		<#-- 主体内容 -->
 	 		<div class="span-col10 border-left-1 show-grid">
 	 			<#include "frame/route.ftl">
+	 			<form action="${basepath}/archives/saveBaseinfo.htm" method="post" id="mainForm" >
 	 			<div class="row">
 	 				<div class="container-fluid">
 			 			<div class="panel panel-default">
@@ -39,10 +40,10 @@
 								  <li><a href="${basepath}/archives/family.htm">家族史&gt;</a></li>
 								  <li><a href="${basepath}/archives/control.htm">既往病史及控制情况&gt;</a></li>
 								  <li><a href="${basepath}/archives/body.htm">体格检查&gt;</a></li>
-								  <li><a href="${basepath}/archives/brainlevel.htm">脑卒中风险评级&gt;</a></li>
 								  <li><a href="${basepath}/archives/heartinfo.htm">心电图&gt;</a></li>
 								  <li><a href="${basepath}/archives/innercheck.htm">实验室检查&gt;</a></li>
-								  <li><a href="${basepath}/archives/bblood.htm">颈部血管超声</a></li>
+								  <li><a href="${basepath}/archives/bblood.htm">颈部血管超声&gt;</a></li>
+								  <li><a href="${basepath}/archives/brainlevel.htm">脑卒中风险评级</a></li>
 								</ul>
 								<#include "archives/baseinfo.ftl">
 							</div>
@@ -50,13 +51,16 @@
 					</div>	
 				</div>
 				<div class="row">
-					<div class="span3 pull-right"><button type="button" class="btn btn-success">下一步</button></div>
+					<div class="span3 pull-right"><button type="button" class="btn btn-success" id="btn_submit">下一步</button></div>
 				</div>
+				</form>
 			</div>
 		</div>
 	</div>
 	<#include "frame/footer.ftl">
 	<#include "frame/js-ie.ftl">
+	<script type="text/javascript" src="${basepath}/assets/layer/layer.js"></script>
+	<script type="text/javascript" src="${basepath}/assets/layer/alert.js"></script>
 	<script type="text/javascript" src="${basepath}/assets/js/include_baseinfo.js"></script>
   </body>
 </html>
