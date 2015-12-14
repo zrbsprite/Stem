@@ -23,4 +23,10 @@ public class InstitutionCrowdFamilyInfoServiceImpl extends BasicServiceImpl<Inst
 		return institutionCrowdFamilyInfoMapper;
 	}
 
+	@Override
+	public int addBatch(InstitutionCrowdFamilyInfo[] arrays){
+
+		return this.institutionCrowdFamilyInfoMapper.batchInsert(arrays);
+	}
+
 }

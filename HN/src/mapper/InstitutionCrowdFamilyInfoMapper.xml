@@ -104,6 +104,18 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
+  
+  <insert id="batchInsert">
+  	insert into institution_crowd_family_info (FamilyID, CrowdID, DiseaseType, 
+      IsExist, Father, Mother,  BrotherSister, Children, Flag)
+    values
+   	<foreach collection="array" item="item" index="index" separator=",">
+       (#{familyid,jdbcType=INTEGER}, #{crowdid,jdbcType=INTEGER}, #{diseasetype,jdbcType=VARCHAR}, 
+      #{isexist,jdbcType=VARCHAR}, #{father,jdbcType=VARCHAR}, #{mother,jdbcType=VARCHAR}, 
+      #{brothersister,jdbcType=VARCHAR}, #{children,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR})
+   	</foreach>
+  </insert>
+  
   <insert id="insert" parameterType="com.penzias.entity.InstitutionCrowdFamilyInfo" >
     insert into institution_crowd_family_info (FamilyID, CrowdID, DiseaseType, 
       IsExist, Father, Mother, 

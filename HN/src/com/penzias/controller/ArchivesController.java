@@ -27,6 +27,7 @@ import com.penzias.interfaces.IDictionaryItem;
 import com.penzias.service.InstitutionCrowdBaseInfoService;
 import com.penzias.service.InstitutionCrowdFamilyInfoService;
 import com.penzias.service.InstitutionCrowdLifestyleInfoService;
+import com.penzias.vo.InstitutionCrowdFamilyInfoVO;
 
 @Controller
 @RequestMapping("archives")
@@ -400,9 +401,6 @@ public class ArchivesController extends BaseController{
 			lifestyle.setSportsyear(lifestyle.getHasNoSportYear());
 		}
 		
-		//food
-		
-		
 		if(null!=lifestyle.getCrowdid()){
 			this.InstitutionCrowdLifestyleInfoService.updateById(lifestyle);
 		}else{
@@ -443,8 +441,8 @@ public class ArchivesController extends BaseController{
 	 * @param model
 	 * @return
 	 */
-	public String saveFamilyInfo(Integer cid, InstitutionCrowdFamilyInfo[] institutionCrowdFamilyInfos, Model model){
-		for(InstitutionCrowdFamilyInfo institutionCrowdFamilyInfo : institutionCrowdFamilyInfos){
+	public String saveFamilyInfo(Integer cid, InstitutionCrowdFamilyInfoVO institutionCrowdFamilyInfoVO, Model model){
+		for(InstitutionCrowdFamilyInfo institutionCrowdFamilyInfo : institutionCrowdFamilyInfoVO.getArrays()){
 			if(null!=institutionCrowdFamilyInfo.getCrowdid()){
 				this.InstitutionCrowdFamilyInfoService.updateById(institutionCrowdFamilyInfo);
 			}else{

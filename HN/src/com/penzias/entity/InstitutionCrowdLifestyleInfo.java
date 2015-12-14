@@ -27,24 +27,34 @@ public class InstitutionCrowdLifestyleInfo {
 	private String sportsyear;
 
 	// 膳食习惯（ZQ）
+	//膳食习惯_口味（CodeID=ZQ  Code=01下的选项）
 	private String dietflavor;
 
+	//年限
 	private String dietflavoryear;
 
+	//膳食习惯_荤素（CodeID=ZQ  Code=02下的选项）
 	private String dietmeatvegetables;
 
+	//年限
 	private String dietmeatvegetablesyear;
 
+	//膳食习惯_吃蔬菜（CodeID=ZQ  Code=03下的选项）
 	private String dietvegetables;
 
+	//年限
 	private String dietvegetablesyear;
 
+	//膳食习惯_吃水果（CodeID=ZQ  Code=04下的选项）
 	private String dietfruits;
 
+	//年限
 	private String dietfruitsyear;
 
+	//膳食习惯_牛奶或酸奶（CodeID=ZQ  Code=05下的选项）
 	private String dietmilk;
 
+	//年限
 	private String dietmilkyear;
 
 	private String flag;

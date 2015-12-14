@@ -83,16 +83,16 @@
               	口味：
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="0101" name="eatStyle">偏咸
+              	<input type="radio" value="0101" name="dietflavor" checked>偏咸
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="0102" name="eatStyle">偏油
+              	<input type="radio" value="0102" name="dietflavor">偏油
               </label>
               <label class="radio-inline">
-              	 <input type="radio" value="0103" name="eatStyle">喜甜食
+              	 <input type="radio" value="0103" name="dietflavor">喜甜食
               </label>
               <label class="radio-inline">
-              	 <input type="radio" value="0104" name="eatStyle">其他，该习惯已经维持<input type="number" value="" name="eatStyleOtherYear" class="input-short">年
+              	 <input type="radio" value="0104" name="dietflavor">其他，该习惯已经维持<input type="number" value="" name="dietflavoryear" class="input-short">年
               </label>
 			</div>
 		</div>
@@ -104,13 +104,13 @@
               	荤素：
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="0201" name="meatStyle">荤素均衡
+              	<input type="radio" value="0201" name="dietmeatvegetables" checked>荤素均衡
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="0202" name="meatStyle">多食肉类
+              	<input type="radio" value="0202" name="dietmeatvegetables">多食肉类
               </label>
               <label class="radio-inline">
-              	 <input type="radio" value="0203" name="meatStyle">素食为主，该习惯已经维持<input type="number" value="" name="meatStyleOtherYear" class="input-short">年
+              	 <input type="radio" value="0203" name="dietmeatvegetables">素食为主，该习惯已经维持<input type="number" value="" name="dietmeatvegetablesyear" class="input-short">年
               </label>
 			</div>
 		</div>
@@ -122,13 +122,13 @@
               	吃蔬菜：
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="0301" name="vagStyle">≥5天/周
+              	<input type="radio" value="0301" name="dietvegetables" checked>≥5天/周
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="0302" name="vagStyle">3-4天/周
+              	<input type="radio" value="0302" name="dietvegetables">3-4天/周
               </label>
               <label class="radio-inline">
-              	 <input type="radio" value="0303" name="vagStyle">≤2天/周，该习惯已经维持<input type="number" value="" name="vagStyleOtherYear" class="input-short">年
+              	 <input type="radio" value="0303" name="dietvegetables">≤2天/周，该习惯已经维持<input type="number" value="" name="dietvegetablesyear" class="input-short">年
               </label>
 			</div>
 		</div>
@@ -140,13 +140,13 @@
               	吃水果：
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="0401" name="fruitStyle">≥5天/周
+              	<input type="radio" value="0401" name="dietfruits" checked>≥5天/周
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="0402" name="fruitStyle">3-4天/周
+              	<input type="radio" value="0402" name="dietfruits">3-4天/周
               </label>
               <label class="radio-inline">
-              	 <input type="radio" value="0403" name="fruitStyle">≤2天/周，该习惯已经维持<input type="number" value="" name="fruitStyleOtherYear" class="input-short">年
+              	 <input type="radio" value="0403" name="dietfruits">≤2天/周，该习惯已经维持<input type="number" value="" name="dietfruitsyear" class="input-short">年
               </label>
 			</div>
 		</div>
@@ -158,13 +158,13 @@
               	牛奶或酸奶：
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="0501" name="milkStyle"> ≥200毫升/天且≥5天/周
+              	<input type="radio" value="0501" name="dietmilk" checked> ≥200毫升/天且≥5天/周
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="0502" name="milkStyle"> 偶尔或从不喝
+              	<input type="radio" value="0502" name="dietmilk"> 偶尔或从不喝
               </label>
               <label class="radio-inline">
-              	 <input type="radio" value="0503" name="milkStyle">不属于以上两种情况，该习惯已经维持<input type="number" value="" name="milkStyle" class="input-short">年
+              	 <input type="radio" value="0503" name="dietmilk">不属于以上两种情况，该习惯已经维持<input type="number" value="" name="dietmilkyear" class="input-short">年
               </label>
 			</div>
 		</div>
