@@ -6,30 +6,46 @@ public class InstitutionCrowdLifestyleInfo {
 
 	private Integer crowdid;
 
-	//吸烟情况（ZN）
+	// 吸烟情况（ZN）
 	private String smoke;
 
-	//年限
+	// 年限
 	private String smokeyear;
 
-	//每天支数
+	// 每天支数
 	private String smokeday;
 
-	//喝酒情况（ZO）
+	// 喝酒情况（ZO）
 	private String wine;
 
-	//年限
+	// 年限
 	private String wineyear;
 
-	//运动情况（ZP）
+	// 运动情况（ZP）
 	private String sports;
 
 	private String sportsyear;
 
-	//膳食习惯（ZQ）
-	private String diet;
+	// 膳食习惯（ZQ）
+	private String dietflavor;
 
-	private String dietyear;
+	private String dietflavoryear;
+
+	private String dietmeatvegetables;
+
+	private String dietmeatvegetablesyear;
+
+	private String dietvegetables;
+
+	private String dietvegetablesyear;
+
+	private String dietfruits;
+
+	private String dietfruitsyear;
+
+	private String dietmilk;
+
+	private String dietmilkyear;
 
 	private String flag;
 
@@ -185,26 +201,6 @@ public class InstitutionCrowdLifestyleInfo {
 	public void setSportsyear(String sportsyear){
 
 		this.sportsyear = sportsyear;
-	}
-
-	public String getDiet(){
-
-		return diet;
-	}
-
-	public void setDiet(String diet){
-
-		this.diet = diet;
-	}
-
-	public String getDietyear(){
-
-		return dietyear;
-	}
-
-	public void setDietyear(String dietyear){
-
-		this.dietyear = dietyear;
 	}
 
 	public String getFlag(){
@@ -425,6 +421,106 @@ public class InstitutionCrowdLifestyleInfo {
 	public void setMilkStyleOtherYear(String milkStyleOtherYear){
 
 		this.milkStyleOtherYear = milkStyleOtherYear;
+	}
+
+	public String getDietflavor(){
+
+		return dietflavor;
+	}
+
+	public void setDietflavor(String dietflavor){
+
+		this.dietflavor = dietflavor;
+	}
+
+	public String getDietflavoryear(){
+
+		return dietflavoryear;
+	}
+
+	public void setDietflavoryear(String dietflavoryear){
+
+		this.dietflavoryear = dietflavoryear;
+	}
+
+	public String getDietmeatvegetables(){
+
+		return dietmeatvegetables;
+	}
+
+	public void setDietmeatvegetables(String dietmeatvegetables){
+
+		this.dietmeatvegetables = dietmeatvegetables;
+	}
+
+	public String getDietmeatvegetablesyear(){
+
+		return dietmeatvegetablesyear;
+	}
+
+	public void setDietmeatvegetablesyear(String dietmeatvegetablesyear){
+
+		this.dietmeatvegetablesyear = dietmeatvegetablesyear;
+	}
+
+	public String getDietvegetables(){
+
+		return dietvegetables;
+	}
+
+	public void setDietvegetables(String dietvegetables){
+
+		this.dietvegetables = dietvegetables;
+	}
+
+	public String getDietvegetablesyear(){
+
+		return dietvegetablesyear;
+	}
+
+	public void setDietvegetablesyear(String dietvegetablesyear){
+
+		this.dietvegetablesyear = dietvegetablesyear;
+	}
+
+	public String getDietfruits(){
+
+		return dietfruits;
+	}
+
+	public void setDietfruits(String dietfruits){
+
+		this.dietfruits = dietfruits;
+	}
+
+	public String getDietfruitsyear(){
+
+		return dietfruitsyear;
+	}
+
+	public void setDietfruitsyear(String dietfruitsyear){
+
+		this.dietfruitsyear = dietfruitsyear;
+	}
+
+	public String getDietmilk(){
+
+		return dietmilk;
+	}
+
+	public void setDietmilk(String dietmilk){
+
+		this.dietmilk = dietmilk;
+	}
+
+	public String getDietmilkyear(){
+
+		return dietmilkyear;
+	}
+
+	public void setDietmilkyear(String dietmilkyear){
+
+		this.dietmilkyear = dietmilkyear;
 	}
 
 }

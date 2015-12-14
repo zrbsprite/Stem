@@ -714,143 +714,703 @@ public class InstitutionCrowdLifestyleInfoExample {
             return (Criteria) this;
         }
 
-        public Criteria andDietIsNull() {
-            addCriterion("Diet is null");
+        public Criteria andDietflavorIsNull() {
+            addCriterion("DietFlavor is null");
             return (Criteria) this;
         }
 
-        public Criteria andDietIsNotNull() {
-            addCriterion("Diet is not null");
+        public Criteria andDietflavorIsNotNull() {
+            addCriterion("DietFlavor is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDietEqualTo(String value) {
-            addCriterion("Diet =", value, "diet");
+        public Criteria andDietflavorEqualTo(String value) {
+            addCriterion("DietFlavor =", value, "dietflavor");
             return (Criteria) this;
         }
 
-        public Criteria andDietNotEqualTo(String value) {
-            addCriterion("Diet <>", value, "diet");
+        public Criteria andDietflavorNotEqualTo(String value) {
+            addCriterion("DietFlavor <>", value, "dietflavor");
             return (Criteria) this;
         }
 
-        public Criteria andDietGreaterThan(String value) {
-            addCriterion("Diet >", value, "diet");
+        public Criteria andDietflavorGreaterThan(String value) {
+            addCriterion("DietFlavor >", value, "dietflavor");
             return (Criteria) this;
         }
 
-        public Criteria andDietGreaterThanOrEqualTo(String value) {
-            addCriterion("Diet >=", value, "diet");
+        public Criteria andDietflavorGreaterThanOrEqualTo(String value) {
+            addCriterion("DietFlavor >=", value, "dietflavor");
             return (Criteria) this;
         }
 
-        public Criteria andDietLessThan(String value) {
-            addCriterion("Diet <", value, "diet");
+        public Criteria andDietflavorLessThan(String value) {
+            addCriterion("DietFlavor <", value, "dietflavor");
             return (Criteria) this;
         }
 
-        public Criteria andDietLessThanOrEqualTo(String value) {
-            addCriterion("Diet <=", value, "diet");
+        public Criteria andDietflavorLessThanOrEqualTo(String value) {
+            addCriterion("DietFlavor <=", value, "dietflavor");
             return (Criteria) this;
         }
 
-        public Criteria andDietLike(String value) {
-            addCriterion("Diet like", value, "diet");
+        public Criteria andDietflavorLike(String value) {
+            addCriterion("DietFlavor like", value, "dietflavor");
             return (Criteria) this;
         }
 
-        public Criteria andDietNotLike(String value) {
-            addCriterion("Diet not like", value, "diet");
+        public Criteria andDietflavorNotLike(String value) {
+            addCriterion("DietFlavor not like", value, "dietflavor");
             return (Criteria) this;
         }
 
-        public Criteria andDietIn(List<String> values) {
-            addCriterion("Diet in", values, "diet");
+        public Criteria andDietflavorIn(List<String> values) {
+            addCriterion("DietFlavor in", values, "dietflavor");
             return (Criteria) this;
         }
 
-        public Criteria andDietNotIn(List<String> values) {
-            addCriterion("Diet not in", values, "diet");
+        public Criteria andDietflavorNotIn(List<String> values) {
+            addCriterion("DietFlavor not in", values, "dietflavor");
             return (Criteria) this;
         }
 
-        public Criteria andDietBetween(String value1, String value2) {
-            addCriterion("Diet between", value1, value2, "diet");
+        public Criteria andDietflavorBetween(String value1, String value2) {
+            addCriterion("DietFlavor between", value1, value2, "dietflavor");
             return (Criteria) this;
         }
 
-        public Criteria andDietNotBetween(String value1, String value2) {
-            addCriterion("Diet not between", value1, value2, "diet");
+        public Criteria andDietflavorNotBetween(String value1, String value2) {
+            addCriterion("DietFlavor not between", value1, value2, "dietflavor");
             return (Criteria) this;
         }
 
-        public Criteria andDietyearIsNull() {
-            addCriterion("DietYear is null");
+        public Criteria andDietflavoryearIsNull() {
+            addCriterion("DietFlavorYear is null");
             return (Criteria) this;
         }
 
-        public Criteria andDietyearIsNotNull() {
-            addCriterion("DietYear is not null");
+        public Criteria andDietflavoryearIsNotNull() {
+            addCriterion("DietFlavorYear is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDietyearEqualTo(String value) {
-            addCriterion("DietYear =", value, "dietyear");
+        public Criteria andDietflavoryearEqualTo(String value) {
+            addCriterion("DietFlavorYear =", value, "dietflavoryear");
             return (Criteria) this;
         }
 
-        public Criteria andDietyearNotEqualTo(String value) {
-            addCriterion("DietYear <>", value, "dietyear");
+        public Criteria andDietflavoryearNotEqualTo(String value) {
+            addCriterion("DietFlavorYear <>", value, "dietflavoryear");
             return (Criteria) this;
         }
 
-        public Criteria andDietyearGreaterThan(String value) {
-            addCriterion("DietYear >", value, "dietyear");
+        public Criteria andDietflavoryearGreaterThan(String value) {
+            addCriterion("DietFlavorYear >", value, "dietflavoryear");
             return (Criteria) this;
         }
 
-        public Criteria andDietyearGreaterThanOrEqualTo(String value) {
-            addCriterion("DietYear >=", value, "dietyear");
+        public Criteria andDietflavoryearGreaterThanOrEqualTo(String value) {
+            addCriterion("DietFlavorYear >=", value, "dietflavoryear");
             return (Criteria) this;
         }
 
-        public Criteria andDietyearLessThan(String value) {
-            addCriterion("DietYear <", value, "dietyear");
+        public Criteria andDietflavoryearLessThan(String value) {
+            addCriterion("DietFlavorYear <", value, "dietflavoryear");
             return (Criteria) this;
         }
 
-        public Criteria andDietyearLessThanOrEqualTo(String value) {
-            addCriterion("DietYear <=", value, "dietyear");
+        public Criteria andDietflavoryearLessThanOrEqualTo(String value) {
+            addCriterion("DietFlavorYear <=", value, "dietflavoryear");
             return (Criteria) this;
         }
 
-        public Criteria andDietyearLike(String value) {
-            addCriterion("DietYear like", value, "dietyear");
+        public Criteria andDietflavoryearLike(String value) {
+            addCriterion("DietFlavorYear like", value, "dietflavoryear");
             return (Criteria) this;
         }
 
-        public Criteria andDietyearNotLike(String value) {
-            addCriterion("DietYear not like", value, "dietyear");
+        public Criteria andDietflavoryearNotLike(String value) {
+            addCriterion("DietFlavorYear not like", value, "dietflavoryear");
             return (Criteria) this;
         }
 
-        public Criteria andDietyearIn(List<String> values) {
-            addCriterion("DietYear in", values, "dietyear");
+        public Criteria andDietflavoryearIn(List<String> values) {
+            addCriterion("DietFlavorYear in", values, "dietflavoryear");
             return (Criteria) this;
         }
 
-        public Criteria andDietyearNotIn(List<String> values) {
-            addCriterion("DietYear not in", values, "dietyear");
+        public Criteria andDietflavoryearNotIn(List<String> values) {
+            addCriterion("DietFlavorYear not in", values, "dietflavoryear");
             return (Criteria) this;
         }
 
-        public Criteria andDietyearBetween(String value1, String value2) {
-            addCriterion("DietYear between", value1, value2, "dietyear");
+        public Criteria andDietflavoryearBetween(String value1, String value2) {
+            addCriterion("DietFlavorYear between", value1, value2, "dietflavoryear");
             return (Criteria) this;
         }
 
-        public Criteria andDietyearNotBetween(String value1, String value2) {
-            addCriterion("DietYear not between", value1, value2, "dietyear");
+        public Criteria andDietflavoryearNotBetween(String value1, String value2) {
+            addCriterion("DietFlavorYear not between", value1, value2, "dietflavoryear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesIsNull() {
+            addCriterion("DietMeatVegetables is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesIsNotNull() {
+            addCriterion("DietMeatVegetables is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesEqualTo(String value) {
+            addCriterion("DietMeatVegetables =", value, "dietmeatvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesNotEqualTo(String value) {
+            addCriterion("DietMeatVegetables <>", value, "dietmeatvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesGreaterThan(String value) {
+            addCriterion("DietMeatVegetables >", value, "dietmeatvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesGreaterThanOrEqualTo(String value) {
+            addCriterion("DietMeatVegetables >=", value, "dietmeatvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesLessThan(String value) {
+            addCriterion("DietMeatVegetables <", value, "dietmeatvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesLessThanOrEqualTo(String value) {
+            addCriterion("DietMeatVegetables <=", value, "dietmeatvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesLike(String value) {
+            addCriterion("DietMeatVegetables like", value, "dietmeatvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesNotLike(String value) {
+            addCriterion("DietMeatVegetables not like", value, "dietmeatvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesIn(List<String> values) {
+            addCriterion("DietMeatVegetables in", values, "dietmeatvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesNotIn(List<String> values) {
+            addCriterion("DietMeatVegetables not in", values, "dietmeatvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesBetween(String value1, String value2) {
+            addCriterion("DietMeatVegetables between", value1, value2, "dietmeatvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesNotBetween(String value1, String value2) {
+            addCriterion("DietMeatVegetables not between", value1, value2, "dietmeatvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesyearIsNull() {
+            addCriterion("DietMeatVegetablesYear is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesyearIsNotNull() {
+            addCriterion("DietMeatVegetablesYear is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesyearEqualTo(String value) {
+            addCriterion("DietMeatVegetablesYear =", value, "dietmeatvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesyearNotEqualTo(String value) {
+            addCriterion("DietMeatVegetablesYear <>", value, "dietmeatvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesyearGreaterThan(String value) {
+            addCriterion("DietMeatVegetablesYear >", value, "dietmeatvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesyearGreaterThanOrEqualTo(String value) {
+            addCriterion("DietMeatVegetablesYear >=", value, "dietmeatvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesyearLessThan(String value) {
+            addCriterion("DietMeatVegetablesYear <", value, "dietmeatvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesyearLessThanOrEqualTo(String value) {
+            addCriterion("DietMeatVegetablesYear <=", value, "dietmeatvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesyearLike(String value) {
+            addCriterion("DietMeatVegetablesYear like", value, "dietmeatvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesyearNotLike(String value) {
+            addCriterion("DietMeatVegetablesYear not like", value, "dietmeatvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesyearIn(List<String> values) {
+            addCriterion("DietMeatVegetablesYear in", values, "dietmeatvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesyearNotIn(List<String> values) {
+            addCriterion("DietMeatVegetablesYear not in", values, "dietmeatvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesyearBetween(String value1, String value2) {
+            addCriterion("DietMeatVegetablesYear between", value1, value2, "dietmeatvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmeatvegetablesyearNotBetween(String value1, String value2) {
+            addCriterion("DietMeatVegetablesYear not between", value1, value2, "dietmeatvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesIsNull() {
+            addCriterion("DietVegetables is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesIsNotNull() {
+            addCriterion("DietVegetables is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesEqualTo(String value) {
+            addCriterion("DietVegetables =", value, "dietvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesNotEqualTo(String value) {
+            addCriterion("DietVegetables <>", value, "dietvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesGreaterThan(String value) {
+            addCriterion("DietVegetables >", value, "dietvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesGreaterThanOrEqualTo(String value) {
+            addCriterion("DietVegetables >=", value, "dietvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesLessThan(String value) {
+            addCriterion("DietVegetables <", value, "dietvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesLessThanOrEqualTo(String value) {
+            addCriterion("DietVegetables <=", value, "dietvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesLike(String value) {
+            addCriterion("DietVegetables like", value, "dietvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesNotLike(String value) {
+            addCriterion("DietVegetables not like", value, "dietvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesIn(List<String> values) {
+            addCriterion("DietVegetables in", values, "dietvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesNotIn(List<String> values) {
+            addCriterion("DietVegetables not in", values, "dietvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesBetween(String value1, String value2) {
+            addCriterion("DietVegetables between", value1, value2, "dietvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesNotBetween(String value1, String value2) {
+            addCriterion("DietVegetables not between", value1, value2, "dietvegetables");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesyearIsNull() {
+            addCriterion("DietVegetablesYear is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesyearIsNotNull() {
+            addCriterion("DietVegetablesYear is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesyearEqualTo(String value) {
+            addCriterion("DietVegetablesYear =", value, "dietvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesyearNotEqualTo(String value) {
+            addCriterion("DietVegetablesYear <>", value, "dietvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesyearGreaterThan(String value) {
+            addCriterion("DietVegetablesYear >", value, "dietvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesyearGreaterThanOrEqualTo(String value) {
+            addCriterion("DietVegetablesYear >=", value, "dietvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesyearLessThan(String value) {
+            addCriterion("DietVegetablesYear <", value, "dietvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesyearLessThanOrEqualTo(String value) {
+            addCriterion("DietVegetablesYear <=", value, "dietvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesyearLike(String value) {
+            addCriterion("DietVegetablesYear like", value, "dietvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesyearNotLike(String value) {
+            addCriterion("DietVegetablesYear not like", value, "dietvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesyearIn(List<String> values) {
+            addCriterion("DietVegetablesYear in", values, "dietvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesyearNotIn(List<String> values) {
+            addCriterion("DietVegetablesYear not in", values, "dietvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesyearBetween(String value1, String value2) {
+            addCriterion("DietVegetablesYear between", value1, value2, "dietvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietvegetablesyearNotBetween(String value1, String value2) {
+            addCriterion("DietVegetablesYear not between", value1, value2, "dietvegetablesyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsIsNull() {
+            addCriterion("DietFruits is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsIsNotNull() {
+            addCriterion("DietFruits is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsEqualTo(String value) {
+            addCriterion("DietFruits =", value, "dietfruits");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsNotEqualTo(String value) {
+            addCriterion("DietFruits <>", value, "dietfruits");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsGreaterThan(String value) {
+            addCriterion("DietFruits >", value, "dietfruits");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsGreaterThanOrEqualTo(String value) {
+            addCriterion("DietFruits >=", value, "dietfruits");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsLessThan(String value) {
+            addCriterion("DietFruits <", value, "dietfruits");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsLessThanOrEqualTo(String value) {
+            addCriterion("DietFruits <=", value, "dietfruits");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsLike(String value) {
+            addCriterion("DietFruits like", value, "dietfruits");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsNotLike(String value) {
+            addCriterion("DietFruits not like", value, "dietfruits");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsIn(List<String> values) {
+            addCriterion("DietFruits in", values, "dietfruits");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsNotIn(List<String> values) {
+            addCriterion("DietFruits not in", values, "dietfruits");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsBetween(String value1, String value2) {
+            addCriterion("DietFruits between", value1, value2, "dietfruits");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsNotBetween(String value1, String value2) {
+            addCriterion("DietFruits not between", value1, value2, "dietfruits");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsyearIsNull() {
+            addCriterion("DietFruitsYear is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsyearIsNotNull() {
+            addCriterion("DietFruitsYear is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsyearEqualTo(String value) {
+            addCriterion("DietFruitsYear =", value, "dietfruitsyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsyearNotEqualTo(String value) {
+            addCriterion("DietFruitsYear <>", value, "dietfruitsyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsyearGreaterThan(String value) {
+            addCriterion("DietFruitsYear >", value, "dietfruitsyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsyearGreaterThanOrEqualTo(String value) {
+            addCriterion("DietFruitsYear >=", value, "dietfruitsyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsyearLessThan(String value) {
+            addCriterion("DietFruitsYear <", value, "dietfruitsyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsyearLessThanOrEqualTo(String value) {
+            addCriterion("DietFruitsYear <=", value, "dietfruitsyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsyearLike(String value) {
+            addCriterion("DietFruitsYear like", value, "dietfruitsyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsyearNotLike(String value) {
+            addCriterion("DietFruitsYear not like", value, "dietfruitsyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsyearIn(List<String> values) {
+            addCriterion("DietFruitsYear in", values, "dietfruitsyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsyearNotIn(List<String> values) {
+            addCriterion("DietFruitsYear not in", values, "dietfruitsyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsyearBetween(String value1, String value2) {
+            addCriterion("DietFruitsYear between", value1, value2, "dietfruitsyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietfruitsyearNotBetween(String value1, String value2) {
+            addCriterion("DietFruitsYear not between", value1, value2, "dietfruitsyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkIsNull() {
+            addCriterion("DietMilk is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkIsNotNull() {
+            addCriterion("DietMilk is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkEqualTo(String value) {
+            addCriterion("DietMilk =", value, "dietmilk");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkNotEqualTo(String value) {
+            addCriterion("DietMilk <>", value, "dietmilk");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkGreaterThan(String value) {
+            addCriterion("DietMilk >", value, "dietmilk");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkGreaterThanOrEqualTo(String value) {
+            addCriterion("DietMilk >=", value, "dietmilk");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkLessThan(String value) {
+            addCriterion("DietMilk <", value, "dietmilk");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkLessThanOrEqualTo(String value) {
+            addCriterion("DietMilk <=", value, "dietmilk");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkLike(String value) {
+            addCriterion("DietMilk like", value, "dietmilk");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkNotLike(String value) {
+            addCriterion("DietMilk not like", value, "dietmilk");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkIn(List<String> values) {
+            addCriterion("DietMilk in", values, "dietmilk");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkNotIn(List<String> values) {
+            addCriterion("DietMilk not in", values, "dietmilk");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkBetween(String value1, String value2) {
+            addCriterion("DietMilk between", value1, value2, "dietmilk");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkNotBetween(String value1, String value2) {
+            addCriterion("DietMilk not between", value1, value2, "dietmilk");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkyearIsNull() {
+            addCriterion("DietMilkYear is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkyearIsNotNull() {
+            addCriterion("DietMilkYear is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkyearEqualTo(String value) {
+            addCriterion("DietMilkYear =", value, "dietmilkyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkyearNotEqualTo(String value) {
+            addCriterion("DietMilkYear <>", value, "dietmilkyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkyearGreaterThan(String value) {
+            addCriterion("DietMilkYear >", value, "dietmilkyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkyearGreaterThanOrEqualTo(String value) {
+            addCriterion("DietMilkYear >=", value, "dietmilkyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkyearLessThan(String value) {
+            addCriterion("DietMilkYear <", value, "dietmilkyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkyearLessThanOrEqualTo(String value) {
+            addCriterion("DietMilkYear <=", value, "dietmilkyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkyearLike(String value) {
+            addCriterion("DietMilkYear like", value, "dietmilkyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkyearNotLike(String value) {
+            addCriterion("DietMilkYear not like", value, "dietmilkyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkyearIn(List<String> values) {
+            addCriterion("DietMilkYear in", values, "dietmilkyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkyearNotIn(List<String> values) {
+            addCriterion("DietMilkYear not in", values, "dietmilkyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkyearBetween(String value1, String value2) {
+            addCriterion("DietMilkYear between", value1, value2, "dietmilkyear");
+            return (Criteria) this;
+        }
+
+        public Criteria andDietmilkyearNotBetween(String value1, String value2) {
+            addCriterion("DietMilkYear not between", value1, value2, "dietmilkyear");
             return (Criteria) this;
         }
 

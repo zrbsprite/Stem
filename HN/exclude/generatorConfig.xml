@@ -35,60 +35,7 @@
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
         
-        <table schema="" tableName="homocysteine_exam_info" domainObjectName="HomocysteineExamInfo">
-            <property name="useActualColumnNames" value="false" />
-        </table>
-        <table schema="" tableName="hypertension_history" domainObjectName="HypertensionHistory">
-            <property name="useActualColumnNames" value="false" />
-        </table>
-        <table schema="" tableName="institution_crowd_base_info" domainObjectName="InstitutionCrowdBaseInfo">
-            <property name="useActualColumnNames" value="false" />
-        </table>
-        <table schema="" tableName="institution_crowd_family_info" domainObjectName="InstitutionCrowdFamilyInfo">
-            <property name="useActualColumnNames" value="false" />
-        </table>
         <table schema="" tableName="institution_crowd_lifestyle_info" domainObjectName="InstitutionCrowdLifestyleInfo">
-            <property name="useActualColumnNames" value="false" />
-        </table>
-        <table schema="" tableName="kidney_disease_hostory" domainObjectName="KidneyDiseaseHostory">
-            <property name="useActualColumnNames" value="false" />
-        </table>
-        
-        <table schema="" tableName="other_history" domainObjectName="OtherHistory">
-            <property name="useActualColumnNames" value="false" />
-        </table>
-        <table schema="" tableName="physique_exam_info" domainObjectName="PhysiqueExamInfo">
-            <property name="useActualColumnNames" value="false" />
-        </table>
-        
-        <table schema="" tableName="pulmonary_disease_history" domainObjectName="PulmonaryDiseaseHistory">
-            <property name="useActualColumnNames" value="false" />
-        </table>
-        <table schema="" tableName="sm_codecollect" domainObjectName="SmCodecollect">
-            <property name="useActualColumnNames" value="false" />
-        </table>
-        
-        <table schema="" tableName="sm_codeitem" domainObjectName="SmCodeitem">
-            <property name="useActualColumnNames" value="false" />
-        </table>
-        <table schema="" tableName="sm_department" domainObjectName="SmDepartment">
-            <property name="useActualColumnNames" value="false" />
-        </table>
-        
-        <table schema="" tableName="sm_modular" domainObjectName="SmModular">
-            <property name="useActualColumnNames" value="false" />
-        </table>
-        <table schema="" tableName="sm_role" domainObjectName="SmRole">
-            <property name="useActualColumnNames" value="false" />
-        </table>
-        <table schema="" tableName="sm_role_modular" domainObjectName="SmRoleModular">
-            <property name="useActualColumnNames" value="false" />
-        </table>
-        
-        <table schema="" tableName="sm_user" domainObjectName="SmUser">
-            <property name="useActualColumnNames" value="false" />
-        </table>
-        <table schema="" tableName="user_personal_info" domainObjectName="UserPersonalInfo">
             <property name="useActualColumnNames" value="false" />
         </table>
         

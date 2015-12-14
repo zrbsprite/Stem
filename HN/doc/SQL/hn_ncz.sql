@@ -362,8 +362,16 @@ CREATE TABLE `institution_crowd_lifestyle_info` (
   `WineYear` varchar(2) DEFAULT NULL COMMENT '年限',
   `Sports` varchar(20) DEFAULT NULL COMMENT '运动情况（ZP）',
   `SportsYear` varchar(2) DEFAULT NULL COMMENT '年限',
-  `Diet` varchar(20) DEFAULT NULL COMMENT '膳食习惯（ZQ）',
-  `DietYear` varchar(2) DEFAULT NULL COMMENT '年限',
+  `DietFlavor` varchar(20) DEFAULT NULL COMMENT '膳食习惯_口味（CodeID=ZQ  Code=01下的选项）',
+  `DietFlavorYear` varchar(2) DEFAULT NULL COMMENT '年限',
+  `DietMeatVegetables` varchar(20) DEFAULT NULL COMMENT '膳食习惯_荤素（CodeID=ZQ  Code=02下的选项）',
+  `DietMeatVegetablesYear` varchar(2) DEFAULT NULL COMMENT '年限',
+  `DietVegetables` varchar(20) DEFAULT NULL COMMENT '膳食习惯_吃蔬菜（CodeID=ZQ  Code=03下的选项）',
+  `DietVegetablesYear` varchar(2) DEFAULT NULL COMMENT '年限',
+  `DietFruits` varchar(20) DEFAULT NULL COMMENT '膳食习惯_吃水果（CodeID=ZQ  Code=04下的选项）',
+  `DietFruitsYear` varchar(2) DEFAULT NULL COMMENT '年限',
+  `DietMilk` varchar(20) DEFAULT NULL COMMENT '膳食习惯_牛奶或酸奶（CodeID=ZQ  Code=05下的选项）',
+  `DietMilkYear` varchar(2) DEFAULT NULL COMMENT '年限',
   `Flag` varchar(10) DEFAULT NULL COMMENT '预留标示',
   PRIMARY KEY (`LifeStyleID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='机构人群生活方式表';

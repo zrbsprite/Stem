@@ -11,8 +11,16 @@
     <result column="WineYear" property="wineyear" jdbcType="VARCHAR" />
     <result column="Sports" property="sports" jdbcType="VARCHAR" />
     <result column="SportsYear" property="sportsyear" jdbcType="VARCHAR" />
-    <result column="Diet" property="diet" jdbcType="VARCHAR" />
-    <result column="DietYear" property="dietyear" jdbcType="VARCHAR" />
+    <result column="DietFlavor" property="dietflavor" jdbcType="VARCHAR" />
+    <result column="DietFlavorYear" property="dietflavoryear" jdbcType="VARCHAR" />
+    <result column="DietMeatVegetables" property="dietmeatvegetables" jdbcType="VARCHAR" />
+    <result column="DietMeatVegetablesYear" property="dietmeatvegetablesyear" jdbcType="VARCHAR" />
+    <result column="DietVegetables" property="dietvegetables" jdbcType="VARCHAR" />
+    <result column="DietVegetablesYear" property="dietvegetablesyear" jdbcType="VARCHAR" />
+    <result column="DietFruits" property="dietfruits" jdbcType="VARCHAR" />
+    <result column="DietFruitsYear" property="dietfruitsyear" jdbcType="VARCHAR" />
+    <result column="DietMilk" property="dietmilk" jdbcType="VARCHAR" />
+    <result column="DietMilkYear" property="dietmilkyear" jdbcType="VARCHAR" />
     <result column="Flag" property="flag" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -75,7 +83,8 @@
   </sql>
   <sql id="Base_Column_List" >
     LifeStyleID, CrowdID, Smoke, SmokeYear, SmokeDay, Wine, WineYear, Sports, SportsYear, 
-    Diet, DietYear, Flag
+    DietFlavor, DietFlavorYear, DietMeatVegetables, DietMeatVegetablesYear, DietVegetables, 
+    DietVegetablesYear, DietFruits, DietFruitsYear, DietMilk, DietMilkYear, Flag
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.penzias.entity.InstitutionCrowdLifestyleInfoExample" >
     select
@@ -111,12 +120,18 @@
     insert into institution_crowd_lifestyle_info (LifeStyleID, CrowdID, Smoke, 
       SmokeYear, SmokeDay, Wine, 
       WineYear, Sports, SportsYear, 
-      Diet, DietYear, Flag
+      DietFlavor, DietFlavorYear, DietMeatVegetables, 
+      DietMeatVegetablesYear, DietVegetables, 
+      DietVegetablesYear, DietFruits, DietFruitsYear, 
+      DietMilk, DietMilkYear, Flag
       )
     values (#{lifestyleid,jdbcType=INTEGER}, #{crowdid,jdbcType=INTEGER}, #{smoke,jdbcType=VARCHAR}, 
       #{smokeyear,jdbcType=VARCHAR}, #{smokeday,jdbcType=VARCHAR}, #{wine,jdbcType=VARCHAR}, 
       #{wineyear,jdbcType=VARCHAR}, #{sports,jdbcType=VARCHAR}, #{sportsyear,jdbcType=VARCHAR}, 
-      #{diet,jdbcType=VARCHAR}, #{dietyear,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}
+      #{dietflavor,jdbcType=VARCHAR}, #{dietflavoryear,jdbcType=VARCHAR}, #{dietmeatvegetables,jdbcType=VARCHAR}, 
+      #{dietmeatvegetablesyear,jdbcType=VARCHAR}, #{dietvegetables,jdbcType=VARCHAR}, 
+      #{dietvegetablesyear,jdbcType=VARCHAR}, #{dietfruits,jdbcType=VARCHAR}, #{dietfruitsyear,jdbcType=VARCHAR}, 
+      #{dietmilk,jdbcType=VARCHAR}, #{dietmilkyear,jdbcType=VARCHAR}, #{flag,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.penzias.entity.InstitutionCrowdLifestyleInfo" >
@@ -149,11 +164,35 @@
       <if test="sportsyear != null" >
         SportsYear,
       </if>
-      <if test="diet != null" >
-        Diet,
+      <if test="dietflavor != null" >
+        DietFlavor,
       </if>
-      <if test="dietyear != null" >
-        DietYear,
+      <if test="dietflavoryear != null" >
+        DietFlavorYear,
+      </if>
+      <if test="dietmeatvegetables != null" >
+        DietMeatVegetables,
+      </if>
+      <if test="dietmeatvegetablesyear != null" >
+        DietMeatVegetablesYear,
+      </if>
+      <if test="dietvegetables != null" >
+        DietVegetables,
+      </if>
+      <if test="dietvegetablesyear != null" >
+        DietVegetablesYear,
+      </if>
+      <if test="dietfruits != null" >
+        DietFruits,
+      </if>
+      <if test="dietfruitsyear != null" >
+        DietFruitsYear,
+      </if>
+      <if test="dietmilk != null" >
+        DietMilk,
+      </if>
+      <if test="dietmilkyear != null" >
+        DietMilkYear,
       </if>
       <if test="flag != null" >
         Flag,
@@ -187,11 +226,35 @@
       <if test="sportsyear != null" >
         #{sportsyear,jdbcType=VARCHAR},
       </if>
-      <if test="diet != null" >
-        #{diet,jdbcType=VARCHAR},
+      <if test="dietflavor != null" >
+        #{dietflavor,jdbcType=VARCHAR},
       </if>
-      <if test="dietyear != null" >
-        #{dietyear,jdbcType=VARCHAR},
+      <if test="dietflavoryear != null" >
+        #{dietflavoryear,jdbcType=VARCHAR},
+      </if>
+      <if test="dietmeatvegetables != null" >
+        #{dietmeatvegetables,jdbcType=VARCHAR},
+      </if>
+      <if test="dietmeatvegetablesyear != null" >
+        #{dietmeatvegetablesyear,jdbcType=VARCHAR},
+      </if>
+      <if test="dietvegetables != null" >
+        #{dietvegetables,jdbcType=VARCHAR},
+      </if>
+      <if test="dietvegetablesyear != null" >
+        #{dietvegetablesyear,jdbcType=VARCHAR},
+      </if>
+      <if test="dietfruits != null" >
+        #{dietfruits,jdbcType=VARCHAR},
+      </if>
+      <if test="dietfruitsyear != null" >
+        #{dietfruitsyear,jdbcType=VARCHAR},
+      </if>
+      <if test="dietmilk != null" >
+        #{dietmilk,jdbcType=VARCHAR},
+      </if>
+      <if test="dietmilkyear != null" >
+        #{dietmilkyear,jdbcType=VARCHAR},
       </if>
       <if test="flag != null" >
         #{flag,jdbcType=VARCHAR},
@@ -234,11 +297,35 @@
       <if test="record.sportsyear != null" >
         SportsYear = #{record.sportsyear,jdbcType=VARCHAR},
       </if>
-      <if test="record.diet != null" >
-        Diet = #{record.diet,jdbcType=VARCHAR},
+      <if test="record.dietflavor != null" >
+        DietFlavor = #{record.dietflavor,jdbcType=VARCHAR},
       </if>
-      <if test="record.dietyear != null" >
-        DietYear = #{record.dietyear,jdbcType=VARCHAR},
+      <if test="record.dietflavoryear != null" >
+        DietFlavorYear = #{record.dietflavoryear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dietmeatvegetables != null" >
+        DietMeatVegetables = #{record.dietmeatvegetables,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dietmeatvegetablesyear != null" >
+        DietMeatVegetablesYear = #{record.dietmeatvegetablesyear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dietvegetables != null" >
+        DietVegetables = #{record.dietvegetables,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dietvegetablesyear != null" >
+        DietVegetablesYear = #{record.dietvegetablesyear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dietfruits != null" >
+        DietFruits = #{record.dietfruits,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dietfruitsyear != null" >
+        DietFruitsYear = #{record.dietfruitsyear,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dietmilk != null" >
+        DietMilk = #{record.dietmilk,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dietmilkyear != null" >
+        DietMilkYear = #{record.dietmilkyear,jdbcType=VARCHAR},
       </if>
       <if test="record.flag != null" >
         Flag = #{record.flag,jdbcType=VARCHAR},
@@ -259,8 +346,16 @@
       WineYear = #{record.wineyear,jdbcType=VARCHAR},
       Sports = #{record.sports,jdbcType=VARCHAR},
       SportsYear = #{record.sportsyear,jdbcType=VARCHAR},
-      Diet = #{record.diet,jdbcType=VARCHAR},
-      DietYear = #{record.dietyear,jdbcType=VARCHAR},
+      DietFlavor = #{record.dietflavor,jdbcType=VARCHAR},
+      DietFlavorYear = #{record.dietflavoryear,jdbcType=VARCHAR},
+      DietMeatVegetables = #{record.dietmeatvegetables,jdbcType=VARCHAR},
+      DietMeatVegetablesYear = #{record.dietmeatvegetablesyear,jdbcType=VARCHAR},
+      DietVegetables = #{record.dietvegetables,jdbcType=VARCHAR},
+      DietVegetablesYear = #{record.dietvegetablesyear,jdbcType=VARCHAR},
+      DietFruits = #{record.dietfruits,jdbcType=VARCHAR},
+      DietFruitsYear = #{record.dietfruitsyear,jdbcType=VARCHAR},
+      DietMilk = #{record.dietmilk,jdbcType=VARCHAR},
+      DietMilkYear = #{record.dietmilkyear,jdbcType=VARCHAR},
       Flag = #{record.flag,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -293,11 +388,35 @@
       <if test="sportsyear != null" >
         SportsYear = #{sportsyear,jdbcType=VARCHAR},
       </if>
-      <if test="diet != null" >
-        Diet = #{diet,jdbcType=VARCHAR},
+      <if test="dietflavor != null" >
+        DietFlavor = #{dietflavor,jdbcType=VARCHAR},
       </if>
-      <if test="dietyear != null" >
-        DietYear = #{dietyear,jdbcType=VARCHAR},
+      <if test="dietflavoryear != null" >
+        DietFlavorYear = #{dietflavoryear,jdbcType=VARCHAR},
+      </if>
+      <if test="dietmeatvegetables != null" >
+        DietMeatVegetables = #{dietmeatvegetables,jdbcType=VARCHAR},
+      </if>
+      <if test="dietmeatvegetablesyear != null" >
+        DietMeatVegetablesYear = #{dietmeatvegetablesyear,jdbcType=VARCHAR},
+      </if>
+      <if test="dietvegetables != null" >
+        DietVegetables = #{dietvegetables,jdbcType=VARCHAR},
+      </if>
+      <if test="dietvegetablesyear != null" >
+        DietVegetablesYear = #{dietvegetablesyear,jdbcType=VARCHAR},
+      </if>
+      <if test="dietfruits != null" >
+        DietFruits = #{dietfruits,jdbcType=VARCHAR},
+      </if>
+      <if test="dietfruitsyear != null" >
+        DietFruitsYear = #{dietfruitsyear,jdbcType=VARCHAR},
+      </if>
+      <if test="dietmilk != null" >
+        DietMilk = #{dietmilk,jdbcType=VARCHAR},
+      </if>
+      <if test="dietmilkyear != null" >
+        DietMilkYear = #{dietmilkyear,jdbcType=VARCHAR},
       </if>
       <if test="flag != null" >
         Flag = #{flag,jdbcType=VARCHAR},
@@ -315,8 +434,16 @@
       WineYear = #{wineyear,jdbcType=VARCHAR},
       Sports = #{sports,jdbcType=VARCHAR},
       SportsYear = #{sportsyear,jdbcType=VARCHAR},
-      Diet = #{diet,jdbcType=VARCHAR},
-      DietYear = #{dietyear,jdbcType=VARCHAR},
+      DietFlavor = #{dietflavor,jdbcType=VARCHAR},
+      DietFlavorYear = #{dietflavoryear,jdbcType=VARCHAR},
+      DietMeatVegetables = #{dietmeatvegetables,jdbcType=VARCHAR},
+      DietMeatVegetablesYear = #{dietmeatvegetablesyear,jdbcType=VARCHAR},
+      DietVegetables = #{dietvegetables,jdbcType=VARCHAR},
+      DietVegetablesYear = #{dietvegetablesyear,jdbcType=VARCHAR},
+      DietFruits = #{dietfruits,jdbcType=VARCHAR},
+      DietFruitsYear = #{dietfruitsyear,jdbcType=VARCHAR},
+      DietMilk = #{dietmilk,jdbcType=VARCHAR},
+      DietMilkYear = #{dietmilkyear,jdbcType=VARCHAR},
       Flag = #{flag,jdbcType=VARCHAR}
     where LifeStyleID = #{lifestyleid,jdbcType=INTEGER}
   </update>
