@@ -7,4 +7,6 @@ import com.penzias.entity.InstitutionCrowdFamilyInfoExample;
 public interface InstitutionCrowdFamilyInfoService extends BasicService<InstitutionCrowdFamilyInfoExample, InstitutionCrowdFamilyInfo> {
 	
 	public int addBatch(InstitutionCrowdFamilyInfo[] arrays);
+	
+	public int updateBatch(InstitutionCrowdFamilyInfo[] arrays);
 }

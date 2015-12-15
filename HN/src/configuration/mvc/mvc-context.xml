@@ -23,6 +23,18 @@
 			<bean class="com.penzias.core.commons.DateWebBindingInitializer"></bean>
 		</property>
 		-->
+		<property name="messageConverters">      
+            <list >      
+                <ref bean="mappingJacksonHttpMessageConverter" />      
+            </list>      
+        </property>  
+	</bean>
+	<bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">    
+	    <property name="supportedMediaTypes">    
+	        <list>    
+	            <value>application/json;charset=UTF-8</value>    
+	       </list>    
+	    </property>  
 	</bean>  
   
     <mvc:view-controller path="/" view-name="door/login"/>
@@ -97,6 +109,8 @@
             </props>
         </property>
     </bean>
+    
+    <bean class=""></bean>
     
     <import resource="other-context.xml"/>
 </beans>

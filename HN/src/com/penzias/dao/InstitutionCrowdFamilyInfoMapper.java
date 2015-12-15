@@ -7,4 +7,6 @@ import com.penzias.entity.InstitutionCrowdFamilyInfoExample;
 public interface InstitutionCrowdFamilyInfoMapper extends BasicMapper<InstitutionCrowdFamilyInfoExample, InstitutionCrowdFamilyInfo>{
 	
 	public int batchInsert(InstitutionCrowdFamilyInfo[] arrays);
+	
+	public int batchUpdate(InstitutionCrowdFamilyInfo[] arrays);
 }

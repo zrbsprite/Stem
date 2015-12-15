@@ -285,4 +285,37 @@
       Flag = #{flag,jdbcType=VARCHAR}
     where FamilyID = #{familyid,jdbcType=INTEGER}
   </update>
+  <update id="batchUpdate">
+    <foreach collection="array" item="item" index="index" open="" close="" separator=";">
+           update institution_crowd_family_info 
+           <set>
+             <if test="crowdid != null" >
+		        CrowdID = #{item.crowdid,jdbcType=INTEGER},
+		      </if>
+		      <if test="diseasetype != null" >
+		        DiseaseType = #{item.diseasetype,jdbcType=VARCHAR},
+		      </if>
+		      <if test="isexist != null" >
+		        IsExist = #{item.isexist,jdbcType=VARCHAR},
+		      </if>
+		      <if test="father != null" >
+		        Father = #{item.father,jdbcType=VARCHAR},
+		      </if>
+		      <if test="mother != null" >
+		        Mother = #{item.mother,jdbcType=VARCHAR},
+		      </if>
+		      <if test="brothersister != null" >
+		        BrotherSister = #{item.brothersister,jdbcType=VARCHAR},
+		      </if>
+		      <if test="children != null" >
+		        Children = #{item.children,jdbcType=VARCHAR},
+		      </if>
+		      <if test="flag != null" >
+		        Flag = #{item.flag,jdbcType=VARCHAR},
+		      </if>
+           </set>
+           where FamilyID = #{item.familyid,jdbcType=INTEGER},
+    </foreach>
+ </update>
+  
 </mapper>

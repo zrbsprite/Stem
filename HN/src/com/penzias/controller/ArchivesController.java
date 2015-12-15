@@ -1,5 +1,6 @@
 package com.penzias.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -7,27 +8,59 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.penzias.core.commons.BaseController;
+import com.penzias.dictionary.DiseaseType;
+import com.penzias.dictionary.MRSType;
+import com.penzias.dictionary.OtherType;
+import com.penzias.entity.BloodFatHistory;
+import com.penzias.entity.BloodFatHistoryExample;
+import com.penzias.entity.BrainBloodHistory;
+import com.penzias.entity.BrainBloodHistoryExample;
+import com.penzias.entity.DiabetesHistory;
+import com.penzias.entity.DiabetesHistoryExample;
+import com.penzias.entity.HeartDiseaseHistory;
+import com.penzias.entity.HeartDiseaseHistoryExample;
+import com.penzias.entity.HypertensionHistory;
+import com.penzias.entity.HypertensionHistoryExample;
 import com.penzias.entity.InstitutionCrowdBaseInfo;
 import com.penzias.entity.InstitutionCrowdBaseInfoExample;
 import com.penzias.entity.InstitutionCrowdFamilyInfo;
 import com.penzias.entity.InstitutionCrowdFamilyInfoExample;
 import com.penzias.entity.InstitutionCrowdLifestyleInfo;
 import com.penzias.entity.InstitutionCrowdLifestyleInfoExample;
+import com.penzias.entity.KidneyDiseaseHostory;
+import com.penzias.entity.KidneyDiseaseHostoryExample;
+import com.penzias.entity.OtherHistory;
+import com.penzias.entity.OtherHistoryExample;
+import com.penzias.entity.PulmonaryDiseaseHistory;
+import com.penzias.entity.PulmonaryDiseaseHistoryExample;
 import com.penzias.entity.SmCodeitem;
 import com.penzias.entity.SmCodeitemKey;
 import com.penzias.interfaces.IDictionaryItem;
+import com.penzias.service.BloodFatHistoryService;
+import com.penzias.service.BrainBloodHistoryService;
+import com.penzias.service.DiabetesHistoryService;
+import com.penzias.service.HeartDiseaseHistoryService;
+import com.penzias.service.HistoryControlService;
+import com.penzias.service.HypertensionHistoryService;
 import com.penzias.service.InstitutionCrowdBaseInfoService;
 import com.penzias.service.InstitutionCrowdFamilyInfoService;
 import com.penzias.service.InstitutionCrowdLifestyleInfoService;
+import com.penzias.service.KidneyDiseaseHostoryService;
+import com.penzias.service.OtherHistoryService;
+import com.penzias.service.PulmonaryDiseaseHistoryService;
 import com.penzias.vo.InstitutionCrowdFamilyInfoVO;
+import com.penzias.vo.OtherHistoryVO;
 
 @Controller
 @RequestMapping("archives")
@@ -42,6 +75,33 @@ public class ArchivesController extends BaseController{
 	
 	@Resource
 	private InstitutionCrowdFamilyInfoService InstitutionCrowdFamilyInfoService;
+	
+	@Resource
+	private BrainBloodHistoryService brainBloodHistoryService;
+	
+	@Resource
+	private HeartDiseaseHistoryService heartDiseaseHistoryService;
+	
+	@Resource
+	private HypertensionHistoryService hypertensionHistoryService;
+	
+	@Resource
+	private BloodFatHistoryService bloodFatHistoryService;
+	
+	@Resource
+	private DiabetesHistoryService diabetesHistoryService;
+	
+	@Resource
+	private KidneyDiseaseHostoryService kidneyDiseaseHostoryService;
+	
+	@Resource
+	private OtherHistoryService otherHistoryService;
+	
+	@Resource
+	private PulmonaryDiseaseHistoryService pulmonaryDiseaseHistoryService;
+	
+	@Resource
+	private HistoryControlService historyControlService;
 	
 	@Resource
 	private IDictionaryItem iDctionaryItem;
@@ -423,11 +483,30 @@ public class ArchivesController extends BaseController{
 		if(null!=cid){
 			InstitutionCrowdFamilyInfoExample example = new InstitutionCrowdFamilyInfoExample();
 			example.createCriteria().andCrowdidEqualTo(cid);
+			example.setOrderByClause(" DiseaseType asc");
 			List<InstitutionCrowdFamilyInfo> list = this.InstitutionCrowdFamilyInfoService.list(example);
-			if(list.size()>0){
-				model.addAttribute("institutionCrowdFamilyInfos",list);
+			for(InstitutionCrowdFamilyInfo info:list){
+				String type = info.getDiseasetype();
+				if(type.equals(DiseaseType.zr_brain.getValue())){
+					model.addAttribute("zr_brain",info);
+				}else if(type.equals(DiseaseType.zr_diabetes.getValue())){
+					model.addAttribute("zr_diabetes",info);
+				}else if(type.equals(DiseaseType.zr_dyslipidemia.getValue())){
+					model.addAttribute("zr_dyslipidemia",info);
+				}else if(type.equals(DiseaseType.zr_heart.getValue())){
+					model.addAttribute("zr_heart",info);
+				}else if(type.equals(DiseaseType.zr_highblood.getValue())){
+					model.addAttribute("zr_highblood",info);
+				}
 			}
 			model.addAttribute("cid",cid);
+		}else{
+			InstitutionCrowdFamilyInfo info = new InstitutionCrowdFamilyInfo();
+			model.addAttribute("zr_brain",info);
+			model.addAttribute("zr_diabetes",info);
+			model.addAttribute("zr_dyslipidemia",info);
+			model.addAttribute("zr_heart",info);
+			model.addAttribute("zr_highblood",info);
 		}
 		return "archives/familyhistory_ae";
 	}
@@ -442,11 +521,13 @@ public class ArchivesController extends BaseController{
 	 * @return
 	 */
 	public String saveFamilyInfo(Integer cid, InstitutionCrowdFamilyInfoVO institutionCrowdFamilyInfoVO, Model model){
-		for(InstitutionCrowdFamilyInfo institutionCrowdFamilyInfo : institutionCrowdFamilyInfoVO.getArrays()){
-			if(null!=institutionCrowdFamilyInfo.getCrowdid()){
-				this.InstitutionCrowdFamilyInfoService.updateById(institutionCrowdFamilyInfo);
+		if(null!=cid){
+			if(null!=institutionCrowdFamilyInfoVO.getArrays()[0].getFamilyid()){	
+				//update data
+				this.InstitutionCrowdFamilyInfoService.updateBatch(institutionCrowdFamilyInfoVO.getArrays());
 			}else{
-				this.InstitutionCrowdFamilyInfoService.add(institutionCrowdFamilyInfo);
+				//new data
+				this.InstitutionCrowdFamilyInfoService.addBatch(institutionCrowdFamilyInfoVO.getArrays());
 			}
 		}
 		return "redirect:/archives/control.htm?cid="+cid;
@@ -462,11 +543,110 @@ public class ArchivesController extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("control")
-	public String controlInfo(Integer id, Model model){
-		if(null!=id){
-			model.addAttribute("crowdid",id);
+	public String controlInfo(Integer cid, Model model){
+		if(null!=cid){
+			BrainBloodHistoryExample example = new BrainBloodHistoryExample();
+			example.createCriteria().andCrowdidEqualTo(cid);
+			List<BrainBloodHistory> list = this.brainBloodHistoryService.list(example);
+			if(list.size()>0){
+				BrainBloodHistory brainBloodHistory = list.get(0);
+				model.addAttribute("brainBloodHistory",brainBloodHistory);
+			}
+			
+			HeartDiseaseHistoryExample hExample = new HeartDiseaseHistoryExample();
+			hExample.createCriteria().andCrowdidEqualTo(cid);
+			List<HeartDiseaseHistory> hList = this.heartDiseaseHistoryService.list(hExample);
+			if(hList.size()>0){
+				model.addAttribute("heartDiseaseHistory",hList.get(0));
+			}
+			
+			HypertensionHistoryExample hypertensionHistoryExample = new HypertensionHistoryExample();
+			hypertensionHistoryExample.createCriteria().andCrowdidEqualTo(cid);
+			List<HypertensionHistory> hypertensionHistoryList = this.hypertensionHistoryService.list(hypertensionHistoryExample);
+			if(hypertensionHistoryList.size()>0){
+				model.addAttribute("hypertensionHistory",hypertensionHistoryList.get(0));
+			}
+			
+			BloodFatHistoryExample bloodFatHistoryExample = new BloodFatHistoryExample();
+			bloodFatHistoryExample.createCriteria().andCrowdidEqualTo(cid);
+			List<BloodFatHistory> bloodFatHistoryList = this.bloodFatHistoryService.list(bloodFatHistoryExample);
+			if(bloodFatHistoryList.size()>0){
+				model.addAttribute("bloodFatHistory",bloodFatHistoryList.get(0));
+			}
+			
+			DiabetesHistoryExample diabetesHistoryExample = new DiabetesHistoryExample();
+			diabetesHistoryExample.createCriteria().andCrowdidEqualTo(cid);
+			List<DiabetesHistory> diabetesHistoryList = this.diabetesHistoryService.list(diabetesHistoryExample);
+			if(diabetesHistoryList.size()>0){
+				model.addAttribute("diabetesHistory",diabetesHistoryList.get(0));
+			}
+			
+			KidneyDiseaseHostoryExample kidneyDiseaseHostoryExample = new KidneyDiseaseHostoryExample();
+			kidneyDiseaseHostoryExample.createCriteria().andCrowdidEqualTo(cid);
+			List<KidneyDiseaseHostory> kidneyDiseaseHostoryList = this.kidneyDiseaseHostoryService.list(kidneyDiseaseHostoryExample);
+			if(kidneyDiseaseHostoryList.size()>0){
+				model.addAttribute("kidneyDiseaseHostory",kidneyDiseaseHostoryList.get(0));
+			}
+			
+			PulmonaryDiseaseHistoryExample pulmonaryDiseaseHistoryExample = new PulmonaryDiseaseHistoryExample();
+			pulmonaryDiseaseHistoryExample.createCriteria().andCrowdidEqualTo(cid);
+			List<PulmonaryDiseaseHistory> pulmonaryDiseaseHistoryList = this.pulmonaryDiseaseHistoryService.list(pulmonaryDiseaseHistoryExample);
+			if(pulmonaryDiseaseHistoryList.size()>0){
+				model.addAttribute("pulmonaryDiseaseHistory",pulmonaryDiseaseHistoryList.get(0));
+			}
+			
+			OtherHistoryExample otherHistoryExample = new OtherHistoryExample();
+			otherHistoryExample.createCriteria().andCrowdidEqualTo(cid);
+			List<OtherHistory> otherHistoryList = this.otherHistoryService.list(otherHistoryExample);
+			if(otherHistoryList.size()>0){
+				for(OtherHistory his:otherHistoryList){
+					String type = his.getOthertype();
+					if(type.equals(OtherType.yb_xiazhidongmai.getValue())){
+						model.addAttribute(OtherType.yb_xiazhidongmai.name(), his);
+					}else if(type.equals(OtherType.yb_yandixuguan.getValue())){
+						model.addAttribute(OtherType.yb_yandixuguan.name(), his);
+					}else if(type.equals(OtherType.yb_kouqiang.getValue())){
+						model.addAttribute(OtherType.yb_kouqiang.name(), his);
+					}else if(type.equals(OtherType.yb_kouqiang.getValue())){
+						model.addAttribute(OtherType.yb_kouqiang.name(), his);
+					}
+				}
+			}
+			model.addAttribute("cid", cid);
 		}
 		return "archives/control_ae";
+	}
+	
+	/**
+	 * @author: Bob
+	 * 修改时间：2015年12月15日 - 上午10:31:44<br/>
+	 * 功能说明：保存既往病史<br/>
+	 * @param cid
+	 * @param brainBloodHistory
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("savecontrol")
+	public String saveControl(Integer cid, 
+			BrainBloodHistory brainBloodHistory, 
+			HeartDiseaseHistory heartDiseaseHistory,
+			HypertensionHistory hypertensionHistory,
+			BloodFatHistory bloodFatHistory,
+			DiabetesHistory diabetesHistory,
+			KidneyDiseaseHostory kidneyDiseaseHostory,
+			PulmonaryDiseaseHistory pulmonaryDiseaseHistory,
+			OtherHistoryVO otherVO,
+			Model model){
+		
+		if(null!=cid){
+			//先处理新增
+			brainBloodHistory.setMrsvalue(MRSType.getScore(brainBloodHistory.getMrsoption())+"");
+			this.historyControlService.add(brainBloodHistory,heartDiseaseHistory,
+					hypertensionHistory,bloodFatHistory,diabetesHistory,
+					kidneyDiseaseHostory,pulmonaryDiseaseHistory,otherVO);
+			
+		}
+		return "redirect:/archives/body.htm?cid="+cid;
 	}
 	
 	/**
@@ -540,4 +720,18 @@ public class ArchivesController extends BaseController{
 		
 		return "archives/blood_ae";
 	}
+	
+	/**
+	 * @author: Bob
+	 * 修改时间：2015年12月15日 - 下午2:21:30<br/>
+	 * 功能说明：处理时间字符串<br/>
+	 * @param binder
+	 */
+	@InitBinder 
+	public void initBinder(WebDataBinder binder) { 
+	   SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd" ); 
+	   dateFormat.setLenient( false); 
+	   binder.registerCustomEditor(Date. class, new CustomDateEditor(dateFormat, false )); 
+	}
+
 }

@@ -12,14 +12,14 @@
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
-		             	<input type="radio" value="0" name="brainBloodHistory.isbrainblood">无
+		             	<input type="radio" value="0" name="isbrainblood" checked>无
 		            </label>
 				</div>
 			</div>
 			<div class="row">
 			  <div class="input-group input-sm">
 	              <label class="radio-inline">
-	              	<input type="radio" value="1" name="brainBloodHistory.isbrainblood">有，发病次数：<input type="text" value="" name="brainBloodHistory.number"> 次
+	              	<input type="radio" value="1" name="isbrainblood">有，发病次数：<input type="text" value="" name="number" required> 次
 	              </label>
 			  </div>
 			</div>
@@ -29,7 +29,7 @@
 	              	末次发病时间：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="text" value="" name="brainBloodHistory.lasttime"  onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})"> 年
+	              	<input type="text" value="" name="lasttime"  onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" required> 年
 	              </label>
 			  </div>
 			</div>
@@ -39,16 +39,16 @@
 	              	主要诊断：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="01" name="brainBloodHistory.diagnosis"> 脑梗死
+	              	<input type="radio" value="01" name="diagnosis" checked> 脑梗死
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="02" name="brainBloodHistory.diagnosis"> 脑出血
+	              	<input type="radio" value="02" name="diagnosis"> 脑出血
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="03" name="brainBloodHistory.diagnosis"> 蛛网膜下腔出血
+	              	<input type="radio" value="03" name="diagnosis"> 蛛网膜下腔出血
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="04" name="brainBloodHistory.diagnosis"> 短暂性脑缺血发作（TIA）
+	              	<input type="radio" value="04" name="diagnosis"> 短暂性脑缺血发作（TIA）
 	              </label>
 			  </div>
 			</div>
@@ -58,18 +58,144 @@
 	              	诊断依据：
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="1" name="brainBloodHistory.basisbrainct"> 脑部CT
+	              	<input type="checkbox" value="1" name="basisbrainct"> 脑部CT
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="1" name="brainBloodHistory.basisbrainmri"> 脑部MRI
+	              	<input type="checkbox" value="1" name="basisbrainmri"> 脑部MRI
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="1" name="brainBloodHistory.clinical"> 临床表现 （症状、体征）
+	              	<input type="checkbox" value="1" name="clinical"> 临床表现 （症状、体征）
 	              </label>
 			  </div>
 			</div>
 		</div>
 	</div>
+	<div class="row"><h4><b>MRS评分（脑血管病患者填写）</b></h4></div>
+	<div class="row">
+		<div class="span12">
+			<div class="input-group input-sm">
+              <label class="radio-inline">
+              	<b>评估时间：</b>
+              </label>
+              <label class="radio-inline">
+              	<input type="text" value="" name="mrstime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+              </label>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span8">
+			<div class="input-group input-sm">
+              <label class="radio-inline">
+              	<b>选项(单选)</b>
+              </label>
+			</div>
+		</div>
+		<div class="span4">
+			<div class="input-group input-sm">
+              <label class="radio-inline">
+              	<b>评分值</b>
+              </label>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span8">
+			<div class="input-group input-sm">
+              <label class="radio-inline">
+				<input type="radio" value="01" name="mrsoption"> 完全无症状
+	          </label>
+			</div>
+		</div>
+		<div class="span4">
+			<div class="input-group input-sm">
+              <label class="radio-inline">
+              	0
+              </label>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span8">
+			<div class="input-group input-sm">
+              <label class="radio-inline">
+              	<input type="radio" value="02" name="mrsoption"> 尽管有症状，但无明显功能障碍，能完成所有日常工作和生活
+              </label>
+			</div>
+		</div>
+		<div class="span4">
+			<div class="input-group input-sm">
+              <label class="radio-inline">
+              	1
+              </label>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span8">
+			<div class="input-group input-sm">
+              <label class="radio-inline">
+              	<input type="radio" value="03" name="mrsoption"> 轻度残疾，不能完成病前所有活动，但不需帮助能照顾自己的日常生活
+              </label>
+			</div>
+		</div>
+		<div class="span4">
+			<div class="input-group input-sm">
+              <label class="radio-inline">
+              	2
+              </label>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span8">
+			<div class="input-group input-sm">
+              <label class="radio-inline">
+              	<input type="radio" value="04" name="mrsoption"> 中度残疾，需部分帮助，但能独立行走
+              </label>
+			</div>
+		</div>
+		<div class="span4">
+			<div class="input-group input-sm">
+              <label class="radio-inline">
+              	3
+              </label>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span8">
+			<div class="input-group input-sm">
+              <label class="radio-inline">
+              	<input type="radio" value="05" name="mrsoption"> 重度残疾，不能独立行走，无他人帮助不能满足自身日常生活需求
+              </label>
+			</div>
+		</div>
+		<div class="span4">
+			<div class="input-group input-sm">
+              <label class="radio-inline">
+              	4
+              </label>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span8">
+			<div class="input-group input-sm">
+              <label class="radio-inline">
+              	<input type="radio" value="06" name="mrsoption"> 严重残疾，持续卧床、二便失禁，需持续护理和关注，日常生活完全依赖他人
+              </label>
+			</div>
+		</div>
+		<div class="span4">
+			<div class="input-group input-sm">
+              <label class="radio-inline">
+              	5
+              </label>
+			</div>
+		</div>
+	</div>
+	
 	
 	<div class="row"><h4><b>4.2 心脏病史 </b></h4></div>
 	<div class="row">
@@ -867,21 +993,21 @@
               <label class="radio-inline">
               	<b>既往有无被诊断为下肢动脉病变：</b>
               </label>
-              <input type="hidden" name="otherHistory.othertype" value="01">
+              <input type="hidden" name="others[0].othertype" value="01">
 			</div>
 		</div>
 	  <div class="span12">
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
-		             	<input type="radio" value="0" name="otherHistory.isother">无
+		             	<input type="radio" value="0" name="others[0].isother">无
 		            </label>
 				</div>
 			</div>
 			<div class="row">
 			  <div class="input-group input-sm">
 	              <label class="radio-inline">
-	              	<input type="radio" value="1" name="otherHistory.isother">有，确诊时间：<input type="text" value="" name="otherHistory.diagnosistime" onfocus="WdatePicker({dateFmt:'yyyy'})"> 年
+	              	<input type="radio" value="1" name="others[0].isother">有，确诊时间：<input type="text" value="" name="others[0].diagnosistime" onfocus="WdatePicker({dateFmt:'yyyy'})"> 年
 	              </label>
 			  </div>
 			</div>
@@ -896,21 +1022,21 @@
               <label class="radio-inline">
               	<b>既往有无被诊断为眼底血管病变：</b>
               </label>
-              <input type="hidden" name="otherHistory.othertype" value="02">
+              <input type="hidden" name="others[1].othertype" value="02">
 			</div>
 		</div>
 	  <div class="span12">
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
-		             	<input type="radio" value="0" name="otherHistory.isother">无
+		             	<input type="radio" value="0" name="others[1].isother">无
 		            </label>
 				</div>
 			</div>
 			<div class="row">
 			  <div class="input-group input-sm">
 	              <label class="radio-inline">
-	              	<input type="radio" value="1" name="otherHistory.isother">有，确诊时间：<input type="text" value="" name="otherHistory.diagnosistime" onfocus="WdatePicker({dateFmt:'yyyy'})"> 年
+	              	<input type="radio" value="1" name="others[1].isother">有，确诊时间：<input type="text" value="" name="others[1].diagnosistime" onfocus="WdatePicker({dateFmt:'yyyy'})"> 年
 	              </label>
 			  </div>
 			</div>
@@ -948,24 +1074,24 @@
 	<div class="row"><h4><b>4.10 口腔炎症 </b></h4></div>
 	<div class="row">
 		<div class="input-group input-sm">
-			<input type="hidden" name="otherHistory.othertype" value="03">
+			<input type="hidden" name="others[2].othertype" value="03">
             <label class="radio-inline">
-             	<input type="radio" value="0" name="otherHistory.isother">无
+             	<input type="radio" value="0" name="others[2].isother">无
             </label>
             <label class="radio-inline">
-          		<input type="radio" value="1" name="otherHistory.isother">有
+          		<input type="radio" value="1" name="others[2].isother">有
           </label>
 		</div>
 	</div>
 	<div class="row"><h4><b>4.11 精神心理疾病 </b></h4></div>
 	<div class="row">
 		<div class="input-group input-sm">
-			<input type="hidden" name="otherHistory.othertype" value="04">
+			<input type="hidden" name="others[3].othertype" value="04">
             <label class="radio-inline">
-             	<input type="radio" value="0" name="otherHistory.isother">无
+             	<input type="radio" value="0" name="others[3].isother">无
             </label>
             <label class="radio-inline">
-          		<input type="radio" value="1" name="otherHistory.isother">有
+          		<input type="radio" value="1" name="others[3].isother">有
           </label>
 		</div>
 	</div>
