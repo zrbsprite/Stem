@@ -1,14 +1,24 @@
 package com.penzias.entity;
 
+/**
+ * 描述：字典信息<br/>
+ * 作者：Bob <br/>
+ * 修改日期：2015年12月16日 - 下午5:29:15<br/>
+ * E-mail: sireezhang@163.com<br/>
+ */
 public class SmCodeitem extends SmCodeitemKey {
+	
+	//明细
     private String description;
 
     private String pptr;
 
     private Byte cptr;
 
+    //全拼
     private String spell;
 
+    //
     private String remarks;
 
     public String getDescription() {

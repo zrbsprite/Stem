@@ -2,41 +2,67 @@ package com.penzias.entity;
 
 import java.util.Date;
 
+/**
+ * 描述：用户个人信息表<br/>
+ * 作者：Bob <br/>
+ * 修改日期：2015年12月16日 - 下午5:39:15<br/>
+ * E-mail: sireezhang@163.com<br/>
+ *
+ */
 public class UserPersonalInfo {
+
+	//
     private Integer userpersonalinfoid;
 
+    //用户名
     private String username;
 
+    //姓名
     private String name;
 
+    //性别(0:男；1：女)
     private String sex;
 
+    //出生日期
     private Date birthdate;
 
+    //国籍
     private String nationality;
 
+    //政治面貌 
     private String politicsstatus;
 
+    //身份证号
     private String idnumber;
 
+    //民族 
     private String nation;
 
+    //邮编
     private String post;
 
+    //毕业院校 
     private String graduateinstitutions;
 
+    //毕业时间 
     private Date graduatedate;
 
+    //学历
     private String education;
 
+    //学位
     private String degree;
 
+    //专业 
     private String specialty;
 
+    //执业医师级别
     private String grade;
 
+    //执业类别 
     private String category;
 
+    //手机
     private String tel;
 
     public Integer getUserpersonalinfoid() {

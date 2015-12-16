@@ -58,5 +58,6 @@
 	<#include "frame/footer.ftl">
 	<#include "frame/js-ie.ftl">
 	<script type="text/javascript" src="${basepath}/assets/js/include_innercheck.js"></script>
+	<script language="javascript" type="text/javascript" src="${basepath}/assets/js/My97DatePicker/WdatePicker.js"></script>
   </body>
 </html>

@@ -1,20 +1,36 @@
 package com.penzias.entity;
 
+/**
+ * 描述：功能模块儿<br/>
+ * 作者：Bob <br/>
+ * 修改日期：2015年12月16日 - 下午5:32:54<br/>
+ * E-mail: sireezhang@163.com<br/>
+ *
+ */
 public class SmModular {
+	
+	//id程序模块编码
     private Integer modularid;
 
+    //上级模块编码
     private Integer parentmodularid;
 
+    //名称
     private String modularname;
 
+    //功能模块地址
     private String uri;
 
+    //描述
     private String modulardesc;
 
+    //顺序
     private Integer displayorder;
 
+    //增删改查
     private String crud;
 
+    //0:一级功能；1：二级功能
     private String homemodular;
 
     public Integer getModularid() {

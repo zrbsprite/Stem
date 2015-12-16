@@ -22,12 +22,16 @@ import com.penzias.core.commons.BaseController;
 import com.penzias.dictionary.DiseaseType;
 import com.penzias.dictionary.MRSType;
 import com.penzias.dictionary.OtherType;
+import com.penzias.entity.ApoplexyConclusionInfo;
 import com.penzias.entity.BloodFatHistory;
 import com.penzias.entity.BloodFatHistoryExample;
+import com.penzias.entity.BloodGlucoseExamInfo;
 import com.penzias.entity.BrainBloodHistory;
 import com.penzias.entity.BrainBloodHistoryExample;
 import com.penzias.entity.DiabetesHistory;
 import com.penzias.entity.DiabetesHistoryExample;
+import com.penzias.entity.ElectrocardiogramExamInfo;
+import com.penzias.entity.ElectrocardiogramExamInfoExample;
 import com.penzias.entity.HeartDiseaseHistory;
 import com.penzias.entity.HeartDiseaseHistoryExample;
 import com.penzias.entity.HypertensionHistory;
@@ -42,23 +46,33 @@ import com.penzias.entity.KidneyDiseaseHostory;
 import com.penzias.entity.KidneyDiseaseHostoryExample;
 import com.penzias.entity.OtherHistory;
 import com.penzias.entity.OtherHistoryExample;
+import com.penzias.entity.PhysiqueExamInfo;
+import com.penzias.entity.PhysiqueExamInfoExample;
 import com.penzias.entity.PulmonaryDiseaseHistory;
 import com.penzias.entity.PulmonaryDiseaseHistoryExample;
 import com.penzias.entity.SmCodeitem;
 import com.penzias.entity.SmCodeitemKey;
 import com.penzias.interfaces.IDictionaryItem;
+import com.penzias.service.ApoplexyConclusionInfoService;
+import com.penzias.service.BloodFatExamInfoService;
 import com.penzias.service.BloodFatHistoryService;
+import com.penzias.service.BloodGlucoseExamInfoService;
 import com.penzias.service.BrainBloodHistoryService;
 import com.penzias.service.DiabetesHistoryService;
+import com.penzias.service.ElectrocardiogramExamInfoService;
 import com.penzias.service.HeartDiseaseHistoryService;
 import com.penzias.service.HistoryControlService;
+import com.penzias.service.HistoryPharmacyService;
+import com.penzias.service.HomocysteineExamInfoService;
 import com.penzias.service.HypertensionHistoryService;
 import com.penzias.service.InstitutionCrowdBaseInfoService;
 import com.penzias.service.InstitutionCrowdFamilyInfoService;
 import com.penzias.service.InstitutionCrowdLifestyleInfoService;
 import com.penzias.service.KidneyDiseaseHostoryService;
 import com.penzias.service.OtherHistoryService;
+import com.penzias.service.PhysiqueExamInfoService;
 import com.penzias.service.PulmonaryDiseaseHistoryService;
+import com.penzias.vo.InnerCheckVO;
 import com.penzias.vo.InstitutionCrowdFamilyInfoVO;
 import com.penzias.vo.OtherHistoryVO;
 
@@ -102,6 +116,27 @@ public class ArchivesController extends BaseController{
 	
 	@Resource
 	private HistoryControlService historyControlService;
+	
+	@Resource
+	private PhysiqueExamInfoService physiqueExamInfoService;
+	
+	@Resource
+	private ApoplexyConclusionInfoService apoplexyConclusionInfoService;
+	
+	@Resource
+	private ElectrocardiogramExamInfoService electrocardiogramExamInfoService;
+	
+	@Resource
+	private BloodGlucoseExamInfoService bloodGlucoseExamInfoService;
+	
+	@Resource
+	private BloodFatExamInfoService bloodFatExamInfoService;
+	
+	@Resource
+	private HomocysteineExamInfoService homocysteineExamInfoService;
+	
+	@Resource
+	private HistoryPharmacyService historyPharmacyService;
 	
 	@Resource
 	private IDictionaryItem iDctionaryItem;
@@ -659,24 +694,44 @@ public class ArchivesController extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("body")
-	public String bodyCheck(Model model){
-		
+	public String bodyCheck(Integer cid, Model model){
+		if(null!=cid){
+			PhysiqueExamInfoExample example = new PhysiqueExamInfoExample();
+			example.createCriteria().andCrowdidEqualTo(cid);
+			List<PhysiqueExamInfo> list = this.physiqueExamInfoService.list(example);
+			if(list.size()>0){
+				PhysiqueExamInfo physiqueExamInfo = list.get(0);
+				model.addAttribute("physiqueExamInfo",physiqueExamInfo);
+			}else{
+				model.addAttribute("physiqueExamInfo",new PhysiqueExamInfo());
+			}
+			model.addAttribute("cid",cid);
+		}else{
+			model.addAttribute("physiqueExamInfo",new PhysiqueExamInfo());
+		}
 		return "archives/body_ae";
 	}
 	
 	/**
-	 * 方法名称: brainLevel<br/>
-	 * 描述：脑卒中风险评级<br/>
-	 * 作者: ruibo<br/>
-	 * 修改日期：2015年12月6日-下午5:08:41<br/>
+	 * @author: Bob
+	 * 修改时间：2015年12月16日 - 上午11:20:50<br/>
+	 * 功能说明：保存提个检查<br/>
+	 * @param cid
+	 * @param physiqueExamInfo
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("brainlevel")
-	public String brainLevel(Model model){
-		
-		return "archives/brain_level_ae";
+	public String saveBodyCheck(Integer cid, PhysiqueExamInfo physiqueExamInfo){
+		if(null!=cid){
+			if(null!=physiqueExamInfo.getPhysiqueexamid()){
+				this.physiqueExamInfoService.updateById(physiqueExamInfo);
+			}else{
+				this.physiqueExamInfoService.add(physiqueExamInfo);
+			}
+		}
+		return "redirect:/archives/heartinfo.htm?cid="+cid;
 	}
+	
 	
 	/**
 	 * 方法名称: heartInfo<br/>
@@ -687,9 +742,40 @@ public class ArchivesController extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("heartinfo")
-	public String heartInfo(Model model){
-		
+	public String heartInfo(Integer cid, Model model){
+		ElectrocardiogramExamInfo electrocardiogramExamInfo = null;
+		if(null!=cid){
+			ElectrocardiogramExamInfoExample example = new ElectrocardiogramExamInfoExample();
+			example.createCriteria().andCrowdidEqualTo(cid);
+			List<ElectrocardiogramExamInfo> list = this.electrocardiogramExamInfoService.list(example);
+			if(list.size()>0){
+				electrocardiogramExamInfo = list.get(0);
+			}else{
+				electrocardiogramExamInfo = new ElectrocardiogramExamInfo();
+			}
+			model.addAttribute("cid",cid);
+		}else{
+			electrocardiogramExamInfo = new ElectrocardiogramExamInfo();
+		}
+		model.addAttribute("electrocardiogramExamInfo", electrocardiogramExamInfo);
 		return "archives/heart_ae";
+	}
+	
+	/**
+	 * @author: Bob
+	 * 修改时间：2015年12月16日 - 下午2:00:12<br/>
+	 * 功能说明：保存心电图检查<br/>
+	 * @return
+	 */
+	public String saveHeart(Integer cid,ElectrocardiogramExamInfo electrocardiogramExamInfo, Model model){
+		if(null!=cid){
+			if(null!=electrocardiogramExamInfo.getElectrocardiogramexanid()){
+				this.electrocardiogramExamInfoService.updateById(electrocardiogramExamInfo);
+			}else{
+				this.electrocardiogramExamInfoService.add(electrocardiogramExamInfo);
+			}
+		}
+		return "redirect:/archives/innercheck.htm?cid="+cid;
 	}
 	
 	/**
@@ -702,9 +788,30 @@ public class ArchivesController extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("innercheck")
-	public String innerCheck(Model model){
-		
+	public String innerCheck(Integer cid, Model model){
+		if(null!=cid){
+			model.addAttribute("cid",cid);
+		}
 		return "archives/inner_check_ae";
+	}
+	
+	/**
+	 * @author: Bob
+	 * 修改时间：2015年12月16日 - 下午3:20:40<br/>
+	 * 功能说明：保存实验室检查<br/>
+	 * @return
+	 */
+	@RequestMapping("saveic")
+	public String saveInnerCheck(Integer cid, InnerCheckVO entity, Model model){
+		if(null!=cid){
+			//此处只考虑新增
+			for(BloodGlucoseExamInfo info : entity.getBloodGlucoseExamInfos()){
+				this.bloodGlucoseExamInfoService.add(info);
+			}
+			this.bloodFatExamInfoService.add(entity.getBloodFatExamInfo());
+			this.homocysteineExamInfoService.add(entity.getHomocysteineExamInfo());
+		}
+		return "redirect:/archives/bblood.htm?cid="+cid;
 	}
 	
 	/**
@@ -716,9 +823,63 @@ public class ArchivesController extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("bblood")
-	public String bSuperBlood(Model model){
-		
+	public String bSuperBlood(Integer cid, Model model){
+		if(null!=cid){
+			
+			model.addAttribute("cid",cid);
+		}
 		return "archives/blood_ae";
+	}
+	
+	/**
+	 * @author: Bob
+	 * 修改时间：2015年12月16日 - 下午4:12:55<br/>
+	 * 功能说明：保存颈部血管超声<br/>
+	 * @param cid
+	 * @param model
+	 * @return
+	 */
+	public String saveBBlood(Integer cid, Model model){
+		if(null!=cid){
+			
+		}
+		return "redirect:/archives/brainlevel.htm?cid="+cid;
+	}
+	
+	/**
+	 * 方法名称: brainLevel<br/>
+	 * 描述：脑卒中风险评级<br/>
+	 * 作者: ruibo<br/>
+	 * 修改日期：2015年12月6日-下午5:08:41<br/>
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("brainlevel")
+	public String brainLevel(Integer cid, Model model){
+		ApoplexyConclusionInfo apoplexyConclusionInfo = new ApoplexyConclusionInfo();
+		if(null!=cid){
+			
+			model.addAttribute("cid",cid);
+		}else{
+			//需要传入默认对象
+			model.addAttribute("apoplexyConclusionInfo",apoplexyConclusionInfo);
+		}
+		return "archives/brain_level_ae";
+	}
+	
+	/**
+	 * @author: Bob
+	 * 修改时间：2015年12月16日 - 下午4:43:39<br/>
+	 * 功能说明：保存评级结果<br/>
+	 * @param cid
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("saveres")
+	public String saveResult(Integer cid, Model model){
+		
+		
+		return "redirect:/archives.htm";
 	}
 	
 	/**

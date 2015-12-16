@@ -2,27 +2,46 @@ package com.penzias.entity;
 
 import java.util.Date;
 
+/**
+ * 描述：系统用户<br/>
+ * 作者：Bob <br/>
+ * 修改日期：2015年12月16日 - 下午5:36:05<br/>
+ * E-mail: sireezhang@163.com<br/>
+ *
+ */
 public class SmUser {
+	
+	//用户名
     private String username;
 
+    //密码
     private String password;
 
+    //邮箱
     private String email;
 
+    //状态（1有效、0无效）
     private String states;
 
+    //姓名
     private String fullname;
 
+    //联系方式
     private String mobile;
 
+    //所属机构（注意是科室代码）
     private String depbm;
 
+    //所属角色
     private String roleid;
 
+    //用户类型(数据来源于codeitem的ZA)
     private String usertype;
 
+    //创建时间
     private Date createdate;
 
+    //身份证号码
     private String idnumber;
 
     public String getUsername() {

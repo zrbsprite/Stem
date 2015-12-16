@@ -1,4 +1,5 @@
 <div class="container-fluid">
+	<input type="hidden" name="cid" value="${cid}" />
 	<table class="table table-bordered">
 		<tr>
 			<td colspan='12'>

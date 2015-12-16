@@ -1,4 +1,6 @@
 <div class="container-fluid">
+	<input type="hidden" name="cid" value="${cid}" />
+	<input type="hidden" name="physiqueexamid" value="${physiqueExamInfo.physiqueexamid}" />
 	<div class="row"><h4><b>5.1一般体征 </b></h4></div>
 	<div class="row">
 		<div class="input-group input-sm">
@@ -6,25 +8,25 @@
           	<b>身高：</b>
           </label>
           <label class="radio-inline">
-          	<input type="text" name="physiqueExamInfo.height" />cm
+          	<input type="text" name="height" value="${physiqueExamInfo.height}" />cm
           </label>
           <label class="radio-inline">
           	<b>体重：</b>
           </label>
           <label class="radio-inline">
-          	<input type="text" name="physiqueExamInfo.weight" />kg
+          	<input type="text" name="weight" value="physiqueExamInfo.weight" />kg
           </label>
           <label class="radio-inline">
           	<b>BMI（系统自动生成）：</b>
           </label>
           <label class="radio-inline">
-          	<input type="text" name="physiqueExamInfo.bmi" />(kg/m<sup>2</sup>)
+          	<input type="text" name="bmi" value="physiqueExamInfo.bmi" />(kg/m<sup>2</sup>)
           </label>
           <label class="radio-inline">
           	<b>腰围：</b>
           </label>
           <label class="radio-inline">
-          	<input type="text" name="physiqueExamInfo.waist" />cm
+          	<input type="text" name="waist" value="physiqueExamInfo.waist" />cm
           </label>
 		</div>
 	</div>
@@ -35,19 +37,19 @@
           	<b>第一次，收缩压SBP：</b>
           </label>
           <label class="radio-inline">
-          	<input type="text" name="physiqueExamInfo.onesbp" />mmHg
+          	<input type="text" name="onesbp" value="${physiqueExamInfo.onesbp}" />mmHg
           </label>
           <label class="radio-inline">
           	<b>舒张压DBP：</b>
           </label>
           <label class="radio-inline">
-          	<input type="text" name="physiqueExamInfo.onedbp" />mmHg
+          	<input type="text" name="onedbp" value="${physiqueExamInfo.onedbp}" />mmHg
           </label>
           <label class="radio-inline">
           	<b>脉搏：</b>
           </label>
           <label class="radio-inline">
-          	<input type="text" name="physiqueExamInfo.onepulse" />次/分
+          	<input type="text" name="onepulse" value="${physiqueExamInfo.onepulse}"/>次/分
           </label>
 		</div>
 	</div>
@@ -57,19 +59,19 @@
           	<b>第二次，收缩压SBP：</b>
           </label>
           <label class="radio-inline">
-          	<input type="text" name="physiqueExamInfo.twosbp" />mmHg
+          	<input type="text" name="twosbp" value="${physiqueExamInfo.twosbp}"/>mmHg
           </label>
           <label class="radio-inline">
           	<b>舒张压DBP：</b>
           </label>
           <label class="radio-inline">
-          	<input type="text" name="physiqueExamInfo.twodbp" />mmHg
+          	<input type="text" name="twodbp" value="${physiqueExamInfo.twodbp}" />mmHg
           </label>
           <label class="radio-inline">
           	<b>脉搏：</b>
           </label>
           <label class="radio-inline">
-          	<input type="text" name="physiqueExamInfo.twopulse" />次/分
+          	<input type="text" name="twopulse" value="${physiqueExamInfo.twopulse}" />次/分
           </label>
 		</div>
 	</div>
@@ -80,19 +82,19 @@
           	<b>心脏杂音：</b>
           </label>
           <label class="radio-inline">
-          	<input type="radio" name="physiqueExamInfo.cardiacsouffle" value="0" />无
+          	<input type="radio" name="cardiacsouffle" value="0" <#if physiqueExamInfo.cardiacsouffle==0>checked</#if>/>无
           </label>
           <label class="radio-inline">
-          	<input type="radio" name="physiqueExamInfo.cardiacsouffle" value="1" />有
+          	<input type="radio" name="cardiacsouffle" value="1" <#if physiqueExamInfo.cardiacsouffle==1>checked</#if>/>有
           </label>
           <label class="radio-inline">
           	<b>心律：</b>
           </label>
           <label class="radio-inline">
-          	<input type="radio" name="physiqueExamInfo.rhythm" value="0"/>整齐 
+          	<input type="radio" name="rhythm" value="0" <#if physiqueExamInfo.rhythm==0>checked</#if>/>整齐 
           </label>
           <label class="radio-inline">
-          	<input type="radio" name="physiqueExamInfo.rhythm" value="0"/>不齐
+          	<input type="radio" name="rhythm" value="0" <#if physiqueExamInfo.rhythm==1>checked</#if>/>不齐
           </label>
        </div>
      </div>

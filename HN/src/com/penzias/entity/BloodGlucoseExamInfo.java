@@ -3,15 +3,26 @@ package com.penzias.entity;
 import java.math.BigDecimal;
 import java.util.Date;
 
+/**
+ * 描述：人群血糖检查表<br/>
+ * 作者：Bob <br/>
+ * 修改日期：2015年12月16日 - 下午2:38:31<br/>
+ * E-mail: sireezhang@163.com<br/>
+ *
+ */
 public class BloodGlucoseExamInfo {
     private Integer bloodglucoseexamid;
 
+    //人群ID
     private Integer crowdid;
 
+    //血糖类型（YD）
     private String bloodglucosetype;
 
+    //检查时间
     private Date examtime;
 
+    //检查结果
     private BigDecimal examresult;
 
     private String flag;
