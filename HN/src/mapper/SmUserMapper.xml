@@ -303,4 +303,43 @@
       IDNumber = #{idnumber,jdbcType=VARCHAR}
     where UserName = #{username,jdbcType=VARCHAR}
   </update>
+  
+  <!-- 自定义sql -->
+  
+  <resultMap id="FirstResultMap" type="com.penzias.entity.SmUser" extends="BaseResultMap">
+  	<association property="userInfo" javaType="com.penzias.entity.UserPersonalInfo">
+	  	<id column="UserPersonalInfoID" property="userpersonalinfoid" jdbcType="INTEGER" />
+	    <result column="UserName" property="username" jdbcType="VARCHAR" />
+	    <result column="Name" property="name" jdbcType="VARCHAR" />
+	    <result column="Sex" property="sex" jdbcType="VARCHAR" />
+	    <result column="BirthDate" property="birthdate" jdbcType="TIMESTAMP" />
+	    <result column="Nationality" property="nationality" jdbcType="VARCHAR" />
+	    <result column="PoliticsStatus" property="politicsstatus" jdbcType="VARCHAR" />
+	    <result column="IdNumber" property="idnumber" jdbcType="VARCHAR" />
+	    <result column="Nation" property="nation" jdbcType="VARCHAR" />
+	    <result column="Post" property="post" jdbcType="VARCHAR" />
+	    <result column="GraduateInstitutions" property="graduateinstitutions" jdbcType="VARCHAR" />
+	    <result column="GraduateDate" property="graduatedate" jdbcType="TIMESTAMP" />
+	    <result column="Education" property="education" jdbcType="VARCHAR" />
+	    <result column="Degree" property="degree" jdbcType="VARCHAR" />
+	    <result column="Specialty" property="specialty" jdbcType="VARCHAR" />
+	    <result column="Grade" property="grade" jdbcType="VARCHAR" />
+	    <result column="Category" property="category" jdbcType="VARCHAR" />
+	    <result column="Tel" property="tel" jdbcType="VARCHAR" />
+  	</association>
+  </resultMap>
+  <select id="selectUserInfoByExample" resultMap="FirstResultMap">
+  	SELECT
+		*
+	FROM
+		sm_user t
+	LEFT JOIN user_personal_info b ON t.UserName = b.UserName
+	where 1=1
+	<if test="userName!=null">
+		and t.UserName like '%${userName}%'
+	</if>
+	<if test="name!=null">
+		and t.FullName like '%${name}%'
+	</if>
+  </select>
 </mapper>

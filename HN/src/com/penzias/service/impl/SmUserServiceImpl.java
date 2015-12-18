@@ -1,5 +1,8 @@
 package com.penzias.service.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -23,4 +26,10 @@ public class SmUserServiceImpl extends BasicServiceImpl<SmUserExample, SmUser> i
 		return smUserMapper;
 	}
 
+	@Override
+	public List<SmUser> listUserInfo(Map<String, Object> params){
+
+		return this.smUserMapper.selectUserInfoByExample(params);
+	}
+	
 }

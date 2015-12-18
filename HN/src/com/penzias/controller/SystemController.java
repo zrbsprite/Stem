@@ -39,11 +39,11 @@ public class SystemController {
 	
 	@RequestMapping("/404")
 	public String error404(){
-		return "system/404";
+		return "anno/404";
 	}
 	
 	@RequestMapping("/500")
 	public String error500(){
-		return "system/500";
+		return "anno/500";
 	}
 }

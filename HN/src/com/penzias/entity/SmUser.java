@@ -10,125 +10,161 @@ import java.util.Date;
  *
  */
 public class SmUser {
-	
-	//用户名
-    private String username;
 
-    //密码
-    private String password;
+	// 用户名
+	private String username;
 
-    //邮箱
-    private String email;
+	// 密码
+	private String password;
 
-    //状态（1有效、0无效）
-    private String states;
+	// 邮箱
+	private String email;
 
-    //姓名
-    private String fullname;
+	// 状态（1有效、0无效）
+	private String states;
 
-    //联系方式
-    private String mobile;
+	// 姓名
+	private String fullname;
 
-    //所属机构（注意是科室代码）
-    private String depbm;
+	// 联系方式
+	private String mobile;
 
-    //所属角色
-    private String roleid;
+	// 所属机构（注意是科室代码）
+	private String depbm;
 
-    //用户类型(数据来源于codeitem的ZA)
-    private String usertype;
+	// 所属角色
+	private String roleid;
 
-    //创建时间
-    private Date createdate;
+	// 用户类型(数据来源于codeitem的ZA)
+	private String usertype;
 
-    //身份证号码
-    private String idnumber;
+	// 创建时间
+	private Date createdate;
 
-    public String getUsername() {
-        return username;
-    }
+	// 身份证号码
+	private String idnumber;
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	// 关联用户信息
+	private UserPersonalInfo userInfo;
 
-    public String getPassword() {
-        return password;
-    }
+	public String getUsername(){
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+		return username;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public void setUsername(String username){
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+		this.username = username;
+	}
 
-    public String getStates() {
-        return states;
-    }
+	public String getPassword(){
 
-    public void setStates(String states) {
-        this.states = states;
-    }
+		return password;
+	}
 
-    public String getFullname() {
-        return fullname;
-    }
+	public void setPassword(String password){
 
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
-    }
+		this.password = password;
+	}
 
-    public String getMobile() {
-        return mobile;
-    }
+	public String getEmail(){
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
+		return email;
+	}
 
-    public String getDepbm() {
-        return depbm;
-    }
+	public void setEmail(String email){
 
-    public void setDepbm(String depbm) {
-        this.depbm = depbm;
-    }
+		this.email = email;
+	}
 
-    public String getRoleid() {
-        return roleid;
-    }
+	public String getStates(){
 
-    public void setRoleid(String roleid) {
-        this.roleid = roleid;
-    }
+		return states;
+	}
 
-    public String getUsertype() {
-        return usertype;
-    }
+	public void setStates(String states){
 
-    public void setUsertype(String usertype) {
-        this.usertype = usertype;
-    }
+		this.states = states;
+	}
 
-    public Date getCreatedate() {
-        return createdate;
-    }
+	public String getFullname(){
 
-    public void setCreatedate(Date createdate) {
-        this.createdate = createdate;
-    }
+		return fullname;
+	}
 
-    public String getIdnumber() {
-        return idnumber;
-    }
+	public void setFullname(String fullname){
 
-    public void setIdnumber(String idnumber) {
-        this.idnumber = idnumber;
-    }
+		this.fullname = fullname;
+	}
+
+	public String getMobile(){
+
+		return mobile;
+	}
+
+	public void setMobile(String mobile){
+
+		this.mobile = mobile;
+	}
+
+	public String getDepbm(){
+
+		return depbm;
+	}
+
+	public void setDepbm(String depbm){
+
+		this.depbm = depbm;
+	}
+
+	public String getRoleid(){
+
+		return roleid;
+	}
+
+	public void setRoleid(String roleid){
+
+		this.roleid = roleid;
+	}
+
+	public String getUsertype(){
+
+		return usertype;
+	}
+
+	public void setUsertype(String usertype){
+
+		this.usertype = usertype;
+	}
+
+	public Date getCreatedate(){
+
+		return createdate;
+	}
+
+	public void setCreatedate(Date createdate){
+
+		this.createdate = createdate;
+	}
+
+	public String getIdnumber(){
+
+		return idnumber;
+	}
+
+	public void setIdnumber(String idnumber){
+
+		this.idnumber = idnumber;
+	}
+
+	public UserPersonalInfo getUserInfo(){
+
+		return userInfo;
+	}
+
+	public void setUserInfo(UserPersonalInfo userInfo){
+
+		this.userInfo = userInfo;
+	}
+
 }
