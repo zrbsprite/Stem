@@ -23,6 +23,7 @@ import com.penzias.dictionary.DiseaseType;
 import com.penzias.dictionary.MRSType;
 import com.penzias.dictionary.OtherType;
 import com.penzias.entity.ApoplexyConclusionInfo;
+import com.penzias.entity.ApoplexyConclusionInfoExample;
 import com.penzias.entity.BloodFatHistory;
 import com.penzias.entity.BloodFatHistoryExample;
 import com.penzias.entity.BloodGlucoseExamInfo;
@@ -72,10 +73,16 @@ import com.penzias.service.KidneyDiseaseHostoryService;
 import com.penzias.service.OtherHistoryService;
 import com.penzias.service.PhysiqueExamInfoService;
 import com.penzias.service.PulmonaryDiseaseHistoryService;
+import com.penzias.vo.ControlHistoryVO;
 import com.penzias.vo.InnerCheckVO;
 import com.penzias.vo.InstitutionCrowdFamilyInfoVO;
 import com.penzias.vo.OtherHistoryVO;
 
+/**
+ * 描述：人群筛查<br/>
+ * 作者：Bob <br/>
+ * 修改日期：2015年12月21日 - 上午10:27:55<br/>
+ */
 @Controller
 @RequestMapping("archives")
 public class ArchivesController extends BaseController{
@@ -555,6 +562,7 @@ public class ArchivesController extends BaseController{
 	 * @param model
 	 * @return
 	 */
+	@RequestMapping("savefi")
 	public String saveFamilyInfo(Integer cid, InstitutionCrowdFamilyInfoVO institutionCrowdFamilyInfoVO, Model model){
 		if(null!=cid){
 			if(null!=institutionCrowdFamilyInfoVO.getArrays()[0].getFamilyid()){	
@@ -562,6 +570,7 @@ public class ArchivesController extends BaseController{
 				this.InstitutionCrowdFamilyInfoService.updateBatch(institutionCrowdFamilyInfoVO.getArrays());
 			}else{
 				//new data
+				institutionCrowdFamilyInfoVO.setCrowdid(cid);
 				this.InstitutionCrowdFamilyInfoService.addBatch(institutionCrowdFamilyInfoVO.getArrays());
 			}
 		}
@@ -648,6 +657,36 @@ public class ArchivesController extends BaseController{
 				}
 			}
 			model.addAttribute("cid", cid);
+			
+			//字典数据
+			Map<String, SmCodeitem> occupationMap = (Map<String, SmCodeitem>) this.iDctionaryItem.queryGroup("ZU");
+			List<SmCodeitem> listZU0502 = new ArrayList<SmCodeitem>();
+			List<SmCodeitem> listZU0501 = new ArrayList<SmCodeitem>();
+			List<SmCodeitem> listZU01 = new ArrayList<SmCodeitem>();
+			List<SmCodeitem> listZU02 = new ArrayList<SmCodeitem>();
+			List<SmCodeitem> listZU03 = new ArrayList<SmCodeitem>();
+			List<SmCodeitem> listZU04 = new ArrayList<SmCodeitem>();
+			occupationMap.forEach((key, item) ->{
+				if(item.getPptr().equals("0502")){
+					listZU0502.add(item);
+				}else if(item.getPptr().equals("0501")){
+					listZU0501.add(item);
+				}else if("01".equals(item.getPptr())){
+					listZU01.add(item);
+				}else if("02".equals(item.getPptr())){
+					listZU02.add(item);
+				}else if("03".equals(item.getPptr())){
+					listZU03.add(item);
+				}else if("04".equals(item.getPptr())){
+					listZU04.add(item);
+				}
+			});
+			model.addAttribute("listZU0502", listZU0502);
+			model.addAttribute("listZU0501", listZU0502);
+			model.addAttribute("listZU01", listZU01);
+			model.addAttribute("listZU02", listZU02);
+			model.addAttribute("listZU03", listZU03);
+			model.addAttribute("listZU04", listZU04);
 		}
 		return "archives/control_ae";
 	}
@@ -662,24 +701,17 @@ public class ArchivesController extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("savecontrol")
-	public String saveControl(Integer cid, 
-			BrainBloodHistory brainBloodHistory, 
-			HeartDiseaseHistory heartDiseaseHistory,
-			HypertensionHistory hypertensionHistory,
-			BloodFatHistory bloodFatHistory,
-			DiabetesHistory diabetesHistory,
-			KidneyDiseaseHostory kidneyDiseaseHostory,
-			PulmonaryDiseaseHistory pulmonaryDiseaseHistory,
-			OtherHistoryVO otherVO,
-			Model model){
+	public String saveControl(Integer cid, ControlHistoryVO controlHistoryVO,OtherHistoryVO otherVO, Model model){
 		
 		if(null!=cid){
 			//先处理新增
-			brainBloodHistory.setMrsvalue(MRSType.getScore(brainBloodHistory.getMrsoption())+"");
-			this.historyControlService.add(brainBloodHistory,heartDiseaseHistory,
-					hypertensionHistory,bloodFatHistory,diabetesHistory,
-					kidneyDiseaseHostory,pulmonaryDiseaseHistory,otherVO);
-			
+			controlHistoryVO.setCrowdid(cid);
+			controlHistoryVO.getBrainBloodHistory().setMrsvalue(MRSType.getScore(controlHistoryVO.getBrainBloodHistory().getMrsoption())+"");
+			this.historyControlService.add(controlHistoryVO.getBrainBloodHistory(),controlHistoryVO.getHeartDiseaseHistory(),
+					controlHistoryVO.getHypertensionHistory(),controlHistoryVO.getBloodFatHistory(),
+					controlHistoryVO.getDiabetesHistory(),
+					controlHistoryVO.getKidneyDiseaseHostory(),controlHistoryVO.getPulmonaryDiseaseHistory(),
+					controlHistoryVO.getHistoryPharmacys(), otherVO);
 		}
 		return "redirect:/archives/body.htm?cid="+cid;
 	}
@@ -715,17 +747,19 @@ public class ArchivesController extends BaseController{
 	/**
 	 * @author: Bob
 	 * 修改时间：2015年12月16日 - 上午11:20:50<br/>
-	 * 功能说明：保存提个检查<br/>
+	 * 功能说明：保存体格检查<br/>
 	 * @param cid
 	 * @param physiqueExamInfo
 	 * @param model
 	 * @return
 	 */
+	@RequestMapping("savebody")
 	public String saveBodyCheck(Integer cid, PhysiqueExamInfo physiqueExamInfo){
 		if(null!=cid){
 			if(null!=physiqueExamInfo.getPhysiqueexamid()){
 				this.physiqueExamInfoService.updateById(physiqueExamInfo);
 			}else{
+				physiqueExamInfo.setCrowdid(cid);
 				this.physiqueExamInfoService.add(physiqueExamInfo);
 			}
 		}
@@ -767,11 +801,13 @@ public class ArchivesController extends BaseController{
 	 * 功能说明：保存心电图检查<br/>
 	 * @return
 	 */
+	@RequestMapping("saveheart")
 	public String saveHeart(Integer cid,ElectrocardiogramExamInfo electrocardiogramExamInfo, Model model){
 		if(null!=cid){
 			if(null!=electrocardiogramExamInfo.getElectrocardiogramexanid()){
 				this.electrocardiogramExamInfoService.updateById(electrocardiogramExamInfo);
 			}else{
+				electrocardiogramExamInfo.setCrowdid(cid);
 				this.electrocardiogramExamInfoService.add(electrocardiogramExamInfo);
 			}
 		}
@@ -806,12 +842,16 @@ public class ArchivesController extends BaseController{
 		if(null!=cid){
 			//此处只考虑新增
 			for(BloodGlucoseExamInfo info : entity.getBloodGlucoseExamInfos()){
+				info.setCrowdid(cid);
 				this.bloodGlucoseExamInfoService.add(info);
 			}
+			entity.getBloodFatExamInfo().setCrowdid(cid);
 			this.bloodFatExamInfoService.add(entity.getBloodFatExamInfo());
+			entity.getHomocysteineExamInfo().setCrowdid(cid);
 			this.homocysteineExamInfoService.add(entity.getHomocysteineExamInfo());
 		}
-		return "redirect:/archives/bblood.htm?cid="+cid;
+		//return "redirect:/archives/bblood.htm?cid="+cid;
+		return "redirect:/archives/brainlevel.htm?cid="+cid;
 	}
 	
 	/**
@@ -839,6 +879,7 @@ public class ArchivesController extends BaseController{
 	 * @param model
 	 * @return
 	 */
+	@RequestMapping("savebb")
 	public String saveBBlood(Integer cid, Model model){
 		if(null!=cid){
 			
@@ -858,8 +899,13 @@ public class ArchivesController extends BaseController{
 	public String brainLevel(Integer cid, Model model){
 		ApoplexyConclusionInfo apoplexyConclusionInfo = new ApoplexyConclusionInfo();
 		if(null!=cid){
-			
 			model.addAttribute("cid",cid);
+			ApoplexyConclusionInfoExample example = new ApoplexyConclusionInfoExample();
+			example.createCriteria().andCrowdidEqualTo(cid);
+			List<ApoplexyConclusionInfo> list = this.apoplexyConclusionInfoService.list(example);
+			if(list.size()>0){
+				model.addAttribute("apoplexyConclusionInfo", list.get(0));
+			}
 		}else{
 			//需要传入默认对象
 			model.addAttribute("apoplexyConclusionInfo",apoplexyConclusionInfo);
@@ -876,11 +922,18 @@ public class ArchivesController extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("saveres")
-	public String saveResult(Integer cid, Model model){
-		
-		
+	public String saveResult(Integer cid, ApoplexyConclusionInfo apoplexyConclusionInfo, Model model){
+		if(null!=cid){
+			if(null!=apoplexyConclusionInfo.getApoplexyconclusionid()){
+				this.apoplexyConclusionInfoService.updateById(apoplexyConclusionInfo);
+			}else{
+				apoplexyConclusionInfo.setCrowdid(cid);
+				this.apoplexyConclusionInfoService.add(apoplexyConclusionInfo);
+			}
+		}
 		return "redirect:/archives.htm";
 	}
+	
 	
 	/**
 	 * @author: Bob

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="false" context="filecomment_context" deleted="false" description="Comment for created Java files" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.filecomment" name="filecomment">/**
+ * File Name:${file_name}&lt;br/&gt;
+ * @Description:
+ * Copyright 2015 Samite.stem.zhang&lt;br/&gt;
+ * @author:Bob &lt;br/&gt;
+ * @version:v1.0
+ * Createdate:${date} - ${time}
+ *
+ */
+	</template></templates>

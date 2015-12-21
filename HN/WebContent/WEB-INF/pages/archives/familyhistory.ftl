@@ -1,6 +1,7 @@
 <div class="container-fluid">
 	<input type="hidden" value="${cid}" name="cid">
 	<div class="row"><h4><b>3.1脑卒中（中风）</b></h4></div>
+	<input type="hidden" value="${cid}" name="arrays[0].crowdid">
 	<input type="hidden" value="01" name="arrays[0].diseasetype">
 	<input type="hidden" value="${zr_brain.familyid}" name="arrays[0].familyid">
 	<div class="row">
@@ -45,13 +46,14 @@
 	
 	
 	<div class="row"><h4><b>3.2 冠心病</b></h4></div>
+	<input type="hidden" value="${cid}" name="arrays[1].crowdid">
 	<input type="hidden" value="02" name="arrays[1].diseasetype">
 	<input type="hidden" value="${zr_diabetes.familyid}" name="arrays[1].familyid">
 	<div class="row">
 		<div class="span12">
 			<div class="input-group input-sm">
               <label class="radio-inline">
-              	<input type="radio" value="0" name="arrays[1].isexist" <#if zr_diabetes.isexist?exists && zr_diabetes.isexist==0>checked</#if>>无
+              	<input type="radio" value="0" name="arrays[1].isexist" checked>无
               </label>
 			</div>
 		</div>
@@ -89,13 +91,14 @@
 	
 	
 	<div class="row"><h4><b>3.3 高血压</b></h4></div>
+	<input type="hidden" value="${cid}" name="arrays[2].crowdid">
 	<input type="hidden" value="03" name="arrays[2].diseasetype">
 	<input type="hidden" value="${zr_dyslipidemia.familyid}" name="arrays[2].familyid">
 	<div class="row">
 		<div class="span12">
 			<div class="input-group input-sm">
               <label class="radio-inline">
-              	<input type="radio" value="0" name="arrays[2].isexist" <#if zr_dyslipidemia.isexist?exists && zr_dyslipidemia.isexist==0>checked</#if>>无
+              	<input type="radio" value="0" name="arrays[2].isexist" checked>无
               </label>
 			</div>
 		</div>
@@ -132,13 +135,14 @@
 	</div>
 	
 	<div class="row"><h4><b>3.4 糖尿病</b></h4></div>
+	<input type="hidden" value="${cid}" name="arrays[3].crowdid">
 	<input type="hidden" value="04" name="arrays[3].diseasetype">
 	<input type="hidden" value="${zr_heart.familyid}" name="arrays[3].familyid">
 	<div class="row">
 		<div class="span12">
 			<div class="input-group input-sm">
               <label class="radio-inline">
-              	<input type="radio" value="0" name="arrays[3].isexist" <#if zr_heart.isexist?exists && zr_heart.isexist==0>checked</#if>>无
+              	<input type="radio" value="0" name="arrays[3].isexist" checked>无
               </label>
 			</div>
 		</div>
@@ -175,6 +179,7 @@
 	</div>
 	
 	<div class="row"><h4><b>3.5血脂异常</b></h4></div>
+	<input type="hidden" value="${cid}" name="arrays[4].crowdid">
 	<input type="hidden" value="05" name="arrays[4].diseasetype">
 	<input type="hidden" value="${zr_highblood.familyid}" name="arrays[4].familyid">
 	<div class="row">

@@ -23,4 +23,10 @@ public class HistoryPharmacyServiceImpl extends BasicServiceImpl<HistoryPharmacy
 		return historyPharmacyMapper;
 	}
 
+	@Override
+	public Integer addBatch(HistoryPharmacy[] historyPharmacys){
+
+		return this.historyPharmacyMapper.batchInsert(historyPharmacys);
+	}
+
 }

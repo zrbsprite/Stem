@@ -57,3 +57,9 @@ function page(pageNo){
 	$form.append($page);
 	$form.submit();
 }
+function isEmpty(val){
+	if(null==val || ""==val){
+		return true;
+	}
+	return false;
+}

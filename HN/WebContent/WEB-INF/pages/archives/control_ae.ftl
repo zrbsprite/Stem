@@ -30,6 +30,7 @@
 	 		<div class="span-col10 border-left-1 show-grid">
 	 			<#include "frame/route.ftl">
 	 			<div class="row">
+	 				<form action="${basepath}/archives/savecontrol.htm" method="post" id="mainForm">
 	 				<div class="container-fluid">
 			 			<div class="panel panel-default">
 		  					<div class="panel-body">
@@ -44,14 +45,15 @@
 								  <li><a href="${basepath}/archives/bblood.htm">颈部血管超声&gt;</a></li>
 								  <li><a href="${basepath}/archives/brainlevel.htm">脑卒中风险评级</a></li>
 								</ul>
-								<input type="hidden" name="crowdid" value="${crowdid}" >
+								<input type="hidden" name="cid" value="${cid}" >
 								<#include "archives/control.ftl">
 							</div>
 						</div>	
 					</div>	
+					</form>
 				</div>
 				<div class="row">
-					<div class="span3 pull-right"><button type="button" class="btn btn-success">下一步</button></div>
+					<div class="span3 pull-right"><button type="button" class="btn btn-success" id="btn_submit">下一步</button></div>
 				</div>
 			</div>
 		</div>

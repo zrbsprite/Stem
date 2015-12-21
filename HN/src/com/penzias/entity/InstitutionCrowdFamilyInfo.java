@@ -1,106 +1,146 @@
 package com.penzias.entity;
 
 public class InstitutionCrowdFamilyInfo {
-    private Integer familyid;
 
-    private Integer crowdid;
+	private Integer familyid;
 
-    //病种类型（ZR）
-    private String diseasetype;
+	private Integer crowdid;
 
-    //是否存在（0：无；1：有；2：不详）
-    private String isexist;
+	// 病种类型（ZR）
+	private String diseasetype;
 
-    //父亲（0：无；1:有）
-    private String father;
+	// 是否存在（0：无；1：有；2：不详）
+	private String isexist;
 
-    //母亲（0：无；1:有）
-    private String mother;
+	// 父亲（0：无；1:有）
+	private String father;
 
-    //兄弟姐妹（0:无；1:1个；2:2个......）
-    private String brothersister;
+	// 母亲（0：无；1:有）
+	private String mother;
 
-    //子女（0:无；1:1个；2:2个......）
-    private String children;
+	// 兄弟姐妹（0:无；1:1个；2:2个......）
+	private String brothersister;
 
-    private String flag;
-    
-    //不参与映射
-    //兄弟姐妹患病人数
-    private Integer brothersisterNo;
-    
-   //子女患病人数
-    private Integer childrenNo;
+	// 子女（0:无；1:1个；2:2个......）
+	private String children;
 
-    public Integer getFamilyid() {
-        return familyid;
-    }
+	private String flag;
 
-    public void setFamilyid(Integer familyid) {
-        this.familyid = familyid;
-    }
+	// 不参与映射
+	// 兄弟姐妹患病人数
+	private Integer brothersisterNo;
 
-    public Integer getCrowdid() {
-        return crowdid;
-    }
+	// 子女患病人数
+	private Integer childrenNo;
 
-    public void setCrowdid(Integer crowdid) {
-        this.crowdid = crowdid;
-    }
+	public Integer getFamilyid(){
 
-    public String getDiseasetype() {
-        return diseasetype;
-    }
+		return familyid;
+	}
 
-    public void setDiseasetype(String diseasetype) {
-        this.diseasetype = diseasetype;
-    }
+	public void setFamilyid(Integer familyid){
 
-    public String getIsexist() {
-        return isexist;
-    }
+		this.familyid = familyid;
+	}
 
-    public void setIsexist(String isexist) {
-        this.isexist = isexist;
-    }
+	public Integer getCrowdid(){
 
-    public String getFather() {
-        return father;
-    }
+		return crowdid;
+	}
 
-    public void setFather(String father) {
-        this.father = father;
-    }
+	public void setCrowdid(Integer crowdid){
 
-    public String getMother() {
-        return mother;
-    }
+		this.crowdid = crowdid;
+	}
 
-    public void setMother(String mother) {
-        this.mother = mother;
-    }
+	public String getDiseasetype(){
 
-    public String getBrothersister() {
-        return brothersister;
-    }
+		return diseasetype;
+	}
 
-    public void setBrothersister(String brothersister) {
-        this.brothersister = brothersister;
-    }
+	public void setDiseasetype(String diseasetype){
 
-    public String getChildren() {
-        return children;
-    }
+		this.diseasetype = diseasetype;
+	}
 
-    public void setChildren(String children) {
-        this.children = children;
-    }
+	public String getIsexist(){
 
-    public String getFlag() {
-        return flag;
-    }
+		return isexist;
+	}
 
-    public void setFlag(String flag) {
-        this.flag = flag;
-    }
+	public void setIsexist(String isexist){
+
+		this.isexist = isexist;
+	}
+
+	public String getFather(){
+
+		return father;
+	}
+
+	public void setFather(String father){
+
+		this.father = father;
+	}
+
+	public String getMother(){
+
+		return mother;
+	}
+
+	public void setMother(String mother){
+
+		this.mother = mother;
+	}
+
+	public String getBrothersister(){
+
+		return brothersister;
+	}
+
+	public void setBrothersister(String brothersister){
+
+		this.brothersister = brothersister;
+	}
+
+	public String getChildren(){
+
+		return children;
+	}
+
+	public void setChildren(String children){
+
+		this.children = children;
+	}
+
+	public String getFlag(){
+
+		return flag;
+	}
+
+	public void setFlag(String flag){
+
+		this.flag = flag;
+	}
+
+	public Integer getBrothersisterNo(){
+
+		return brothersisterNo;
+	}
+
+	public void setBrothersisterNo(Integer brothersisterNo){
+
+		this.brothersisterNo = brothersisterNo;
+	}
+
+	public Integer getChildrenNo(){
+
+		return childrenNo;
+	}
+
+	public void setChildrenNo(Integer childrenNo){
+
+		this.childrenNo = childrenNo;
+	}
+
 }

@@ -23,4 +23,9 @@ public class OtherHistoryServiceImpl extends BasicServiceImpl<OtherHistoryExampl
 		return otherHistoryMapper;
 	}
 
+	@Override
+	public void addBatch(OtherHistory[] others){
+		this.otherHistoryMapper.batchInsert(others);
+	}
+
 }

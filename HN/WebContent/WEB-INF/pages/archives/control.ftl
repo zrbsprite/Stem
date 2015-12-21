@@ -12,14 +12,14 @@
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
-		             	<input type="radio" value="0" name="isbrainblood" checked>无
+		             	<input type="radio" value="0" name="brainBloodHistory.isbrainblood" checked>无
 		            </label>
 				</div>
 			</div>
 			<div class="row">
 			  <div class="input-group input-sm">
 	              <label class="radio-inline">
-	              	<input type="radio" value="1" name="isbrainblood">有，发病次数：<input type="text" value="" name="number" required> 次
+	              	<input type="radio" value="1" name="brainBloodHistory.isbrainblood">有，发病次数：<input type="text" value="" name="brainBloodHistory.number" required> 次
 	              </label>
 			  </div>
 			</div>
@@ -29,7 +29,7 @@
 	              	末次发病时间：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="text" value="" name="lasttime"  onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" required> 年
+	              	<input type="text" value="" name="brainBloodHistory.lasttime"  onfocus="WdatePicker({dateFmt:'yyyy'})" required> 年
 	              </label>
 			  </div>
 			</div>
@@ -39,16 +39,16 @@
 	              	主要诊断：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="01" name="diagnosis" checked> 脑梗死
+	              	<input type="radio" value="01" name="brainBloodHistory.diagnosis" checked> 脑梗死
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="02" name="diagnosis"> 脑出血
+	              	<input type="radio" value="02" name="brainBloodHistory.diagnosis"> 脑出血
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="03" name="diagnosis"> 蛛网膜下腔出血
+	              	<input type="radio" value="03" name="brainBloodHistory.diagnosis"> 蛛网膜下腔出血
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="04" name="diagnosis"> 短暂性脑缺血发作（TIA）
+	              	<input type="radio" value="04" name="brainBloodHistory.diagnosis"> 短暂性脑缺血发作（TIA）
 	              </label>
 			  </div>
 			</div>
@@ -58,13 +58,13 @@
 	              	诊断依据：
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="1" name="basisbrainct"> 脑部CT
+	              	<input type="checkbox" value="1" name="brainBloodHistory.basisbrainct"> 脑部CT
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="1" name="basisbrainmri"> 脑部MRI
+	              	<input type="checkbox" value="1" name="brainBloodHistory.basisbrainmri"> 脑部MRI
 	              </label>
 	              <label class="checkbox-inline">
-	              	<input type="checkbox" value="1" name="clinical"> 临床表现 （症状、体征）
+	              	<input type="checkbox" value="1" name="brainBloodHistory.clinical"> 临床表现 （症状、体征）
 	              </label>
 			  </div>
 			</div>
@@ -78,7 +78,7 @@
               	<b>评估时间：</b>
               </label>
               <label class="radio-inline">
-              	<input type="text" value="" name="mrstime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})">
+              	<input type="text" value="" name="brainBloodHistory.mrstime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})">
               </label>
 			</div>
 		</div>
@@ -103,7 +103,7 @@
 		<div class="span8">
 			<div class="input-group input-sm">
               <label class="radio-inline">
-				<input type="radio" value="01" name="mrsoption"> 完全无症状
+				<input type="radio" value="01" name="brainBloodHistory.mrsoption"> 完全无症状
 	          </label>
 			</div>
 		</div>
@@ -119,7 +119,7 @@
 		<div class="span8">
 			<div class="input-group input-sm">
               <label class="radio-inline">
-              	<input type="radio" value="02" name="mrsoption"> 尽管有症状，但无明显功能障碍，能完成所有日常工作和生活
+              	<input type="radio" value="02" name="brainBloodHistory.mrsoption"> 尽管有症状，但无明显功能障碍，能完成所有日常工作和生活
               </label>
 			</div>
 		</div>
@@ -135,7 +135,7 @@
 		<div class="span8">
 			<div class="input-group input-sm">
               <label class="radio-inline">
-              	<input type="radio" value="03" name="mrsoption"> 轻度残疾，不能完成病前所有活动，但不需帮助能照顾自己的日常生活
+              	<input type="radio" value="03" name="brainBloodHistory.mrsoption"> 轻度残疾，不能完成病前所有活动，但不需帮助能照顾自己的日常生活
               </label>
 			</div>
 		</div>
@@ -151,7 +151,7 @@
 		<div class="span8">
 			<div class="input-group input-sm">
               <label class="radio-inline">
-              	<input type="radio" value="04" name="mrsoption"> 中度残疾，需部分帮助，但能独立行走
+              	<input type="radio" value="04" name="brainBloodHistory.mrsoption"> 中度残疾，需部分帮助，但能独立行走
               </label>
 			</div>
 		</div>
@@ -167,7 +167,7 @@
 		<div class="span8">
 			<div class="input-group input-sm">
               <label class="radio-inline">
-              	<input type="radio" value="05" name="mrsoption"> 重度残疾，不能独立行走，无他人帮助不能满足自身日常生活需求
+              	<input type="radio" value="05" name="brainBloodHistory.mrsoption"> 重度残疾，不能独立行走，无他人帮助不能满足自身日常生活需求
               </label>
 			</div>
 		</div>
@@ -183,7 +183,7 @@
 		<div class="span8">
 			<div class="input-group input-sm">
               <label class="radio-inline">
-              	<input type="radio" value="06" name="mrsoption"> 严重残疾，持续卧床、二便失禁，需持续护理和关注，日常生活完全依赖他人
+              	<input type="radio" value="06" name="brainBloodHistory.mrsoption"> 严重残疾，持续卧床、二便失禁，需持续护理和关注，日常生活完全依赖他人
               </label>
 			</div>
 		</div>
@@ -253,7 +253,7 @@
 	              </label>
 			  </div>
 			</div>
-			<div class="row">
+			<div class="row" id="div_heartDiseaseHistory_radio_01">
 			  <div class="input-group input-sm">
 	              <label class="radio-inline">
 	              	主要诊断：
@@ -262,29 +262,29 @@
 	              	<input type="radio" value="01" name="heartDiseaseHistory.diagnosis"> 心肌梗死（
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="0101" name="heartDiseaseHistory.diagnosisItem"> ST段抬高型心肌梗死 
+	              	<input type="radio" value="0101" name="heartDiseaseHistory.diagnosisItem" class="judge01"> ST段抬高型心肌梗死 
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="0102" name="heartDiseaseHistory.diagnosisItem"> 非ST段抬高型心肌梗死
+	              	<input type="radio" value="0102" name="heartDiseaseHistory.diagnosisItem" class="judge01"> 非ST段抬高型心肌梗死
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="0103" name="heartDiseaseHistory.diagnosisItem"> 不详）
+	              	<input type="radio" value="0103" name="heartDiseaseHistory.diagnosisItem" class="judge01"> 不详）
 	              </label>
 	              <label class="radio-inline">
 	              	<input type="radio" value="02" name="heartDiseaseHistory.diagnosis"> 心绞痛（
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="0201" name="heartDiseaseHistory.diagnosisItem"> 稳定型
+	              	<input type="radio" value="0201" name="heartDiseaseHistory.diagnosisItem" class="judge02"> 稳定型
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="0202" name="heartDiseaseHistory.diagnosisItem"> 不稳定型
+	              	<input type="radio" value="0202" name="heartDiseaseHistory.diagnosisItem" class="judge02"> 不稳定型
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="0203" name="heartDiseaseHistory.diagnosisItem"> 不详）
+	              	<input type="radio" value="0203" name="heartDiseaseHistory.diagnosisItem" class="judge02"> 不详）
 	              </label>
 			  </div>
 			</div>
-			<div class="row">
+			<div class="row" id="div_judgeby_checkbox_01">
 			  <div class="input-group input-sm">
 	              <label class="radio-inline">
 	              	诊断依据：
@@ -331,43 +331,32 @@
 	              <label class="radio-inline">
 	              	目前经常服用的抗血小板药物：
 	              </label>
-			  </div>
-			</div>
-			<div class="row">
-			  <div class="input-group input-sm">
 	              <label class="radio-inline">
-	              	药品通用名：<input type="text" value="" name="nation">
-	              </label>
-	              <label class="radio-inline">
-	              	，用药年限：<input type="text" value="" name="nation">年
-	              </label>
-	              <label class="radio-inline">
-	              	，用药情况：
-	              </label>
-	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 规律
-	              </label>
-	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 不规律
+					<div class="glyphicon-image glyphicon-img-plus" onclick="addItem(this);"></div>
 	              </label>
 			  </div>
 			</div>
 			<div class="row">
 			  <div class="input-group input-sm">
+			  	  <input type="hidden" name="historyPharmacys[0].pharmacytype" value="0502">
 	              <label class="radio-inline">
-	              	药品通用名：<input type="text" value="" name="nation">
+	              	药品通用名：<select name="historyPharmacys[0].pharmacyname">
+	              				<#list listZU0502 as bean>
+	              				<option value="${bean.code}">${bean.description}</option>
+	              				</#list>
+	              			</select>
 	              </label>
 	              <label class="radio-inline">
-	              	，用药年限：<input type="text" value="" name="nation">年
+	              	，用药年限：<input type="text" value="" name="historyPharmacys[0].pharmacyyear">年
 	              </label>
 	              <label class="radio-inline">
 	              	，用药情况：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 规律
+	              	<input type="radio" value="0" name="historyPharmacys[0].pharmacysituation"> 规律
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 不规律
+	              	<input type="radio" value="1" name="historyPharmacys[0].pharmacysituation"> 不规律
 	              </label>
 			  </div>
 			</div>
@@ -393,42 +382,29 @@
 			</div>
 			<div class="row">
 			  <div class="input-group input-sm">
+			  	<input type="hidden" name="historyPharmacys[1].pharmacytype" value="0501">
 	              <label class="radio-inline">
-	              	药品通用名：<input type="text" value="" name="historyPharmacy.pharmacyname">
+	              	药品通用名：<select name="historyPharmacys[1].pharmacyname">
+	              				<#list listZU0501 as bean>
+	              				<option value="${bean.code}">${bean.description}</option>
+	              				</#list>
+	              			</select>
 	              </label>
 	              <label class="radio-inline">
-	              	，用药年限：<input type="text" value="" name="historyPharmacy.pharmacyyear">年
-	              </label>
-	              <label class="radio-inline">
-	              	，用药情况：
-	              </label>
-	              <label class="radio-inline">
-	              	<input type="radio" value="0" name="historyPharmacy.pharmacysituation"> 规律
-	              </label>
-	              <label class="radio-inline">
-	              	<input type="radio" value="1" name="historyPharmacy.pharmacysituation"> 不规律
-	              </label>
-			  </div>
-			</div>
-			<div class="row">
-			  <div class="input-group input-sm">
-	              <label class="radio-inline">
-	              	药品通用名：<input type="text" value="" name="nation">
-	              </label>
-	              <label class="radio-inline">
-	              	，用药年限：<input type="text" value="" name="nation">年
+	              	，用药年限：<input type="text" value="" name="historyPharmacys[1].pharmacyyear">年
 	              </label>
 	              <label class="radio-inline">
 	              	，用药情况：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 规律
+	              	<input type="radio" value="0" name="historyPharmacys[1].pharmacysituation"> 规律
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 不规律
+	              	<input type="radio" value="1" name="historyPharmacys[1].pharmacysituation"> 不规律
 	              </label>
 			  </div>
 			</div>
+			
 		</div>
 	</div>
 	<div class="row"><h4><b>4.3 高血压  </b></h4></div>
@@ -495,39 +471,25 @@
           </div>
 			<div class="row">
 			  <div class="input-group input-sm">
+			  <input type="hidden" name="historyPharmacys[2].pharmacytype" value="01">
 	              <label class="radio-inline">
-	              	药品通用名：<input type="text" value="" name="nation">
+	              	药品通用名：<select name="historyPharmacys[2].pharmacyname">
+	              				<#list listZU01 as bean>
+	              				<option value="${bean.code}">${bean.description}</option>
+	              				</#list>
+	              			</select>
 	              </label>
 	              <label class="radio-inline">
-	              	，用药年限：<input type="text" value="" name="nation">年
-	              </label>
-	              <label class="radio-inline">
-	              	，用药情况：
-	              </label>
-	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 规律
-	              </label>
-	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 不规律
-	              </label>
-			  </div>
-			</div>
-			<div class="row">
-			  <div class="input-group input-sm">
-	              <label class="radio-inline">
-	              	药品通用名：<input type="text" value="" name="nation">
-	              </label>
-	              <label class="radio-inline">
-	              	，用药年限：<input type="text" value="" name="nation">年
+	              	，用药年限：<input type="text" value="" name="historyPharmacys[2].pharmacyyear">年
 	              </label>
 	              <label class="radio-inline">
 	              	，用药情况：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 规律
+	              	<input type="radio" value="0" name="historyPharmacys[2].pharmacysituation"> 规律
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 不规律
+	              	<input type="radio" value="1" name="historyPharmacys[2].pharmacysituation"> 不规律
 	              </label>
 			  </div>
 			</div>
@@ -553,39 +515,25 @@
           </div>
 			<div class="row">
 			  <div class="input-group input-sm">
+			  <input type="hidden" name="historyPharmacys[3].pharmacytype" value="02">
 	              <label class="radio-inline">
-	              	药品通用名：<input type="text" value="" name="nation">
+	              	药品通用名：<select name="historyPharmacys[3].pharmacyname">
+	              				<#list listZU02 as bean>
+	              				<option value="${bean.code}">${bean.description}</option>
+	              				</#list>
+	              			</select>
 	              </label>
 	              <label class="radio-inline">
-	              	，用药年限：<input type="text" value="" name="nation">年
-	              </label>
-	              <label class="radio-inline">
-	              	，用药情况：
-	              </label>
-	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 规律
-	              </label>
-	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 不规律
-	              </label>
-			  </div>
-			</div>
-			<div class="row">
-			  <div class="input-group input-sm">
-	              <label class="radio-inline">
-	              	药品通用名：<input type="text" value="" name="nation">
-	              </label>
-	              <label class="radio-inline">
-	              	，用药年限：<input type="text" value="" name="nation">年
+	              	，用药年限：<input type="text" value="" name="historyPharmacys[3].pharmacyyear">年
 	              </label>
 	              <label class="radio-inline">
 	              	，用药情况：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 规律
+	              	<input type="radio" value="0" name="historyPharmacys[3].pharmacysituation"> 规律
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 不规律
+	              	<input type="radio" value="1" name="historyPharmacys[3].pharmacysituation"> 不规律
 	              </label>
 			  </div>
 			</div>
@@ -700,20 +648,25 @@
             </div>
 			<div class="row">
 			  <div class="input-group input-sm">
+			  <input type="hidden" name="historyPharmacys[4].pharmacytype" value="03">
 	              <label class="radio-inline">
-	              	药品通用名：<input type="text" value="" name="nation">
+	              	药品通用名：<select name="historyPharmacys[4].pharmacyname">
+	              				<#list listZU03 as bean>
+	              				<option value="${bean.code}">${bean.description}</option>
+	              				</#list>
+	              			</select>
 	              </label>
 	              <label class="radio-inline">
-	              	，用药年限：<input type="text" value="" name="nation">年
+	              	，用药年限：<input type="text" value="" name="historyPharmacys[4].pharmacyyear">年
 	              </label>
 	              <label class="radio-inline">
 	              	，用药情况：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 规律
+	              	<input type="radio" value="0" name="historyPharmacys[4].pharmacysituation"> 规律
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 不规律
+	              	<input type="radio" value="1" name="historyPharmacys[4].pharmacysituation"> 不规律
 	              </label>
 			  </div>
 			</div>
@@ -866,20 +819,25 @@
             </div>
 			<div class="row">
 			  <div class="input-group input-sm">
+			  <input type="hidden" name="historyPharmacys[5].pharmacytype" value="04">
 	              <label class="radio-inline">
-	              	药品通用名：<input type="text" value="" name="nation">
+	              	药品通用名：<select name="historyPharmacys[5].pharmacyname">
+	              				<#list listZU04 as bean>
+	              				<option value="${bean.code}">${bean.description}</option>
+	              				</#list>
+	              			</select>
 	              </label>
 	              <label class="radio-inline">
-	              	，用药年限：<input type="text" value="" name="nation">年
+	              	，用药年限：<input type="text" value="" name="historyPharmacys[5].pharmacyyear">年
 	              </label>
 	              <label class="radio-inline">
 	              	，用药情况：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 规律
+	              	<input type="radio" value="0" name="historyPharmacys[5].pharmacysituation"> 规律
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="" name="nation"> 不规律
+	              	<input type="radio" value="1" name="historyPharmacys[5].pharmacysituation"> 不规律
 	              </label>
 			  </div>
 			</div>

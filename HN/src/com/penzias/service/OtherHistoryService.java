@@ -6,4 +6,5 @@ import com.penzias.entity.OtherHistoryExample;
 
 public interface OtherHistoryService extends BasicService<OtherHistoryExample, OtherHistory> {
 
+	public void addBatch(OtherHistory[] others);
 }

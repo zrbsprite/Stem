@@ -30,6 +30,7 @@
 	 		<div class="span-col10 border-left-1 show-grid">
 	 			<#include "frame/route.ftl">
 	 			<div class="row">
+	 				<form action="${basepath}/archives/savebody.htm" method="post" id="mainForm">
 	 				<div class="container-fluid">
 			 			<div class="panel panel-default">
 		  					<div class="panel-body">
@@ -48,9 +49,10 @@
 							</div>
 						</div>	
 					</div>	
+					</form>
 				</div>
 				<div class="row">
-					<div class="span3 pull-right"><button type="button" class="btn btn-success">下一步</button></div>
+					<div class="span3 pull-right"><button type="button" class="btn btn-success" id="btn_submit">下一步</button></div>
 				</div>
 			</div>
 		</div>

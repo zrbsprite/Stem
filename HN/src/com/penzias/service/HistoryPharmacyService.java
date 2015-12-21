@@ -6,4 +6,5 @@ import com.penzias.entity.HistoryPharmacyExample;
 
 public interface HistoryPharmacyService extends BasicService<HistoryPharmacyExample, HistoryPharmacy> {
 
+	public Integer addBatch(HistoryPharmacy[] historyPharmacys);
 }

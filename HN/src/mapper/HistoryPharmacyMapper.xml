@@ -241,4 +241,16 @@
       Flag = #{flag,jdbcType=VARCHAR}
     where PharmacyID = #{pharmacyid,jdbcType=INTEGER}
   </update>
+  
+   <insert id="batchInsert">
+   insert into history_pharmacy (PharmacyID, CrowdID, PharmacyType, 
+      PharmacyName, PharmacyYear, PharmacySituation, 
+      Flag)
+    values 
+   	<foreach collection="array" item="item" index="index" separator=",">
+      (#{pharmacyid,jdbcType=INTEGER}, #{crowdid,jdbcType=INTEGER}, #{pharmacytype,jdbcType=VARCHAR}, 
+      #{pharmacyname,jdbcType=VARCHAR}, #{pharmacyyear,jdbcType=VARCHAR}, #{pharmacysituation,jdbcType=VARCHAR}, 
+      #{flag,jdbcType=VARCHAR})
+   	</foreach>
+  </insert>
 </mapper>

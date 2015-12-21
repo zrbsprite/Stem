@@ -225,4 +225,14 @@
       Flag = #{flag,jdbcType=VARCHAR}
     where OtherID = #{otherid,jdbcType=INTEGER}
   </update>
+  
+   <insert id="batchInsert">
+  	insert into other_history (OtherID, CrowdID, OtherType, 
+      IsOther, DiagnosisTime, Flag )
+    values 
+   	<foreach collection="array" item="item" index="index" separator=",">
+      (#{otherid,jdbcType=INTEGER}, #{crowdid,jdbcType=INTEGER}, #{othertype,jdbcType=VARCHAR}, 
+      #{isother,jdbcType=VARCHAR}, #{diagnosistime,jdbcType=DATE}, #{flag,jdbcType=VARCHAR})
+   	</foreach>
+  </insert>
 </mapper>
