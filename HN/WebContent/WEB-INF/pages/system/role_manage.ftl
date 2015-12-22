@@ -77,8 +77,8 @@
 			 						<td>${bean.powerlevel}</td>
 			 						<td>
 			 							<div class="btn-group btn-group-xs">
-				 							<button class="btn btn-primary" type="button">删除</button>
-				 							<button class="btn btn-primary" type="button">修改</button>
+				 							<button class="btn btn-primary" type="button" onclick="delItem('${bean.roleid}',this)">删除</button>
+				 							<button class="btn btn-primary" type="button" onclick="editItem('${bean.roleid}'this)">修改</button>
 			 							</div>
 			 						</td>
 			 					</tr>
@@ -98,6 +98,6 @@
 	<#include "frame/js-ie.ftl">
 	<script type="text/javascript" src="${basepath}/assets/layer/layer.js"></script>
 	<script type="text/javascript" src="${basepath}/assets/layer/alert.js"></script>
-	<script type="text/javascript" src="${basepath}/assets/js/include_userm.js"></script>
+	<script type="text/javascript" src="${basepath}/assets/js/include_rolem.js"></script>
   </body>
 </html>

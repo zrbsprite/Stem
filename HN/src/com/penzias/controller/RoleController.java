@@ -1,6 +1,5 @@
 package com.penzias.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -23,7 +22,6 @@ import com.penzias.service.SmRoleService;
 /**
  * 描述：角色管理<br/>
  * 作者：Bob <br/>
- * 修改日期：2015年12月22日 - 下午2:10:17<br/>
  */
 @RequestMapping("role")
 @Controller
