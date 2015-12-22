@@ -35,6 +35,7 @@ import com.penzias.entity.ElectrocardiogramExamInfo;
 import com.penzias.entity.ElectrocardiogramExamInfoExample;
 import com.penzias.entity.HeartDiseaseHistory;
 import com.penzias.entity.HeartDiseaseHistoryExample;
+import com.penzias.entity.HistoryPharmacy;
 import com.penzias.entity.HypertensionHistory;
 import com.penzias.entity.HypertensionHistoryExample;
 import com.penzias.entity.InstitutionCrowdBaseInfo;
@@ -701,17 +702,30 @@ public class ArchivesController extends BaseController{
 	 * @return
 	 */
 	@RequestMapping("savecontrol")
-	public String saveControl(Integer cid, ControlHistoryVO controlHistoryVO,OtherHistoryVO otherVO, Model model){
+	public String saveControl(Integer cid, ControlHistoryVO controlHistoryVO,OtherHistoryVO otherVO,
+			String[] pharmacytype, String[] pharmacyname, String[] pharmacyyear, String[] pharmacysituation,
+				Model model){
 		
 		if(null!=cid){
 			//先处理新增
 			controlHistoryVO.setCrowdid(cid);
 			controlHistoryVO.getBrainBloodHistory().setMrsvalue(MRSType.getScore(controlHistoryVO.getBrainBloodHistory().getMrsoption())+"");
+			int length = pharmacytype.length;
+			HistoryPharmacy[] historyPharmacys = new HistoryPharmacy[length];
+			for(int i=0;i<length;i++){
+				HistoryPharmacy historyPharmacy = new HistoryPharmacy();
+				historyPharmacy.setCrowdid(cid);
+				historyPharmacy.setPharmacytype(pharmacytype[i]);
+				historyPharmacy.setPharmacyname(pharmacyname[i]);
+				historyPharmacy.setPharmacyyear(pharmacyyear[i]);
+				historyPharmacy.setPharmacysituation(pharmacysituation[i]);
+				historyPharmacys[i] = historyPharmacy;
+			}
 			this.historyControlService.add(controlHistoryVO.getBrainBloodHistory(),controlHistoryVO.getHeartDiseaseHistory(),
 					controlHistoryVO.getHypertensionHistory(),controlHistoryVO.getBloodFatHistory(),
 					controlHistoryVO.getDiabetesHistory(),
 					controlHistoryVO.getKidneyDiseaseHostory(),controlHistoryVO.getPulmonaryDiseaseHistory(),
-					controlHistoryVO.getHistoryPharmacys(), otherVO);
+					historyPharmacys, otherVO);
 		}
 		return "redirect:/archives/body.htm?cid="+cid;
 	}

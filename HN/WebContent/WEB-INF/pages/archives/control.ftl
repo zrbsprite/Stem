@@ -319,10 +319,10 @@
 	              	是否服用抗血小板药物：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="1" name="heartDiseaseHistory.isplatelet"> 是
+	              	<input type="radio" value="0" name="heartDiseaseHistory.isplatelet"> 否
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="0" name="heartDiseaseHistory.isplatelet"> 否
+	              	<input type="radio" value="1" name="heartDiseaseHistory.isplatelet"> 是
 	              </label>
 			  </div>
 			</div>
@@ -331,32 +331,32 @@
 	              <label class="radio-inline">
 	              	目前经常服用的抗血小板药物：
 	              </label>
-	              <label class="radio-inline">
-					<div class="glyphicon-image glyphicon-img-plus" onclick="addItem(this);"></div>
-	              </label>
 			  </div>
 			</div>
 			<div class="row">
 			  <div class="input-group input-sm">
-			  	  <input type="hidden" name="historyPharmacys[0].pharmacytype" value="0502">
+			  	  <input type="hidden" name="pharmacytype" value="0502">
 	              <label class="radio-inline">
-	              	药品通用名：<select name="historyPharmacys[0].pharmacyname">
+	              	药品通用名：<select name="pharmacyname">
 	              				<#list listZU0502 as bean>
 	              				<option value="${bean.code}">${bean.description}</option>
 	              				</#list>
 	              			</select>
 	              </label>
 	              <label class="radio-inline">
-	              	，用药年限：<input type="text" value="" name="historyPharmacys[0].pharmacyyear">年
+	              	，用药年限：<input type="text" value="" name="pharmacyyear">年
 	              </label>
 	              <label class="radio-inline">
 	              	，用药情况：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="0" name="historyPharmacys[0].pharmacysituation"> 规律
+	              	<input type="radio" value="0" name="pharmacysituation"> 规律
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="1" name="historyPharmacys[0].pharmacysituation"> 不规律
+	              	<input type="radio" value="1" name="pharmacysituation"> 不规律
+	              </label>
+	              <label class="radio-inline">
+					<div class="glyphicon-image glyphicon-img-plus" onclick="addItem(this);"></div>
 	              </label>
 			  </div>
 			</div>
@@ -382,25 +382,28 @@
 			</div>
 			<div class="row">
 			  <div class="input-group input-sm">
-			  	<input type="hidden" name="historyPharmacys[1].pharmacytype" value="0501">
+			  	  <input type="hidden" name="pharmacytype" value="0501">
 	              <label class="radio-inline">
-	              	药品通用名：<select name="historyPharmacys[1].pharmacyname">
+	              	药品通用名：<select name="pharmacyname">
 	              				<#list listZU0501 as bean>
 	              				<option value="${bean.code}">${bean.description}</option>
 	              				</#list>
 	              			</select>
 	              </label>
 	              <label class="radio-inline">
-	              	，用药年限：<input type="text" value="" name="historyPharmacys[1].pharmacyyear">年
+	              	，用药年限：<input type="text" value="" name="pharmacyyear">年
 	              </label>
 	              <label class="radio-inline">
 	              	，用药情况：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="0" name="historyPharmacys[1].pharmacysituation"> 规律
+	              	<input type="radio" value="0" name="pharmacysituation"> 规律
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="1" name="historyPharmacys[1].pharmacysituation"> 不规律
+	              	<input type="radio" value="1" name="pharmacysituation"> 不规律
+	              </label>
+	              <label class="radio-inline">
+					<div class="glyphicon-image glyphicon-img-plus" onclick="addItem(this);"></div>
 	              </label>
 			  </div>
 			</div>
@@ -471,25 +474,28 @@
           </div>
 			<div class="row">
 			  <div class="input-group input-sm">
-			  <input type="hidden" name="historyPharmacys[2].pharmacytype" value="01">
+			  <input type="hidden" name="pharmacytype" value="01">
 	              <label class="radio-inline">
-	              	药品通用名：<select name="historyPharmacys[2].pharmacyname">
+	              	药品通用名：<select name="pharmacyname">
 	              				<#list listZU01 as bean>
 	              				<option value="${bean.code}">${bean.description}</option>
 	              				</#list>
 	              			</select>
 	              </label>
 	              <label class="radio-inline">
-	              	，用药年限：<input type="text" value="" name="historyPharmacys[2].pharmacyyear">年
+	              	，用药年限：<input type="text" value="" name="pharmacyyear">年
 	              </label>
 	              <label class="radio-inline">
 	              	，用药情况：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="0" name="historyPharmacys[2].pharmacysituation"> 规律
+	              	<input type="radio" value="0" name="pharmacysituation"> 规律
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="1" name="historyPharmacys[2].pharmacysituation"> 不规律
+	              	<input type="radio" value="1" name="pharmacysituation"> 不规律
+	              </label>
+	              <label class="radio-inline">
+					<div class="glyphicon-image glyphicon-img-plus" onclick="addItem(this);"></div>
 	              </label>
 			  </div>
 			</div>
@@ -515,25 +521,28 @@
           </div>
 			<div class="row">
 			  <div class="input-group input-sm">
-			  <input type="hidden" name="historyPharmacys[3].pharmacytype" value="02">
+			  <input type="hidden" name="pharmacytype" value="02">
 	              <label class="radio-inline">
-	              	药品通用名：<select name="historyPharmacys[3].pharmacyname">
+	              	药品通用名：<select name="pharmacyname">
 	              				<#list listZU02 as bean>
 	              				<option value="${bean.code}">${bean.description}</option>
 	              				</#list>
 	              			</select>
 	              </label>
 	              <label class="radio-inline">
-	              	，用药年限：<input type="text" value="" name="historyPharmacys[3].pharmacyyear">年
+	              	，用药年限：<input type="text" value="" name="pharmacyyear">年
 	              </label>
 	              <label class="radio-inline">
 	              	，用药情况：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="0" name="historyPharmacys[3].pharmacysituation"> 规律
+	              	<input type="radio" value="0" name="pharmacysituation"> 规律
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="1" name="historyPharmacys[3].pharmacysituation"> 不规律
+	              	<input type="radio" value="1" name="pharmacysituation"> 不规律
+	              </label>
+	              <label class="radio-inline">
+					<div class="glyphicon-image glyphicon-img-plus" onclick="addItem(this);"></div>
 	              </label>
 			  </div>
 			</div>
@@ -648,25 +657,28 @@
             </div>
 			<div class="row">
 			  <div class="input-group input-sm">
-			  <input type="hidden" name="historyPharmacys[4].pharmacytype" value="03">
+			  <input type="hidden" name="pharmacytype" value="03">
 	              <label class="radio-inline">
-	              	药品通用名：<select name="historyPharmacys[4].pharmacyname">
+	              	药品通用名：<select name="pharmacyname">
 	              				<#list listZU03 as bean>
 	              				<option value="${bean.code}">${bean.description}</option>
 	              				</#list>
 	              			</select>
 	              </label>
 	              <label class="radio-inline">
-	              	，用药年限：<input type="text" value="" name="historyPharmacys[4].pharmacyyear">年
+	              	，用药年限：<input type="text" value="" name="pharmacyyear">年
 	              </label>
 	              <label class="radio-inline">
 	              	，用药情况：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="0" name="historyPharmacys[4].pharmacysituation"> 规律
+	              	<input type="radio" value="0" name="pharmacysituation"> 规律
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="1" name="historyPharmacys[4].pharmacysituation"> 不规律
+	              	<input type="radio" value="1" name="pharmacysituation"> 不规律
+	              </label>
+	              <label class="radio-inline">
+					<div class="glyphicon-image glyphicon-img-plus" onclick="addItem(this);"></div>
 	              </label>
 			  </div>
 			</div>
@@ -819,25 +831,28 @@
             </div>
 			<div class="row">
 			  <div class="input-group input-sm">
-			  <input type="hidden" name="historyPharmacys[5].pharmacytype" value="04">
+			  <input type="hidden" name="pharmacytype" value="04">
 	              <label class="radio-inline">
-	              	药品通用名：<select name="historyPharmacys[5].pharmacyname">
+	              	药品通用名：<select name="pharmacyname">
 	              				<#list listZU04 as bean>
 	              				<option value="${bean.code}">${bean.description}</option>
 	              				</#list>
 	              			</select>
 	              </label>
 	              <label class="radio-inline">
-	              	，用药年限：<input type="text" value="" name="historyPharmacys[5].pharmacyyear">年
+	              	，用药年限：<input type="text" value="" name="pharmacyyear">年
 	              </label>
 	              <label class="radio-inline">
 	              	，用药情况：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="0" name="historyPharmacys[5].pharmacysituation"> 规律
+	              	<input type="radio" value="0" name="pharmacysituation"> 规律
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="1" name="historyPharmacys[5].pharmacysituation"> 不规律
+	              	<input type="radio" value="1" name="pharmacysituation"> 不规律
+	              </label>
+	              <label class="radio-inline">
+					<div class="glyphicon-image glyphicon-img-plus" onclick="addItem(this);"></div>
 	              </label>
 			  </div>
 			</div>

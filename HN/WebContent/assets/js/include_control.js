@@ -95,14 +95,45 @@ $(function(){
 			}
 			
 			//房颤
-			var $heartDiseaseHistory_coronarydisease=$("[name='heartDiseaseHistory.coronarydisease']:checkbox:checked");
-			
+			var $heartDiseaseHistory_atrialfibrillation=$("[name='heartDiseaseHistory.atrialfibrillation']:checkbox:checked");
+			if($heartDiseaseHistory_atrialfibrillation.length>0){
+				var $heartDiseaseHistory_firsttime=$("[name='heartDiseaseHistory.firsttime']").eq(0);
+				if(isEmpty($heartDiseaseHistory_firsttime)){
+					dialog.info("请填写房颤首次确诊时间");
+					$heartDiseaseHistory_firsttime.focus();
+					return false;
+				}
+				var $heartDiseaseHistory_isplatelet=$(":radio:checked[name='heartDiseaseHistory.isplatelet']");
+				if($heartDiseaseHistory_isplatelet.length<=0){
+					dialog.info("请勾选是否使用抗血小板药物选项");
+					return false;
+				}else{
+					if(1==$heartDiseaseHistory_isplatelet.val()){
+						//校验药品
+					}
+				}
+				var $heartDiseaseHistory_isanticoagulant=$(":radio:checked[name='heartDiseaseHistory.isanticoagulant']");
+				if($heartDiseaseHistory_isanticoagulant.length<=0){
+					dialog.info("请勾选是否使用抗凝药物选项");
+					return false;
+				}else{
+					if(1==$heartDiseaseHistory_isanticoagulant.val()){
+						//校验药品
+					}
+				}
+			}
 		}
+		
+		//高血压 
 		
 		$("#mainForm").submit();
 		this.disabled="disabled";
 	});
 });
 function addItem(that){
-	
+	var $this=$(that);
+	var $row=$this.closest(".row");
+	var $element=$row.clone();
+	$row.after($element);
+	$this.closest("label").remove();
 }

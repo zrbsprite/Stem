@@ -4,7 +4,6 @@ import com.penzias.entity.BloodFatHistory;
 import com.penzias.entity.BrainBloodHistory;
 import com.penzias.entity.DiabetesHistory;
 import com.penzias.entity.HeartDiseaseHistory;
-import com.penzias.entity.HistoryPharmacy;
 import com.penzias.entity.HypertensionHistory;
 import com.penzias.entity.KidneyDiseaseHostory;
 import com.penzias.entity.PulmonaryDiseaseHistory;
@@ -28,8 +27,6 @@ public class ControlHistoryVO {
 	private DiabetesHistory diabetesHistory;
 	private KidneyDiseaseHostory kidneyDiseaseHostory;
 	private PulmonaryDiseaseHistory pulmonaryDiseaseHistory;
-
-	private HistoryPharmacy[] historyPharmacys;
 
 	public BrainBloodHistory getBrainBloodHistory(){
 
@@ -105,18 +102,6 @@ public class ControlHistoryVO {
 	public void setPulmonaryDiseaseHistory(PulmonaryDiseaseHistory pulmonaryDiseaseHistory){
 
 		this.pulmonaryDiseaseHistory = pulmonaryDiseaseHistory;
-	}
-
-	public HistoryPharmacy[] getHistoryPharmacys(){
-		for(HistoryPharmacy historyPharmacy : this.historyPharmacys){
-			historyPharmacy.setCrowdid(crowdid);
-		}
-		return historyPharmacys;
-	}
-
-	public void setHistoryPharmacys(HistoryPharmacy[] historyPharmacys){
-
-		this.historyPharmacys = historyPharmacys;
 	}
 
 	public Integer getCrowdid(){

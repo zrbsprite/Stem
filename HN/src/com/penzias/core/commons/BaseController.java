@@ -2,12 +2,16 @@ package com.penzias.core.commons;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.support.RequestContext;
 
 import com.penzias.core.commons.PropertiesInitBean.PropertiesUtils;
 
 public abstract class BaseController {
 
+	protected Logger logger = LoggerFactory.getLogger(getClass());
+	
 	/**
 	 * @author: Bob
 	 * 修改时间：2015年12月11日 - 上午9:39:47<br/>

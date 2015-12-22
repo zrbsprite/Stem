@@ -6,8 +6,6 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -30,8 +28,6 @@ import com.penzias.service.UserPersonalInfoService;
 @Controller
 public class UserController extends BaseController {
 
-	private Logger logger = LoggerFactory.getLogger(getClass());
-	
 	@Resource
 	private SmUserService smUserService;
 	
@@ -64,7 +60,7 @@ public class UserController extends BaseController {
 		List<SmUser> list = this.smUserService.listUserInfo(params);
 		PageInfo<SmUser> pageinfo = new PageInfo<SmUser>(list);
 		model.addAttribute("page", pageinfo);
-		return "";
+		return "system/user_manage";
 	}
 	
 	/**

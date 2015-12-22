@@ -33,10 +33,72 @@
 	 				<div class="container-fluid">
 			 			<div class="panel panel-default">
 		  					<div class="panel-body">
-								
-								
-								
+								<#-- start -->
+								<div class="row">
+								  <form role="form" id="mainForm" action="${basepath}/um/list.htm">
+							  		<div class="span3">
+								  		<div class="input-group clearfix input-ie">
+										  <span class="input-group-addon">姓名:</span>
+										  <input type="text" class="form-control" placeholder="填写姓名" name="name">
+										</div>
+							  		</div>
+							  		<div class="span3">
+								  		<div class="input-group clearfix input-ie">
+										  <span class="input-group-addon">手机号码:</span>
+										  <input type="text" class="form-control" placeholder="填写手机号码" name="phone">
+										</div>
+							  		</div>
+							  		<div class="span1">
+								  		<div class="input-group clearfix input-ie">
+										 <span class="input-group-btn">
+									        <button class="btn btn-default btn-theme2" type="button">查询</button>
+									      </span>
+										</div>
+							  		</div>
+								  </form>
+							  	</div>
+								<#-- end -->
 							</div>
+							<#-- table start -->
+							<table class="table table-hover">
+			 				  	<thead>
+			 					<tr>
+			                      <th colspan="7"><button class="btn btn-theme2 btn-primary pull-right" type="button">检验</button></th>
+			                    </tr>
+			 					<tr>
+			                      <th>姓名</th>
+			                      <th>性别</th>
+			                      <th>年龄</th>
+			                      <th>身份证号码</th>
+			                      <th>手机号码</th>
+			                      <th>病历状态</th>
+			                      <th>操作</th>
+			                    </tr>
+		                    	</thead>
+			                    <tbody>
+			 					<#if page?exists && page?size lt 0>
+			 					<#list page as bean>
+			 					<tr>
+			 						<td>${bean.fullname}</td>
+			 						<td><#if bean.sex=='1'>男<#elseif bean.sex=='0'>女<#else>未知</#if></td>
+			 						<td>${bean.age}</td>
+			 						<td>${bean.certificatesid}</td>
+			 						<td>${bean.mobile}</td>
+			 						<td>${bean.status}</td>
+			 						<td>
+			 							<div class="btn-group btn-group-xs">
+				 							<button class="btn btn-primary" type="button">修改</button>
+				 							<button class="btn btn-primary" type="button">删除</button>
+				 							<button class="btn btn-primary" type="button">浏览</button>
+			 							</div>
+			 						</td>
+			 					</tr>
+			 					</#list>
+			 					</#if>
+			 					</tbody>
+							</table>
+							<#include "frame/pagination.ftl">
+							<#-- table end -->
 						</div>	
 					</div>	
 				</div>
