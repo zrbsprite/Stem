@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  	<#assign pageTitle='系统管理-权限管理'>
+  	<#assign pageTitle='系统管理-角色管理'>
     <title>${pageTitle}</title>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -12,7 +12,7 @@
         <script src="${basepath}/assets/base/js/html5shiv.min.js"></script>
     <![endif]-->
     <style rel="stylesheet">
-    	td{
+    	th,td{
     		vertical-align:middle!important;
     		text-align:center!important;
     	}
@@ -35,7 +35,7 @@
 		  					<div class="panel-body">
 								<#-- start -->
 								<div class="row">
-								  <form role="form" id="mainForm" action="${basepath}/role/index.htm">
+								  <form role="form" id="mainForm" action="${basepath}/role/index.htm" method="post">
 							  		<div class="span3">
 								  		<div class="input-group clearfix input-ie">
 										  <span class="input-group-addon">姓名:</span>
@@ -45,7 +45,7 @@
 							  		<div class="span1">
 								  		<div class="input-group clearfix input-ie">
 										 <span class="input-group-btn">
-									        <button class="btn btn-default btn-theme2" type="button">查询</button>
+									        <button class="btn btn-default btn-theme2" type="submit">查询</button>
 									      </span>
 										</div>
 							  		</div>
@@ -54,10 +54,10 @@
 								<#-- end -->
 							</div>
 							<#-- table start -->
-							<table class="table table-hover">
+							<table class="table table-hover table-striped">
 			 				  	<thead>
 			 				  	<tr>
-			                      <th colspan="7"><button class="btn btn-theme2 btn-primary pull-right" type="button">新增</button></th>
+			                      <th colspan="7"><button class="btn btn-theme2 btn-primary pull-left" type="button" id="btn_add">新增</button></th>
 			                    </tr>
 			 					<tr>
 			                      <th>编号</th>
@@ -68,17 +68,17 @@
 			                    </tr>
 		                    	</thead>
 			                    <tbody>
-			 					<#if page?exists && page?size lt 0>
-			 					<#list page as bean>
+			 					<#if page?exists && page.list?size gt 0>
+			 					<#list page.list as bean>
 			 					<tr>
-			 						<td>${pageSize*(pageNum-1)+bean_index+1}</td>
+			 						<td>${page.pageSize*(page.pageNum-1)+bean_index+1}</td>
 			 						<td>${bean.rolename}</td>
 			 						<td>${bean.roledesc}</td>
 			 						<td>${bean.powerlevel}</td>
 			 						<td>
 			 							<div class="btn-group btn-group-xs">
 				 							<button class="btn btn-primary" type="button" onclick="delItem('${bean.roleid}',this)">删除</button>
-				 							<button class="btn btn-primary" type="button" onclick="editItem('${bean.roleid}'this)">修改</button>
+				 							<button class="btn btn-primary" type="button" onclick="editItem('${bean.roleid}',this)">修改</button>
 			 							</div>
 			 						</td>
 			 					</tr>

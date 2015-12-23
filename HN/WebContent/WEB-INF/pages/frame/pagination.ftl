@@ -6,10 +6,10 @@
 <div class="pull-right">
 	<ul class="pagination">
 	<li><span>共 ${total?default(0)} 条记录&nbsp;&nbsp;<#if pages gt 0>${currentPage?default(0)}<#else>0</#if>/${pages?default(0)} 页</span></li>
-	<#if currentPage gt 1>
+	<#if currentPage gt 1 && page.isFirstPage==false>
 	<li><a href="javascript:void(0);" onclick="page(1);">首页</a></li>
 	</#if>
-	<#if previouspage gt 1>
+	<#if page.hasPreviousPage==true>
 	<li><a href="javascript:void(0);" onclick="page(${previouspage});">上一页</a></li>
 	</#if>
 	<#assign prevThree=(currentPage-3)>
@@ -39,10 +39,10 @@
 	<#if nextThree lt pages>
 	<li><a href="javascript:void(0);" onclick="page(${nextThree});">${nextThree}</a></li>
 	</#if>
-	<#if nextpage lt pages>
+	<#if page.hasNextPage==true>
 	<li><a href="javascript:void(0);" onclick="page(${nextpage});">下一页</a></li>
 	</#if>
-	<#if currentPage lt pages>
+	<#if page.isLastPage==false>
 	<li><a href="javascript:void(0);" onclick="page(${pages?default(1)});">最后一页</a></li>
 	</#if>
 </div>

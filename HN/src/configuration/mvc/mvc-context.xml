@@ -38,6 +38,7 @@
 	</bean>  
   
     <mvc:view-controller path="/" view-name="door/login"/>
+    <mvc:view-controller path="/index.htm" view-name="door/login"/>
     <!-- <mvc:view-controller path="/" view-name="redirect:/login"/>  -->
     <!-- 定义一些不被拦截的静态资源 -->
     <mvc:resources mapping="/assets/**" location="/assets/" />
@@ -109,8 +110,5 @@
             </props>
         </property>
     </bean>
-    
-    <bean class=""></bean>
-    
     <import resource="other-context.xml"/>
 </beans>

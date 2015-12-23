@@ -38,7 +38,8 @@
 	};
 	Dialog.prototype.confirm=function(msg,sure,cancel){
 		layer.confirm(msg, {
-		    btn: ['确定','取消']
+		    btn: ['确定','取消'],
+		    icon: 0
 		}, function(index){
 			layer.close(index);
 			if(undefined!=sure&&null!=sure&&typeof sure=="function"){

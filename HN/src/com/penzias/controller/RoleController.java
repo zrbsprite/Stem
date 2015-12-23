@@ -1,5 +1,6 @@
 package com.penzias.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +24,7 @@ import com.penzias.service.SmRoleService;
  * 描述：角色管理<br/>
  * 作者：Bob <br/>
  */
+@SuppressWarnings("unchecked")
 @RequestMapping("role")
 @Controller
 public class RoleController extends BaseController {
@@ -47,7 +49,7 @@ public class RoleController extends BaseController {
 		SmRoleExample example = new SmRoleExample();
 		com.penzias.entity.SmRoleExample.Criteria criteria = example.createCriteria();
 		if(!StringUtils.isEmpty(roleName)){
-			criteria.andRolenameLike("%" + roleName + "%");
+			criteria.andRolenameLike("%" + roleName.trim() + "%");
 		}
 		PageHelper.startPage(currentPage,getPageSize().intValue());
 		List<SmRole> list = this.smRoleService.list(example);
@@ -60,4 +62,82 @@ public class RoleController extends BaseController {
 		return "system/role_manage";
 	}
 	
+	/**
+	 * @author: Bob
+	 * 修改时间：2015年12月23日 - 下午2:00:32<br/>
+	 * 功能说明：删除指定角色<br/>
+	 * @param k
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("del")
+	public String deleteOne(Integer k){
+		if(null!=k){
+			this.smRoleService.deleteById(k);
+		}
+		return "redirect:/role/index.htm";
+	}
+	
+	/**
+	 * @author: Bob
+	 * 修改时间：2015年12月23日 - 下午2:02:04<br/>
+	 * 功能说明：跳转修改页面<br/>
+	 * @param k
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("edit")
+	public String edit(Integer k, Model model){
+		List<SmCodeitem> list = new ArrayList<SmCodeitem>();
+		Map<String, SmCodeitem> codeMap = (Map<String, SmCodeitem>) this.iDctionaryItem.queryGroup("ZB");
+		codeMap.forEach((key, item) ->{
+			list.add(item);
+		});
+		model.addAttribute("authList", list);
+		if(null!=k){
+			SmRole role = this.smRoleService.getById(k);
+			if(null==role){
+				role = new SmRole();
+			}
+			model.addAttribute("entity",role);
+		}
+		return "system/role_add";
+	}
+	
+	/**
+	 * @author: Bob
+	 * 修改时间：2015年12月23日 - 下午2:02:20<br/>
+	 * 功能说明：更新<br/>
+	 * @param k
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("persist")
+	public String save(SmRole entity, Model model){
+		if(null!=entity.getRoleid()){
+			this.smRoleService.updateById(entity);
+		}else{
+			this.smRoleService.add(entity);
+		}
+		return "redirect:/role/index.htm";
+	}
+	
+	/**
+	 * @author: Bob
+	 * 修改时间：2015年12月23日 - 下午2:16:03<br/>
+	 * 功能说明：跳转新增页面<br/>
+	 * @param entity
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("add")
+	public String add(Model model){
+		List<SmCodeitem> list = new ArrayList<SmCodeitem>();
+		Map<String, SmCodeitem> codeMap = (Map<String, SmCodeitem>) this.iDctionaryItem.queryGroup("ZB");
+		codeMap.forEach((key, item) ->{
+			list.add(item);
+		});
+		model.addAttribute("authList", list);
+		return "system/role_add";
+	}
 }

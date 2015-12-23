@@ -99,8 +99,8 @@
                     </tr>
                     </thead>
                     <tbody>
- 					<#if page?exists && page?size lt 0>
- 					<#list page as bean>
+ 					<#if page?exists && page.list?size gt 0>
+ 					<#list page.list as bean>
  					<#assign gc=bean.gradeColor>
  					<#if gc?exists>
  					<tr class="<#if gc==1>success<#elseif gc==2>warning<#else>danger</#if>">
