@@ -32,4 +32,10 @@ public class SmUserServiceImpl extends BasicServiceImpl<SmUserExample, SmUser> i
 		return this.smUserMapper.selectUserInfoByExample(params);
 	}
 	
+	@Override
+	public List<SmUser> listSysUserInfo(Map<String, Object> params){
+		
+		return this.smUserMapper.selectSysUserInfoByExample(params);
+	}
+	
 }

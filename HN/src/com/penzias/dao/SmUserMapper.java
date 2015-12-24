@@ -10,4 +10,6 @@ import com.penzias.entity.SmUserExample;
 public interface SmUserMapper extends BasicMapper<SmUserExample, SmUser>{
 	
 	public List<SmUser> selectUserInfoByExample(Map<String, Object> params);
+	
+	public List<SmUser> selectSysUserInfoByExample(Map<String, Object> params);
 }

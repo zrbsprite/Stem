@@ -342,4 +342,32 @@
 		and t.FullName like '%${name}%'
 	</if>
   </select>
+  <select id="selectSysUserInfoByExample" resultMap="BaseResultMap">
+  	SELECT
+	t.UserName,
+	t. PASSWORD,
+	t.Email,
+	t.States,
+	t.FullName,
+	t.Mobile,
+	d.depName AS depBM,
+	b.RoleName AS RoleID,
+	t.UserType,
+	t.CreateDate,
+	t.IDNumber
+	FROM
+		sm_user t
+	LEFT JOIN sm_role b ON t.RoleID = b.RoleID
+	LEFT JOIN sm_department d ON t.depBM = d.depBM
+	WHERE
+		1=1
+		and	d.depFlag = 1
+	<if test="userName!=null">
+		and t.UserName like '%${userName}%'
+	</if>
+	<if test="name!=null">
+		and t.FullName like '%${name}%'
+	</if>
+  </select>
+   
 </mapper>

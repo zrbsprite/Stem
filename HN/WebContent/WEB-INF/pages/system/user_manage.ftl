@@ -35,17 +35,17 @@
 		  					<div class="panel-body">
 								<#-- start -->
 								<div class="row">
-								  <form role="form" id="mainForm" action="${basepath}/um/list.htm">
+								  <form role="form" id="mainForm" action="${basepath}/um/index.htm">
 							  		<div class="span3">
 								  		<div class="input-group clearfix input-ie">
-										  <span class="input-group-addon">姓名:</span>
-										  <input type="text" class="form-control" placeholder="填写姓名" name="name">
+										  <span class="input-group-addon">用户名:</span>
+										  <input type="text" class="form-control" placeholder="填写用户名" name="userName">
 										</div>
 							  		</div>
 							  		<div class="span3">
 								  		<div class="input-group clearfix input-ie">
-										  <span class="input-group-addon">手机号码:</span>
-										  <input type="text" class="form-control" placeholder="填写手机号码" name="phone">
+										  <span class="input-group-addon">姓名:</span>
+										  <input type="text" class="form-control" placeholder="填写姓名" name="name">
 										</div>
 							  		</div>
 							  		<div class="span1">
@@ -63,33 +63,39 @@
 							<table class="table table-hover">
 			 				  	<thead>
 			 					<tr>
-			                      <th colspan="7"><button class="btn btn-theme2 btn-primary pull-right" type="button">检验</button></th>
+			                      <th colspan="7"><button class="btn btn-theme2 btn-primary pull-right" type="button">新增</button></th>
 			                    </tr>
 			 					<tr>
+			                      <th>用户名</th>
 			                      <th>姓名</th>
-			                      <th>性别</th>
-			                      <th>年龄</th>
-			                      <th>身份证号码</th>
+			                      <th>邮箱</th>
 			                      <th>手机号码</th>
-			                      <th>病历状态</th>
+			                      <th>证件号码</th>
+			                      <th>部门</th>
+			                      <th>用户类型</th>
+			                      <th>用户角色</th>
+			                      <th>生成时间</th>
 			                      <th>操作</th>
 			                    </tr>
 		                    	</thead>
 			                    <tbody>
-			 					<#if page?exists && page?size lt 0>
-			 					<#list page as bean>
+			 					<#if page?exists && page.list?size gt 0>
+			 					<#list page.list as bean>
 			 					<tr>
+			 						<td>${bean.username}</td>
 			 						<td>${bean.fullname}</td>
-			 						<td><#if bean.sex=='1'>男<#elseif bean.sex=='0'>女<#else>未知</#if></td>
-			 						<td>${bean.age}</td>
-			 						<td>${bean.certificatesid}</td>
+			 						<td>${bean.email}</td>
 			 						<td>${bean.mobile}</td>
-			 						<td>${bean.status}</td>
+			 						<td>${bean.idnumber}</td>
+			 						<td>${bean.depbm}</td>
+			 						<td>${bean.usertype}</td>
+			 						<td>${bean.roleid}</td>
+			 						<td>${bean.createdate?datetime}</td>
 			 						<td>
 			 							<div class="btn-group btn-group-xs">
 				 							<button class="btn btn-primary" type="button">修改</button>
 				 							<button class="btn btn-primary" type="button">删除</button>
-				 							<button class="btn btn-primary" type="button">浏览</button>
+				 							<button class="btn btn-primary" type="button">授权</button>
 			 							</div>
 			 						</td>
 			 					</tr>

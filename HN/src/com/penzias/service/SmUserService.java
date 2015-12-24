@@ -10,4 +10,6 @@ import com.penzias.entity.SmUserExample;
 public interface SmUserService extends BasicService<SmUserExample, SmUser> {
 
 	public List<SmUser> listUserInfo(Map<String, Object> params);
+	
+	public List<SmUser> listSysUserInfo(Map<String, Object> params);
 }
