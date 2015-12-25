@@ -75,6 +75,8 @@ public class UserController extends BaseController {
 		}
 		PageInfo<SmUser> pageinfo = new PageInfo<SmUser>(list);
 		model.addAttribute("page", pageinfo);
+		model.addAttribute("userName", userName);
+		model.addAttribute("name", name);
 		return "system/user_manage";
 	}
 	
@@ -109,14 +111,49 @@ public class UserController extends BaseController {
 	
 	/**
 	 * @author: Bob
+	 * 修改时间：2015年12月25日 - 上午10:51:25<br/>
+	 * 功能说明：添加新增用户页面<br/>
+	 * @return
+	 */
+	@RequestMapping("add")
+	public String toAddPage(){
+		return "system/user_add";
+	}
+	
+	/**
+	 * @author: Bob
+	 * 修改时间：2015年12月25日 - 上午11:08:18<br/>
+	 * 功能说明：跳转修改用户页面<br/>
+	 * @return
+	 */
+	@RequestMapping("edit")
+	public String toEditPage(String un, Model model){
+		return "system/user_add";
+	}
+	
+	/**
+	 * @author: Bob
 	 * 修改时间：2015年12月18日 - 下午5:35:25<br/>
 	 * 功能说明：新增用户信息<br/>
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("newone")
-	public String addUserInfo(Model model){
+	@RequestMapping("persist")
+	public String addUserInfo(SmUser user, Model model){
 		
 		return "redirect:/um/list.htm";
+	}
+	
+	/**
+	 * @author: Bob
+	 * 修改时间：2015年12月25日 - 上午11:09:46<br/>
+	 * 功能说明：删除用户信息，非物理删除，只是逻辑删除<br/>
+	 * @param un
+	 * @return
+	 */
+	@RequestMapping("del")
+	public String deleteOne(String un){
+		
+		return "redirect:/um/del.htm";
 	}
 }

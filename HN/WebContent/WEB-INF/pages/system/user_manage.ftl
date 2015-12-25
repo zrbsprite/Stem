@@ -12,7 +12,7 @@
         <script src="${basepath}/assets/base/js/html5shiv.min.js"></script>
     <![endif]-->
     <style rel="stylesheet">
-    	td{
+    	th,td{
     		vertical-align:middle!important;
     		text-align:center!important;
     	}
@@ -35,23 +35,23 @@
 		  					<div class="panel-body">
 								<#-- start -->
 								<div class="row">
-								  <form role="form" id="mainForm" action="${basepath}/um/index.htm">
+								  <form role="form" id="mainForm" action="${basepath}/um/index.htm" method="post">
 							  		<div class="span3">
 								  		<div class="input-group clearfix input-ie">
 										  <span class="input-group-addon">用户名:</span>
-										  <input type="text" class="form-control" placeholder="填写用户名" name="userName">
+										  <input type="text" class="form-control" placeholder="填写用户名" name="userName" value="${userName}" id="input_username">
 										</div>
 							  		</div>
 							  		<div class="span3">
 								  		<div class="input-group clearfix input-ie">
 										  <span class="input-group-addon">姓名:</span>
-										  <input type="text" class="form-control" placeholder="填写姓名" name="name">
+										  <input type="text" class="form-control" placeholder="填写姓名" name="name" value="${name}" id="input_name">
 										</div>
 							  		</div>
 							  		<div class="span1">
 								  		<div class="input-group clearfix input-ie">
 										 <span class="input-group-btn">
-									        <button class="btn btn-default btn-theme2" type="button">查询</button>
+									        <button class="btn btn-default btn-theme2" type="button" id="btn_query">查询</button>
 									      </span>
 										</div>
 							  		</div>
@@ -60,10 +60,10 @@
 								<#-- end -->
 							</div>
 							<#-- table start -->
-							<table class="table table-hover">
+							<table class="table table-hover table-striped">
 			 				  	<thead>
 			 					<tr>
-			                      <th colspan="7"><button class="btn btn-theme2 btn-primary pull-right" type="button">新增</button></th>
+			                      <th colspan="10"><button class="btn btn-theme2 btn-primary pull-left" type="button" id="btn_add">新增</button></th>
 			                    </tr>
 			 					<tr>
 			                      <th>用户名</th>
@@ -93,9 +93,9 @@
 			 						<td>${bean.createdate?datetime}</td>
 			 						<td>
 			 							<div class="btn-group btn-group-xs">
-				 							<button class="btn btn-primary" type="button">修改</button>
-				 							<button class="btn btn-primary" type="button">删除</button>
-				 							<button class="btn btn-primary" type="button">授权</button>
+				 							<button class="btn btn-primary" type="button" onclick="editItem('${bean.username}',this);">修改</button>
+				 							<button class="btn btn-primary" type="button" onclick="delItem('${bean.username}',this);">删除</button>
+				 							<button class="btn btn-primary" type="button" onclick="authItem('${bean.username}',this);">授权</button>
 			 							</div>
 			 						</td>
 			 					</tr>

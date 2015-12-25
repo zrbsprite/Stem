@@ -125,9 +125,37 @@ $(function(){
 		}
 		
 		//高血压 
+		var $hypertensionHistory_ishypertension=$(":radio[name='hypertensionHistory.ishypertension']:checked");
+		if($hypertensionHistory_ishypertension.val()==1){
+			var $hypertensionHistory_diagnosistime=$("input['name='hypertensionHistory.diagnosistime']");
+			if(isEmpty($hypertensionHistory_diagnosistime.val())){
+				dialog.info("请输入确诊时间");
+				$hypertensionHistory_diagnosistime.focus();
+				return false;
+			}
+		}
+		var $hypertensionHistory_controlyear=$("input[name='hypertensionHistory.controlyear']");
+		if(isEmpty($hypertensionHistory_controlyear.val())){
+			dialog.info("请选择此情况已维持年限");
+			$hypertensionHistory_controlyear.focus();
+			return false;
+		}
+		
+		//血脂
 		
 		$("#mainForm").submit();
 		this.disabled="disabled";
+	});
+	
+	//高血压控制
+	$(":radio[name='hypertensionHistory.ishypertension']").click(function(){
+		var val=this.value;
+		var $hy=$(this).closest(".row").find(".divcontrol");
+		if(val==1){
+			$hy.slideUp();
+		}else if(val==0){
+			$hy.slideDown();
+		}
 	});
 });
 function addItem(that){

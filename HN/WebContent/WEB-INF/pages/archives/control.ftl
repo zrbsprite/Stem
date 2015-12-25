@@ -418,7 +418,7 @@
               	<b>血压测量频率：</b>
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="01" name="hypertensionHistory.frequency"> 从未测量
+              	<input type="radio" value="01" name="hypertensionHistory.frequency" checked> 从未测量
               </label>
               <label class="radio-inline">
               	<input type="radio" value="02" name="hypertensionHistory.frequency"> 经常测量（每月至少1次）
@@ -452,27 +452,27 @@
 	              </label>
 			  </div>
 			</div>
-			<div class="row">
+			<div class="row hide divcontrol">
 			  <div class="input-group input-sm">
 	              <label class="radio-inline">
 	              	是否服用降压药：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="0" name="hypertensionHistory.ishypotensor">否 
+	              	<input type="radio" value="0" name="hypertensionHistory.ishypotensor" checked>否 
 	              </label>
 	              <label class="radio-inline">
 	              	<input type="radio" value="1" name="hypertensionHistory.ishypotensor">是
 	              </label>
 			  </div>
 			</div>
-			<div class="row">
+			<div class="row hide divcontrol">
 			  <div class="input-group input-sm">
 	              <label class="radio-inline">
 	              	目前经常服用的降压药物 ：
 	              </label>
               </div>
-          </div>
-			<div class="row">
+            </div>
+			<div class="row hide divcontrol">
 			  <div class="input-group input-sm">
 			  <input type="hidden" name="pharmacytype" value="01">
 	              <label class="radio-inline">
@@ -499,27 +499,27 @@
 	              </label>
 			  </div>
 			</div>
-			<div class="row">
+			<div class="row hide divcontrol">
 			  <div class="input-group input-sm">
 	              <label class="radio-inline">
 	              	是否服用降同型半胱氨酸药：
 	              </label>
 	              <label class="radio-inline">
-	              	<input type="radio" value="0" name="hypertensionHistory.iscysteine">否 
+	              	<input type="radio" value="0" name="hypertensionHistory.iscysteine" checked>否 
 	              </label>
 	              <label class="radio-inline">
 	              	<input type="radio" value="1" name="hypertensionHistory.iscysteine">是
 	              </label>
 			  </div>
 			</div>
-			<div class="row">
+			<div class="row hide divcontrol">
 			  <div class="input-group input-sm">
 	              <label class="radio-inline">
 	              	 目前经常服用的降同型半胱氨酸药物：
 	              </label>
               </div>
-          </div>
-			<div class="row">
+            </div>
+			<div class="row hide divcontrol">
 			  <div class="input-group input-sm">
 			  <input type="hidden" name="pharmacytype" value="02">
 	              <label class="radio-inline">
@@ -555,7 +555,7 @@
               	<b>血压控制情况：</b>
               </label>
               <label class="radio-inline">
-              	<input type="radio" value="01" name="hypertensionHistory.control"> 基本平稳 
+              	<input type="radio" value="01" name="hypertensionHistory.control" checked> 基本平稳 
               </label>
               <label class="radio-inline">
               	<input type="radio" value="02" name="hypertensionHistory.control"> 波动较大

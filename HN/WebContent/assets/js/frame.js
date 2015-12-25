@@ -63,3 +63,6 @@ function isEmpty(val){
 	}
 	return false;
 }
+function forward(url){
+	return $("<form></form>").attr("action","").attr("method","post").appendTo($("body"));
+}
