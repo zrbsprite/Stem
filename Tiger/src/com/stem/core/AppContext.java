@@ -25,13 +25,13 @@ public class AppContext {
 	 * @param value
 	 * @throws Exception
 	 */
-	public synchronized void setSyncValue(String key,String value) throws Exception{
+	public synchronized void setSyncValue(String key,Object value) throws Exception{
 
 		if(StringUtils.isEmpty(key)){
 			throw new Exception("未指定键");
 		}
 
-		if(StringUtils.isEmpty(value)){
+		if(null==value){
 			throw new Exception("未指定值");
 		}
 		contextMap.put(key,value);

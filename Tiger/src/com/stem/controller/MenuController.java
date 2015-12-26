@@ -36,6 +36,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.stem.core.AppContext;
 import com.stem.core.commons.AjaxConroller;
 import com.stem.core.commons.PropertiesInitBean.PropertiesUtils;
 import com.stem.entity.TigerAccessToken;
@@ -160,60 +161,8 @@ public class MenuController extends AjaxConroller {
 	
 	@RequestMapping("makemenu")
 	public String makeMenuInf(Model model, PrintWriter writer) throws Exception{
-		//查出所有的图片资源信息，并且同步数据库
-		String batchGetUrl = PropertiesUtils.getConfigByKey("material_batchget_url");
 		TigerAccessToken token = TigerUtils.getAccessTokenBean(tigerAccessTokenService);
 		String accessToken = token.getAccesstoken();
-		batchGetUrl = String.format(batchGetUrl, accessToken);
-		Map<String, Object> jsonMap = new HashMap<>();
-		jsonMap.put("type", "image");
-		jsonMap.put("count", 20);
-		
-		this.wxImageResourceService.doClearTempTable();
-		boolean stopGoOn = false;
-		int start = 0;
-		while(!stopGoOn){
-			jsonMap.put("offset", start);
-			String json = JsonUtil.Object2Json(jsonMap);
-			String result = HttpUtils.postHttpByJsonData(batchGetUrl,json);
-			Map<String, Object> map = (Map<String, Object>) JsonUtil.str2map(result, new TypeReference<Map<String, Object>>(){});
-			Integer itemCount = (Integer) map.get("item_count");
-			if(itemCount>0){
-				List<Object> items = (List<Object>) map.get("item");
-				if(items.size()>0){
-					List<WxImageResource> wir = new ArrayList<>();
-					for(Object obj : items){
-						Map<String, Object> m = (Map<String, Object>) obj;
-						String mid = m.get("media_id").toString();
-						String name = m.get("name").toString();
-						String updateTime = m.get("update_time").toString();
-						Object urlObj = m.get("url");
-						String url = "";
-						if(null!=urlObj){
-							url = urlObj.toString().replace("\\","");
-						}
-						WxImageResource resource = new WxImageResource();
-						resource.setMediaId(mid);
-						resource.setName(name);
-						resource.setUpdateTime(updateTime);
-						resource.setUrl(url);
-						wir.add(resource);
-					}
-					this.wxImageResourceService.doBatchAdd(wir);
-				}else{
-					continue;
-				}
-				if(itemCount<20){
-					stopGoOn = true;
-				}
-			}else{
-				stopGoOn = true;
-			}
-			start += 20;
-		}
-		this.wxImageResourceService.doClearTable();
-		this.wxImageResourceService.doSynTable();
-		
 		//更新所有的图文列表
 		String newsGetOneUrl = PropertiesUtils.getConfigByKey("material_get_url");
 		newsGetOneUrl = String.format(newsGetOneUrl, accessToken);
@@ -243,6 +192,11 @@ public class MenuController extends AjaxConroller {
 				}
 			}
 		}
+		wnrList = this.wxNewsResourceService.list(new WxNewsResourceExample());
+		for(WxNewsResource res : wnrList){
+			AppContext.getContext().setSyncValue(res.getMenuKey(), res);
+		}
+		
 		this.writeJson("{\"state\":200}");
 		return null;
 	}
