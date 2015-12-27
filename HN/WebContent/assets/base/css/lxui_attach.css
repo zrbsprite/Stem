@@ -1595,3 +1595,6 @@ li ul{
 	font-size: 50px;
 	font-weight: bolder;
 }
+.li-parent a{
+	font-size: 16px;
+}

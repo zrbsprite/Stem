@@ -84,6 +84,7 @@ import com.penzias.vo.OtherHistoryVO;
  * 作者：Bob <br/>
  * 修改日期：2015年12月21日 - 上午10:27:55<br/>
  */
+@SuppressWarnings("unchecked")
 @Controller
 @RequestMapping("archives")
 public class ArchivesController extends BaseController{

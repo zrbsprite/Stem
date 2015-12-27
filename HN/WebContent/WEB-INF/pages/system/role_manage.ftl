@@ -20,6 +20,7 @@
   </head>
   <body>
 	<#include "frame/top-nav.ftl">
+	<#assign menu_name="menu_sysrole">
 	<div class="container-fluid lxui-docs-container">
 	 	<div class="row show-grid">
 	 		<#-- 菜单 -->

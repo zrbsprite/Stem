@@ -15,6 +15,7 @@
   
 <body>
 <#include "frame/top-nav.ftl">
+<#assign menu_name='menu_crowsinfo'>
 <div class="container-fluid lxui-docs-container">
  	<div class="row show-grid">
  		<#-- 菜单 -->
@@ -69,8 +70,8 @@
                     </tr>
                     </thead>
                     <tbody>
- 					<#if page?exists && page?size lt 0>
- 					<#list page as bean>
+ 					<#if page?exists && page.list?size gt 0>
+ 					<#list page.list as bean>
  					<tr>
  						<td>${bean.fullname}</td>
  						<td><#if bean.sex=='1'>男<#elseif bean.sex=='0'>女<#else>未知</#if></td>

@@ -142,9 +142,10 @@
 		});
 	}
 	
-	Dialog.prototype.openPage=function(title, url){
+	Dialog.prototype.openPage=function(title){
 		layer.open({
 		    type: 1,
+		    title:title,
 		    skin: 'layui-layer-lan',
 		    area: ['420px', '240px'],
 		    content: 'html内容'

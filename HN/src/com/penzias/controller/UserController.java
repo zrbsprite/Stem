@@ -1,5 +1,7 @@
 package com.penzias.controller;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,8 +17,11 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.penzias.core.commons.BaseController;
 import com.penzias.entity.SmCodeitem;
+import com.penzias.entity.SmDepartment;
+import com.penzias.entity.SmDepartmentExample;
 import com.penzias.entity.SmUser;
 import com.penzias.interfaces.IDictionaryItem;
+import com.penzias.service.SmDepartmentService;
 import com.penzias.service.SmRoleService;
 import com.penzias.service.SmUserService;
 import com.penzias.service.UserPersonalInfoService;
@@ -43,6 +48,17 @@ public class UserController extends BaseController {
 	
 	@Resource
 	private IDictionaryItem iDctionaryItem;
+	
+	@Resource
+	private SmDepartmentService smDepartmentService;
+	
+	private final String USER_STATUS_ABLE = "1";
+	
+	private final String USER_STATUS_DISABLE = "0";
+	
+	private final String DEPT_FLAG_BIG = "0";
+	
+	private final String DEPT_FLAG_SMALL = "1";
 	
 	/**
 	 * @author: Bob
@@ -116,7 +132,20 @@ public class UserController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping("add")
-	public String toAddPage(){
+	public String toAddPage(Model model){
+		List<SmCodeitem> list = new ArrayList<SmCodeitem>();
+		Map<String, SmCodeitem> codeMap = (Map<String, SmCodeitem>) this.iDctionaryItem.queryGroup("ZA");
+		codeMap.forEach((key, item) ->{
+			list.add(item);
+		});
+		model.addAttribute("typeList", list);
+		model.addAttribute("entity",new SmUser());
+		
+		//科室deptflag
+		SmDepartmentExample deptExample = new SmDepartmentExample();
+		deptExample.createCriteria().andDepflagEqualTo(DEPT_FLAG_SMALL);
+		List<SmDepartment> deptList = this.smDepartmentService.list(deptExample);
+		model.addAttribute("deptList",deptList);
 		return "system/user_add";
 	}
 	
@@ -128,6 +157,24 @@ public class UserController extends BaseController {
 	 */
 	@RequestMapping("edit")
 	public String toEditPage(String un, Model model){
+		SmUser sm = null;
+		if(!StringUtils.isEmpty(un)){
+			sm = this.smUserService.getById(un);
+		}else{
+			sm = new SmUser();
+		}
+		List<SmCodeitem> list = new ArrayList<SmCodeitem>();
+		Map<String, SmCodeitem> codeMap = (Map<String, SmCodeitem>) this.iDctionaryItem.queryGroup("ZA");
+		codeMap.forEach((key, item) ->{
+			list.add(item);
+		});
+		model.addAttribute("typeList", list);
+		model.addAttribute("entity", sm);
+		//科室deptflag
+		SmDepartmentExample deptExample = new SmDepartmentExample();
+		deptExample.createCriteria().andDepflagEqualTo(DEPT_FLAG_SMALL);
+		List<SmDepartment> deptList = this.smDepartmentService.list(deptExample);
+		model.addAttribute("deptList",deptList);
 		return "system/user_add";
 	}
 	
@@ -139,8 +186,13 @@ public class UserController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping("persist")
-	public String addUserInfo(SmUser user, Model model){
-		
+	public String addUserInfo(SmUser user){
+		if(StringUtils.isEmpty(user.getUsername())){
+			user.setCreatedate(new Date());
+			this.smUserService.add(user);
+		}else{
+			this.smUserService.updateById(user);
+		}
 		return "redirect:/um/list.htm";
 	}
 	
@@ -153,7 +205,11 @@ public class UserController extends BaseController {
 	 */
 	@RequestMapping("del")
 	public String deleteOne(String un){
-		
+		if(!StringUtils.isEmpty(un)){
+			SmUser sm = this.smUserService.getById(un);
+			sm.setStates(USER_STATUS_DISABLE);
+			this.smUserService.updateById(sm);
+		}
 		return "redirect:/um/del.htm";
 	}
 }

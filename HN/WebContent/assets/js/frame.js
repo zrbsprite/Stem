@@ -4,8 +4,12 @@ $(function(){
 		var $this = $(this);
 		if($this.hasClass("li-parent")){
 			$(".parent-selected").removeClass("parent-selected");
-			$this.parent(".bs-sidenav").find(".active").removeClass("active");
-			$this.addClass("active").find("a").first().addClass("parent-selected");
+			//$this.parent(".bs-sidenav").find(".active").removeClass("active");
+			if($this.hasClass("active")){
+				$this.removeClass("active");
+			}else{
+				$this.addClass("active").find("a").first().addClass("parent-selected");
+			}
 		}else{
 			$(".selected").removeClass("selected");
 			$this.addClass("selected");
@@ -64,5 +68,5 @@ function isEmpty(val){
 	return false;
 }
 function forward(url){
-	return $("<form></form>").attr("action","").attr("method","post").appendTo($("body"));
+	return $("<form></form>").attr("action",url).attr("method","post").appendTo($("body"));
 }
