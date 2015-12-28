@@ -67,6 +67,10 @@ public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler
 			setOutMessage(out);
 			return;
 		}
+		
+		//设置其他关键词回复
+			
+		
 		if("账单".equals(content)||"我的账单".equals(content)||"账单查询".equals(content)||"今日账单".equals(content)||"最近账单".equals(content)){
 			responseMenuMine(msg, serverPath);
 			return;
