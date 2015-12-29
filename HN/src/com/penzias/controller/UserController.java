@@ -32,7 +32,7 @@ import com.penzias.service.UserPersonalInfoService;
  * 修改日期：2015年12月18日 - 下午4:19:50<br/>
  * E-mail: sireezhang@163.com<br/>
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unused","unchecked"})
 @RequestMapping("um")
 @Controller
 public class UserController extends BaseController {

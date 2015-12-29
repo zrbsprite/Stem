@@ -1,8 +1,11 @@
 package com.penzias.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,21 +15,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.penzias.core.commons.BaseController;
+import com.penzias.entity.SmCodeitem;
 import com.penzias.entity.SmDepartment;
 import com.penzias.entity.SmDepartmentExample;
+import com.penzias.entity.SmUser;
+import com.penzias.interfaces.IDictionaryItem;
 import com.penzias.service.SmDepartmentService;
+import com.penzias.service.SmUserService;
+import com.penzias.util.CookieUtil;
 
 /**
  * 描述：机构管理<br>
  * 作者：ruibo <br>
  * 修改日期：2015年12月27日-下午3:43:47 <br>
  */
+@SuppressWarnings({"unused","unchecked"})
 @Controller
 @RequestMapping("dept")
 public class DepartmentController extends BaseController {
 
 	@Resource
 	private SmDepartmentService smDepartmentService;
+	
+	@Resource
+	private IDictionaryItem iDctionaryItem;
+	
+	@Resource
+	private SmUserService smUserService;
+	
+	//机构标记
+	private final String DEPT_FLAG_INSTITUTION = "0";
+	
+	//科室标记
+	private final String DEPT_FLAG_DEPARTMENT = "1";
 	
 	/**
 	 * 方法名称: index<br/>
@@ -37,22 +58,42 @@ public class DepartmentController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping("index")
-	public String index(Integer currentPage, String deptname, String deptno, Model model){
+	public String index(String type, Integer currentPage, String deptName, String linkMan, Model model, HttpServletRequest request){
 		if(null==currentPage){
 			currentPage = 1;
 		}
 		SmDepartmentExample example = new SmDepartmentExample();
 		com.penzias.entity.SmDepartmentExample.Criteria criteria = example.createCriteria();
-		if(!StringUtils.isEmpty(deptno)){
-			criteria.andDepbmEqualTo(deptno);
-			model.addAttribute("deptno", deptno);
+		if(StringUtils.isEmpty(type)){
+			type = DEPT_FLAG_INSTITUTION;
 		}
-		if(!StringUtils.isEmpty(deptname)){
-			criteria.andDepnameLike("%"+deptname+"%");
-			model.addAttribute("deptname", deptname);
+		criteria.andDepflagEqualTo(type);
+		String userName = CookieUtil.getCookieValueByName(request, cookieUserNameKey);
+		SmUser user = this.smUserService.getById(userName);
+		String userDeptCode = user.getDepbm();
+		criteria.andDepbmEqualTo(userDeptCode);
+		if(!StringUtils.isEmpty(linkMan)){
+			criteria.andLinkmanLike("%"+ linkMan + "%");
+			model.addAttribute("deptno", linkMan);
+		}
+		if(!StringUtils.isEmpty(deptName)){
+			criteria.andDepnameLike("%"+deptName+"%");
+			model.addAttribute("deptname", deptName);
 		}
 		PageHelper.startPage(currentPage,getPageSize().intValue());
 		List<SmDepartment> list = this.smDepartmentService.list(example);
+		Map<String, SmCodeitem> codeMap = (Map<String, SmCodeitem>) this.iDctionaryItem.queryGroup("ZC");
+		Map<String, SmCodeitem> abMap = (Map<String, SmCodeitem>) this.iDctionaryItem.queryGroup("AB");
+		for(SmDepartment dept : list){
+			String dtype = dept.getInstitutiontype();
+			if(!StringUtils.isEmpty(dtype)){
+				dept.setInstitutiontype(codeMap.get(dtype).getDescription());
+			}
+			String area = dept.getArea();
+			if(!StringUtils.isEmpty(area)){
+				dept.setArea(abMap.get(area).getDescription());
+			}
+		}
 		PageInfo<SmDepartment> pageinfo = new PageInfo<SmDepartment>(list);
 		model.addAttribute("page", pageinfo);
 		return "dept/dept_manage";

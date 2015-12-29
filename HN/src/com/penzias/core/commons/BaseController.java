@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.servlet.support.RequestContext;
 
 import com.penzias.core.commons.PropertiesInitBean.PropertiesUtils;
@@ -45,4 +46,10 @@ public abstract class BaseController {
 		String pageSize = PropertiesUtils.getConfigByKey("page_per_size");
 		return Integer.valueOf(pageSize);
 	}
+	
+	@Value("#{propertiesReader[cookie_username_key]}")
+	protected String cookieUserNameKey;
+	
+	@Value("#{propertiesReader[cookie_password_key]}")
+	protected String cookiePasswordKey;
 }

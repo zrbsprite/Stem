@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -36,12 +35,6 @@ public class LoginController extends AjaxConroller{
 	@Resource
 	private SmUserService smUserService;
 	
-	@Value("#{propertiesReader[cookie_username_key]}")
-	private String cookieUserNameKey;
-	
-	@Value("#{propertiesReader[cookie_password_key]}")
-	private String cookiePasswordKey;
-
 	/**
 	 * @author: Bob
 	 * 修改时间：2015年12月2日 - 上午10:10:58<br/>
@@ -112,29 +105,5 @@ public class LoginController extends AjaxConroller{
 	@RequestMapping("/welcome")
 	public String content(Model model) {
 		return "redirect:/archives.htm";
-	}
-	
-	/**
-	 * @author: Bob
-	 * 修改时间：2015年12月2日 - 上午10:11:37<br/>
-	 * 功能说明：测试 demo<br/>
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping("anno/demo")
-	public String index(Model model) {
-		return "demo/index";
-	}
-	
-	/**
-	 * @author: Bob
-	 * 修改时间：2015年12月2日 - 上午10:11:49<br/>
-	 * 功能说明：ie demo<br/>
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping("anno/ie")
-	public String ie(Model model) {
-		return "demo/index_ie";
 	}
 }

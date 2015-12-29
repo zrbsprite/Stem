@@ -12,7 +12,8 @@
 		<li class="<#if menu_name?exists && !(menu_name?index_of('menu_dept') lt 0)>active</#if> li-parent">
 			<a <#if menu_name?exists && !(menu_name?index_of('menu_dept') lt 0)>class="parent-selected"</#if>><span class="glyphicon glyphicon-th"></span> 机构管理</a>
 			<ul class="nav">
-				<li <#if menu_name='menu_dept'>class="selected"</#if>><a href="${basepath}/dic/dept/index.htm"><span class="glyphicon glyphicon-zoom-in"></span> 机构科室</a></li>
+				<li <#if menu_name='menu_dept_institution'>class="selected"</#if>><a href="${basepath}/dic/dept/index.htm"><span class="glyphicon glyphicon-zoom-in"></span> 机构管理</a></li>
+				<li <#if menu_name='menu_deptment'>class="selected"</#if>><a href="${basepath}/dic/dept/index.htm"><span class="glyphicon glyphicon-zoom-in"></span> 科室管理</a></li>
 			</ul>
 		</li>
 		<li class="<#if menu_name?exists && !(menu_name?index_of('menu_dic') lt 0)>active</#if> li-parent">
