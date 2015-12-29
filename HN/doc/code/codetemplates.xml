@@ -1,10 +1,43 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="false" context="filecomment_context" deleted="false" description="Comment for created Java files" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.filecomment" name="filecomment">/**
- * File Name:${file_name}&lt;br/&gt;
- * @Description:
- * Copyright 2015 Samite.stem.zhang&lt;br/&gt;
- * @author:Bob &lt;br/&gt;
- * @version:v1.0
- * Createdate:${date} - ${time}
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="false" context="delegatecomment_context" deleted="false" description="Comment for delegate methods" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.delegatecomment" name="delegatecomment">/**
+ * &lt;b&gt;作者:&lt;/b&gt; Bob &lt;br/&gt;
+ * &lt;b&gt;修改时间：&lt;/b&gt; ${date} - ${time}&lt;br/&gt;
+ * &lt;b&gt;功能说明：&lt;b&gt; &lt;br/&gt;
+ * ${tags}
  *
  */
+	</template><template autoinsert="false" context="constructorcomment_context" deleted="false" description="Comment for created constructors" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.constructorcomment" name="constructorcomment"/><template autoinsert="false" context="filecomment_context" deleted="false" description="Comment for created Java files" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.filecomment" name="filecomment">/**
+ * &lt;b&gt;File Name:&lt;/b&gt;${file_name}&lt;br/&gt;
+ * &lt;b&gt;Description:&lt;/b&gt; 	&lt;br/&gt;
+ * &lt;b&gt;Copyright:&lt;/b&gt; 2015 Samite.stem.zhang&lt;br/&gt;
+ * &lt;b&gt;Author:&lt;/b&gt;Bob &lt;br/&gt;
+ * &lt;b&gt;CreateTime:&lt;/b&gt;${date} - ${time}
+ * @version:v1.0
+ *
+ */
+	</template><template autoinsert="false" context="methodcomment_context" deleted="false" description="Comment for non-overriding methods" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.methodcomment" name="methodcomment">/**
+ * &lt;b&gt;作者:&lt;/b&gt; Bob&lt;br/&gt;
+ * &lt;b&gt;修改时间：&lt;/b&gt;${date} - ${time}&lt;br/&gt;
+ * &lt;b&gt;功能说明：&lt;/b&gt;	&lt;br/&gt;
+ * ${tags} 
+ */
+	</template><template autoinsert="false" context="typecomment_context" deleted="false" description="Comment for created types" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.typecomment" name="typecomment">/**
+ * &lt;b&gt;描述：&lt;/b&gt;	&lt;br/&gt;
+ * &lt;b&gt;作者：&lt;/b&gt;Bob &lt;br/&gt;
+ * &lt;b&gt;修改日期：&lt;/b&gt;${date} - ${time}&lt;br/&gt;
+ * &lt;b&gt;E-mail:&lt;/b&gt; sireezhang@163.com&lt;br/&gt;
+ * ${tags}
+ *
+ */
+	</template><template autoinsert="false" context="overridecomment_context" deleted="false" description="Comment for overriding methods" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.overridecomment" name="overridecomment">/**
+ * &lt;b&gt;作者 :&lt;/b&gt; Bob&lt;br/&gt;
+ * &lt;b&gt;修改时间：&lt;/b&gt;${date} - ${time}&lt;br/&gt;
+ * &lt;b&gt;功能说明：&lt;/b&gt; &lt;br/&gt;
+ * ${see_to_overridden}
+ * ${tags}
+ */
+	</template><template autoinsert="false" context="gettercomment_context" deleted="false" description="Comment for getter method" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.gettercomment" name="gettercomment"/><template autoinsert="false" context="fieldcomment_context" deleted="false" description="Comment for fields" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.fieldcomment" name="fieldcomment">/**&#13;
+ * Description:&#13;
+ *&#13;
+**/
+	</template><template autoinsert="false" context="settercomment_context" deleted="false" description="Comment for setter method" enabled="true" id="org.eclipse.jdt.ui.text.codetemplates.settercomment" name="settercomment">
 	</template></templates>

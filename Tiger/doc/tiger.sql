@@ -160,3 +160,40 @@ CREATE TABLE `tiger_user_opt` (
 -- ----------------------------
 -- Records of tiger_user_opt
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for wx_news_info
+-- ----------------------------
+DROP TABLE IF EXISTS `wx_news_info`;
+CREATE TABLE `wx_news_info` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `media_id` varchar(50) DEFAULT NULL,
+  `type` int(11) DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  `item_ids` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of wx_news_info
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for wx_news_item
+-- ----------------------------
+DROP TABLE IF EXISTS `wx_news_item`;
+CREATE TABLE `wx_news_item` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) DEFAULT NULL COMMENT '图文消息的标题',
+  `thumb_media_id` varchar(100) DEFAULT NULL COMMENT '图文消息的封面图片素材id（必须是永久mediaID）',
+  `show_cover_pic` int(11) DEFAULT NULL COMMENT '是否显示封面，0为false，即不显示，1为true，即显示',
+  `digest` varchar(100) DEFAULT NULL COMMENT '图文消息的摘要，仅有单图文消息才有摘要，多图文此处为空',
+  `content` text,
+  `url` varchar(255) DEFAULT NULL COMMENT '图文页的URL，或者，当获取的列表是图片素材列表时，该字段是图片的URL',
+  `content_source_url` varchar(255) DEFAULT NULL COMMENT '图文消息的原文地址，即点击“阅读原文”后的URL',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='同步微信素材中的图文素材';
+
+-- ----------------------------
+-- Records of wx_news_item
+-- ----------------------------

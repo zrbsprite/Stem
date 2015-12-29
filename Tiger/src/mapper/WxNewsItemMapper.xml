@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.stem.dao.WxNewsItemMapper" >
+  <resultMap id="BaseResultMap" type="com.stem.entity.WxNewsItem" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="thumb_media_id" property="thumbMediaId" jdbcType="VARCHAR" />
+    <result column="show_cover_pic" property="showCoverPic" jdbcType="INTEGER" />
+    <result column="digest" property="digest" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="content_source_url" property="contentSourceUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.stem.entity.WxNewsItem" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, title, thumb_media_id, show_cover_pic, digest, url, content_source_url
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.stem.entity.WxNewsItemExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from wx_news_item
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.stem.entity.WxNewsItemExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from wx_news_item
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from wx_news_item
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wx_news_item
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.stem.entity.WxNewsItemExample" >
+    delete from wx_news_item
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.stem.entity.WxNewsItem" keyColumn="id" useGeneratedKeys="true">
+    insert into wx_news_item (id, title, thumb_media_id, 
+      show_cover_pic, digest, url, 
+      content_source_url, content)
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{thumbMediaId,jdbcType=VARCHAR}, 
+      #{showCoverPic,jdbcType=INTEGER}, #{digest,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
+      #{contentSourceUrl,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.stem.entity.WxNewsItem"  keyColumn="id" useGeneratedKeys="true">
+    insert into wx_news_item
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="thumbMediaId != null" >
+        thumb_media_id,
+      </if>
+      <if test="showCoverPic != null" >
+        show_cover_pic,
+      </if>
+      <if test="digest != null" >
+        digest,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="contentSourceUrl != null" >
+        content_source_url,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbMediaId != null" >
+        #{thumbMediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="showCoverPic != null" >
+        #{showCoverPic,jdbcType=INTEGER},
+      </if>
+      <if test="digest != null" >
+        #{digest,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="contentSourceUrl != null" >
+        #{contentSourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.stem.entity.WxNewsItemExample" resultType="java.lang.Integer" >
+    select count(*) from wx_news_item
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update wx_news_item
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.thumbMediaId != null" >
+        thumb_media_id = #{record.thumbMediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.showCoverPic != null" >
+        show_cover_pic = #{record.showCoverPic,jdbcType=INTEGER},
+      </if>
+      <if test="record.digest != null" >
+        digest = #{record.digest,jdbcType=VARCHAR},
+      </if>
+      <if test="record.url != null" >
+        url = #{record.url,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contentSourceUrl != null" >
+        content_source_url = #{record.contentSourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update wx_news_item
+    set id = #{record.id,jdbcType=INTEGER},
+      title = #{record.title,jdbcType=VARCHAR},
+      thumb_media_id = #{record.thumbMediaId,jdbcType=VARCHAR},
+      show_cover_pic = #{record.showCoverPic,jdbcType=INTEGER},
+      digest = #{record.digest,jdbcType=VARCHAR},
+      url = #{record.url,jdbcType=VARCHAR},
+      content_source_url = #{record.contentSourceUrl,jdbcType=VARCHAR},
+      content = #{record.content,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update wx_news_item
+    set id = #{record.id,jdbcType=INTEGER},
+      title = #{record.title,jdbcType=VARCHAR},
+      thumb_media_id = #{record.thumbMediaId,jdbcType=VARCHAR},
+      show_cover_pic = #{record.showCoverPic,jdbcType=INTEGER},
+      digest = #{record.digest,jdbcType=VARCHAR},
+      url = #{record.url,jdbcType=VARCHAR},
+      content_source_url = #{record.contentSourceUrl,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.stem.entity.WxNewsItem" >
+    update wx_news_item
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbMediaId != null" >
+        thumb_media_id = #{thumbMediaId,jdbcType=VARCHAR},
+      </if>
+      <if test="showCoverPic != null" >
+        show_cover_pic = #{showCoverPic,jdbcType=INTEGER},
+      </if>
+      <if test="digest != null" >
+        digest = #{digest,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="contentSourceUrl != null" >
+        content_source_url = #{contentSourceUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.stem.entity.WxNewsItem" >
+    update wx_news_item
+    set title = #{title,jdbcType=VARCHAR},
+      thumb_media_id = #{thumbMediaId,jdbcType=VARCHAR},
+      show_cover_pic = #{showCoverPic,jdbcType=INTEGER},
+      digest = #{digest,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      content_source_url = #{contentSourceUrl,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.stem.entity.WxNewsItem" >
+    update wx_news_item
+    set title = #{title,jdbcType=VARCHAR},
+      thumb_media_id = #{thumbMediaId,jdbcType=VARCHAR},
+      show_cover_pic = #{showCoverPic,jdbcType=INTEGER},
+      digest = #{digest,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      content_source_url = #{contentSourceUrl,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

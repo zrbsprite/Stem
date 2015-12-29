@@ -158,7 +158,15 @@ public class MenuController extends AjaxConroller {
 		return "fore/menu";
 	}
 	
-	
+	/**
+	 * <b>作者:</b> Bob<br/>
+	 * <b>修改时间：</b>2015年12月29日 - 上午9:21:55<br/>
+	 * <b>功能说明：</b>同步菜单回复的图文的内容	<br/>
+	 * @param model
+	 * @param writer
+	 * @return
+	 * @throws Exception
+	 */
 	@RequestMapping("makemenu")
 	public String makeMenuInf(Model model, PrintWriter writer) throws Exception{
 		TigerAccessToken token = TigerUtils.getAccessTokenBean(tigerAccessTokenService);
