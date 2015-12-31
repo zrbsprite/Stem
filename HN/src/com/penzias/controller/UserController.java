@@ -19,6 +19,8 @@ import com.penzias.core.commons.BaseController;
 import com.penzias.entity.SmCodeitem;
 import com.penzias.entity.SmDepartment;
 import com.penzias.entity.SmDepartmentExample;
+import com.penzias.entity.SmRole;
+import com.penzias.entity.SmRoleExample;
 import com.penzias.entity.SmUser;
 import com.penzias.interfaces.IDictionaryItem;
 import com.penzias.service.SmDepartmentService;
@@ -106,6 +108,7 @@ public class UserController extends BaseController {
 	 * @param model
 	 * @return
 	 */
+	@Deprecated
 	@RequestMapping("list")
 	public String listUsers(Integer currentPage,String userName, String name, Model model){
 		if(null==currentPage){
@@ -146,6 +149,9 @@ public class UserController extends BaseController {
 		deptExample.createCriteria().andDepflagEqualTo(DEPT_FLAG_SMALL);
 		List<SmDepartment> deptList = this.smDepartmentService.list(deptExample);
 		model.addAttribute("deptList",deptList);
+		//角色信息
+		List<SmRole> roleList = this.smRoleService.list(new SmRoleExample());
+		model.addAttribute("roleList",roleList);
 		return "system/user_add";
 	}
 	
@@ -175,6 +181,9 @@ public class UserController extends BaseController {
 		deptExample.createCriteria().andDepflagEqualTo(DEPT_FLAG_SMALL);
 		List<SmDepartment> deptList = this.smDepartmentService.list(deptExample);
 		model.addAttribute("deptList",deptList);
+		//角色信息
+		List<SmRole> roleList = this.smRoleService.list(new SmRoleExample());
+		model.addAttribute("roleList",roleList);
 		return "system/user_add";
 	}
 	

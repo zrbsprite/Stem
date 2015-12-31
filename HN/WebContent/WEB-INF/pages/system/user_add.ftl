@@ -96,6 +96,16 @@
 							    </div>
 							  </div>
 							  <div class="form-group">
+							    <label for="input_user_auth" class="span3 control-label">用户角色</label>
+							    <div class="span8">
+							      <select class="form-control" name="roleid">
+							      	<#list roleList as bean>
+							      	<option value="${bean.roleid}" <#if bean.roleid==entity.roleid>selected</#if>>${bean.rolename}</option>
+							      	</#list>
+							      </select>
+							    </div>
+							  </div>
+							  <div class="form-group">
 							  	<label class="span3"></label>
 							    <div class="span8">
 							      <input type="hidden" name="userid" value="${entity.userid}">
