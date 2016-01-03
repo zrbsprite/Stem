@@ -197,3 +197,15 @@ CREATE TABLE `wx_news_item` (
 -- ----------------------------
 -- Records of wx_news_item
 -- ----------------------------
+
+DROP TABLE IF EXISTS `wx_reply_resource`;
+CREATE TABLE `wx_reply_resource` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `news_keyword` varchar(100) DEFAULT NULL,
+  `media_id` varchar(50) DEFAULT NULL,
+  `news_title` varchar(200) DEFAULT NULL,
+  `news_des` varchar(500) DEFAULT NULL,
+  `pic_url` varchar(500) DEFAULT NULL,
+  `news_url` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
