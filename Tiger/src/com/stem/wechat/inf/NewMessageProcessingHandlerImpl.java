@@ -21,9 +21,11 @@ import com.stem.entity.StatementExample;
 import com.stem.entity.TigerNaming;
 import com.stem.entity.TigerNamingExample;
 import com.stem.entity.WxNewsResource;
+import com.stem.entity.WxReplyResource;
 import com.stem.service.StatementService;
 import com.stem.service.TigerNamingService;
 import com.stem.service.WxMenuService;
+import com.stem.service.WxReplyResourceService;
 import com.stem.util.JsonUtil;
 import com.stem.wechat.bean.Articles;
 import com.stem.wechat.bean.InMessage;
@@ -31,6 +33,8 @@ import com.stem.wechat.bean.NewsOutMessage;
 import com.stem.wechat.bean.OutMessage;
 import com.stem.wechat.bean.TextOutMessage;
 
+
+@SuppressWarnings("unchecked")
 public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler{
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
@@ -46,11 +50,12 @@ public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler
 	@Resource
 	private WxMenuService wxMenuService;
 	
+	@Resource
+	private WxReplyResourceService wxReplyResourceService;
+	
 	@Override
 	public void allType(InMessage msg){
-		TextOutMessage out = new TextOutMessage();
-		out.setContent("您的消息已经收到！");
-		setOutMessage(out);
+		responseMenuInfo(msg);
 	}
 	
 	@Override
@@ -63,20 +68,22 @@ public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler
 			if(namings.size()<=0){
 				return;
 			}
-			out.setContent("	输入日期格式如：" + another.format(new Date())+"\\n可以查询制定日期的账单信息！");
+			out.setContent("	输入日期格式如：" + another.format(new Date())+"\n可以查询制定日期的账单信息！");
 			setOutMessage(out);
 			return;
 		}
 		
 		//设置其他关键词回复
-			
+		List<WxReplyResource> replyList = (List<WxReplyResource>) AppContext.getContext().getValue("wrr_list");
+		for(WxReplyResource reply:replyList){
+			String keyword = reply.getNewsKeyword();
+			if(content.equals(keyword)){
+				setOutMessage(createNews(reply.getNewsDes(), reply.getPicUrl(), reply.getNewsTitle(), reply.getNewsUrl()));
+			}
+		}
 		
 		if("账单".equals(content)||"我的账单".equals(content)||"账单查询".equals(content)||"今日账单".equals(content)||"最近账单".equals(content)){
 			responseMenuMine(msg, serverPath);
-			return;
-		}
-		List<TigerNaming> namings = isNaming(msg,serverPath,out);
-		if(namings.size()<=0){
 			return;
 		}
 		Date tar = null;
@@ -97,6 +104,10 @@ public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler
 			}
 		}
 		if(null!=tar){
+			List<TigerNaming> namings = isNaming(msg,serverPath,out);
+			if(namings.size()<=0){
+				return;
+			}
 			TigerNaming naming = namings.get(0);
 			StatementExample example = new StatementExample();
 			Calendar calendar = new GregorianCalendar();
@@ -141,7 +152,7 @@ public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler
 				out.setContent("暂时没有您的账单信息！");
 			}
 		}else{
-			out.setContent("	输入日期格式如：" + another.format(new Date())+"\\n可以查询制定日期的账单信息！");
+			out.setContent("	输入日期格式如：" + another.format(new Date())+"\n可以查询制定日期的账单信息！");
 		}
 		setOutMessage(out);
 	}

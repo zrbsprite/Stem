@@ -44,18 +44,26 @@ import com.stem.entity.WxImageResource;
 import com.stem.entity.WxImageResourceExample;
 import com.stem.entity.WxMenu;
 import com.stem.entity.WxMenuExample;
+import com.stem.entity.WxNewsInfo;
+import com.stem.entity.WxNewsInfoExample;
+import com.stem.entity.WxNewsItem;
 import com.stem.entity.WxNewsResource;
 import com.stem.entity.WxNewsResourceExample;
+import com.stem.entity.WxReplyResource;
+import com.stem.entity.WxReplyResourceExample;
 import com.stem.service.TigerAccessTokenService;
 import com.stem.service.WxImageResourceService;
 import com.stem.service.WxMenuService;
+import com.stem.service.WxNewsInfoService;
+import com.stem.service.WxNewsItemService;
 import com.stem.service.WxNewsResourceService;
-import com.stem.util.HttpUtils;
+import com.stem.service.WxReplyResourceService;
 import com.stem.util.JsonUtil;
 import com.stem.vo.WxMenuVO;
 import com.stem.wechat.TigerUtils;
 import com.stem.wechat.oauth.Menu;
 
+@SuppressWarnings("unchecked")
 @Controller
 @RequestMapping("admin")
 public class MenuController extends AjaxConroller {
@@ -74,6 +82,23 @@ public class MenuController extends AjaxConroller {
 	@Resource
 	private WxNewsResourceService wxNewsResourceService;
 	
+	@Resource
+	private WxReplyResourceService wxReplyResourceService;
+	
+	@Resource
+	private WxNewsInfoService wxNewsInfoService;
+	
+	@Resource
+	private WxNewsItemService wxNewsItemService;
+	
+	/**
+	 * 
+	 * 方法名称: menu<br/>
+	 * 描述：菜单生成<br/>
+	 * 作者: ruibo<br/>
+	 * 修改日期：2016年1月2日-上午9:12:21<br/>
+	 * @return
+	 */
 	@RequestMapping("menu")
 	public String menu(){
 		logger.info("重新生成菜单开始");
@@ -111,6 +136,15 @@ public class MenuController extends AjaxConroller {
 		return "fore/ok";
 	}
 	
+	/**
+	 * 
+	 * 方法名称: menuListOnly<br/>
+	 * 描述：后台菜单页面<br/>
+	 * 作者: ruibo<br/>
+	 * 修改日期：2016年1月2日-上午9:12:47<br/>
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("menulistonly")
 	public String menuListOnly(Model model){
 		WxMenuExample example = new WxMenuExample();
@@ -120,6 +154,152 @@ public class MenuController extends AjaxConroller {
 		return "fore/menu";
 	}
 	
+	
+	/**
+	 * <b>作者:</b> Bob<br/>
+	 * <b>修改时间：</b>2015年12月29日 - 上午9:21:55<br/>
+	 * <b>功能说明：</b>同步菜单回复的图文的内容	<br/>
+	 * @param model
+	 * @param writer
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("synmenu")
+	public String makeMenuInf(Model model, PrintWriter writer) throws Exception{
+		/*
+		TigerAccessToken token = TigerUtils.getAccessTokenBean(tigerAccessTokenService);
+		String accessToken = token.getAccesstoken();
+		//更新所有的图文列表
+		String newsGetOneUrl = PropertiesUtils.getConfigByKey("material_get_url");
+		newsGetOneUrl = String.format(newsGetOneUrl, accessToken);
+		*/
+		List<WxNewsResource> wnrList = this.wxNewsResourceService.list(new WxNewsResourceExample());
+		for(WxNewsResource one : wnrList){
+			//获取当前的图文消息
+			String newsMId = one.getMediaId();
+			WxNewsInfoExample infoExample = new WxNewsInfoExample();
+			infoExample.createCriteria().andMediaIdEqualTo(newsMId).andTypeEqualTo(1);
+			List<WxNewsInfo> infoList = this.wxNewsInfoService.list(infoExample);
+			if(infoList.size()>0){
+				WxNewsInfo wxNewsInfo = infoList.get(0);
+				String ids = wxNewsInfo.getItemIds();
+				Integer itemId = Integer.valueOf(ids);
+				WxNewsItem wxNewsItem = this.wxNewsItemService.getByPK(itemId);
+				String title = wxNewsItem.getTitle();
+				one.setNewsTitle(title);
+				one.setNewsDes(wxNewsItem.getDigest());
+				one.setNewsUrl(wxNewsItem.getUrl());
+				String imageThumbId = wxNewsItem.getThumbMediaId();
+				WxImageResourceExample wxImageResourceExample = new WxImageResourceExample();
+				wxImageResourceExample.createCriteria().andMediaIdEqualTo(imageThumbId);
+				List<WxImageResource> wxImageList = this.wxImageResourceService.list(wxImageResourceExample);
+				if(wxImageList.size()>0){
+					WxImageResource wxImageResource = wxImageList.get(0);
+					one.setPicUrl(wxImageResource.getUrl());
+				}
+				this.wxNewsResourceService.updateByPK(one);
+			}
+			
+			/*
+			String newsGetOneJson = "{\"media_id\":\""+newsMId+"\"}";
+			String newsGetOneResult = HttpUtils.postHttpByJsonData(newsGetOneUrl, newsGetOneJson);
+			Map<String, Object> newsGetOneMap = (Map<String, Object>) JsonUtil.str2map(newsGetOneResult, new TypeReference<Map<String, Object>>(){});
+			List<Object> newsGetOneList = (List<Object>) newsGetOneMap.get("news_item");
+			//目前只是单图文，不考虑多图文，大虎的目前也只是单图文
+			if(newsGetOneList.size()>0){
+				Map<String, String> newsGetOneItem = (Map<String, String>) newsGetOneList.get(0);
+				String thumbId = newsGetOneItem.get("thumb_media_id");
+				WxImageResourceExample we = new WxImageResourceExample();
+				we.createCriteria().andMediaIdEqualTo(thumbId);
+				List<WxImageResource> wrList = this.wxImageResourceService.list(we);
+				if(wrList.size()>0){
+					String imageUrl = wrList.get(0).getUrl();
+					WxNewsResourceExample wre = new WxNewsResourceExample();
+					wre.createCriteria().andMediaIdEqualTo(newsMId);
+					WxNewsResource wr = new WxNewsResource();
+					wr.setMediaId(newsMId);
+					wr.setPicUrl(imageUrl);
+					this.wxNewsResourceService.update(wr,wre);
+				}
+			}
+			*/
+		}
+		
+		List<WxReplyResource> wrrList = this.wxReplyResourceService.list(new WxReplyResourceExample());
+		for(WxReplyResource one : wrrList){
+			//获取当前的图文消息
+			String newsMId = one.getMediaId();
+			WxNewsInfoExample infoExample = new WxNewsInfoExample();
+			infoExample.createCriteria().andMediaIdEqualTo(newsMId).andTypeEqualTo(1);
+			List<WxNewsInfo> infoList = this.wxNewsInfoService.list(infoExample);
+			if(infoList.size()>0){
+				WxNewsInfo wxNewsInfo = infoList.get(0);
+				String ids = wxNewsInfo.getItemIds();
+				Integer itemId = Integer.valueOf(ids);
+				WxNewsItem wxNewsItem = this.wxNewsItemService.getByPK(itemId);
+				String title = wxNewsItem.getTitle();
+				one.setNewsTitle(title);
+				one.setNewsDes(wxNewsItem.getDigest());
+				one.setNewsUrl(wxNewsItem.getUrl());
+				String imageThumbId = wxNewsItem.getThumbMediaId();
+				WxImageResourceExample wxImageResourceExample = new WxImageResourceExample();
+				wxImageResourceExample.createCriteria().andMediaIdEqualTo(imageThumbId);
+				List<WxImageResource> wxImageList = this.wxImageResourceService.list(wxImageResourceExample);
+				if(wxImageList.size()>0){
+					WxImageResource wxImageResource = wxImageList.get(0);
+					one.setPicUrl(wxImageResource.getUrl());
+				}
+				this.wxReplyResourceService.updateByPK(one);
+			}
+		}
+		
+		wnrList = this.wxNewsResourceService.list(new WxNewsResourceExample());
+		for(WxNewsResource one : wnrList){
+			AppContext.getContext().setSyncValue(one.getMenuKey(),one);
+		}
+		wrrList = this.wxReplyResourceService.list(new WxReplyResourceExample());
+		AppContext.getContext().setSyncValue("wrr_list", wrrList);
+		
+		this.writeJson("{\"state\":200}");
+		return null;
+	}
+
+	/**
+	 * 
+	 * 方法名称: synCache<br/>
+	 * 描述：同步缓存<br/>
+	 * 作者: ruibo<br/>
+	 * 修改日期：2016年1月3日-下午9:04:09<br/>
+	 * @param model
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping("synCache")
+	public String synCache(Model model) throws Exception{
+		
+		logger.info("System is starting to cache menu data...");
+		List<WxNewsResource> wnrList  = this.wxNewsResourceService.list(new WxNewsResourceExample());
+		for(WxNewsResource one : wnrList){
+			AppContext.getContext().setSyncValue(one.getMenuKey(),one);
+		}
+		List<WxReplyResource> wrrList =  this.wxReplyResourceService.list(new WxReplyResourceExample());
+		AppContext.getContext().setSyncValue("wrr_list", wrrList);
+		
+		logger.info("System cache menu data over...");
+		
+		model.addAttribute("msg","同步缓存成功！");
+		return "fore/ok";
+	}
+	
+	/**
+	 * 
+	 * 方法名称: menuList<br/>
+	 * 描述：菜单列表<br/>
+	 * 作者: ruibo<br/>
+	 * 修改日期：2016年1月2日-上午9:13:17<br/>
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping("menulist")
 	public String menuList(Model model){
 		WxMenuExample example = new WxMenuExample();
@@ -159,56 +339,16 @@ public class MenuController extends AjaxConroller {
 	}
 	
 	/**
-	 * <b>作者:</b> Bob<br/>
-	 * <b>修改时间：</b>2015年12月29日 - 上午9:21:55<br/>
-	 * <b>功能说明：</b>同步菜单回复的图文的内容	<br/>
+	 * 
+	 * 方法名称: upload<br/>
+	 * 描述：上传图片<br/>
+	 * 作者: ruibo<br/>
+	 * 修改日期：2016年1月2日-上午9:13:32<br/>
+	 * @param id
+	 * @param picture
 	 * @param model
-	 * @param writer
 	 * @return
-	 * @throws Exception
 	 */
-	@RequestMapping("makemenu")
-	public String makeMenuInf(Model model, PrintWriter writer) throws Exception{
-		TigerAccessToken token = TigerUtils.getAccessTokenBean(tigerAccessTokenService);
-		String accessToken = token.getAccesstoken();
-		//更新所有的图文列表
-		String newsGetOneUrl = PropertiesUtils.getConfigByKey("material_get_url");
-		newsGetOneUrl = String.format(newsGetOneUrl, accessToken);
-		List<WxNewsResource> wnrList = this.wxNewsResourceService.list(new WxNewsResourceExample());
-		for(WxNewsResource one : wnrList){
-			//获取当前的图文消息
-			String newsMId = one.getMediaId();
-			String newsGetOneJson = "{\"media_id\":\""+newsMId+"\"}";
-			String newsGetOneResult = HttpUtils.postHttpByJsonData(newsGetOneUrl, newsGetOneJson);
-			Map<String, Object> newsGetOneMap = (Map<String, Object>) JsonUtil.str2map(newsGetOneResult, new TypeReference<Map<String, Object>>(){});
-			List<Object> newsGetOneList = (List<Object>) newsGetOneMap.get("news_item");
-			//目前只是单图文，不考虑多图文，大虎的目前也只是单图文
-			if(newsGetOneList.size()>0){
-				Map<String, String> newsGetOneItem = (Map<String, String>) newsGetOneList.get(0);
-				String thumbId = newsGetOneItem.get("thumb_media_id");
-				WxImageResourceExample we = new WxImageResourceExample();
-				we.createCriteria().andMediaIdEqualTo(thumbId);
-				List<WxImageResource> wrList = this.wxImageResourceService.list(we);
-				if(wrList.size()>0){
-					String imageUrl = wrList.get(0).getUrl();
-					WxNewsResourceExample wre = new WxNewsResourceExample();
-					wre.createCriteria().andMediaIdEqualTo(newsMId);
-					WxNewsResource wr = new WxNewsResource();
-					wr.setMediaId(newsMId);
-					wr.setPicUrl(imageUrl);
-					this.wxNewsResourceService.update(wr,wre);
-				}
-			}
-		}
-		wnrList = this.wxNewsResourceService.list(new WxNewsResourceExample());
-		for(WxNewsResource res : wnrList){
-			AppContext.getContext().setSyncValue(res.getMenuKey(), res);
-		}
-		
-		this.writeJson("{\"state\":200}");
-		return null;
-	}
-	
 	@RequestMapping("uploadpic")
 	public String upload(Integer id, MultipartFile picture, Model model){
 		String type = picture.getContentType();

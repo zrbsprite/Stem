@@ -4,12 +4,14 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Service;
+
 import com.stem.dao.WxNewsInfoMapper;
 import com.stem.entity.WxNewsInfo;
 import com.stem.entity.WxNewsInfoExample;
 import com.stem.service.WxNewsInfoService;
 
-
+@Service("wxNewsInfoService")
 public class WxNewsInfoServiceImpl implements WxNewsInfoService {
 
 	@Resource

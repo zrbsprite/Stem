@@ -125,7 +125,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.stem.entity.WxNewsItem" keyColumn="id" useGeneratedKeys="true">
+  <insert id="insert" parameterType="com.stem.entity.WxNewsItem" keyProperty="id" useGeneratedKeys="true">
     insert into wx_news_item (id, title, thumb_media_id, 
       show_cover_pic, digest, url, 
       content_source_url, content)
@@ -133,7 +133,7 @@
       #{showCoverPic,jdbcType=INTEGER}, #{digest,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
       #{contentSourceUrl,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.stem.entity.WxNewsItem"  keyColumn="id" useGeneratedKeys="true">
+  <insert id="insertSelective" parameterType="com.stem.entity.WxNewsItem"  keyProperty="id" useGeneratedKeys="true">
     insert into wx_news_item
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

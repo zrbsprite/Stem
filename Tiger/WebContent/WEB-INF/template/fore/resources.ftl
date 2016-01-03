@@ -11,7 +11,7 @@
 	<script type="text/javascript" src="${basepath}/assets/js/jquery-1.8.3.min.js"></script>
 </head>
 <body id="nv_member" class="pg_CURMODULE">
-	<#assign current='menu_menu'>
+	<#assign current='menu_material'>
 	<div id="wp" class="wp">
 		<!--中间内容-->
 		<div class="contentmanage">
@@ -20,7 +20,7 @@
 					<#include "/include/left.ftl"/>
 					<div class="content">
 						<div class="cLineB">
-							<h4 style="font-size:16px;">资源同步管理</h4>
+							<h4 style="font-size:16px;">素材管理</h4>
 						</div>
 						<div class="cLine">
 							<div style="margin: 0 auto;height:auto;" class="ftip">
@@ -32,17 +32,9 @@
 						<div class="msgWrap" style="border-top: 1px solid #ccc; padding-top: 10px; margin-top: 10px;">
 							<div style="margin-left:50px;">
 								<div style="float: left; width: 60%;margin-bottom:20px;">
-									<button class="btnGrayS" type="button" onclick="location.href='${basepath}/wechat/clearNews.htm'">1同步图文素材</button>
-									<button class="btnGrayS" type="button" onclick="location.href='${basepath}/wechat/clearTemp.htm'">2同步图片素材</button>
-									<button class="btnGrayS" type="button" onclick="synMenu();">3同步菜单回复</button>
+									<button class="btnGrayS" type="button" onclick="synMenu();">同步菜单回复</button>
 								</div>
 							</div>
-							<div style="margin-left:50px;">
-								<div style="float: left; width: 60%;margin-bottom:20px;">
-									<button class="btnGrayS" type="button" onclick="location.href='${basepath}/admin/synCache.htm'">同步缓存</button>
-								</div>
-							</div>
-							<#-- 
 							<form enctype="multipart/form-data" action="${basepath}/admin/uploadpic.htm" method="post" class="form" onsubmit="return checkForm();">
 								<table width="100%" cellspacing="0" cellpadding="0" border="0" style="margin: 20px 0 0 0;" class="userinfoArea">
 									<tbody>
@@ -75,7 +67,6 @@
 									</tbody>
 								</table>
 							</form>
-							 -->
 						</div>
 					</div>			
 					</div>
@@ -103,7 +94,7 @@ function synMenu(){
 		layerIndex = layer.msg('正在执行请稍后...', {icon: 16, shade: [0.8, '#393D49'], time:0});
 		$.ajax({
 		   type: "POST",
-		   url: "${basepath}/admin/synmenu.htm",
+		   url: "${basepath}/admin/makemenu.htm",
 		   async: true,
 		   cache: false,
 		   success: function(data){
