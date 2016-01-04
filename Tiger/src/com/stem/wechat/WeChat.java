@@ -36,6 +36,7 @@ import com.stem.wechat.tools.Tools;
 import com.stem.wechat.tools.XStreamFactory;
 import com.thoughtworks.xstream.XStream;
 
+@SuppressWarnings("unchecked")
 public class WeChat {
 
 	private static final String ACCESSTOKEN_URL = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential";

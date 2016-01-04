@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
@@ -35,7 +36,7 @@ public class StatementController extends AjaxConroller{
 	private TigerAccessTokenService tigerAccessTokenService;
 	
 	@RequestMapping("msg")
-	public void index(PrintWriter writer) throws IOException{
+	public void index(HttpServletRequest request, PrintWriter writer) throws IOException{
 		//validate wechat msg
 		String signature = request.getParameter("signature");
 		String timestamp = request.getParameter("timestamp");
@@ -61,9 +62,9 @@ public class StatementController extends AjaxConroller{
 			}
 			writer.write(echostr);
 		}else{
-			String path = getServerLocalePath();
+			String path = getServerLocalePath(request);
 			InputStream stream = request.getInputStream();
-			String responseInputString = IOUtils.toString(stream);
+			String responseInputString = IOUtils.toString(stream, "UTF-8");
 			logger.info("微信接口传来报文："+responseInputString);
 			String xml = WeChat.processing(responseInputString, path);
 			if(!StringUtils.isEmpty(xml)){
@@ -84,7 +85,7 @@ public class StatementController extends AjaxConroller{
 	 * @return
 	 */
 	@RequestMapping("pro")
-	public String index(String code){
+	public String index(HttpServletRequest request, String code){
 		Oauth auth = new Oauth();
 		try{
 			String json = auth.getToken(code);

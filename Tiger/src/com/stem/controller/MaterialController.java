@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
@@ -269,8 +270,8 @@ public class MaterialController extends AjaxConroller {
 	 * @return
 	 */
 	@RequestMapping("mtadd")
-	public String uploadImage(){
-		String root = getContentRealPath();
+	public String uploadImage(HttpServletRequest request){
+		String root = getContentRealPath(request);
 		File dic = new File(root + "/static/product");
 		File[] files = dic.listFiles();
 		for(File file : files){

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,16 +49,16 @@ public class LoginController extends AjaxConroller{
 	private WxUserinfoService wxUserinfoService;
 	
 	@RequestMapping("index")
-	public String index(String code, Model model){
-		model.addAttribute("wxurl", getServerLocalePath());
+	public String index(String code, Model model, HttpServletRequest request){
+		model.addAttribute("wxurl", getServerLocalePath(request));
 		model.addAttribute("code",code);
 		return "fore/login";
 	}
 	
 	@SuppressWarnings("unchecked")
 	@RequestMapping("bind")
-	public String login(@ModelAttribute TigerUserinfo entity, String vc, Model model){
-		model.addAttribute("wxurl", getServerLocalePath());
+	public String login(@ModelAttribute TigerUserinfo entity, String vc, Model model, HttpServletRequest request){
+		model.addAttribute("wxurl", getServerLocalePath(request));
 		String viewName = "fore/success";
 		
 		TigerUserinfoExample example = new TigerUserinfoExample();
@@ -150,8 +151,8 @@ public class LoginController extends AjaxConroller{
 	
 	@SuppressWarnings("unchecked")
 	@RequestMapping("unbind")
-	public String unbind(@ModelAttribute TigerUserinfo entity, String vc, Model model){
-		model.addAttribute("wxurl", getServerLocalePath());
+	public String unbind(@ModelAttribute TigerUserinfo entity, String vc, Model model, HttpServletRequest request){
+		model.addAttribute("wxurl", getServerLocalePath(request));
 		String viewName = "fore/success";
 		
 		TigerUserinfoExample example = new TigerUserinfoExample();

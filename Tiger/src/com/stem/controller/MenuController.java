@@ -7,13 +7,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
@@ -112,7 +113,7 @@ public class MenuController extends AjaxConroller {
 	 * @return
 	 */
 	@RequestMapping("menu")
-	public String menu(){
+	public String menu(HttpServletRequest request){
 		logger.info("重新生成菜单开始");
 		try{
 			String path = getClass().getClassLoader().getResource("/").getPath();
@@ -126,7 +127,7 @@ public class MenuController extends AjaxConroller {
 				line = line.trim();
 				line = line.replace("${APPID}", PropertiesUtils.getConfigByKey("AppId"));
 				line = line.replace("${AppSecret}", PropertiesUtils.getConfigByKey("AppSecret"));
-				line = line.replace("${serverPath}", getServerLocalePath());
+				line = line.replace("${serverPath}", getServerLocalePath(request));
 				json.append(line);
 			}
 			Menu menu = new Menu();
@@ -177,7 +178,7 @@ public class MenuController extends AjaxConroller {
 	 * @throws Exception
 	 */
 	@RequestMapping("synmenu")
-	public String makeMenuInf(Model model, PrintWriter writer) throws Exception{
+	public String makeMenuInf(Model model, HttpServletResponse response) throws Exception{
 		/*
 		TigerAccessToken token = TigerUtils.getAccessTokenBean(tigerAccessTokenService);
 		String accessToken = token.getAccesstoken();
@@ -272,7 +273,7 @@ public class MenuController extends AjaxConroller {
 		wrrList = this.wxReplyResourceService.list(new WxReplyResourceExample());
 		AppContext.getContext().setSyncValue("wrr_list", wrrList);
 		
-		this.writeJson("{\"state\":200}");
+		this.writeJson(response, "{\"state\":200}");
 		return null;
 	}
 
@@ -371,10 +372,10 @@ public class MenuController extends AjaxConroller {
 	 * @return
 	 */
 	@RequestMapping("uploadpic")
-	public String upload(Integer id, MultipartFile picture, Model model){
+	public String upload(Integer id, MultipartFile picture, Model model, HttpServletRequest request){
 		String type = picture.getContentType();
 		logger.debug("文件上传类型是：" + type);
-		String basepath = getContentRealPath();
+		String basepath = getContentRealPath(request);
 		if(!basepath.endsWith(File.separator)){
 			basepath += File.separator;
 		}

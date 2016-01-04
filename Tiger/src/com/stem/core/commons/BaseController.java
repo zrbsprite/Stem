@@ -1,26 +1,13 @@
 package com.stem.core.commons;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.servlet.support.RequestContext;
 
 public abstract class BaseController {
 
-	protected HttpServletRequest request;
-	
-	protected HttpServletResponse response;
-	
 	private RequestContext context;
-	
-	@ModelAttribute
-	private void bind(HttpServletRequest request, HttpServletResponse response){
-		this.request = request;
-		this.response = response;
-		this.context = new RequestContext(request);
-	}
 	
 	protected final String getMessage(String key){
 		return context.getMessage(key);
@@ -62,7 +49,7 @@ public abstract class BaseController {
 	 * 功能说明：获取contextPath 全地址<br/>
 	 * @return
 	 */
-	protected String getServerLocalePath(){
+	protected String getServerLocalePath(HttpServletRequest request){
 		String schame = request.getScheme();
 		String serverName = request.getServerName();
 		int port = request.getServerPort();
@@ -80,7 +67,7 @@ public abstract class BaseController {
 	 * 功能说明：返回项目根目录的真实地址<br/>
 	 * @return
 	 */
-	protected String getContentRealPath(){
-		return this.request.getSession().getServletContext().getRealPath("/");
+	protected String getContentRealPath(HttpServletRequest request){
+		return request.getSession().getServletContext().getRealPath("/");
 	}
 }

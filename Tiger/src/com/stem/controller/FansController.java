@@ -1,9 +1,9 @@
 package com.stem.controller;
 
-import java.io.PrintWriter;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,9 +43,9 @@ public class FansController extends AjaxConroller {
 	}
 	
 	@RequestMapping("synajax")
-	public void synchronizeFansByAjax(Model model, PrintWriter writer){
+	public void synchronizeFansByAjax(Model model, HttpServletResponse response){
 		fansTask.run();
-		writeJson("{\"success\":true}");
+		writeJson(response, "{\"success\":true}");
 	}
 	
 	@RequestMapping("fanslist")

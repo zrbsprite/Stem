@@ -1,13 +1,14 @@
 package com.stem.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletInputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.RandomStringUtils;
 import org.slf4j.Logger;
@@ -48,7 +49,7 @@ public class WechatPayController extends AjaxConroller {
 	private TigerAccessTokenService tigerAccessTokenService;
 	
 	@RequestMapping("pay")
-	public String pay(@ModelAttribute ProductInfo info, Model model) throws UnsupportedEncodingException{
+	public String pay(@ModelAttribute ProductInfo info, Model model, HttpServletRequest request) throws UnsupportedEncodingException{
 		// 判断是否微信环境, 5.0 之后的支持微信支付
 		boolean isweixin = WeChat.isWeiXin(request);
 		if(isweixin){
@@ -82,7 +83,7 @@ public class WechatPayController extends AjaxConroller {
 			// 参数
 			String timeStamp = System.currentTimeMillis() + "";
 			String nonceStr = RandomStringUtils.random(8, "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ");
-			String serverPath = getServerLocalePath();
+			String serverPath = getServerLocalePath(request);
 			String packageStr = Pay.getPackage(params, serverPath);
 			XStream xs = XStreamFactory.init(false);
 	        xs.alias("xml", PrePay.class);
@@ -123,7 +124,7 @@ public class WechatPayController extends AjaxConroller {
 	 * @return
 	 */
 	@RequestMapping("notify")
-	public void payNotify(PrintWriter out){
+	public void payNotify(HttpServletRequest request, HttpServletResponse response){
 		// post 过来的xml
 		WeChatBuyPost postData = null;
 		String openid = null;
@@ -141,7 +142,7 @@ public class WechatPayController extends AjaxConroller {
 			String returnCode = postData.getReturn_code();
 			if (!returnCode.equalsIgnoreCase("SUCCESS")){
 				logger.warn("校验支付error:" + postData.getReturn_msg());
-				writeHtml("<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>");
+				writeHtml(response, "<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>");
 				return;
 			}
 			openid = postData.getOpenid();
@@ -171,11 +172,11 @@ public class WechatPayController extends AjaxConroller {
 			e.printStackTrace();
 			logger.warn("发送客服消息异常："+e.getMessage());
 		}
-		writeHtml("<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>");
+		writeHtml(response, "<xml><return_code><![CDATA[SUCCESS]]></return_code><return_msg><![CDATA[OK]]></return_msg></xml>");
 	}
 	
 	@RequestMapping("back")
-	public String payFeeDBBack() throws UnsupportedEncodingException, IOException{
+	public String payFeeDBBack(HttpServletRequest request) throws UnsupportedEncodingException, IOException{
 		ServletInputStream in = request.getInputStream();
 		// 转换微信post过来的xml内容
 		XStream xs = new XStream(new DomDriver());
