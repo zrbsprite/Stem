@@ -20,14 +20,18 @@ import com.stem.entity.Statement;
 import com.stem.entity.StatementExample;
 import com.stem.entity.TigerNaming;
 import com.stem.entity.TigerNamingExample;
+import com.stem.entity.WxImageReply;
 import com.stem.entity.WxNewsResource;
 import com.stem.entity.WxReplyResource;
+import com.stem.entity.WxTextReply;
 import com.stem.service.StatementService;
 import com.stem.service.TigerNamingService;
 import com.stem.service.WxMenuService;
 import com.stem.service.WxReplyResourceService;
 import com.stem.util.JsonUtil;
 import com.stem.wechat.bean.Articles;
+import com.stem.wechat.bean.Image;
+import com.stem.wechat.bean.ImageOutMessage;
 import com.stem.wechat.bean.InMessage;
 import com.stem.wechat.bean.NewsOutMessage;
 import com.stem.wechat.bean.OutMessage;
@@ -74,7 +78,7 @@ public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler
 			if(namings.size()<=0){
 				return;
 			}
-			out.setContent("	输入日期格式如：" + another.format(new Date())+"\n可以查询制定日期的账单信息！");
+			out.setContent("输入日期格式如：" + another.format(new Date())+"\n可以查询指定日期的账单信息！");
 			setOutMessage(out);
 			return;
 		}
@@ -85,6 +89,33 @@ public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler
 			String keyword = reply.getNewsKeyword();
 			if(content.equals(keyword)){
 				setOutMessage(createNews(reply.getNewsDes(), reply.getPicUrl(), reply.getNewsTitle(), reply.getNewsUrl()));
+				return;
+			}
+		}
+		
+		List<WxTextReply> textList = (List<WxTextReply>) AppContext.getContext().getValue("text_list");
+		for(WxTextReply one : textList){
+			if(StringUtils.isEmpty(one.getTextKeyword())){
+				continue;
+			}
+			if(content.equals(one.getTextKeyword())){
+				out.setContent(one.getTextContent());
+				setOutMessage(out);
+				return;
+			}
+		}
+		
+		List<WxImageReply> imageList = (List<WxImageReply>) AppContext.getContext().getValue("image_list");
+		for(WxImageReply one : imageList){
+			if(StringUtils.isEmpty(one.getImageKeyword())){
+				continue;
+			}
+			if(content.equals(one.getImageKeyword())){
+				ImageOutMessage imageMessage = new ImageOutMessage();
+				Image img = new Image();
+				img.setMediaId(one.getMediaId());
+				imageMessage.setImage(img);
+				setOutMessage(imageMessage);
 				return;
 			}
 		}
@@ -159,7 +190,7 @@ public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler
 				out.setContent("暂时没有您的账单信息！");
 			}
 		}else{
-			out.setContent("	输入日期格式如：" + another.format(new Date())+"\n可以查询制定日期的账单信息！");
+			out.setContent("输入日期格式如：" + another.format(new Date())+"\n可以查询指定日期的账单信息！");
 		}
 		setOutMessage(out);
 	}

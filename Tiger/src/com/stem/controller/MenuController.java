@@ -40,6 +40,8 @@ import com.stem.core.AppContext;
 import com.stem.core.commons.AjaxConroller;
 import com.stem.core.commons.PropertiesInitBean.PropertiesUtils;
 import com.stem.entity.TigerAccessToken;
+import com.stem.entity.WxImageReply;
+import com.stem.entity.WxImageReplyExample;
 import com.stem.entity.WxImageResource;
 import com.stem.entity.WxImageResourceExample;
 import com.stem.entity.WxMenu;
@@ -51,13 +53,17 @@ import com.stem.entity.WxNewsResource;
 import com.stem.entity.WxNewsResourceExample;
 import com.stem.entity.WxReplyResource;
 import com.stem.entity.WxReplyResourceExample;
+import com.stem.entity.WxTextReply;
+import com.stem.entity.WxTextReplyExample;
 import com.stem.service.TigerAccessTokenService;
+import com.stem.service.WxImageReplyService;
 import com.stem.service.WxImageResourceService;
 import com.stem.service.WxMenuService;
 import com.stem.service.WxNewsInfoService;
 import com.stem.service.WxNewsItemService;
 import com.stem.service.WxNewsResourceService;
 import com.stem.service.WxReplyResourceService;
+import com.stem.service.WxTextReplyService;
 import com.stem.util.JsonUtil;
 import com.stem.vo.WxMenuVO;
 import com.stem.wechat.TigerUtils;
@@ -90,6 +96,12 @@ public class MenuController extends AjaxConroller {
 	
 	@Resource
 	private WxNewsItemService wxNewsItemService;
+	
+	@Resource
+	private WxTextReplyService wxTextReplyService;
+	
+	@Resource
+	private WxImageReplyService wxImageReplyService;
 	
 	/**
 	 * 
@@ -284,6 +296,15 @@ public class MenuController extends AjaxConroller {
 		}
 		List<WxReplyResource> wrrList =  this.wxReplyResourceService.list(new WxReplyResourceExample());
 		AppContext.getContext().setSyncValue("wrr_list", wrrList);
+		
+		WxTextReplyExample textExample = new WxTextReplyExample();
+		textExample.createCriteria().andTextStatusEqualTo(1);
+		List<WxTextReply> textList = this.wxTextReplyService.list(textExample);
+		AppContext.getContext().setSyncValue("text_list", textList);
+		WxImageReplyExample imageExample = new WxImageReplyExample();
+		imageExample.createCriteria().andImageStatusEqualTo(1);
+		List<WxImageReply> imageList = this.wxImageReplyService.list(imageExample);
+		AppContext.getContext().setSyncValue("image_list", imageList);
 		
 		logger.info("System cache menu data over...");
 		
