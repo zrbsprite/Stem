@@ -33,7 +33,13 @@ import com.stem.wechat.bean.NewsOutMessage;
 import com.stem.wechat.bean.OutMessage;
 import com.stem.wechat.bean.TextOutMessage;
 
-
+/**
+ * <b>描述：</b>	需要考虑多图文的关键词回复<br/>
+ * <b>作者：</b>Bob <br/>
+ * <b>修改日期：</b>2016年1月4日 - 上午9:27:07<br/>
+ * <b>E-mail:</b> sireezhang@163.com<br/>
+ *
+ */
 @SuppressWarnings("unchecked")
 public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler{
 
@@ -79,6 +85,7 @@ public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler
 			String keyword = reply.getNewsKeyword();
 			if(content.equals(keyword)){
 				setOutMessage(createNews(reply.getNewsDes(), reply.getPicUrl(), reply.getNewsTitle(), reply.getNewsUrl()));
+				return;
 			}
 		}
 		
@@ -291,7 +298,7 @@ public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler
 
 	
 	/*
-	 * 设置多图文
+	 * 设置单图文
 	 * */
 	private NewsOutMessage createNews(String des, String picUrl, String title, String url){
 		//可以从多图文获取
