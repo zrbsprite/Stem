@@ -1,5 +1,6 @@
 package com.stem.wechat.inf;
 
+import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -176,7 +177,7 @@ public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler
 					sb.append("\n");
 					sb.append("总收益："+statement.getTotalreturn().toString());
 					sb.append("\n");
-					sb.append("总收益率：" + statement.getTotalrate().toString() + "%");
+					sb.append("总收益率：" + statement.getTotalrate().setScale(2,RoundingMode.DOWN).toString() + "%");
 					if(i<size-1){
 						sb.append("\n\n");
 					}
@@ -401,7 +402,7 @@ public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler
 					sb.append("\n");
 					sb.append("总收益："+statement.getTotalreturn().toString());
 					sb.append("\n");
-					sb.append("总收益率：" + statement.getTotalrate().toString()+"%");
+					sb.append("总收益率：" + statement.getTotalrate().setScale(2,RoundingMode.DOWN).toString()+"%");
 					if(i<size-1){
 						sb.append("\n\n");
 					}
