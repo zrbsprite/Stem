@@ -176,7 +176,7 @@ public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler
 					sb.append("\n");
 					sb.append("总收益："+statement.getTotalreturn().toString());
 					sb.append("\n");
-					sb.append("总收益率：" + statement.getTotalrate().toString());
+					sb.append("总收益率：" + statement.getTotalrate().toString() + "%");
 					if(i<size-1){
 						sb.append("\n\n");
 					}
@@ -401,7 +401,7 @@ public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler
 					sb.append("\n");
 					sb.append("总收益："+statement.getTotalreturn().toString());
 					sb.append("\n");
-					sb.append("总收益率：" + statement.getTotalrate().toString());
+					sb.append("总收益率：" + statement.getTotalrate().toString()+"%");
 					if(i<size-1){
 						sb.append("\n\n");
 					}
