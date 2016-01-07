@@ -100,7 +100,6 @@
 			 							<div class="btn-group btn-group-xs">
 				 							<button class="btn btn-primary" type="button" onclick="editItem('${bean.username}',this);">修改</button>
 				 							<button class="btn btn-primary" type="button" onclick="delItem('${bean.username}',this);">删除</button>
-				 							<button class="btn btn-primary" type="button" onclick="authItem('${bean.username}',this);">授予角色</button>
 			 							</div>
 			 						</td>
 			 					</tr>
