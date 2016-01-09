@@ -21,6 +21,12 @@
 					"type": "click",
 					"name": "产品列表",
 					"key": "M2_PRO_LIST"
+				},
+
+				{
+					"type": "click",
+					"name": "最新净值",
+					"key": "M2_PRO_ZXJZ"
 				}
 			]
 		},

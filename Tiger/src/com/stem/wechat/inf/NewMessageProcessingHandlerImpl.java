@@ -45,7 +45,7 @@ import com.stem.wechat.bean.TextOutMessage;
  * <b>E-mail:</b> sireezhang@163.com<br/>
  *
  */
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked","unused"})
 public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler{
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
@@ -263,23 +263,16 @@ public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler
 					case "M2_PRO_MINE"://
 						responseMenuMine(msg, serverPath);
 						break;
+						
 					case "M1_TEAM_INFO"://
 						responseMenuInfo(msg);
-						break;
-					case "M3_COR_JOIN"://
-						responseMenuJOIN(msg);
 						break;
 					case "M3_COR_ABOUT"://
 						responseMenuAbout(msg);
 						break;
-					case "M2_PRO_LIST"://
-						responseMenuList(msg);
-						break;
-					case "M1_TEAM_YFJX":{
-						responseMenueLike(msg);
-						break;
-					}
+						
 					default:
+						responseMneuNews(msg);
 						break;
 				}
 				break;
@@ -293,6 +286,12 @@ public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler
 				break;
 		}
 		
+	}
+	
+	private void responseMneuNews(InMessage msg){
+		String eventKey = msg.getEventKey();
+		WxNewsResource res = (WxNewsResource) AppContext.getContext().getValue(eventKey);
+		setOutMessage(createNews(res.getNewsDes(), res.getPicUrl(), res.getNewsTitle(), res.getNewsUrl()));
 	}
 	
 	private void responseMenueLike(InMessage msg){
