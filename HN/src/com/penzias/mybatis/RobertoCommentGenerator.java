@@ -1,4 +1,4 @@
-package com.penzias.main;
+package com.penzias.mybatis;
 
 import org.mybatis.generator.api.IntrospectedColumn;
 import org.mybatis.generator.api.IntrospectedTable;

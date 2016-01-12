@@ -21,6 +21,14 @@ configurations {
 
 repositories {
     mavenCentral()
+    /*
+    maven {
+        url "http://maven.oschina.net/content/groups/public"
+        credentials {
+          username ''
+          password ''
+        }
+    }*/
 }
 
 dependencies {
@@ -88,6 +96,7 @@ dependencies {
 	//compile files('libs/android-support-v4.jar')
 	//某个文件夹下面全部依赖
 	compile fileTree(dir: 'include', include: '*.jar')
+	mybatisGenerator files('include/mybatis-comments.jar')
 }
 //命令行：gradle mybatisGenerate
 task mybatisGenerate << {

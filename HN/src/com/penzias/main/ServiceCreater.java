@@ -78,7 +78,11 @@ public class ServiceCreater {
 	
 	public static void renderServiceFile(String fileName, Map<String, String> map) throws IOException{
 		Template template = configuration.getTemplate("Service.ftl");
-		FileOutputStream out = new FileOutputStream(fileName);
+		File file = new File(fileName);
+		if(file.exists()){
+			return;
+		}
+		FileOutputStream out = new FileOutputStream(file);
 		OutputStreamWriter osw = new OutputStreamWriter(out);
 		try{
 			template.process(map, osw);
@@ -91,8 +95,12 @@ public class ServiceCreater {
 	}
 	
 	public static void renderServiceImplFile(String fileName, Map<String, String> map) throws IOException{
+		File file = new File(fileName);
+		if(file.exists()){
+			return;
+		}
 		Template template = configuration.getTemplate("ServiceImpl.ftl");
-		FileOutputStream out = new FileOutputStream(fileName);
+		FileOutputStream out = new FileOutputStream(file);
 		OutputStreamWriter osw = new OutputStreamWriter(out);
 		try{
 			template.process(map, osw);
