@@ -1229,3 +1229,10 @@ CREATE TABLE `user_personal_info` (
 -- ----------------------------
 -- Records of user_personal_info
 -- ----------------------------
+DROP TABLE IF EXISTS `sys_user_modular`;
+CREATE TABLE `sys_user_modular` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `modular_id` int(11) DEFAULT NULL COMMENT '模块儿id',
+  `user_id` int(11) DEFAULT NULL COMMENT '用户id',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户的特殊权限';
