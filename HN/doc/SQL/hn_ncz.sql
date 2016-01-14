@@ -1124,7 +1124,7 @@ INSERT INTO `sm_department` VALUES ('0000002003', '住院一部', '', null, '1',
 -- ----------------------------
 DROP TABLE IF EXISTS `sm_modular`;
 CREATE TABLE `sm_modular` (
-  `ModularID` int(11) NOT NULL COMMENT '程序模块编码',
+  `ModularID` int(11) NOT NULL AUTO_INCREMENT COMMENT '程序模块编码',
   `ParentModularID` int(11) DEFAULT NULL COMMENT '上级模块编码',
   `ModularName` varchar(50) NOT NULL COMMENT '名称',
   `Uri` varchar(200) DEFAULT NULL COMMENT '功能模块地址',
