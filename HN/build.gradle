@@ -20,7 +20,7 @@ configurations {
 }
 
 repositories {
-    mavenCentral()
+    mavenCentral() // 中央库
     /*
     maven {
         url "http://maven.oschina.net/content/groups/public"
@@ -29,6 +29,7 @@ repositories {
           password ''
         }
     }*/
+    // 自定义库地址
 }
 
 dependencies {

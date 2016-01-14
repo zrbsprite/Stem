@@ -119,6 +119,6 @@
 	<#include "frame/js-ie.ftl">
 	<script type="text/javascript" src="${basepath}/assets/layer/layer.js"></script>
 	<script type="text/javascript" src="${basepath}/assets/layer/alert.js"></script>
-	<script type="text/javascript" src="${basepath}/assets/js/include_dept_institution.js"></script>
+	<script type="text/javascript" src="${basepath}/assets/js/department/include_dept_institution.js"></script>
   </body>
 </html>

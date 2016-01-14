@@ -46,9 +46,12 @@
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
   <!-- 防止spring内存溢出监听器 -->
-<listener>
+  <listener>
 	<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
-</listener>
+  </listener>
+  <listener>
+	<listener-class>com.penzias.core.commons.ContextInitListener</listener-class>
+  </listener>
   <servlet>
     <servlet-name>SpringMVC</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

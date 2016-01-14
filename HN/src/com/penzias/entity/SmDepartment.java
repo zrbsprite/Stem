@@ -27,7 +27,7 @@ public class SmDepartment {
     //值为UN为机构
     private String pptr;
 
-    //
+    //是否有子节点
     private String cptr;
 
     //状态（1是启用，0是暂停）
