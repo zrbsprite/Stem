@@ -65,12 +65,17 @@ public class StatementController extends AjaxConroller{
 			String path = getServerLocalePath(request);
 			InputStream stream = request.getInputStream();
 			String responseInputString = IOUtils.toString(stream, "UTF-8");
-			logger.info("微信接口传来报文："+responseInputString);
-			String xml = WeChat.processing(responseInputString, path);
-			if(!StringUtils.isEmpty(xml)){
-				writer.write(xml);
+			if(!StringUtils.isEmpty(responseInputString)){
+				logger.info("微信接口传来报文："+responseInputString);
+				String xml = WeChat.processing(responseInputString, path);
+				if(!StringUtils.isEmpty(xml)){
+					writer.write(xml);
+				}else{
+					logger.error("响应xml异常为空！");
+					writer.write("");
+				}
 			}else{
-				logger.error("响应xml异常为空！");
+				logger.error("微信响应内容为空！");
 				writer.write("");
 			}
 		}
