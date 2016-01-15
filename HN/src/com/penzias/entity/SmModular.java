@@ -1,99 +1,170 @@
 package com.penzias.entity;
 
-/**
- * æè¿°ï¼šåŠŸèƒ½æ¨¡å—å„¿<br/>
- * ä½œè€…ï¼šBob <br/>
- * ä¿®æ”¹æ—¥æœŸï¼š2015å¹´12æœˆ16æ—¥ - ä¸‹åˆ5:32:54<br/>
- * E-mail: sireezhang@163.com<br/>
- *
- */
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class SmModular {
-	
-	//idç¨‹åºæ¨¡å—ç¼–ç 
-    private Integer modularid;
 
-    //ä¸Šçº§æ¨¡å—ç¼–ç 
-    private Integer parentmodularid;
+	// ³ÌĞòÄ£¿é±àÂë
+	@Expose
+	private Integer id;
 
-    //åç§°
-    private String modularname;
+	// ÉÏ¼¶Ä£¿é±àÂë
+	@Expose
+	private Integer parentId;
 
-    //åŠŸèƒ½æ¨¡å—åœ°å€
-    private String uri;
+	// Ãû³Æ
+	@Expose
+	@SerializedName("name")
+	private String modularName;
 
-    //æè¿°
-    private String modulardesc;
+	// ¹¦ÄÜÄ£¿éµØÖ·
+	private String modularUrl;
 
-    //é¡ºåº
-    private Integer displayorder;
+	// ÃèÊö
+	private String modularDesc;
 
-    //å¢åˆ æ”¹æŸ¥
-    private String crud;
+	// Ë³Ğò
+	private Integer modularOrder;
 
-    //0:ä¸€çº§åŠŸèƒ½ï¼›1ï¼šäºŒçº§åŠŸèƒ½
-    private String homemodular;
+	// ÑùÊ½»òÍ¼±ê
+	private String modularStyle;
 
-    public Integer getModularid() {
-        return modularid;
-    }
+	// ÊÇ·ñÏÔÊ¾£º0-²»ÏÔÊ¾£¬1-ÏÔÊ¾
+	private String modularShow;
 
-    public void setModularid(Integer modularid) {
-        this.modularid = modularid;
-    }
+	// ±êÊ¶,»ùÓÚÑùÊ½¿ØÖÆ
+	private String modularFlag;
 
-    public Integer getParentmodularid() {
-        return parentmodularid;
-    }
+	// ÔöÉ¾¸Ä²é
+	private String crud;
 
-    public void setParentmodularid(Integer parentmodularid) {
-        this.parentmodularid = parentmodularid;
-    }
+	// ÒÔÏÂ²»²ÎÓëÓ³Éä
+	@Expose
+	private boolean open;
 
-    public String getModularname() {
-        return modularname;
-    }
+	// ÊÇ·ñÑ¡ÖĞ
+	@Expose
+	private boolean checked;
 
-    public void setModularname(String modularname) {
-        this.modularname = modularname;
-    }
+	public Integer getId(){
 
-    public String getUri() {
-        return uri;
-    }
+		return id;
+	}
 
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
+	public void setId(Integer id){
 
-    public String getModulardesc() {
-        return modulardesc;
-    }
+		this.id = id;
+	}
 
-    public void setModulardesc(String modulardesc) {
-        this.modulardesc = modulardesc;
-    }
+	public Integer getParentId(){
 
-    public Integer getDisplayorder() {
-        return displayorder;
-    }
+		return parentId;
+	}
 
-    public void setDisplayorder(Integer displayorder) {
-        this.displayorder = displayorder;
-    }
+	public void setParentId(Integer parentId){
 
-    public String getCrud() {
-        return crud;
-    }
+		this.parentId = parentId;
+	}
 
-    public void setCrud(String crud) {
-        this.crud = crud;
-    }
+	public String getModularName(){
 
-    public String getHomemodular() {
-        return homemodular;
-    }
+		return modularName;
+	}
 
-    public void setHomemodular(String homemodular) {
-        this.homemodular = homemodular;
-    }
+	public void setModularName(String modularName){
+
+		this.modularName = modularName;
+	}
+
+	public String getModularUrl(){
+
+		return modularUrl;
+	}
+
+	public void setModularUrl(String modularUrl){
+
+		this.modularUrl = modularUrl;
+	}
+
+	public String getModularDesc(){
+
+		return modularDesc;
+	}
+
+	public void setModularDesc(String modularDesc){
+
+		this.modularDesc = modularDesc;
+	}
+
+	public Integer getModularOrder(){
+
+		return modularOrder;
+	}
+
+	public void setModularOrder(Integer modularOrder){
+
+		this.modularOrder = modularOrder;
+	}
+
+	public String getModularStyle(){
+
+		return modularStyle;
+	}
+
+	public void setModularStyle(String modularStyle){
+
+		this.modularStyle = modularStyle;
+	}
+
+	public String getModularShow(){
+
+		return modularShow;
+	}
+
+	public void setModularShow(String modularShow){
+
+		this.modularShow = modularShow;
+	}
+
+	public String getModularFlag(){
+
+		return modularFlag;
+	}
+
+	public void setModularFlag(String modularFlag){
+
+		this.modularFlag = modularFlag;
+	}
+
+	public String getCrud(){
+
+		return crud;
+	}
+
+	public void setCrud(String crud){
+
+		this.crud = crud;
+	}
+
+	public boolean isOpen(){
+
+		return open;
+	}
+
+	public void setOpen(boolean open){
+
+		this.open = open;
+	}
+
+	public boolean isChecked(){
+
+		return checked;
+	}
+
+	public void setChecked(boolean checked){
+
+		this.checked = checked;
+	}
+
 }

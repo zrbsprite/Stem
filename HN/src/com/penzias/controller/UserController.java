@@ -221,4 +221,18 @@ public class UserController extends BaseController {
 		}
 		return "redirect:/um/del.htm";
 	}
+	
+	/**
+	 * <b>作者:</b> zrb<br/>
+	 * <b>修改时间：</b>2016年1月15日 - 下午4:08:26<br/>
+	 * <b>功能说明：</b>为用户授权角色<br/>
+	 * @return
+	 */
+	@RequestMapping("auth")
+	public String authrize(Integer id, Integer roleid){
+		SmUser sm = this.smUserService.getById(id);
+		sm.setRoleid(roleid+"");
+		this.smUserService.updateById(sm);
+		return "redirect:/um/index.htm";
+	}
 }

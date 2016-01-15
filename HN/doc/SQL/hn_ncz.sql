@@ -1124,15 +1124,17 @@ INSERT INTO `sm_department` VALUES ('0000002003', '住院一部', '', null, '1',
 -- ----------------------------
 DROP TABLE IF EXISTS `sm_modular`;
 CREATE TABLE `sm_modular` (
-  `ModularID` int(11) NOT NULL AUTO_INCREMENT COMMENT '程序模块编码',
-  `ParentModularID` int(11) DEFAULT NULL COMMENT '上级模块编码',
-  `ModularName` varchar(50) NOT NULL COMMENT '名称',
-  `Uri` varchar(200) DEFAULT NULL COMMENT '功能模块地址',
-  `ModularDesc` varchar(200) DEFAULT NULL COMMENT '描述',
-  `DisplayOrder` int(11) DEFAULT NULL COMMENT '顺序',
-  `Crud` varchar(50) DEFAULT NULL COMMENT '增删改查',
-  `HomeModular` varchar(1) NOT NULL DEFAULT '0' COMMENT '0:一级功能；1：二级功能',
-  PRIMARY KEY (`ModularID`)
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '程序模块编码',
+  `parent_id` int(11) DEFAULT NULL COMMENT '上级模块编码',
+  `modular_name` varchar(50) NOT NULL COMMENT '名称',
+  `modular_url` varchar(200) DEFAULT NULL COMMENT '功能模块地址',
+  `modular_desc` varchar(200) DEFAULT NULL COMMENT '描述',
+  `modular_order` int(11) DEFAULT NULL COMMENT '顺序',
+  `modular_style` varchar(100) DEFAULT NULL COMMENT '样式或图标',
+  `modular_show` char(1) DEFAULT '1' COMMENT '是否显示：0-不显示，1-显示',
+  `modular_flag` varchar(100) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL COMMENT '标识,基于样式控制',
+  `crud` varchar(50) DEFAULT NULL COMMENT '增删改查',
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='功能模块表';
 
 -- ----------------------------

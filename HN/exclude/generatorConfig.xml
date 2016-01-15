@@ -40,7 +40,7 @@
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
         
-        <table schema="" tableName="sys_user_modular" domainObjectName="SysUserModular">
+        <table schema="" tableName="sm_role_modular" domainObjectName="SmRoleModular">
             <property name="useActualColumnNames" value="false" />
         </table>
         

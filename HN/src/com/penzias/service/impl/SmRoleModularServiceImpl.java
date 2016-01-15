@@ -1,5 +1,7 @@
 package com.penzias.service.impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -21,6 +23,11 @@ public class SmRoleModularServiceImpl extends BasicServiceImpl<SmRoleModularExam
 	public BasicMapper<SmRoleModularExample, SmRoleModular> getMapper(){
 
 		return smRoleModularMapper;
+	}
+
+	@Override
+	public Integer addMore(List<SmRoleModular> list){
+		return this.smRoleModularMapper.insertBatch(list);
 	}
 
 }

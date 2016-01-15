@@ -104,183 +104,183 @@ public class SmRoleModularExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andRolemodularidIsNull() {
-            addCriterion("RoleModularID is null");
+        public Criteria andIdIsNull() {
+            addCriterion("id is null");
             return (Criteria) this;
         }
 
-        public Criteria andRolemodularidIsNotNull() {
-            addCriterion("RoleModularID is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRolemodularidEqualTo(Integer value) {
-            addCriterion("RoleModularID =", value, "rolemodularid");
+        public Criteria andIdEqualTo(Integer value) {
+            addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRolemodularidNotEqualTo(Integer value) {
-            addCriterion("RoleModularID <>", value, "rolemodularid");
+        public Criteria andIdNotEqualTo(Integer value) {
+            addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRolemodularidGreaterThan(Integer value) {
-            addCriterion("RoleModularID >", value, "rolemodularid");
+        public Criteria andIdGreaterThan(Integer value) {
+            addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRolemodularidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("RoleModularID >=", value, "rolemodularid");
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRolemodularidLessThan(Integer value) {
-            addCriterion("RoleModularID <", value, "rolemodularid");
+        public Criteria andIdLessThan(Integer value) {
+            addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRolemodularidLessThanOrEqualTo(Integer value) {
-            addCriterion("RoleModularID <=", value, "rolemodularid");
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
+            addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRolemodularidIn(List<Integer> values) {
-            addCriterion("RoleModularID in", values, "rolemodularid");
+        public Criteria andIdIn(List<Integer> values) {
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRolemodularidNotIn(List<Integer> values) {
-            addCriterion("RoleModularID not in", values, "rolemodularid");
+        public Criteria andIdNotIn(List<Integer> values) {
+            addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRolemodularidBetween(Integer value1, Integer value2) {
-            addCriterion("RoleModularID between", value1, value2, "rolemodularid");
+        public Criteria andIdBetween(Integer value1, Integer value2) {
+            addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRolemodularidNotBetween(Integer value1, Integer value2) {
-            addCriterion("RoleModularID not between", value1, value2, "rolemodularid");
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidIsNull() {
-            addCriterion("RoleID is null");
+        public Criteria andRoleIdIsNull() {
+            addCriterion("role_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidIsNotNull() {
-            addCriterion("RoleID is not null");
+        public Criteria andRoleIdIsNotNull() {
+            addCriterion("role_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidEqualTo(Integer value) {
-            addCriterion("RoleID =", value, "roleid");
+        public Criteria andRoleIdEqualTo(Integer value) {
+            addCriterion("role_id =", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidNotEqualTo(Integer value) {
-            addCriterion("RoleID <>", value, "roleid");
+        public Criteria andRoleIdNotEqualTo(Integer value) {
+            addCriterion("role_id <>", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidGreaterThan(Integer value) {
-            addCriterion("RoleID >", value, "roleid");
+        public Criteria andRoleIdGreaterThan(Integer value) {
+            addCriterion("role_id >", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("RoleID >=", value, "roleid");
+        public Criteria andRoleIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("role_id >=", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidLessThan(Integer value) {
-            addCriterion("RoleID <", value, "roleid");
+        public Criteria andRoleIdLessThan(Integer value) {
+            addCriterion("role_id <", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidLessThanOrEqualTo(Integer value) {
-            addCriterion("RoleID <=", value, "roleid");
+        public Criteria andRoleIdLessThanOrEqualTo(Integer value) {
+            addCriterion("role_id <=", value, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidIn(List<Integer> values) {
-            addCriterion("RoleID in", values, "roleid");
+        public Criteria andRoleIdIn(List<Integer> values) {
+            addCriterion("role_id in", values, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidNotIn(List<Integer> values) {
-            addCriterion("RoleID not in", values, "roleid");
+        public Criteria andRoleIdNotIn(List<Integer> values) {
+            addCriterion("role_id not in", values, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidBetween(Integer value1, Integer value2) {
-            addCriterion("RoleID between", value1, value2, "roleid");
+        public Criteria andRoleIdBetween(Integer value1, Integer value2) {
+            addCriterion("role_id between", value1, value2, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andRoleidNotBetween(Integer value1, Integer value2) {
-            addCriterion("RoleID not between", value1, value2, "roleid");
+        public Criteria andRoleIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("role_id not between", value1, value2, "roleId");
             return (Criteria) this;
         }
 
-        public Criteria andModularidIsNull() {
-            addCriterion("ModularID is null");
+        public Criteria andModularIdIsNull() {
+            addCriterion("modular_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andModularidIsNotNull() {
-            addCriterion("ModularID is not null");
+        public Criteria andModularIdIsNotNull() {
+            addCriterion("modular_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andModularidEqualTo(Integer value) {
-            addCriterion("ModularID =", value, "modularid");
+        public Criteria andModularIdEqualTo(Integer value) {
+            addCriterion("modular_id =", value, "modularId");
             return (Criteria) this;
         }
 
-        public Criteria andModularidNotEqualTo(Integer value) {
-            addCriterion("ModularID <>", value, "modularid");
+        public Criteria andModularIdNotEqualTo(Integer value) {
+            addCriterion("modular_id <>", value, "modularId");
             return (Criteria) this;
         }
 
-        public Criteria andModularidGreaterThan(Integer value) {
-            addCriterion("ModularID >", value, "modularid");
+        public Criteria andModularIdGreaterThan(Integer value) {
+            addCriterion("modular_id >", value, "modularId");
             return (Criteria) this;
         }
 
-        public Criteria andModularidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ModularID >=", value, "modularid");
+        public Criteria andModularIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("modular_id >=", value, "modularId");
             return (Criteria) this;
         }
 
-        public Criteria andModularidLessThan(Integer value) {
-            addCriterion("ModularID <", value, "modularid");
+        public Criteria andModularIdLessThan(Integer value) {
+            addCriterion("modular_id <", value, "modularId");
             return (Criteria) this;
         }
 
-        public Criteria andModularidLessThanOrEqualTo(Integer value) {
-            addCriterion("ModularID <=", value, "modularid");
+        public Criteria andModularIdLessThanOrEqualTo(Integer value) {
+            addCriterion("modular_id <=", value, "modularId");
             return (Criteria) this;
         }
 
-        public Criteria andModularidIn(List<Integer> values) {
-            addCriterion("ModularID in", values, "modularid");
+        public Criteria andModularIdIn(List<Integer> values) {
+            addCriterion("modular_id in", values, "modularId");
             return (Criteria) this;
         }
 
-        public Criteria andModularidNotIn(List<Integer> values) {
-            addCriterion("ModularID not in", values, "modularid");
+        public Criteria andModularIdNotIn(List<Integer> values) {
+            addCriterion("modular_id not in", values, "modularId");
             return (Criteria) this;
         }
 
-        public Criteria andModularidBetween(Integer value1, Integer value2) {
-            addCriterion("ModularID between", value1, value2, "modularid");
+        public Criteria andModularIdBetween(Integer value1, Integer value2) {
+            addCriterion("modular_id between", value1, value2, "modularId");
             return (Criteria) this;
         }
 
-        public Criteria andModularidNotBetween(Integer value1, Integer value2) {
-            addCriterion("ModularID not between", value1, value2, "modularid");
+        public Criteria andModularIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("modular_id not between", value1, value2, "modularId");
             return (Criteria) this;
         }
     }

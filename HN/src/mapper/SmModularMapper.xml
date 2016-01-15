@@ -2,14 +2,16 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.penzias.dao.SmModularMapper" >
   <resultMap id="BaseResultMap" type="com.penzias.entity.SmModular" >
-    <id column="ModularID" property="modularid" jdbcType="INTEGER" />
-    <result column="ParentModularID" property="parentmodularid" jdbcType="INTEGER" />
-    <result column="ModularName" property="modularname" jdbcType="VARCHAR" />
-    <result column="Uri" property="uri" jdbcType="VARCHAR" />
-    <result column="ModularDesc" property="modulardesc" jdbcType="VARCHAR" />
-    <result column="DisplayOrder" property="displayorder" jdbcType="INTEGER" />
-    <result column="Crud" property="crud" jdbcType="VARCHAR" />
-    <result column="HomeModular" property="homemodular" jdbcType="VARCHAR" />
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+    <result column="modular_name" property="modularName" jdbcType="VARCHAR" />
+    <result column="modular_url" property="modularUrl" jdbcType="VARCHAR" />
+    <result column="modular_desc" property="modularDesc" jdbcType="VARCHAR" />
+    <result column="modular_order" property="modularOrder" jdbcType="INTEGER" />
+    <result column="modular_style" property="modularStyle" jdbcType="VARCHAR" />
+    <result column="modular_show" property="modularShow" jdbcType="CHAR" />
+    <result column="modular_flag" property="modularFlag" jdbcType="VARCHAR" />
+    <result column="crud" property="crud" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -70,7 +72,8 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    ModularID, ParentModularID, ModularName, Uri, ModularDesc, DisplayOrder, Crud, HomeModular
+    id, parent_id, modular_name, modular_url, modular_desc, modular_order, modular_style, 
+    modular_show, modular_flag, crud
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.penzias.entity.SmModularExample" >
     select
@@ -90,11 +93,11 @@
     select 
     <include refid="Base_Column_List" />
     from sm_modular
-    where ModularID = #{modularid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from sm_modular
-    where ModularID = #{modularid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </delete>
   <delete id="deleteByExample" parameterType="com.penzias.entity.SmModularExample" >
     delete from sm_modular
@@ -103,65 +106,79 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.penzias.entity.SmModular" >
-    insert into sm_modular (ModularID, ParentModularID, ModularName, 
-      Uri, ModularDesc, DisplayOrder, 
-      Crud, HomeModular)
-    values (#{modularid,jdbcType=INTEGER}, #{parentmodularid,jdbcType=INTEGER}, #{modularname,jdbcType=VARCHAR}, 
-      #{uri,jdbcType=VARCHAR}, #{modulardesc,jdbcType=VARCHAR}, #{displayorder,jdbcType=INTEGER}, 
-      #{crud,jdbcType=VARCHAR}, #{homemodular,jdbcType=VARCHAR})
+    insert into sm_modular (id, parent_id, modular_name, 
+      modular_url, modular_desc, modular_order, 
+      modular_style, modular_show, modular_flag, 
+      crud)
+    values (#{id,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{modularName,jdbcType=VARCHAR}, 
+      #{modularUrl,jdbcType=VARCHAR}, #{modularDesc,jdbcType=VARCHAR}, #{modularOrder,jdbcType=INTEGER}, 
+      #{modularStyle,jdbcType=VARCHAR}, #{modularShow,jdbcType=CHAR}, #{modularFlag,jdbcType=VARCHAR}, 
+      #{crud,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.penzias.entity.SmModular" >
     insert into sm_modular
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="modularid != null" >
-        ModularID,
+      <if test="id != null" >
+        id,
       </if>
-      <if test="parentmodularid != null" >
-        ParentModularID,
+      <if test="parentId != null" >
+        parent_id,
       </if>
-      <if test="modularname != null" >
-        ModularName,
+      <if test="modularName != null" >
+        modular_name,
       </if>
-      <if test="uri != null" >
-        Uri,
+      <if test="modularUrl != null" >
+        modular_url,
       </if>
-      <if test="modulardesc != null" >
-        ModularDesc,
+      <if test="modularDesc != null" >
+        modular_desc,
       </if>
-      <if test="displayorder != null" >
-        DisplayOrder,
+      <if test="modularOrder != null" >
+        modular_order,
+      </if>
+      <if test="modularStyle != null" >
+        modular_style,
+      </if>
+      <if test="modularShow != null" >
+        modular_show,
+      </if>
+      <if test="modularFlag != null" >
+        modular_flag,
       </if>
       <if test="crud != null" >
-        Crud,
-      </if>
-      <if test="homemodular != null" >
-        HomeModular,
+        crud,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="modularid != null" >
-        #{modularid,jdbcType=INTEGER},
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
       </if>
-      <if test="parentmodularid != null" >
-        #{parentmodularid,jdbcType=INTEGER},
+      <if test="parentId != null" >
+        #{parentId,jdbcType=INTEGER},
       </if>
-      <if test="modularname != null" >
-        #{modularname,jdbcType=VARCHAR},
+      <if test="modularName != null" >
+        #{modularName,jdbcType=VARCHAR},
       </if>
-      <if test="uri != null" >
-        #{uri,jdbcType=VARCHAR},
+      <if test="modularUrl != null" >
+        #{modularUrl,jdbcType=VARCHAR},
       </if>
-      <if test="modulardesc != null" >
-        #{modulardesc,jdbcType=VARCHAR},
+      <if test="modularDesc != null" >
+        #{modularDesc,jdbcType=VARCHAR},
       </if>
-      <if test="displayorder != null" >
-        #{displayorder,jdbcType=INTEGER},
+      <if test="modularOrder != null" >
+        #{modularOrder,jdbcType=INTEGER},
+      </if>
+      <if test="modularStyle != null" >
+        #{modularStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="modularShow != null" >
+        #{modularShow,jdbcType=CHAR},
+      </if>
+      <if test="modularFlag != null" >
+        #{modularFlag,jdbcType=VARCHAR},
       </if>
       <if test="crud != null" >
         #{crud,jdbcType=VARCHAR},
-      </if>
-      <if test="homemodular != null" >
-        #{homemodular,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -174,29 +191,35 @@
   <update id="updateByExampleSelective" parameterType="map" >
     update sm_modular
     <set >
-      <if test="record.modularid != null" >
-        ModularID = #{record.modularid,jdbcType=INTEGER},
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.parentmodularid != null" >
-        ParentModularID = #{record.parentmodularid,jdbcType=INTEGER},
+      <if test="record.parentId != null" >
+        parent_id = #{record.parentId,jdbcType=INTEGER},
       </if>
-      <if test="record.modularname != null" >
-        ModularName = #{record.modularname,jdbcType=VARCHAR},
+      <if test="record.modularName != null" >
+        modular_name = #{record.modularName,jdbcType=VARCHAR},
       </if>
-      <if test="record.uri != null" >
-        Uri = #{record.uri,jdbcType=VARCHAR},
+      <if test="record.modularUrl != null" >
+        modular_url = #{record.modularUrl,jdbcType=VARCHAR},
       </if>
-      <if test="record.modulardesc != null" >
-        ModularDesc = #{record.modulardesc,jdbcType=VARCHAR},
+      <if test="record.modularDesc != null" >
+        modular_desc = #{record.modularDesc,jdbcType=VARCHAR},
       </if>
-      <if test="record.displayorder != null" >
-        DisplayOrder = #{record.displayorder,jdbcType=INTEGER},
+      <if test="record.modularOrder != null" >
+        modular_order = #{record.modularOrder,jdbcType=INTEGER},
+      </if>
+      <if test="record.modularStyle != null" >
+        modular_style = #{record.modularStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.modularShow != null" >
+        modular_show = #{record.modularShow,jdbcType=CHAR},
+      </if>
+      <if test="record.modularFlag != null" >
+        modular_flag = #{record.modularFlag,jdbcType=VARCHAR},
       </if>
       <if test="record.crud != null" >
-        Crud = #{record.crud,jdbcType=VARCHAR},
-      </if>
-      <if test="record.homemodular != null" >
-        HomeModular = #{record.homemodular,jdbcType=VARCHAR},
+        crud = #{record.crud,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -205,14 +228,16 @@
   </update>
   <update id="updateByExample" parameterType="map" >
     update sm_modular
-    set ModularID = #{record.modularid,jdbcType=INTEGER},
-      ParentModularID = #{record.parentmodularid,jdbcType=INTEGER},
-      ModularName = #{record.modularname,jdbcType=VARCHAR},
-      Uri = #{record.uri,jdbcType=VARCHAR},
-      ModularDesc = #{record.modulardesc,jdbcType=VARCHAR},
-      DisplayOrder = #{record.displayorder,jdbcType=INTEGER},
-      Crud = #{record.crud,jdbcType=VARCHAR},
-      HomeModular = #{record.homemodular,jdbcType=VARCHAR}
+    set id = #{record.id,jdbcType=INTEGER},
+      parent_id = #{record.parentId,jdbcType=INTEGER},
+      modular_name = #{record.modularName,jdbcType=VARCHAR},
+      modular_url = #{record.modularUrl,jdbcType=VARCHAR},
+      modular_desc = #{record.modularDesc,jdbcType=VARCHAR},
+      modular_order = #{record.modularOrder,jdbcType=INTEGER},
+      modular_style = #{record.modularStyle,jdbcType=VARCHAR},
+      modular_show = #{record.modularShow,jdbcType=CHAR},
+      modular_flag = #{record.modularFlag,jdbcType=VARCHAR},
+      crud = #{record.crud,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -220,39 +245,47 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.penzias.entity.SmModular" >
     update sm_modular
     <set >
-      <if test="parentmodularid != null" >
-        ParentModularID = #{parentmodularid,jdbcType=INTEGER},
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=INTEGER},
       </if>
-      <if test="modularname != null" >
-        ModularName = #{modularname,jdbcType=VARCHAR},
+      <if test="modularName != null" >
+        modular_name = #{modularName,jdbcType=VARCHAR},
       </if>
-      <if test="uri != null" >
-        Uri = #{uri,jdbcType=VARCHAR},
+      <if test="modularUrl != null" >
+        modular_url = #{modularUrl,jdbcType=VARCHAR},
       </if>
-      <if test="modulardesc != null" >
-        ModularDesc = #{modulardesc,jdbcType=VARCHAR},
+      <if test="modularDesc != null" >
+        modular_desc = #{modularDesc,jdbcType=VARCHAR},
       </if>
-      <if test="displayorder != null" >
-        DisplayOrder = #{displayorder,jdbcType=INTEGER},
+      <if test="modularOrder != null" >
+        modular_order = #{modularOrder,jdbcType=INTEGER},
+      </if>
+      <if test="modularStyle != null" >
+        modular_style = #{modularStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="modularShow != null" >
+        modular_show = #{modularShow,jdbcType=CHAR},
+      </if>
+      <if test="modularFlag != null" >
+        modular_flag = #{modularFlag,jdbcType=VARCHAR},
       </if>
       <if test="crud != null" >
-        Crud = #{crud,jdbcType=VARCHAR},
-      </if>
-      <if test="homemodular != null" >
-        HomeModular = #{homemodular,jdbcType=VARCHAR},
+        crud = #{crud,jdbcType=VARCHAR},
       </if>
     </set>
-    where ModularID = #{modularid,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.penzias.entity.SmModular" >
     update sm_modular
-    set ParentModularID = #{parentmodularid,jdbcType=INTEGER},
-      ModularName = #{modularname,jdbcType=VARCHAR},
-      Uri = #{uri,jdbcType=VARCHAR},
-      ModularDesc = #{modulardesc,jdbcType=VARCHAR},
-      DisplayOrder = #{displayorder,jdbcType=INTEGER},
-      Crud = #{crud,jdbcType=VARCHAR},
-      HomeModular = #{homemodular,jdbcType=VARCHAR}
-    where ModularID = #{modularid,jdbcType=INTEGER}
+    set parent_id = #{parentId,jdbcType=INTEGER},
+      modular_name = #{modularName,jdbcType=VARCHAR},
+      modular_url = #{modularUrl,jdbcType=VARCHAR},
+      modular_desc = #{modularDesc,jdbcType=VARCHAR},
+      modular_order = #{modularOrder,jdbcType=INTEGER},
+      modular_style = #{modularStyle,jdbcType=VARCHAR},
+      modular_show = #{modularShow,jdbcType=CHAR},
+      modular_flag = #{modularFlag,jdbcType=VARCHAR},
+      crud = #{crud,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

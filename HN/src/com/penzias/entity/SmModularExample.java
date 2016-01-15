@@ -104,533 +104,673 @@ public class SmModularExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andModularidIsNull() {
-            addCriterion("ModularID is null");
+        public Criteria andIdIsNull() {
+            addCriterion("id is null");
             return (Criteria) this;
         }
 
-        public Criteria andModularidIsNotNull() {
-            addCriterion("ModularID is not null");
+        public Criteria andIdIsNotNull() {
+            addCriterion("id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andModularidEqualTo(Integer value) {
-            addCriterion("ModularID =", value, "modularid");
+        public Criteria andIdEqualTo(Integer value) {
+            addCriterion("id =", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andModularidNotEqualTo(Integer value) {
-            addCriterion("ModularID <>", value, "modularid");
+        public Criteria andIdNotEqualTo(Integer value) {
+            addCriterion("id <>", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andModularidGreaterThan(Integer value) {
-            addCriterion("ModularID >", value, "modularid");
+        public Criteria andIdGreaterThan(Integer value) {
+            addCriterion("id >", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andModularidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ModularID >=", value, "modularid");
+        public Criteria andIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("id >=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andModularidLessThan(Integer value) {
-            addCriterion("ModularID <", value, "modularid");
+        public Criteria andIdLessThan(Integer value) {
+            addCriterion("id <", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andModularidLessThanOrEqualTo(Integer value) {
-            addCriterion("ModularID <=", value, "modularid");
+        public Criteria andIdLessThanOrEqualTo(Integer value) {
+            addCriterion("id <=", value, "id");
             return (Criteria) this;
         }
 
-        public Criteria andModularidIn(List<Integer> values) {
-            addCriterion("ModularID in", values, "modularid");
+        public Criteria andIdIn(List<Integer> values) {
+            addCriterion("id in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andModularidNotIn(List<Integer> values) {
-            addCriterion("ModularID not in", values, "modularid");
+        public Criteria andIdNotIn(List<Integer> values) {
+            addCriterion("id not in", values, "id");
             return (Criteria) this;
         }
 
-        public Criteria andModularidBetween(Integer value1, Integer value2) {
-            addCriterion("ModularID between", value1, value2, "modularid");
+        public Criteria andIdBetween(Integer value1, Integer value2) {
+            addCriterion("id between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andModularidNotBetween(Integer value1, Integer value2) {
-            addCriterion("ModularID not between", value1, value2, "modularid");
+        public Criteria andIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("id not between", value1, value2, "id");
             return (Criteria) this;
         }
 
-        public Criteria andParentmodularidIsNull() {
-            addCriterion("ParentModularID is null");
+        public Criteria andParentIdIsNull() {
+            addCriterion("parent_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andParentmodularidIsNotNull() {
-            addCriterion("ParentModularID is not null");
+        public Criteria andParentIdIsNotNull() {
+            addCriterion("parent_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andParentmodularidEqualTo(Integer value) {
-            addCriterion("ParentModularID =", value, "parentmodularid");
+        public Criteria andParentIdEqualTo(Integer value) {
+            addCriterion("parent_id =", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andParentmodularidNotEqualTo(Integer value) {
-            addCriterion("ParentModularID <>", value, "parentmodularid");
+        public Criteria andParentIdNotEqualTo(Integer value) {
+            addCriterion("parent_id <>", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andParentmodularidGreaterThan(Integer value) {
-            addCriterion("ParentModularID >", value, "parentmodularid");
+        public Criteria andParentIdGreaterThan(Integer value) {
+            addCriterion("parent_id >", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andParentmodularidGreaterThanOrEqualTo(Integer value) {
-            addCriterion("ParentModularID >=", value, "parentmodularid");
+        public Criteria andParentIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("parent_id >=", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andParentmodularidLessThan(Integer value) {
-            addCriterion("ParentModularID <", value, "parentmodularid");
+        public Criteria andParentIdLessThan(Integer value) {
+            addCriterion("parent_id <", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andParentmodularidLessThanOrEqualTo(Integer value) {
-            addCriterion("ParentModularID <=", value, "parentmodularid");
+        public Criteria andParentIdLessThanOrEqualTo(Integer value) {
+            addCriterion("parent_id <=", value, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andParentmodularidIn(List<Integer> values) {
-            addCriterion("ParentModularID in", values, "parentmodularid");
+        public Criteria andParentIdIn(List<Integer> values) {
+            addCriterion("parent_id in", values, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andParentmodularidNotIn(List<Integer> values) {
-            addCriterion("ParentModularID not in", values, "parentmodularid");
+        public Criteria andParentIdNotIn(List<Integer> values) {
+            addCriterion("parent_id not in", values, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andParentmodularidBetween(Integer value1, Integer value2) {
-            addCriterion("ParentModularID between", value1, value2, "parentmodularid");
+        public Criteria andParentIdBetween(Integer value1, Integer value2) {
+            addCriterion("parent_id between", value1, value2, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andParentmodularidNotBetween(Integer value1, Integer value2) {
-            addCriterion("ParentModularID not between", value1, value2, "parentmodularid");
+        public Criteria andParentIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("parent_id not between", value1, value2, "parentId");
             return (Criteria) this;
         }
 
-        public Criteria andModularnameIsNull() {
-            addCriterion("ModularName is null");
+        public Criteria andModularNameIsNull() {
+            addCriterion("modular_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andModularnameIsNotNull() {
-            addCriterion("ModularName is not null");
+        public Criteria andModularNameIsNotNull() {
+            addCriterion("modular_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andModularnameEqualTo(String value) {
-            addCriterion("ModularName =", value, "modularname");
+        public Criteria andModularNameEqualTo(String value) {
+            addCriterion("modular_name =", value, "modularName");
             return (Criteria) this;
         }
 
-        public Criteria andModularnameNotEqualTo(String value) {
-            addCriterion("ModularName <>", value, "modularname");
+        public Criteria andModularNameNotEqualTo(String value) {
+            addCriterion("modular_name <>", value, "modularName");
             return (Criteria) this;
         }
 
-        public Criteria andModularnameGreaterThan(String value) {
-            addCriterion("ModularName >", value, "modularname");
+        public Criteria andModularNameGreaterThan(String value) {
+            addCriterion("modular_name >", value, "modularName");
             return (Criteria) this;
         }
 
-        public Criteria andModularnameGreaterThanOrEqualTo(String value) {
-            addCriterion("ModularName >=", value, "modularname");
+        public Criteria andModularNameGreaterThanOrEqualTo(String value) {
+            addCriterion("modular_name >=", value, "modularName");
             return (Criteria) this;
         }
 
-        public Criteria andModularnameLessThan(String value) {
-            addCriterion("ModularName <", value, "modularname");
+        public Criteria andModularNameLessThan(String value) {
+            addCriterion("modular_name <", value, "modularName");
             return (Criteria) this;
         }
 
-        public Criteria andModularnameLessThanOrEqualTo(String value) {
-            addCriterion("ModularName <=", value, "modularname");
+        public Criteria andModularNameLessThanOrEqualTo(String value) {
+            addCriterion("modular_name <=", value, "modularName");
             return (Criteria) this;
         }
 
-        public Criteria andModularnameLike(String value) {
-            addCriterion("ModularName like", value, "modularname");
+        public Criteria andModularNameLike(String value) {
+            addCriterion("modular_name like", value, "modularName");
             return (Criteria) this;
         }
 
-        public Criteria andModularnameNotLike(String value) {
-            addCriterion("ModularName not like", value, "modularname");
+        public Criteria andModularNameNotLike(String value) {
+            addCriterion("modular_name not like", value, "modularName");
             return (Criteria) this;
         }
 
-        public Criteria andModularnameIn(List<String> values) {
-            addCriterion("ModularName in", values, "modularname");
+        public Criteria andModularNameIn(List<String> values) {
+            addCriterion("modular_name in", values, "modularName");
             return (Criteria) this;
         }
 
-        public Criteria andModularnameNotIn(List<String> values) {
-            addCriterion("ModularName not in", values, "modularname");
+        public Criteria andModularNameNotIn(List<String> values) {
+            addCriterion("modular_name not in", values, "modularName");
             return (Criteria) this;
         }
 
-        public Criteria andModularnameBetween(String value1, String value2) {
-            addCriterion("ModularName between", value1, value2, "modularname");
+        public Criteria andModularNameBetween(String value1, String value2) {
+            addCriterion("modular_name between", value1, value2, "modularName");
             return (Criteria) this;
         }
 
-        public Criteria andModularnameNotBetween(String value1, String value2) {
-            addCriterion("ModularName not between", value1, value2, "modularname");
+        public Criteria andModularNameNotBetween(String value1, String value2) {
+            addCriterion("modular_name not between", value1, value2, "modularName");
             return (Criteria) this;
         }
 
-        public Criteria andUriIsNull() {
-            addCriterion("Uri is null");
+        public Criteria andModularUrlIsNull() {
+            addCriterion("modular_url is null");
             return (Criteria) this;
         }
 
-        public Criteria andUriIsNotNull() {
-            addCriterion("Uri is not null");
+        public Criteria andModularUrlIsNotNull() {
+            addCriterion("modular_url is not null");
             return (Criteria) this;
         }
 
-        public Criteria andUriEqualTo(String value) {
-            addCriterion("Uri =", value, "uri");
+        public Criteria andModularUrlEqualTo(String value) {
+            addCriterion("modular_url =", value, "modularUrl");
             return (Criteria) this;
         }
 
-        public Criteria andUriNotEqualTo(String value) {
-            addCriterion("Uri <>", value, "uri");
+        public Criteria andModularUrlNotEqualTo(String value) {
+            addCriterion("modular_url <>", value, "modularUrl");
             return (Criteria) this;
         }
 
-        public Criteria andUriGreaterThan(String value) {
-            addCriterion("Uri >", value, "uri");
+        public Criteria andModularUrlGreaterThan(String value) {
+            addCriterion("modular_url >", value, "modularUrl");
             return (Criteria) this;
         }
 
-        public Criteria andUriGreaterThanOrEqualTo(String value) {
-            addCriterion("Uri >=", value, "uri");
+        public Criteria andModularUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("modular_url >=", value, "modularUrl");
             return (Criteria) this;
         }
 
-        public Criteria andUriLessThan(String value) {
-            addCriterion("Uri <", value, "uri");
+        public Criteria andModularUrlLessThan(String value) {
+            addCriterion("modular_url <", value, "modularUrl");
             return (Criteria) this;
         }
 
-        public Criteria andUriLessThanOrEqualTo(String value) {
-            addCriterion("Uri <=", value, "uri");
+        public Criteria andModularUrlLessThanOrEqualTo(String value) {
+            addCriterion("modular_url <=", value, "modularUrl");
             return (Criteria) this;
         }
 
-        public Criteria andUriLike(String value) {
-            addCriterion("Uri like", value, "uri");
+        public Criteria andModularUrlLike(String value) {
+            addCriterion("modular_url like", value, "modularUrl");
             return (Criteria) this;
         }
 
-        public Criteria andUriNotLike(String value) {
-            addCriterion("Uri not like", value, "uri");
+        public Criteria andModularUrlNotLike(String value) {
+            addCriterion("modular_url not like", value, "modularUrl");
             return (Criteria) this;
         }
 
-        public Criteria andUriIn(List<String> values) {
-            addCriterion("Uri in", values, "uri");
+        public Criteria andModularUrlIn(List<String> values) {
+            addCriterion("modular_url in", values, "modularUrl");
             return (Criteria) this;
         }
 
-        public Criteria andUriNotIn(List<String> values) {
-            addCriterion("Uri not in", values, "uri");
+        public Criteria andModularUrlNotIn(List<String> values) {
+            addCriterion("modular_url not in", values, "modularUrl");
             return (Criteria) this;
         }
 
-        public Criteria andUriBetween(String value1, String value2) {
-            addCriterion("Uri between", value1, value2, "uri");
+        public Criteria andModularUrlBetween(String value1, String value2) {
+            addCriterion("modular_url between", value1, value2, "modularUrl");
             return (Criteria) this;
         }
 
-        public Criteria andUriNotBetween(String value1, String value2) {
-            addCriterion("Uri not between", value1, value2, "uri");
+        public Criteria andModularUrlNotBetween(String value1, String value2) {
+            addCriterion("modular_url not between", value1, value2, "modularUrl");
             return (Criteria) this;
         }
 
-        public Criteria andModulardescIsNull() {
-            addCriterion("ModularDesc is null");
+        public Criteria andModularDescIsNull() {
+            addCriterion("modular_desc is null");
             return (Criteria) this;
         }
 
-        public Criteria andModulardescIsNotNull() {
-            addCriterion("ModularDesc is not null");
+        public Criteria andModularDescIsNotNull() {
+            addCriterion("modular_desc is not null");
             return (Criteria) this;
         }
 
-        public Criteria andModulardescEqualTo(String value) {
-            addCriterion("ModularDesc =", value, "modulardesc");
+        public Criteria andModularDescEqualTo(String value) {
+            addCriterion("modular_desc =", value, "modularDesc");
             return (Criteria) this;
         }
 
-        public Criteria andModulardescNotEqualTo(String value) {
-            addCriterion("ModularDesc <>", value, "modulardesc");
+        public Criteria andModularDescNotEqualTo(String value) {
+            addCriterion("modular_desc <>", value, "modularDesc");
             return (Criteria) this;
         }
 
-        public Criteria andModulardescGreaterThan(String value) {
-            addCriterion("ModularDesc >", value, "modulardesc");
+        public Criteria andModularDescGreaterThan(String value) {
+            addCriterion("modular_desc >", value, "modularDesc");
             return (Criteria) this;
         }
 
-        public Criteria andModulardescGreaterThanOrEqualTo(String value) {
-            addCriterion("ModularDesc >=", value, "modulardesc");
+        public Criteria andModularDescGreaterThanOrEqualTo(String value) {
+            addCriterion("modular_desc >=", value, "modularDesc");
             return (Criteria) this;
         }
 
-        public Criteria andModulardescLessThan(String value) {
-            addCriterion("ModularDesc <", value, "modulardesc");
+        public Criteria andModularDescLessThan(String value) {
+            addCriterion("modular_desc <", value, "modularDesc");
             return (Criteria) this;
         }
 
-        public Criteria andModulardescLessThanOrEqualTo(String value) {
-            addCriterion("ModularDesc <=", value, "modulardesc");
+        public Criteria andModularDescLessThanOrEqualTo(String value) {
+            addCriterion("modular_desc <=", value, "modularDesc");
             return (Criteria) this;
         }
 
-        public Criteria andModulardescLike(String value) {
-            addCriterion("ModularDesc like", value, "modulardesc");
+        public Criteria andModularDescLike(String value) {
+            addCriterion("modular_desc like", value, "modularDesc");
             return (Criteria) this;
         }
 
-        public Criteria andModulardescNotLike(String value) {
-            addCriterion("ModularDesc not like", value, "modulardesc");
+        public Criteria andModularDescNotLike(String value) {
+            addCriterion("modular_desc not like", value, "modularDesc");
             return (Criteria) this;
         }
 
-        public Criteria andModulardescIn(List<String> values) {
-            addCriterion("ModularDesc in", values, "modulardesc");
+        public Criteria andModularDescIn(List<String> values) {
+            addCriterion("modular_desc in", values, "modularDesc");
             return (Criteria) this;
         }
 
-        public Criteria andModulardescNotIn(List<String> values) {
-            addCriterion("ModularDesc not in", values, "modulardesc");
+        public Criteria andModularDescNotIn(List<String> values) {
+            addCriterion("modular_desc not in", values, "modularDesc");
             return (Criteria) this;
         }
 
-        public Criteria andModulardescBetween(String value1, String value2) {
-            addCriterion("ModularDesc between", value1, value2, "modulardesc");
+        public Criteria andModularDescBetween(String value1, String value2) {
+            addCriterion("modular_desc between", value1, value2, "modularDesc");
             return (Criteria) this;
         }
 
-        public Criteria andModulardescNotBetween(String value1, String value2) {
-            addCriterion("ModularDesc not between", value1, value2, "modulardesc");
+        public Criteria andModularDescNotBetween(String value1, String value2) {
+            addCriterion("modular_desc not between", value1, value2, "modularDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDisplayorderIsNull() {
-            addCriterion("DisplayOrder is null");
+        public Criteria andModularOrderIsNull() {
+            addCriterion("modular_order is null");
             return (Criteria) this;
         }
 
-        public Criteria andDisplayorderIsNotNull() {
-            addCriterion("DisplayOrder is not null");
+        public Criteria andModularOrderIsNotNull() {
+            addCriterion("modular_order is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDisplayorderEqualTo(Integer value) {
-            addCriterion("DisplayOrder =", value, "displayorder");
+        public Criteria andModularOrderEqualTo(Integer value) {
+            addCriterion("modular_order =", value, "modularOrder");
             return (Criteria) this;
         }
 
-        public Criteria andDisplayorderNotEqualTo(Integer value) {
-            addCriterion("DisplayOrder <>", value, "displayorder");
+        public Criteria andModularOrderNotEqualTo(Integer value) {
+            addCriterion("modular_order <>", value, "modularOrder");
             return (Criteria) this;
         }
 
-        public Criteria andDisplayorderGreaterThan(Integer value) {
-            addCriterion("DisplayOrder >", value, "displayorder");
+        public Criteria andModularOrderGreaterThan(Integer value) {
+            addCriterion("modular_order >", value, "modularOrder");
             return (Criteria) this;
         }
 
-        public Criteria andDisplayorderGreaterThanOrEqualTo(Integer value) {
-            addCriterion("DisplayOrder >=", value, "displayorder");
+        public Criteria andModularOrderGreaterThanOrEqualTo(Integer value) {
+            addCriterion("modular_order >=", value, "modularOrder");
             return (Criteria) this;
         }
 
-        public Criteria andDisplayorderLessThan(Integer value) {
-            addCriterion("DisplayOrder <", value, "displayorder");
+        public Criteria andModularOrderLessThan(Integer value) {
+            addCriterion("modular_order <", value, "modularOrder");
             return (Criteria) this;
         }
 
-        public Criteria andDisplayorderLessThanOrEqualTo(Integer value) {
-            addCriterion("DisplayOrder <=", value, "displayorder");
+        public Criteria andModularOrderLessThanOrEqualTo(Integer value) {
+            addCriterion("modular_order <=", value, "modularOrder");
             return (Criteria) this;
         }
 
-        public Criteria andDisplayorderIn(List<Integer> values) {
-            addCriterion("DisplayOrder in", values, "displayorder");
+        public Criteria andModularOrderIn(List<Integer> values) {
+            addCriterion("modular_order in", values, "modularOrder");
             return (Criteria) this;
         }
 
-        public Criteria andDisplayorderNotIn(List<Integer> values) {
-            addCriterion("DisplayOrder not in", values, "displayorder");
+        public Criteria andModularOrderNotIn(List<Integer> values) {
+            addCriterion("modular_order not in", values, "modularOrder");
             return (Criteria) this;
         }
 
-        public Criteria andDisplayorderBetween(Integer value1, Integer value2) {
-            addCriterion("DisplayOrder between", value1, value2, "displayorder");
+        public Criteria andModularOrderBetween(Integer value1, Integer value2) {
+            addCriterion("modular_order between", value1, value2, "modularOrder");
             return (Criteria) this;
         }
 
-        public Criteria andDisplayorderNotBetween(Integer value1, Integer value2) {
-            addCriterion("DisplayOrder not between", value1, value2, "displayorder");
+        public Criteria andModularOrderNotBetween(Integer value1, Integer value2) {
+            addCriterion("modular_order not between", value1, value2, "modularOrder");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularStyleIsNull() {
+            addCriterion("modular_style is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularStyleIsNotNull() {
+            addCriterion("modular_style is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularStyleEqualTo(String value) {
+            addCriterion("modular_style =", value, "modularStyle");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularStyleNotEqualTo(String value) {
+            addCriterion("modular_style <>", value, "modularStyle");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularStyleGreaterThan(String value) {
+            addCriterion("modular_style >", value, "modularStyle");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularStyleGreaterThanOrEqualTo(String value) {
+            addCriterion("modular_style >=", value, "modularStyle");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularStyleLessThan(String value) {
+            addCriterion("modular_style <", value, "modularStyle");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularStyleLessThanOrEqualTo(String value) {
+            addCriterion("modular_style <=", value, "modularStyle");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularStyleLike(String value) {
+            addCriterion("modular_style like", value, "modularStyle");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularStyleNotLike(String value) {
+            addCriterion("modular_style not like", value, "modularStyle");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularStyleIn(List<String> values) {
+            addCriterion("modular_style in", values, "modularStyle");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularStyleNotIn(List<String> values) {
+            addCriterion("modular_style not in", values, "modularStyle");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularStyleBetween(String value1, String value2) {
+            addCriterion("modular_style between", value1, value2, "modularStyle");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularStyleNotBetween(String value1, String value2) {
+            addCriterion("modular_style not between", value1, value2, "modularStyle");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularShowIsNull() {
+            addCriterion("modular_show is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularShowIsNotNull() {
+            addCriterion("modular_show is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularShowEqualTo(String value) {
+            addCriterion("modular_show =", value, "modularShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularShowNotEqualTo(String value) {
+            addCriterion("modular_show <>", value, "modularShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularShowGreaterThan(String value) {
+            addCriterion("modular_show >", value, "modularShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularShowGreaterThanOrEqualTo(String value) {
+            addCriterion("modular_show >=", value, "modularShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularShowLessThan(String value) {
+            addCriterion("modular_show <", value, "modularShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularShowLessThanOrEqualTo(String value) {
+            addCriterion("modular_show <=", value, "modularShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularShowLike(String value) {
+            addCriterion("modular_show like", value, "modularShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularShowNotLike(String value) {
+            addCriterion("modular_show not like", value, "modularShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularShowIn(List<String> values) {
+            addCriterion("modular_show in", values, "modularShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularShowNotIn(List<String> values) {
+            addCriterion("modular_show not in", values, "modularShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularShowBetween(String value1, String value2) {
+            addCriterion("modular_show between", value1, value2, "modularShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularShowNotBetween(String value1, String value2) {
+            addCriterion("modular_show not between", value1, value2, "modularShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularFlagIsNull() {
+            addCriterion("modular_flag is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularFlagIsNotNull() {
+            addCriterion("modular_flag is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularFlagEqualTo(String value) {
+            addCriterion("modular_flag =", value, "modularFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularFlagNotEqualTo(String value) {
+            addCriterion("modular_flag <>", value, "modularFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularFlagGreaterThan(String value) {
+            addCriterion("modular_flag >", value, "modularFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularFlagGreaterThanOrEqualTo(String value) {
+            addCriterion("modular_flag >=", value, "modularFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularFlagLessThan(String value) {
+            addCriterion("modular_flag <", value, "modularFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularFlagLessThanOrEqualTo(String value) {
+            addCriterion("modular_flag <=", value, "modularFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularFlagLike(String value) {
+            addCriterion("modular_flag like", value, "modularFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularFlagNotLike(String value) {
+            addCriterion("modular_flag not like", value, "modularFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularFlagIn(List<String> values) {
+            addCriterion("modular_flag in", values, "modularFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularFlagNotIn(List<String> values) {
+            addCriterion("modular_flag not in", values, "modularFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularFlagBetween(String value1, String value2) {
+            addCriterion("modular_flag between", value1, value2, "modularFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andModularFlagNotBetween(String value1, String value2) {
+            addCriterion("modular_flag not between", value1, value2, "modularFlag");
             return (Criteria) this;
         }
 
         public Criteria andCrudIsNull() {
-            addCriterion("Crud is null");
+            addCriterion("crud is null");
             return (Criteria) this;
         }
 
         public Criteria andCrudIsNotNull() {
-            addCriterion("Crud is not null");
+            addCriterion("crud is not null");
             return (Criteria) this;
         }
 
         public Criteria andCrudEqualTo(String value) {
-            addCriterion("Crud =", value, "crud");
+            addCriterion("crud =", value, "crud");
             return (Criteria) this;
         }
 
         public Criteria andCrudNotEqualTo(String value) {
-            addCriterion("Crud <>", value, "crud");
+            addCriterion("crud <>", value, "crud");
             return (Criteria) this;
         }
 
         public Criteria andCrudGreaterThan(String value) {
-            addCriterion("Crud >", value, "crud");
+            addCriterion("crud >", value, "crud");
             return (Criteria) this;
         }
 
         public Criteria andCrudGreaterThanOrEqualTo(String value) {
-            addCriterion("Crud >=", value, "crud");
+            addCriterion("crud >=", value, "crud");
             return (Criteria) this;
         }
 
         public Criteria andCrudLessThan(String value) {
-            addCriterion("Crud <", value, "crud");
+            addCriterion("crud <", value, "crud");
             return (Criteria) this;
         }
 
         public Criteria andCrudLessThanOrEqualTo(String value) {
-            addCriterion("Crud <=", value, "crud");
+            addCriterion("crud <=", value, "crud");
             return (Criteria) this;
         }
 
         public Criteria andCrudLike(String value) {
-            addCriterion("Crud like", value, "crud");
+            addCriterion("crud like", value, "crud");
             return (Criteria) this;
         }
 
         public Criteria andCrudNotLike(String value) {
-            addCriterion("Crud not like", value, "crud");
+            addCriterion("crud not like", value, "crud");
             return (Criteria) this;
         }
 
         public Criteria andCrudIn(List<String> values) {
-            addCriterion("Crud in", values, "crud");
+            addCriterion("crud in", values, "crud");
             return (Criteria) this;
         }
 
         public Criteria andCrudNotIn(List<String> values) {
-            addCriterion("Crud not in", values, "crud");
+            addCriterion("crud not in", values, "crud");
             return (Criteria) this;
         }
 
         public Criteria andCrudBetween(String value1, String value2) {
-            addCriterion("Crud between", value1, value2, "crud");
+            addCriterion("crud between", value1, value2, "crud");
             return (Criteria) this;
         }
 
         public Criteria andCrudNotBetween(String value1, String value2) {
-            addCriterion("Crud not between", value1, value2, "crud");
-            return (Criteria) this;
-        }
-
-        public Criteria andHomemodularIsNull() {
-            addCriterion("HomeModular is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andHomemodularIsNotNull() {
-            addCriterion("HomeModular is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andHomemodularEqualTo(String value) {
-            addCriterion("HomeModular =", value, "homemodular");
-            return (Criteria) this;
-        }
-
-        public Criteria andHomemodularNotEqualTo(String value) {
-            addCriterion("HomeModular <>", value, "homemodular");
-            return (Criteria) this;
-        }
-
-        public Criteria andHomemodularGreaterThan(String value) {
-            addCriterion("HomeModular >", value, "homemodular");
-            return (Criteria) this;
-        }
-
-        public Criteria andHomemodularGreaterThanOrEqualTo(String value) {
-            addCriterion("HomeModular >=", value, "homemodular");
-            return (Criteria) this;
-        }
-
-        public Criteria andHomemodularLessThan(String value) {
-            addCriterion("HomeModular <", value, "homemodular");
-            return (Criteria) this;
-        }
-
-        public Criteria andHomemodularLessThanOrEqualTo(String value) {
-            addCriterion("HomeModular <=", value, "homemodular");
-            return (Criteria) this;
-        }
-
-        public Criteria andHomemodularLike(String value) {
-            addCriterion("HomeModular like", value, "homemodular");
-            return (Criteria) this;
-        }
-
-        public Criteria andHomemodularNotLike(String value) {
-            addCriterion("HomeModular not like", value, "homemodular");
-            return (Criteria) this;
-        }
-
-        public Criteria andHomemodularIn(List<String> values) {
-            addCriterion("HomeModular in", values, "homemodular");
-            return (Criteria) this;
-        }
-
-        public Criteria andHomemodularNotIn(List<String> values) {
-            addCriterion("HomeModular not in", values, "homemodular");
-            return (Criteria) this;
-        }
-
-        public Criteria andHomemodularBetween(String value1, String value2) {
-            addCriterion("HomeModular between", value1, value2, "homemodular");
-            return (Criteria) this;
-        }
-
-        public Criteria andHomemodularNotBetween(String value1, String value2) {
-            addCriterion("HomeModular not between", value1, value2, "homemodular");
+            addCriterion("crud not between", value1, value2, "crud");
             return (Criteria) this;
         }
     }

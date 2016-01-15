@@ -39,7 +39,7 @@
 								  <form role="form" id="mainForm" action="${basepath}/role/index.htm" method="post">
 							  		<div class="span3">
 								  		<div class="input-group clearfix input-ie">
-										  <span class="input-group-addon">姓名:</span>
+										  <span class="input-group-addon">角色名称:</span>
 										  <input type="text" class="form-control" placeholder="填写角色名称" name="roleName">
 										</div>
 							  		</div>
@@ -80,6 +80,7 @@
 			 							<div class="btn-group btn-group-xs">
 				 							<button class="btn btn-primary" type="button" onclick="delItem('${bean.roleid}',this)">删除</button>
 				 							<button class="btn btn-primary" type="button" onclick="editItem('${bean.roleid}',this)">修改</button>
+				 							<button class="btn btn-primary" type="button" onclick="authrize('${bean.roleid}')">授权</button>
 			 							</div>
 			 						</td>
 			 					</tr>

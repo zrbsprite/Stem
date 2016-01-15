@@ -39,13 +39,13 @@
 							  <div class="form-group">
 							    <label for="input_role_desc" class="span3 control-label">机构名称</label>
 							    <div class="span8">
-							      <input type="text" class="form-control" id="input_role_desc" name="roledesc" value="${entity.roledesc}" placeholder="请输入角色描述" maxlength="50">
+							      <input type="text" class="form-control" id="input_role_desc" name="depname" value="${entity.depname}" placeholder="请输入机构名称" maxlength="50">
 							    </div>
 							  </div>
 							  <div class="form-group">
 							    <label for="input_role_auth" class="span3 control-label">机构描述</label>
 							    <div class="span8">
-									<textarea class="form-control noresize" row="3"  name="description"></textarea>
+									<textarea class="form-control noresize" row="3"  name="description">${entity.description}</textarea>
 							    </div>
 							  </div>
 							  <div class="form-group">

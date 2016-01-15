@@ -27,5 +27,5 @@ function delItem(un,that){
 	});
 }
 function authItem(un,that){
-	dialog.openPage("选择角色");
+	forward(basepath+"/um/roles.htm").submit();
 }
