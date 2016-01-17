@@ -14,6 +14,12 @@
   </head>
   <body>
   <div id="login-container">
+  	<#if error?exists>
+  	<div class="alert alert-success" role="alert">
+  		<button type="button" class="close"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+  		<strong>成功！</strong> ${error}
+  	</div>
+  	</#if>
   	<form id="mainForm" method="post" action="${basepath}/welcome.htm">
   	<div id="div_username">
   		<input type="text" name="userName" placeholder="请输入用户名" />

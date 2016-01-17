@@ -90,8 +90,13 @@ public class LoginController extends AjaxConroller{
 	 * @return
 	 */
 	@RequestMapping("/logout")
-	public String logout(HttpServletResponse response){
+	public String logout(Integer err, Model model, HttpServletResponse response, HttpServletRequest request){
 		CookieUtil.removeCookie(response, PropertiesUtils.getConfigByKey("cookie_username_key"));
+		if(null!=err){
+			if(2==err){
+				model.addAttribute("error",getMessage(request, "user.resetpassword.ok"));
+			}
+		}
 		return "door/login";
 	}
 	
