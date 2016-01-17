@@ -53,6 +53,10 @@ $(function(){
 	 $('.backTop').click(function(){
 	    $('html,body').animate({scrollTop: '0px'}, 800);
 	 });
+	 
+	 $(".alert .close").click(function(){
+		 $(this).closest(".alert").remove();
+	 });
 });
 
 function page(pageNo){
