@@ -30,6 +30,7 @@ import com.penzias.service.SmRoleModularService;
  * <b>作者：</b>zrb <br/>
  * <b>修改日期：</b>2016年1月15日 - 上午11:02:07<br/>
  */
+@SuppressWarnings("unused")
 @Controller
 @RequestMapping("modular")
 public class SysModularController extends AjaxConroller{
