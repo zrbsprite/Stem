@@ -12,7 +12,7 @@
 	<context:component-scan base-package="com.penzias.controller,com.penzias.service"/>
     
     <!-- spring读取配置文件 -->
-    <util:properties id="propertiesReader" location="classpath:configuration/common/config.properties" />
+     <util:properties id="propertiesReader" location="classpath:configuration/common/config.properties" />
      
     <!-- @ResultMapping标签的解析  声明是没有 defaultAnnotationHandlerMapping这个属性的 -->
 	<mvc:annotation-driven />
@@ -56,13 +56,6 @@
         		<value>^/anno/\w{1,}.*\.htm$</value>
         	</property>
         </bean>
-        <!-- 配置指定拦截请求的拦截器 -->
-        <!-- 
-        <mvc:interceptor>
-         	<mvc:mapping path="/**" />
-         	<bean class="com.wx.interceptor.TokenIntercepter"></bean>
-         </mvc:interceptor>
-          -->
     </mvc:interceptors>  
 
 
