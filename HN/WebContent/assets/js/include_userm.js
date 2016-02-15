@@ -10,22 +10,24 @@ $(function(){
 	});
 	$("#btn_add").click(function(){
 		this.disabled="disabled";
-		forward(basepath+"/um/add.htm").submit();
+		forward(basepath+"/admin/um/add.htm").submit();
 	});
 });
 function editItem(un,that){
 	that.disabled="disabled";
-	location.href=basepath+"/um/edit.htm?un="+un;
+	location.href=basepath+"/admin/um/edit.htm?un="+un;
 }
 function delItem(un,that){
 	dialog.confirm("确定要删除吗？",function(){
 		if(""!=un){
-			var url=basepath+"/um/del.htm?un="+un;
+			var url=basepath+"/admin/um/del.htm?un="+un;
 			that.disabled="disabled";
 			location.href=url;
 		}
 	});
 }
 function authItem(un,that){
-	forward(basepath+"/um/roles.htm").submit();
+	var $form = forward(basepath+"/admin/role/roles.htm");
+	$form.append("<input name='uid' value='"+un+"' type='hidden'>");
+	$form.submit();
 }

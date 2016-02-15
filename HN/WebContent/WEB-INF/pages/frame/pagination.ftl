@@ -43,6 +43,6 @@
 	<li><a href="javascript:void(0);" onclick="page(${nextpage});">下一页</a></li>
 	</#if>
 	<#if page.isLastPage==false>
-	<li><a href="javascript:void(0);" onclick="page(${pages?default(1)});">最后一页</a></li>
+	<li><a href="javascript:void(0);" onclick="page(${pages?default(1)});">末页</a></li>
 	</#if>
 </div>

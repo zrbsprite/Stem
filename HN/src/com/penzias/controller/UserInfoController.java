@@ -1,6 +1,7 @@
 package com.penzias.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +17,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.penzias.core.commons.AjaxConroller;
 import com.penzias.entity.SmUser;
 import com.penzias.entity.UserPersonalInfo;
+import com.penzias.entity.UserPersonalInfoExample;
 import com.penzias.service.SmUserService;
 import com.penzias.service.UserPersonalInfoService;
 import com.penzias.util.CookieUtil;
@@ -46,9 +48,11 @@ public class UserInfoController extends AjaxConroller{
 	@RequestMapping("add")
 	public String addUserInfoPage(Model model, HttpServletRequest request){
 		String username = CookieUtil.getCookieValueByName(request, cookieUserNameKey);
-		UserPersonalInfo info = this.userPersonalInfoService.getById(username);
-		if(null!=info){
-			model.addAttribute("bean",info);
+		UserPersonalInfoExample example = new UserPersonalInfoExample();
+		example.createCriteria().andUsernameEqualTo(username);
+		List<UserPersonalInfo> list = this.userPersonalInfoService.list(example);
+		if(list.size()>0){
+			model.addAttribute("bean",list.get(0));
 		}else{
 			model.addAttribute("bean",new UserPersonalInfo());
 		}

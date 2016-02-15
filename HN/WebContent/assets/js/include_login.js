@@ -27,6 +27,8 @@ $(function(){
 					   $("#mainForm").submit();
 				   }else{
 					   dialog.info(data.msg);
+					   $username.focus();
+					   document.getElementById("mainForm").reset();
 				   }
 			   }else{
 				   dialog.error("系统异常");

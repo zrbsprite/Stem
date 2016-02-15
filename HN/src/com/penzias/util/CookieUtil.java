@@ -7,8 +7,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.codec.binary.Hex;
-
 import com.penzias.core.commons.PropertiesInitBean.PropertiesUtils;
 import com.penzias.core.constant.CookieConstant;
 
@@ -32,7 +30,7 @@ public class CookieUtil {
 	public static void addCookie(HttpServletResponse response,String name,String value){
 		DesEncrypt des = new DesEncrypt();
 		value = des.getEncString(value+CookieConstant.SPLITCHAR);
-		value = Hex.encodeHexString(value.getBytes());
+		//value = Hex.encodeHexString(value.getBytes());
 		Cookie cookie = new Cookie(name,value);
 		cookie.setPath("/");
 		cookie.setMaxAge(-1);

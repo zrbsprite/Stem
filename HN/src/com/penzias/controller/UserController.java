@@ -35,7 +35,7 @@ import com.penzias.service.UserPersonalInfoService;
  * E-mail: sireezhang@163.com<br/>
  */
 @SuppressWarnings({"unused","unchecked"})
-@RequestMapping("um")
+@RequestMapping("admin/um")
 @Controller
 public class UserController extends BaseController {
 
@@ -202,7 +202,7 @@ public class UserController extends BaseController {
 		}else{
 			this.smUserService.updateById(user);
 		}
-		return "redirect:/um/list.htm";
+		return "redirect:list.htm";
 	}
 	
 	/**
@@ -229,10 +229,10 @@ public class UserController extends BaseController {
 	 * @return
 	 */
 	@RequestMapping("auth")
-	public String authrize(Integer id, Integer roleid){
+	public String authrize(String id, Integer roleid){
 		SmUser sm = this.smUserService.getById(id);
 		sm.setRoleid(roleid+"");
 		this.smUserService.updateById(sm);
-		return "redirect:/um/index.htm";
+		return "redirect:index.htm";
 	}
 }

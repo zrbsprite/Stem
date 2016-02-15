@@ -82,7 +82,7 @@
 			 						<td>${bean.roledesc}</td>
 			 						<td>
 			 							<div class="btn-group btn-group-xs">
-				 							<button class="btn btn-primary" type="button" onclick="choose('${bean.roleid}',this)">授予角色</button>
+				 							<button class="btn btn-primary" type="button" onclick="choose('${bean.roleid}',this)">选择角色</button>
 			 							</div>
 			 						</td>
 			 					</tr>
@@ -104,7 +104,7 @@
 	<script type="text/javascript" src="${basepath}/assets/layer/alert.js"></script>
 	<script type="text/javascript">
 		function choose(id){
-			forward(basepath+"/um/auth.htm")
+			forward(basepath+"/admin/um/auth.htm")
 				.append("<input type='hidden' name='roleid' value='"+id+"' /><input type='hidden' name='id' value='${uid}' />").submit();
 		}
 	</script>

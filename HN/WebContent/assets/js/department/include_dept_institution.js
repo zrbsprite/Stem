@@ -1,9 +1,9 @@
 $(function(){
-	$("#btn_query").click(){
+	$("#btn_query").click(function(){
 		$("#mainForm").submit();
-	};
+	});
 	$("#btn_add").click(function(){
-		forward(basepath+"/dept/add.htm").submit();
+		forward(basepath+"/admin/dept/add.htm").submit();
 		this.disabled="disabled";
 	});
 });
@@ -15,7 +15,7 @@ function editItem(username, that){
 function delItem(username, that){
 	dialog.confirm("确定要删除吗？",function(){
 		if(""!=id){
-			var url=basepath+"/dept/del.htm?dn="+username;
+			var url=basepath+"/admin/dept/del.htm?dn="+username;
 			that.disabled="disabled";
 			location.href=url;
 		}

@@ -41,7 +41,7 @@ import com.penzias.util.CookieUtil;
  */
 @SuppressWarnings({"unused","unchecked"})
 @Controller
-@RequestMapping("dept")
+@RequestMapping("admin/dept")
 public class DepartmentController extends AjaxConroller {
 
 	@Resource

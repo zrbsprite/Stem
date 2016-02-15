@@ -32,7 +32,7 @@ import com.penzias.service.SmRoleModularService;
  */
 @SuppressWarnings("unused")
 @Controller
-@RequestMapping("modular")
+@RequestMapping("admin/modular")
 public class SysModularController extends AjaxConroller{
 
 	@Resource

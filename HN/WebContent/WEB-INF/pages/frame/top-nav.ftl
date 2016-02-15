@@ -18,9 +18,9 @@
         <p class="navbar-text">河南高危人群管理平台</p>
          -->
 	    <ul class="nav navbar-nav navbar-right">
-	      <li><a target="_blank">退出</a></li>  
+	      <li><a target="_self" href="${basepath}/logout.htm">退出</a></li>  
 	    </ul>
-	    <p class="navbar-text navbar-right">欢迎： <a href="#" class="navbar-link">zhangsan</a></p>
+	    <p class="navbar-text navbar-right">欢迎： <a href="${basepath}/user/add.htm" class="navbar-link">${username}</a></p>
     </div>
   </div>
 </nav>

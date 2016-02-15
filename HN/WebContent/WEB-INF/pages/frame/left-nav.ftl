@@ -3,17 +3,17 @@
 		<li class="<#if (menu_name?exists) && !(menu_name?index_of('menu_sys') lt 0)>active</#if> li-parent">
 			<a <#if (menu_name?exists) && !(menu_name?index_of('menu_sys') lt 0)>class="parent-selected"</#if>><span class="glyphicon glyphicon-user"></span> 系统管理</a>
 			<ul class="nav">
-				<li <#if menu_name='menu_sysuser'>class="selected"</#if>><a href="${basepath}/um/index.htm"><span class="glyphicon glyphicon-cog"></span> 用户管理</a></li>
-				<li <#if menu_name='menu_sysrole'>class="selected"</#if>><a href="${basepath}/role/index.htm"><span class="glyphicon glyphicon-search"></span> 角色管理</a></li>
-				<li <#if menu_name='menu_sysfunction'>class="selected"</#if>><a href="${basepath}/fun/index.htm"><span class="glyphicon glyphicon-asterisk"></span> 功能管理</a></li>
-				<li <#if menu_name='menu_sysauth'>class="selected"</#if>><a href="${basepath}/auth/index.htm"><span class="glyphicon glyphicon-plus"></span> 权限管理</a></li>
+				<li <#if menu_name='menu_sysuser'>class="selected"</#if>><a href="${basepath}/admin/um/index.htm"><span class="glyphicon glyphicon-cog"></span> 用户管理</a></li>
+				<li <#if menu_name='menu_sysrole'>class="selected"</#if>><a href="${basepath}/admin/role/index.htm"><span class="glyphicon glyphicon-search"></span> 角色管理</a></li>
+				<li <#if menu_name='menu_sysfunction'>class="selected"</#if>><a href="${basepath}/admin/modular/index.htm"><span class="glyphicon glyphicon-asterisk"></span> 功能管理</a></li>
+				<#--<li <#if menu_name='menu_sysauth'>class="selected"</#if>><a href="${basepath}/admin/auth/index.htm"><span class="glyphicon glyphicon-plus"></span> 权限管理</a></li> -->
 			</ul>
 		</li>
 		<li class="<#if menu_name?exists && !(menu_name?index_of('menu_dept') lt 0)>active</#if> li-parent">
 			<a <#if menu_name?exists && !(menu_name?index_of('menu_dept') lt 0)>class="parent-selected"</#if>><span class="glyphicon glyphicon-th"></span> 机构管理</a>
 			<ul class="nav">
-				<li <#if menu_name='menu_dept_institution'>class="selected"</#if>><a href="${basepath}/dic/dept/index.htm"><span class="glyphicon glyphicon-zoom-in"></span> 机构管理</a></li>
-				<li <#if menu_name='menu_deptment'>class="selected"</#if>><a href="${basepath}/dic/dept/index.htm"><span class="glyphicon glyphicon-zoom-in"></span> 科室管理</a></li>
+				<li <#if menu_name='menu_dept_institution'>class="selected"</#if>><a href="${basepath}/admin/dept/index.htm"><span class="glyphicon glyphicon-zoom-in"></span> 机构管理</a></li>
+				<#-- <li <#if menu_name='menu_deptment'>class="selected"</#if>><a href="${basepath}/admin/dept/index.htm"><span class="glyphicon glyphicon-zoom-in"></span> 科室管理</a></li> -->
 			</ul>
 		</li>
 		<li class="<#if menu_name?exists && !(menu_name?index_of('menu_dic') lt 0)>active</#if> li-parent">

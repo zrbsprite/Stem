@@ -1,7 +1,7 @@
 function delItem(id,that){
 	dialog.confirm("确定要删除吗？",function(){
 		if(""!=id){
-			var url=basepath+"/modular/del.htm?k="+id;
+			var url=basepath+"/admin/modular/del.htm?k="+id;
 			that.disabled="disabled";
 			forward(url).submit();
 		}
@@ -10,14 +10,14 @@ function delItem(id,that){
 
 function editItem(id,that){
 	if(""!=id){
-		var url=basepath+"/modular/m/"+id +".htm";
+		var url=basepath+"/admin/modular/m/"+id +".htm";
 		that.disabled="disabled";
 		forward(url).submit();
 	}
 }
 $(function(){
 	$("#btn_add").click(function(){
-		location.href=basepath+"/modular/m/0.htm";
+		location.href=basepath+"/admin/modular/m/0.htm";
 		this.disabled="disabled";
 		forward(url).submit();
 	});

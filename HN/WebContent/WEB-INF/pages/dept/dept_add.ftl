@@ -55,6 +55,7 @@
 							      	<#list deptList as bean>
 							      	<option value="${bean.depbm}" <#if bean.depbm==entity.pptr>selected</#if>>${bean.depname}</option>
 							      	</#list>
+							      	</select>
 							    </div>
 							  </div>
 							  <div class="form-group">

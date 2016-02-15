@@ -103,6 +103,6 @@
 	<#include "frame/js-ie.ftl">
 	<script type="text/javascript" src="${basepath}/assets/layer/layer.js"></script>
 	<script type="text/javascript" src="${basepath}/assets/layer/alert.js"></script>
-	<script type="text/javascript" src="${basepath}/assets/js/include_funm.js"></script>
+	<script type="text/javascript" src="${basepath}/assets/js/modular/include_funm.js"></script>
   </body>
 </html>

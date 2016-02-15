@@ -32,7 +32,7 @@ import com.penzias.service.SmUserService;
  * 作者：Bob <br/>
  */
 @SuppressWarnings("unchecked")
-@RequestMapping("role")
+@RequestMapping("admin/role")
 @Controller
 public class RoleController extends AjaxConroller {
 	
@@ -88,7 +88,7 @@ public class RoleController extends AjaxConroller {
 		if(null!=k){
 			this.smRoleService.deleteById(k);
 		}
-		return "redirect:/role/index.htm";
+		return "redirect:index.htm";
 	}
 	
 	/**
@@ -132,7 +132,7 @@ public class RoleController extends AjaxConroller {
 		}else{
 			this.smRoleService.add(entity);
 		}
-		return "redirect:/role/index.htm";
+		return "redirect:index.htm";
 	}
 	
 	/**
@@ -199,7 +199,7 @@ public class RoleController extends AjaxConroller {
 	 * @return
 	 */
 	@RequestMapping("roles")
-	public String authrization(Integer currentPage, String roleName, Integer uid, Model model){
+	public String authrization(Integer currentPage, String roleName, String uid, Model model){
 		SmUser sm = this.smUserService.getById(uid);
 		String rid = sm.getRoleid();
 		Integer roleid = Integer.parseInt(rid);

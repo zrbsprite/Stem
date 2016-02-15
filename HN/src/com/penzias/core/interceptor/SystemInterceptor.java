@@ -9,7 +9,6 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.commons.codec.binary.Hex;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -84,7 +83,7 @@ public class SystemInterceptor extends HandlerInterceptorAdapter {
 			return false;
 		}
 		String srcUsername = cookieUserName.getValue();
-		srcUsername = new String(Hex.decodeHex(srcUsername.toCharArray()));
+		//srcUsername = new String(Hex.decodeHex(srcUsername.toCharArray()));
 		srcUsername = encrypt.getDesString(srcUsername).replace(CookieConstant.SPLITCHAR,"");
 		request.setAttribute("username", srcUsername);
 		return true;

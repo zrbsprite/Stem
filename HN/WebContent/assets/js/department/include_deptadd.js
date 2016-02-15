@@ -6,7 +6,7 @@ function chooseImage(){
 	    shade: 0.8,
 	    scrollbar:false,
 	    area: ['500px', '50%'],
-	    content: basepath+'/dept/openwin.htm'
+	    content: basepath+'/admin/dept/openwin.htm'
 	}); 
 }
 function callback(imagePath){
