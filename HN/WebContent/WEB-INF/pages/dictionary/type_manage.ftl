@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  	<#assign pageTitle='字典信息'>
+  	<#assign pageTitle='字典类别'>
     <title>${pageTitle}</title>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -20,7 +20,7 @@
   </head>
   <body>
 	<#include "frame/top-nav.ftl">
-	<#assign menu_name="menu_dicinfo">
+	<#assign menu_name="menu_diccat">
 	<div class="container-fluid lxui-docs-container">
 	 	<div class="row show-grid">
 	 		<#-- 菜单 -->
@@ -39,8 +39,8 @@
 								  <form role="form" id="mainForm" action="${basepath}/sys/dic/item/index.htm" method="post">
 							  		<div class="span3">
 								  		<div class="input-group clearfix input-ie">
-										  <span class="input-group-addon">字典说明:</span>
-										  <input type="text" class="form-control" placeholder="填写字典代码" name="code" value="${code}" id="input_deptName">
+										  <span class="input-group-addon">字典代码:</span>
+										  <input type="text" class="form-control" placeholder="填写字典代码" name="codeid" value="${codeid}" id="input_deptName">
 										</div>
 							  		</div>
 							  		<div class="span3">
@@ -69,12 +69,8 @@
 			 					<tr>
 			 					  <th>编号</th>
 			                      <th>类别代码</th>
-			                      <th>数据代码</th>
 			                      <th>字典说明</th>
-			                      <th>上级代码</th>
-			                      <th>是否有下级节点</th>
-			                      <th>全拼</th>
-			                      <th>备注</th>
+			                      <th>长度</th>
 			                      <th>操作</th>
 			                    </tr>
 		                    	</thead>
@@ -84,12 +80,8 @@
 			 					<tr>
 			 						<td>${page.pageSize*(page.pageNum-1)+bean_index+1}</td>
 			 						<td>${bean.codeid}</td>
-			 						<td>${bean.code}</td>
 			 						<td>${bean.description}</td>
-			 						<td>${bean.pptr}</td>
-			 						<td>${bean.cptr}</td>
-			 						<td>${bean.spell}</td>
-			 						<td>${bean.remarks}</td>
+			 						<td>${bean.length}</td>
 			 						<td>
 			 							<div class="btn-group btn-group-xs">
 				 							<button class="btn btn-primary" type="button" onclick="editItem('${bean.username}',this);">修改</button>
@@ -113,6 +105,6 @@
 	<#include "frame/js-ie.ftl">
 	<script type="text/javascript" src="${basepath}/assets/layer/layer.js"></script>
 	<script type="text/javascript" src="${basepath}/assets/layer/alert.js"></script>
-	<script type="text/javascript" src="${basepath}/assets/js/dic/include_dic_item.js"></script>
+	<script type="text/javascript" src="${basepath}/assets/js/dic/include_dic_type.js"></script>
   </body>
 </html>

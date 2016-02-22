@@ -19,8 +19,8 @@
 		<li class="<#if menu_name?exists && !(menu_name?index_of('menu_dic') lt 0)>active</#if> li-parent">
 			<a <#if menu_name?exists && !(menu_name?index_of('menu_dic') lt 0)>class="parent-selected"</#if>><span class="glyphicon glyphicon-th"></span> 数据字典</a>
 			<ul class="nav">
-				<li <#if menu_name='menu_diccat'>class="selected"</#if>><a href="${basepath}/dic/type/index.htm"><span class="glyphicon glyphicon-zoom-in"></span> 字典类别</a></li>
-				<li <#if menu_name='menu_dicinfo'>class="selected"</#if>><a href="${basepath}/dic/item/index.htm"><span class="glyphicon glyphicon-signal"></span> 字典信息</a></li>
+				<li <#if menu_name='menu_diccat'>class="selected"</#if>><a href="${basepath}/sys/dic/type/index.htm"><span class="glyphicon glyphicon-zoom-in"></span> 字典类别</a></li>
+				<li <#if menu_name='menu_dicinfo'>class="selected"</#if>><a href="${basepath}/sys/dic/item/index.htm"><span class="glyphicon glyphicon-signal"></span> 字典信息</a></li>
 			</ul>
 		</li>
 		<li class="<#if menu_name?exists && !(menu_name?index_of('menu_crows') lt 0)>active</#if> li-parent">

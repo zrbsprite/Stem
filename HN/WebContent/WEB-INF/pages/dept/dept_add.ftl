@@ -118,12 +118,13 @@
 							      	<#list areaList as bean>
 							      	<option value="${bean.code}" <#if bean.code==entity.area>selected</#if>>${bean.description}</option>
 							      	</#list>
+						      	 </select>
 							    </div>
 							  </div>
 							  <div class="form-group">
 							    <label for="input_role_desc" class="span3 control-label">显示顺序</label>
 							    <div class="span8">
-							      <input type="number" class="form-control" id="" name="zorder" value="${entity.zorder}" placeholder="请填写显示顺序" maxlength="50">
+							      <input type="number" class="form-control" id="" name="zorder" value="${entity.zorder}" placeholder="请填写显示顺序" maxlength="50" />
 							    </div>
 							  </div>
 							  

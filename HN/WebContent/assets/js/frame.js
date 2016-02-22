@@ -11,8 +11,9 @@ $(function(){
 				$this.addClass("active").find("a").first().addClass("parent-selected");
 			}
 		}else{
-			$(".selected").removeClass("selected");
+			var $selected = $(".selected");
 			$this.addClass("selected");
+			$selected.removeClass("selected");
 		}
 	});
 	
