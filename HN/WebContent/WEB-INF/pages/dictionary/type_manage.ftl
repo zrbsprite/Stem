@@ -36,7 +36,7 @@
 		  					<div class="panel-body">
 								<#-- start -->
 								<div class="row">
-								  <form role="form" id="mainForm" action="${basepath}/sys/dic/item/index.htm" method="post">
+								  <form role="form" id="mainForm" action="${basepath}/sys/dic/type/index.htm" method="post">
 							  		<div class="span3">
 								  		<div class="input-group clearfix input-ie">
 										  <span class="input-group-addon">字典代码:</span>
@@ -84,8 +84,8 @@
 			 						<td>${bean.length}</td>
 			 						<td>
 			 							<div class="btn-group btn-group-xs">
-				 							<button class="btn btn-primary" type="button" onclick="editItem('${bean.username}',this);">修改</button>
-				 							<button class="btn btn-primary" type="button" onclick="delItem('${bean.username}',this);">删除</button>
+				 							<button class="btn btn-primary" type="button" onclick="editItem('${bean.codeid}',this);">修改</button>
+				 							<button class="btn btn-primary" type="button" onclick="delItem('${bean.codeid}',this);">删除</button>
 			 							</div>
 			 						</td>
 			 					</tr>

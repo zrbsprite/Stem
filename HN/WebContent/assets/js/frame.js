@@ -10,11 +10,11 @@ $(function(){
 			}else{
 				$this.addClass("active").find("a").first().addClass("parent-selected");
 			}
-		}else{
+		}/*else{
 			var $selected = $(".selected");
 			$this.addClass("selected");
 			$selected.removeClass("selected");
-		}
+		}*/
 	});
 	
 	$("#span_close").click(function(){

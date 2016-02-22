@@ -92,8 +92,8 @@
 			 						<td>${bean.remarks}</td>
 			 						<td>
 			 							<div class="btn-group btn-group-xs">
-				 							<button class="btn btn-primary" type="button" onclick="editItem('${bean.username}',this);">修改</button>
-				 							<button class="btn btn-primary" type="button" onclick="delItem('${bean.username}',this);">删除</button>
+				 							<button class="btn btn-primary" type="button" onclick="editItem('${bean.code}', '${bean.codeid}', this);">修改</button>
+				 							<button class="btn btn-primary" type="button" onclick="delItem('${bean.code}', '${bean.codeid}',this);">删除</button>
 			 							</div>
 			 						</td>
 			 					</tr>
