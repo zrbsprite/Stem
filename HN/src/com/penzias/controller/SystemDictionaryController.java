@@ -18,6 +18,8 @@ import com.penzias.entity.SmCodecollectExample;
 import com.penzias.entity.SmCodeitem;
 import com.penzias.entity.SmCodeitemExample;
 import com.penzias.entity.SmCodeitemKey;
+import com.penzias.interfaces.IDictionaryItem;
+import com.penzias.interfaces.IDictionaryType;
 import com.penzias.service.SmCodecollectService;
 import com.penzias.service.SmCodeitemService;
 
@@ -36,6 +38,12 @@ public class SystemDictionaryController extends BaseController{
 	
 	@Resource
 	private SmCodecollectService smCodecollectService;
+	
+	@Resource
+	private IDictionaryItem iDctionaryItem;
+	
+	@Resource
+	private IDictionaryType iDictionaryType;
 	
 	@RequestMapping("item/index")
 	public String itemIndex(Integer currentPage, String code, String description, Model model){
@@ -78,9 +86,11 @@ public class SystemDictionaryController extends BaseController{
 		key.setCodeid(item.getCodeid());
 		SmCodeitem bean = this.smCodeitemService.getById(key);
 		if(null!=bean && null!=t){
-			this.smCodeitemService.updateById(item);
+			this.iDctionaryItem.updateOne(item);
+			//this.smCodeitemService.updateById(item);
 		}else{
-			this.smCodeitemService.add(item);
+			//this.smCodeitemService.add(item);
+			this.iDctionaryItem.addOne(item);
 		}
 		return "redirect:item/index.htm";
 	}
@@ -91,7 +101,8 @@ public class SystemDictionaryController extends BaseController{
 			SmCodeitemKey key = new SmCodeitemKey();
 			key.setCode(code);
 			key.setCodeid(codeid);
-			this.smCodeitemService.deleteById(key);
+			//this.smCodeitemService.deleteById(key);
+			this.iDctionaryItem.deleteOne(key);
 		}
 		return "redirect:item/index.htm";
 	}
@@ -129,9 +140,11 @@ public class SystemDictionaryController extends BaseController{
 	@RequestMapping("type/s")
 	public String typeSave(SmCodecollect item, Integer t){
 		if(!StringUtils.isEmpty(item.getCodeid()) && null!=t){
-			this.smCodecollectService.updateById(item);
+			//this.smCodecollectService.updateById(item);
+			this.iDictionaryType.updateOne(item);
 		}else{
-			this.smCodecollectService.add(item);
+			//this.smCodecollectService.add(item);
+			this.iDictionaryType.addOne(item);
 		}
 		return "redirect:type/index.htm";
 	}
@@ -139,7 +152,10 @@ public class SystemDictionaryController extends BaseController{
 	@RequestMapping("type/del/{codeid}")
 	public String delType(@PathVariable("codeid") String codeid, Model model){
 		if(!StringUtils.isEmpty(codeid)){
-			this.smCodecollectService.deleteById(codeid);
+			//this.smCodecollectService.deleteById(codeid);
+			SmCodecollect bean = new SmCodecollect();
+			bean.setCodeid(codeid);
+			this.iDictionaryType.deleteOne(bean);
 		}
 		return "redirect:type/index.htm";
 	}

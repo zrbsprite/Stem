@@ -18,14 +18,14 @@
      </div>
    </div>
    <div class="row">
-   	<div class="span4">
+   	<div class="span2">
 	   <div class="input-group input-sm">
           <label class="radio-inline">
           	<b>检查结果：</b>
           </label>
         </div>
     </div>
-    <div class="span12">
+    <div class="span10">
 		<div class="row">
 			<div class="input-group input-sm">
 	            <label class="radio-inline">

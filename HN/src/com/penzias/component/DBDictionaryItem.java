@@ -32,11 +32,11 @@ public class DBDictionaryItem implements IDictionaryItem{
 
 	@Override
 	public void deleteOne(Object bean){
-		SmCodeitem model = (SmCodeitem) bean;
+		SmCodeitemKey model = (SmCodeitemKey) bean;
 		try{
-			this.smCodeitemService.deleteById(model.getCodeid());
+			this.smCodeitemService.deleteById(model);
 		} catch (Exception e){
-			logger.error("移除字典项出错["+model.getCodeid()+"-->  " +model.getDescription()+ "]！");
+			logger.error("移除字典项出错["+model.getCodeid()+"-->  " +model.getCode()+ "]！");
 		}
 	}
 

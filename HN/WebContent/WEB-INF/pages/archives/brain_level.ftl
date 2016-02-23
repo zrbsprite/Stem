@@ -138,8 +138,7 @@
 	          </label>
 	       </div>
 		</div>
-		<div class="span8">
-			<div class="span2">
+		<div class="span2">
 				<div class="input-group input-sm">
 					<label class="radio-inline">
 			      	  <input type="radio" name="grade"  value="01" />脑卒中
@@ -160,22 +159,27 @@
 			        </label>
 				</div>
 			</div>
-		</div>
-		<div class="span2">
-				<div class="input-group input-sm">
-					<label class="radio-inline">
-			      	  <input type="radio" name="grade" value="04"/>中危
-			        </label>
-				</div>
-		</div>
-		<div class="span2">
-				<div class="input-group input-sm">
-					<label class="radio-inline">
-			      	  <input type="radio" name="grade" value="05"/>低危
-			        </label>
-				</div>
-		</div>
    </div>
+   <div class="row">
+   		<div class="span2">
+			<div class="input-group input-sm">
+	       </div>
+		</div>
+		<div class="span2">
+			<div class="input-group input-sm">
+				<label class="radio-inline">
+		      	  <input type="radio" name="grade" value="04"/>中危
+		        </label>
+			</div>
+		</div>
+		<div class="span2">
+			<div class="input-group input-sm">
+				<label class="radio-inline">
+		      	  <input type="radio" name="grade" value="05"/>低危
+		        </label>
+			</div>
+		</div>
+	</div>
    <div class="row">
 		<div class="span2">
 			<div class="input-group input-sm">
@@ -185,7 +189,7 @@
 	       </div>
 		</div>
 		<input type="hidden" name="mark" value=""/>
-		<div class="span8">
+		<div class="span6">
 			<div class="alert alert-success" role="alert"></div>
 		</div>
 		<div class="span2">
@@ -206,7 +210,7 @@
 		
 		<input type="hidden" name="managelevel" value=""/>
 		
-		<div class="span8">
+		<div class="span6">
 			<div class="input-group input-sm">
 				<label class="radio-inline">
 					强化管理

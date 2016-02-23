@@ -5,7 +5,7 @@ function chooseImage(){
 	    shadeClose: false,
 	    shade: 0.8,
 	    scrollbar:false,
-	    area: ['500px', '50%'],
+	    area: ['450px', '40%'],
 	    content: basepath+'/admin/dept/openwin.htm'
 	}); 
 }

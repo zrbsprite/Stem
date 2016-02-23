@@ -10,25 +10,37 @@
           <label class="radio-inline">
           	<input type="text" name="height" value="${physiqueExamInfo.height}" />cm
           </label>
+       </div>
+	</div>
+    <div class="row">
+		<div class="input-group input-sm">
           <label class="radio-inline">
           	<b>体重：</b>
           </label>
           <label class="radio-inline">
-          	<input type="text" name="weight" value="physiqueExamInfo.weight" />kg
-          </label>
-          <label class="radio-inline">
-          	<b>BMI（系统自动生成）：</b>
-          </label>
-          <label class="radio-inline">
-          	<input type="text" name="bmi" value="physiqueExamInfo.bmi" />(kg/m<sup>2</sup>)
-          </label>
-          <label class="radio-inline">
-          	<b>腰围：</b>
-          </label>
-          <label class="radio-inline">
-          	<input type="text" name="waist" value="physiqueExamInfo.waist" />cm
+          	<input type="text" name="weight" value="${physiqueExamInfo.weight}" />kg
           </label>
 		</div>
+	</div>
+	<div class="row">
+		<div class="input-group input-sm">
+			<label class="radio-inline">
+	          	<b>BMI（系统自动生成）：</b>
+	          </label>
+	          <label class="radio-inline">
+	          	<input type="text" name="bmi" value="${physiqueExamInfo.bmi}" />(kg/m<sup>2</sup>)
+	          </label>
+	     </div>
+   </div>     
+  <div class="row">
+	<div class="input-group input-sm">    
+	          <label class="radio-inline">
+	          	<b>腰围：</b>
+	          </label>
+	          <label class="radio-inline">
+	          	<input type="text" name="waist" value="${physiqueExamInfo.waist}" />cm
+	          </label>
+         </div>
 	</div>
 	<div class="row"><h4><b>5.2现测血压（需测量2次）</b></h4></div>
 	<div class="row">
@@ -39,12 +51,20 @@
           <label class="radio-inline">
           	<input type="text" name="onesbp" value="${physiqueExamInfo.onesbp}" />mmHg
           </label>
+      </div>
+	</div>
+     <div class="row">
+		<div class="input-group input-sm">     
           <label class="radio-inline">
           	<b>舒张压DBP：</b>
           </label>
           <label class="radio-inline">
           	<input type="text" name="onedbp" value="${physiqueExamInfo.onedbp}" />mmHg
           </label>
+      </div>
+	</div>
+      <div class="row">
+		<div class="input-group input-sm">    
           <label class="radio-inline">
           	<b>脉搏：</b>
           </label>
@@ -61,12 +81,20 @@
           <label class="radio-inline">
           	<input type="text" name="twosbp" value="${physiqueExamInfo.twosbp}"/>mmHg
           </label>
+      </div>
+	</div>
+      <div class="row">
+		<div class="input-group input-sm">
           <label class="radio-inline">
           	<b>舒张压DBP：</b>
           </label>
           <label class="radio-inline">
           	<input type="text" name="twodbp" value="${physiqueExamInfo.twodbp}" />mmHg
           </label>
+	    </div>
+	  </div>
+      <div class="row">
+		<div class="input-group input-sm">
           <label class="radio-inline">
           	<b>脉搏：</b>
           </label>

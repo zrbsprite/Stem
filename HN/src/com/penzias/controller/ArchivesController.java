@@ -160,7 +160,7 @@ public class ArchivesController extends BaseController{
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("")
+	@RequestMapping("crowsfilter")
 	public String index(Integer currentPage,String name,String phone, Model model){
 		if(null==currentPage){
 			currentPage = 1;
@@ -195,7 +195,7 @@ public class ArchivesController extends BaseController{
 		}
 		PageInfo<InstitutionCrowdBaseInfo> pageinfo = new PageInfo<InstitutionCrowdBaseInfo>(list);
 		model.addAttribute("page", pageinfo);
-		return "archives/list";
+		return "archives/filter_list";
 	}
 	
 	/**
@@ -208,7 +208,7 @@ public class ArchivesController extends BaseController{
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping("check")
+	@RequestMapping("crowscheck")
 	public String check(Integer currentPage,String name,String phone, Model model){
 		if(null==currentPage){
 			currentPage = 1;
@@ -246,7 +246,22 @@ public class ArchivesController extends BaseController{
 		return "archives/check_list";
 	}
 	
-	@RequestMapping("crows")
+	/**
+	 * 方法名称: crowsList<br>
+	 * 描述：人群档案
+	 * 作者: Bob
+	 * 修改日期：2016年2月23日上午11:28:29
+	 * @param currentPage
+	 * @param name
+	 * @param phone
+	 * @param manage
+	 * @param zf
+	 * @param ze
+	 * @param model
+	 * @return
+	 *
+	 */
+	@RequestMapping("crowsinfos")
 	public String crowsList(Integer currentPage,String name,String phone, String manage, String zf,String ze, Model model){
 		if(null==currentPage){
 			currentPage = 1;
@@ -332,7 +347,7 @@ public class ArchivesController extends BaseController{
 			zeLevel.add(item);
 		});
 		model.addAttribute("zeLevel", zeLevel);
-		return "archives/crows_list";
+		return "archives/infos_list";
 	}
 	
 	/**

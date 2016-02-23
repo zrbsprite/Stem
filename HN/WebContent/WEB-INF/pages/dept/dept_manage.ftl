@@ -64,7 +64,7 @@
 							<table class="table table-hover table-striped">
 			 				  	<thead>
 			 					<tr>
-			                      <th colspan="10"><button class="btn btn-theme2 btn-primary pull-left" type="button" id="btn_add">新增</button></th>
+			                      <th colspan="12"><button class="btn btn-theme2 btn-primary pull-left" type="button" id="btn_add">新增</button></th>
 			                    </tr>
 			 					<tr>
 			                      <th>机构名称</th>

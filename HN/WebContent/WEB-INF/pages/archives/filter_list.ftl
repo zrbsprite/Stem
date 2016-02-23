@@ -31,7 +31,7 @@
 				  <div class="panel-heading">${pageTitle}<span class="pull-right glyphicon-image glyphicon-img-diagonalsin" id="span_close"></span></div>
 				  <div class="panel-body">
 				  	<div class="row">
-					  <form role="form" id="mainForm" action="${basepath}/archives.htm">
+					  <form role="form" id="mainForm" action="${basepath}/archives/crowsfilter.htm">
 				  		<div class="span3">
 					  		<div class="input-group clearfix input-ie">
 							  <span class="input-group-addon">姓名:</span>
@@ -57,7 +57,7 @@
 	 			  <table class="table table-hover">
  					<thead>
  					<tr>
-                      <th colspan="7"><button class="btn btn-theme2 btn-primary pull-right" type="button">新增</button></th>
+                      <th colspan="7"><button class="btn btn-theme2 btn-primary pull-right" type="button" id="btn_add">新增</button></th>
                     </tr>
  					<tr>
                       <th>姓名</th>
@@ -101,5 +101,12 @@
 
 <#include "frame/footer.ftl">
 <#include "frame/js-ie.ftl">
+<script type="text/javascript">
+$(function(){
+	$("#btn_add").on("click",function(){
+		forward(basepath+"/archives/baseinfo.htm").submit();
+	});
+});
+</script>
 </body>
 </html>

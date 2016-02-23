@@ -30,7 +30,7 @@
 	 			<div class="panel panel-default">
 				  <div class="panel-heading">${pageTitle}<span class="pull-right glyphicon-image glyphicon-img-diagonalsin" id="span_close"></span></div>
 				  <div class="panel-body">
-				  <form role="form" id="mainForm" action="${basepath}/archives/crows.htm">
+				  <form role="form" id="mainForm" action="${basepath}/archives/crowsinfos.htm">
 				  	 <div class="row">
 				  		<div class="span3">
 					  		<div class="input-group clearfix input-ie">

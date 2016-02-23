@@ -31,7 +31,7 @@
 				  <div class="panel-heading">${pageTitle}<span class="pull-right glyphicon-image glyphicon-img-diagonalsin" id="span_close"></span></div>
 				  <div class="panel-body">
 				  	<div class="row">
-					  <form role="form" id="mainForm" action="${basepath}/archives/check.htm">
+					  <form role="form" id="mainForm" action="${basepath}/archives/crowscheck.htm">
 				  		<div class="span3">
 					  		<div class="input-group clearfix input-ie">
 							  <span class="input-group-addon">姓名:</span>

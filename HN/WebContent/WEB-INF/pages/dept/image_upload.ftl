@@ -19,11 +19,10 @@
     </style>
   </head>
   <body>
-	<div class="container-fluid lxui-docs-container">
+	<div class="container-fluid">
 	 	<div class="row show-grid">
 	 		<#-- 主体内容 -->
-	 		<div class="span-col10 border-left-1 show-grid">
-	 			<#include "frame/route.ftl">
+	 		<div class="span-col10">
 	 			<div class="row">
 	 				<div class="container-fluid">
 			 			<div class="panel panel-default">
@@ -32,8 +31,8 @@
 		  					<form class="form-horizontal" role="form" action="${basepath}/dept/upload.htm" method="post" enctype="multipart/form-data">
 							  <div class="form-group">
 							    <label for="input_role_desc" class="span3 control-label">选择图片</label>
-							    <div class="span8">
-							        <span class="btn btn-primary fileinput-button">
+							    <div class="span4">
+							        <span class="btn btn-primary fileinput-button pull-right">
 									  <i class="glyphicon glyphicon-plus"></i>
 									  <span>选择文件</span>
 									  <input type="file" name="image"  accept="image/*">
@@ -42,11 +41,12 @@
 							  </div>
 							  
 							  <div class="form-group">
-							  	<label class="span3"></label>
-							    <div class="span8">
+							  	<label class="span4"></label>
+							    <div class="span4">
 							      <button type="submit" class="btn btn-theme2 btn-primary pull-right" id="btn_save" onclick="return checkForm(this);">保存</button>
 							    </div>
 							  </div>
+							  
 							</form>
 		  					<#-- end -->
 		  					</div>
@@ -56,7 +56,6 @@
 			</div>
 		</div>
 	</div>
-	<#include "frame/footer.ftl">
 	<#include "frame/js-ie.ftl">
 	<script type="text/javascript" src="${basepath}/assets/layer/layer.js"></script>
 	<script type="text/javascript" src="${basepath}/assets/layer/alert.js"></script>

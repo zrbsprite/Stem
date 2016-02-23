@@ -26,9 +26,9 @@
 		<li class="<#if menu_name?exists && !(menu_name?index_of('menu_crows') lt 0)>active</#if> li-parent">
 			<a <#if menu_name?exists && !(menu_name?index_of('menu_crows') lt 0)>class="parent-selected"</#if>><span class="glyphicon glyphicon-th"></span> 人群管理</a>
 			<ul class="nav">
-				<li <#if menu_name='menu_crowsinfo'>class="selected"</#if>><a href="${basepath}/archives/crows.htm"><span class="glyphicon glyphicon-zoom-in"></span> 人群档案</a></li>
-				<li <#if menu_name='menu_crowsquery'>class="selected"</#if>><a href="${basepath}/archives.htm"><span class="glyphicon glyphicon-zoom-in"></span> 人群筛查</a></li>
-				<li <#if menu_name='menu_crowscheck'>class="selected"</#if>><a href="${basepath}/archives/check.htm"><span class="glyphicon glyphicon-signal"></span> 人群检验</a></li>
+				<li <#if menu_name='menu_crowsinfo'>class="selected"</#if>><a href="${basepath}/archives/crowsinfos.htm"><span class="glyphicon glyphicon-zoom-in"></span> 人群档案</a></li>
+				<li <#if menu_name='menu_crowsquery'>class="selected"</#if>><a href="${basepath}/archives/crowsfilter.htm"><span class="glyphicon glyphicon-zoom-in"></span> 人群筛查</a></li>
+				<li <#if menu_name='menu_crowscheck'>class="selected"</#if>><a href="${basepath}/archives/crowscheck.htm"><span class="glyphicon glyphicon-signal"></span> 人群检验</a></li>
 				<li <#if menu_name='menu_crowsjudge'>class="selected"</#if>><a href="${basepath}/archives/check.htm"><span class="glyphicon glyphicon-time"></span> 人群诊断</a></li>
 				<li <#if menu_name='menu_crowsheal'>class="selected"</#if>><a href="${basepath}/archives/check.htm"><span class="glyphicon glyphicon-time"></span> 人群治疗</a></li>
 			</ul>
