@@ -20,6 +20,7 @@
   </head>
   
 <body>
+<#assign menu_name='menu_crowsquery'>
 <#include "frame/top-nav.ftl">
 <div class="container-fluid lxui-docs-container">
  	<div class="row show-grid">

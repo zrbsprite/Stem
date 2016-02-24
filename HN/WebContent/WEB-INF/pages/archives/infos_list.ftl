@@ -30,18 +30,18 @@
 	 			<div class="panel panel-default">
 				  <div class="panel-heading">${pageTitle}<span class="pull-right glyphicon-image glyphicon-img-diagonalsin" id="span_close"></span></div>
 				  <div class="panel-body">
-				  <form role="form" id="mainForm" action="${basepath}/archives/crowsinfos.htm">
+				  <form role="form" id="mainForm" action="${basepath}/archives/crowsinfos.htm" method="post">
 				  	 <div class="row">
 				  		<div class="span3">
 					  		<div class="input-group clearfix input-ie">
 							  <span class="input-group-addon">姓名:</span>
-							  <input type="text" class="form-control" placeholder="填写姓名" name="name">
+							  <input type="text" class="form-control" placeholder="填写姓名" name="name" value="${name}">
 							</div>
 				  		</div>
 				  		<div class="span3">
 					  		<div class="input-group clearfix input-ie">
 							  <span class="input-group-addon">手机号码:</span>
-							  <input type="text" class="form-control" placeholder="填写手机号码" name="phone">
+							  <input type="text" class="form-control" placeholder="填写手机号码" name="phone" value="${phone}">
 							</div>
 				  		</div>
 				  		<div class="span3">
@@ -79,7 +79,7 @@
 				  		<div class="span9">
 							 <div class="input-group input-ie pull-right">
 							 <span class="input-group-btn">
-						        <button class="btn btn-default btn-theme2 pull-right" type="button">查询</button>
+						        <button class="btn btn-default btn-theme2 pull-right" type="submit">查询</button>
 						      </span>
 							</div>
 				  		</div>

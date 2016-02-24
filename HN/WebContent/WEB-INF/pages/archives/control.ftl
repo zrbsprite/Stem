@@ -1,40 +1,35 @@
 <div class="container-fluid">
-	<div class="row"><h4><b>4.1 脑血管病史 </b></h4></div>
 	<div class="row">
-		<div class="span4">
-			<div class="input-group input-sm">
-              <label class="radio-inline">
-              	<b>脑血管病史：</b>
-              </label>
-			</div>
+		<div class="span10">
+		<h4><b>4.1 脑血管病史 </b></h4>
 		</div>
-		<div class="span12">
+	</div>
+	<div class="row">
+		<div class="span2">
+          <label class="radio-inline">
+          	<b>脑血管病史：</b>
+          </label>
+		</div>
+		<div class="span10">
 			<div class="row">
-				<div class="input-group input-sm">
 		            <label class="radio-inline">
 		             	<input type="radio" value="0" name="brainBloodHistory.isbrainblood" checked>无
 		            </label>
-				</div>
 			</div>
 			<div class="row">
-			  <div class="input-group input-sm">
 	              <label class="radio-inline">
 	              	<input type="radio" value="1" name="brainBloodHistory.isbrainblood">有，发病次数：<input type="text" value="" name="brainBloodHistory.number" required> 次
 	              </label>
-			  </div>
 			</div>
 			<div class="row">
-			  <div class="input-group input-sm">
 	              <label class="radio-inline">
 	              	末次发病时间：
 	              </label>
 	              <label class="radio-inline">
 	              	<input type="text" value="" name="brainBloodHistory.lasttime"  onfocus="WdatePicker({dateFmt:'yyyy'})" required> 年
 	              </label>
-			  </div>
 			</div>
 			<div class="row">
-			  <div class="input-group input-sm">
 	              <label class="radio-inline">
 	              	主要诊断：
 	              </label>
@@ -50,10 +45,8 @@
 	              <label class="radio-inline">
 	              	<input type="radio" value="04" name="brainBloodHistory.diagnosis"> 短暂性脑缺血发作（TIA）
 	              </label>
-			  </div>
 			</div>
 			<div class="row">
-			  <div class="input-group input-sm">
 	              <label class="radio-inline">
 	              	诊断依据：
 	              </label>
@@ -66,13 +59,12 @@
 	              <label class="checkbox-inline">
 	              	<input type="checkbox" value="1" name="brainBloodHistory.clinical"> 临床表现 （症状、体征）
 	              </label>
-			  </div>
 			</div>
 		</div>
 	</div>
 	<div class="row"><h4><b>MRS评分（脑血管病患者填写）</b></h4></div>
 	<div class="row">
-		<div class="span12">
+		<div class="span10">
 			<div class="input-group input-sm">
               <label class="radio-inline">
               	<b>评估时间：</b>
@@ -197,7 +189,11 @@
 	</div>
 	
 	
-	<div class="row"><h4><b>4.2 心脏病史 </b></h4></div>
+	<div class="row">
+		<div class="span10">
+			<h4><b>4.2 心脏病史 </b></h4>
+		</div>
+	</div>
 	<div class="row">
 		<div class="span4">
 			<div class="input-group input-sm">
@@ -206,7 +202,7 @@
               </label>
 			</div>
 		</div>
-		<div class="span12">
+		<div class="span10">
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
@@ -410,9 +406,13 @@
 			
 		</div>
 	</div>
-	<div class="row"><h4><b>4.3 高血压  </b></h4></div>
 	<div class="row">
-		<div class="span12">
+		<div class="span10">
+			<h4><b>4.3 高血压  </b></h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span10">
 			<div class="input-group input-sm">
               <label class="radio-inline">
               	<b>血压测量频率：</b>
@@ -437,7 +437,7 @@
               </label>
 			</div>
 		</div>
-		<div class="span12">
+		<div class="span10">
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
@@ -549,7 +549,7 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="span12">
+		<div class="span10">
 			<div class="input-group input-sm">
               <label class="radio-inline">
               	<b>血压控制情况：</b>
@@ -571,9 +571,13 @@
 	</div>
 	
 	
-	<div class="row"><h4><b>4.4 血脂异常 </b></h4></div>
 	<div class="row">
-		<div class="span12">
+		<div class="span10">
+			<h4><b>4.4 血脂异常 </b></h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span10">
 			<div class="input-group input-sm">
               <label class="radio-inline">
               	<b>血脂测量频率：</b>
@@ -598,7 +602,7 @@
               </label>
 			</div>
 		</div>
-		<div class="span12">
+		<div class="span10">
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
@@ -767,9 +771,13 @@
 			</div>
 		</div>
 	</div>
-	<div class="row"><h4><b>4.5 糖尿病 </b></h4></div>
 	<div class="row">
-		<div class="span12">
+		<div class="span10">
+			<h4><b>4.5 糖尿病 </b></h4>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span10">
 			<div class="input-group input-sm">
               <label class="radio-inline">
               	<b>血糖测量频率：</b>
@@ -794,7 +802,7 @@
               </label>
 			</div>
 		</div>
-		<div class="span12">
+		<div class="span10">
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
@@ -910,7 +918,11 @@
 		</div>
 	</div>
 	
-	<div class="row"><h4><b>4.6 肾脏疾病 </b></h4></div>
+	<div class="row">
+		<div class="span10">
+			<h4><b>4.6 肾脏疾病 </b></h4>
+		</div>
+	</div>
 	<div class="row">
 		<div class="span4">
 			<div class="input-group input-sm">
@@ -919,7 +931,7 @@
               </label>
 			</div>
 		</div>
-	  <div class="span12">
+	  <div class="span10">
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
@@ -959,7 +971,11 @@
 		</div>
 	</div>
 	
-	<div class="row"><h4><b>4.7 下肢动脉病变 </b></h4></div>
+	<div class="row">
+		<div class="span10">
+			<h4><b>4.7 下肢动脉病变 </b></h4>
+		</div>
+	</div>
 	<div class="row">
 		<div class="span4">
 			<div class="input-group input-sm">
@@ -969,7 +985,7 @@
               <input type="hidden" name="others[0].othertype" value="01">
 			</div>
 		</div>
-	  <div class="span12">
+	  <div class="span10">
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
@@ -988,7 +1004,11 @@
 	</div>
 	
 	
-	<div class="row"><h4><b>4.8 眼底血管病变 </b></h4></div>
+	<div class="row">
+		<div class="span10">
+			<h4><b>4.8 眼底血管病变 </b></h4>
+		</div>
+	</div>
 	<div class="row">
 		<div class="span4">
 			<div class="input-group input-sm">
@@ -998,7 +1018,7 @@
               <input type="hidden" name="others[1].othertype" value="02">
 			</div>
 		</div>
-	  <div class="span12">
+	  <div class="span10">
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
@@ -1017,7 +1037,11 @@
 	</div>
 	 
 	 
-	<div class="row"><h4><b>4.9 肺源性疾病 </b></h4></div>
+	<div class="row">
+		<div class="span10">
+			<h4><b>4.9 肺源性疾病 </b></h4>
+		</div>
+	</div>
 	<div class="row">
 		<div class="span4">
 			<div class="input-group input-sm">
@@ -1026,7 +1050,7 @@
               </label>
 			</div>
 		</div>
-	  <div class="span12">
+	  <div class="span10">
 			<div class="row">
 				<div class="input-group input-sm">
 		            <label class="radio-inline">
@@ -1044,7 +1068,11 @@
 		</div>
 	</div>
 	
-	<div class="row"><h4><b>4.10 口腔炎症 </b></h4></div>
+	<div class="row">
+		<div class="span10">
+			<h4><b>4.10 口腔炎症 </b></h4>
+		</div>
+	</div>
 	<div class="row">
 		<div class="input-group input-sm">
 			<input type="hidden" name="others[2].othertype" value="03">
@@ -1056,7 +1084,11 @@
           </label>
 		</div>
 	</div>
-	<div class="row"><h4><b>4.11 精神心理疾病 </b></h4></div>
+	<div class="row">
+		<div class="span10">
+			<h4><b>4.11 精神心理疾病 </b></h4>
+		</div>
+	</div>
 	<div class="row">
 		<div class="input-group input-sm">
 			<input type="hidden" name="others[3].othertype" value="04">

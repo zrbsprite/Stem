@@ -109,6 +109,6 @@ public class LoginController extends AjaxConroller{
 	 */
 	@RequestMapping("/welcome")
 	public String content(Model model) {
-		return "redirect:/archives.htm";
+		return "redirect:/archives/crowsinfos.htm";
 	}
 }
