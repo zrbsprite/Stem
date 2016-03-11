@@ -1,0 +1,66 @@
+#打包项目
+gradle assemble
+#打包和自动哈测试
+gradle build
+
+#application创建二进制发布版本
+Application插件在项目中添加了5个任务：
+run任务用以启动应用程序。
+startScripts任务会在build/scripts目录中创建启动脚本，这个任务所创建的启动脚本适用于Windows和*nix操作系统。
+installApp任务会在build/install/[project name]目录中安装应用程序。
+distZip任务用以创建二进制发布并将其打包为一个zip文件。可以在build/distributions目录下找到。
+distTar任务用以创建二进制发布并将其打包为一个tar文件。可以在build/distributions目录下找到。
+apply plugin: 'application'
+##将许可证文件复制到build目录下
+task copyLicense(type: Copy) {
+    from "LICENSE"
+    into "$buildDir"
+}
+#将许可证文件加入到二进制发布文件中
+task copyLicense {
+    outputs.file new File("$buildDir/LICENSE")
+    doLast {
+        copy {
+            from "LICENSE"
+            into "$buildDir"
+        }
+    }
+}
+applicationDistribution.from(copyLicense) {
+    into ""#这个其实是方法，类似其他也是方法
+}
+
+在加入Maven仓库时，Gradle提供了三种“别名”供我们使用，它们分别是：
+mavenCentral()别名，表示依赖是从Central Maven 2 仓库中获取的。
+jcenter()别名，表示依赖是从Bintary’s JCenter Maven 仓库中获取的。
+mavenLocal()别名，表示依赖是从本地的Maven仓库中获取的。
+如果我们想要将Central Maven 2 仓库加入到构建中，我们必须在build.gradle文件中加入以下代码片段：
+repositories {
+    mavenCentral()
+}
+
+在构建中加入Flat Directory仓库
+如果我们想要使用Flat Directory仓库，我们需要将以下代码片段加入到build.gradle文件中：
+repositories {
+    flatDir {
+        dirs 'lib'
+    }
+}
+这意味着系统将在lib目录下搜索依赖，同样的，如果你愿意的话可以加入多个目录，代码片段如下：
+repositories {
+    flatDir {
+        dirs 'libA', 'libB'
+    }
+}
+
+依赖管理
+compile (
+    [group: 'foo', name: 'foo', version: '0.1'],
+    [group: 'bar', name: 'bar', version: '0.1']
+)
+compile 'foo:foo:0.1', 'bar:bar:0.1'
+compile group: 'foo', name: 'foo', version: '0.1'
+testCompile group: 'test', name: 'test', version: '0.1'
+compile 'foo:foo:0.1'
+testCompile 'test:test:0.1'
+
