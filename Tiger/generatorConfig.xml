@@ -35,10 +35,10 @@
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
         
-        <table schema="" tableName="wx_image_reply" domainObjectName="WxImageReply">
+        <table schema="" tableName="tiger_uri_info" domainObjectName="TigerUriInfo">
             <property name="useActualColumnNames" value="false" />
         </table>
-        <table schema="" tableName="wx_text_reply" domainObjectName="WxTextReply">
+        <table schema="" tableName="tiger_user_operation" domainObjectName="TigerUserOperation">
             <property name="useActualColumnNames" value="false" />
         </table>
         
