@@ -99,36 +99,47 @@ public class TigerMessageProcessingHandlerImpl implements MessageProcessingHandl
 				}
 				//如果是获取收益数据
 				switch (eventKey) {
-					case "M2_PRO_MINE":
+					case "M2_PRO_MINE":{
 						responseMenuMine(msg, serverPath);
 						break;
-					case "M1_TEAM_INFO":
+					}
+					case "M1_TEAM_INFO":{
 						responseMenuInfo(msg);
 						break;
-					case "M1_TEAM_ZZ":
+					}
+					case "M1_TEAM_ZZ":{
 						responseMenuZZ(msg);
 						break;
-					case "M1_TEAM_DT":
+					}
+					case "M1_TEAM_DT":{
 						responseMenuDT(msg);
 						break;
-					case "M2_PRO_JZ":
+					}
+					case "M2_PRO_JZ":{
 						responseMenuJZ(msg);
 						break;
-					case "M2_PRO_BUY":
+					}
+					case "M2_PRO_BUY":{
 						responseMenuBUY(msg);
 						break;
-					case "M3_COR_JOIN":
+					}
+					case "M3_COR_JOIN":{
 						responseMenuJOIN(msg);
 						break;
-					case "M3_COR_COR":
+					}
+					case "M3_COR_COR":{
 						responseMenuCor(msg);
 						break;
-					case "M3_COR_ABOUT":
-						responseMenuAbout(msg);
+					}
+					case "M3_COR_ABOUT":{
+						//responseMenuAbout(msg);
+						responseMenuAboutNews(msg);
 						break;
-					case "M2_PRO_LIST":
+					}
+					case "M2_PRO_LIST":{
 						responseMenuList(msg);
 						break;
+					}
 					default:
 						break;
 				}
@@ -156,6 +167,7 @@ public class TigerMessageProcessingHandlerImpl implements MessageProcessingHandl
 		}
 	}
 
+	@Deprecated
 	private void responseMenuAbout(InMessage msg){
 		TextOutMessage out = new TextOutMessage();
 		StringBuffer sb = new StringBuffer();
@@ -166,6 +178,16 @@ public class TigerMessageProcessingHandlerImpl implements MessageProcessingHandl
 		
 	}
 
+	private void responseMenuAboutNews(InMessage msg){
+		WxNewsResourceExample example = new WxNewsResourceExample();
+		example.createCriteria().andMenuKeyEqualTo("M3_COR_ABOUT");
+		List<WxNewsResource> list = this.wxNewsResourceService.list(example);
+		if(list.size()>0){
+			WxNewsResource bean = list.get(0);
+			setOutMessage(createNews(bean.getNewsDes(), bean.getPicUrl(), bean.getNewsTitle(), bean.getNewsUrl()));
+		}
+	}
+	
 	private void responseSubscribe(InMessage msg){
 		TextOutMessage out = new TextOutMessage();
 		StringBuffer sb = new StringBuffer();

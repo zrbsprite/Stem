@@ -268,7 +268,8 @@ public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler
 						responseMenuInfo(msg);
 						break;
 					case "M3_COR_ABOUT"://
-						responseMenuAbout(msg);
+						//responseMenuAbout(msg);
+						responseMenuAboutNews(msg);
 						break;
 						
 					default:
@@ -305,6 +306,7 @@ public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler
 		setOutMessage(createNews(res.getNewsDes(), res.getPicUrl(), res.getNewsTitle(), res.getNewsUrl()));
 	}
 
+	@Deprecated
 	private void responseMenuAbout(InMessage msg){
 		TextOutMessage out = new TextOutMessage();
 		StringBuffer sb = new StringBuffer();
@@ -314,6 +316,11 @@ public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler
 		
 	}
 
+	private void responseMenuAboutNews(InMessage msg){
+		WxNewsResource res = (WxNewsResource) AppContext.getContext().getValue("M3_COR_ABOUT");
+		setOutMessage(createNews(res.getNewsDes(), res.getPicUrl(), res.getNewsTitle(), res.getNewsUrl()));
+	}
+	
 	private void responseSubscribe(InMessage msg){
 		TextOutMessage out = new TextOutMessage();
 		StringBuffer sb = new StringBuffer();
