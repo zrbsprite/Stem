@@ -324,7 +324,7 @@ public class NewMessageProcessingHandlerImpl implements MessageProcessingHandler
 	private void responseSubscribe(InMessage msg){
 		TextOutMessage out = new TextOutMessage();
 		StringBuffer sb = new StringBuffer();
-		sb.append("		欢迎关注大虎交易TIGERTrade！在这里，你将与中国最具潜力的私募生力军一起，感受交易为你带来的最新财经资讯、最炫产品信息和最靠谱的专业团队。大虎交易祝你一切顺利！www.tigertrade.com.cn。任何问题或投研需求，可直接加万能客服虎小妹微信：13241862849，虎小妹定会第一时间与你联系！~/得意");
+		sb.append("		欢迎关注大虎交易！根据中国证券基金业协会对于私募基金管理的条件，我司所有对外发行和展示的私募基金产品，只针对由中国证券基金业协会合法认定的合格投资者，敬请知悉！");
 		out.setContent(sb.toString());
 		setOutMessage(out);
 	}
